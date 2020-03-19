@@ -1,0 +1,113 @@
+@media (min-width: 768px) {
+  #logoimage {
+    width: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  #logoimage {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .navigationitemsleft {
+    color: white;
+    margin-right: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navigationitemsright {
+    color: white;
+    margin-left: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  #logoimageonphone {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .navigationitemsleft {
+    color: white;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .navigationitemsright {
+    font-color: white;
+    margin-top: 10px;
+  }
+}
+
+#logoimageonphone {
+  width: 100px;
+}
+
+.navbar-toggler {
+  margin: auto;
+}
+
+@media (min-width:768px) {
+  .navbar-nav {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    float: left;
+  }
+}
+
+@media (min-width:768px) {
+  .navbar-nav .dropdown {
+    margin-left: auto;
+  }
+}
+
+#nav_center {
+  margin-left: auto;
+}
+
+#nav_container {
+    color:white;
+  background-color: #333138;
+}
+
+#div_container.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+  color: #FF312E;
+
+}
+
+
+
+#nav_msg_open {
+    
+    
+    
+}
+
+#msg_inbox > i:hover:before{
+
+ content: "\f2b6";
+}
+
+#msg_inbox > i:hover {
+    
+   color:  #FF312E;
+}
+
+
+#nav_container .dropdown-item:focus {
+    
+    
+    background-color: #FF312E;
+}
+
+

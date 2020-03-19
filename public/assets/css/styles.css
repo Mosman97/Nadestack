@@ -1,0 +1,410 @@
+#search_bar_icon {
+    padding-right: 10px;
+}
+
+
+#search_bar_label .form-control:focus {
+    /*border-color: #FF312E;*/
+}
+
+#ip:focus {
+    outline: none;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+}
+
+.profil-social-btn:hover {
+    background-color: red;
+}
+
+.social-btn:hover {
+    background-color: red;
+}
+
+#test-btn .btn btn-link text-white:hover {
+    background-color: red;
+}
+
+#social_btn > button {
+    background-color: yellow;
+}
+
+#social_btn > a > i {
+    background-color: #FF312E;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: #FF312E;
+}
+
+#profile_img {
+    border-radius: 150px;
+    border: 221px solid #FF312E;
+}
+
+
+#profile_col {
+    border: 1px solid #FF312E;
+    border-radius: 15px;
+}
+
+#teamlogo_col {
+    border: 3px solid #FF312E;
+    border-radius: 15px;
+}
+
+#social_media_icon_container table {
+    border-radius: 15px;
+    border-spacing: 0;
+    background-color: #171617;
+}
+
+
+
+.icon_grow {
+
+    /* transition: all .1s ease-in-out;*/
+    width: 30px;
+    height:30px;
+
+}
+
+.icon_grow:hover{
+
+    transform: scale(1.2);
+
+}
+
+.grow {
+    transition: all .1s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.2);
+}
+
+#member_table > table > tbody > tr > td:hover {
+    background-color: #ff312e;
+}
+
+#profile_settings_form button {
+    background-color: #ff312e;
+}
+
+#profile_settings_form_container input:focus {
+    border-color: white;
+    box-shadow: 0 0 0 .1rem #ff312e;
+}
+
+#profile_settings_form_container textarea:focus {
+    border-color: white;
+    box-shadow: 0 0 0 .1rem #ff312e;
+}
+
+#match_result_table tbody {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+/* Erics allgemeine Styles */
+.colum_content_big {
+    background-color: #333138;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.colum_content_small {
+    background-color: #333138;
+    margin-top: 75px;
+    margin-bottom: 75px;
+}
+
+.nadestack_form {
+    background-color: #333138;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.nadestack_heading_one {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.nadestack_heading_two {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nadestack_body {
+    background-color: #0F0F0F;
+    font-family: Roboto;
+    color: white;
+}
+
+/* Lukes Styles, vor allem für Profilseiten */
+
+
+.nadestack-tbl {
+    color: white;
+    font-style: normal;
+    align-items: center;
+    border-top: hidden;
+}
+.nadestack-tbl-noborder tr {
+    color: white;
+    border: hidden;
+    border-collapse: collapse;
+    font-style: normal;
+    align-items: center;
+}
+.nadestack-tbl td {
+    vertical-align: middle;
+}
+.nadestack-tbl-td-data {
+    text-align: right;
+    padding-right: 50px;
+}
+.nadestack-nav {
+    display: flex;
+    justify-self: center;
+}
+
+.nadestack-row {
+    flex-direction: column;
+}
+.nadestack-heading {
+    padding-top: 15px;
+}
+.icons-div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.nadestack-line {
+    border-top: 1px solid #dee2e6;
+    margin-bottom: 25px;
+}
+.icons {
+    width: 30px;
+    height: 30px;
+}
+.icons:hover {
+    width: 40px;
+    height: 40px;
+}
+.nadestack-profileview {
+    align-items: center;
+}
+.player-pic-small {
+    height: 50px;
+    width: 50px;
+}
+.player-pic-small:hover {
+    border: 2px solid #ff312e;
+}
+.team-pic-big {
+    height: 100px;
+    width: 100px;
+    margin-top: 40px;
+}
+.team-pic-big:hover {
+    border: 2px solid #ff312e;
+}
+.player-pic-big{
+    height: 100px;
+    width: 100px;
+    margin-top: 40px;
+}
+
+.matchstats{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.nadestack_heading_three {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*Luke ende */
+
+.nadestack_table table > tbody {
+    text-align: center;
+}
+
+.nadestack_table table > tbody > tr > td:hover {
+    background-color: #ff312e;
+}
+
+.nadestack_table table {
+    background-color: #171617;
+    color: white;
+    text-align: center;
+    border: none;
+}
+
+#advanced_stats_container table, tr, td {
+    border: none;
+}
+
+#advanced_stats_table {
+    width: 100%;
+}
+
+#advanced_stats_table th {
+    text-align: left;
+    width: 50%;
+}
+
+#advanced_stats_container {
+    margin-top: 20px;
+}
+
+.nadestack_btn {
+    color: white;
+    background-color: #FF312E;
+    box-shadow: 0 0 0 #ff312e;
+    border: none;
+    border-radius: 5px;
+}
+
+.nadestack_btn:hover {
+    color: white!important;
+    background-color: #BA2422!important;
+}
+
+.nadestack_btn:focus {
+    background-color: #5D1211!important;
+    box-shadow: 0 0 0;
+}
+
+#comment_submit_btn {
+    margin-top: 20px;
+}
+
+#remove_map_btn {
+    margin-bottom: 20px;
+}
+
+.comment_header {
+    color: white;
+    border-top: 1px solid #FF312E;
+    border-bottom: 1px solid #FF312E;
+    border-left: 1px solid #FF312E;
+    border-right: 1px solid #FF312E;
+    background-color: #171617;
+}
+
+#news_container {
+    background-color: #333138;
+    border-bottom: 1px solid white;
+    padding-top: 10px;
+}
+
+#news_container table {
+    border-top: 0px solid white;
+    border-bottom: 0px solid white;
+    border-left: 0px solid white;
+    border-right: 0px solid white;
+    border: none;
+}
+
+#news_pagination .pagination > li > a {
+    background-color: #FF312E;
+    color: white;
+}
+
+#news_pagination .pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
+    color: #BA2422;
+    background-color: white;
+    border-color: white;
+}
+
+#news_pagination .pagination > .active > a {
+    color: white;
+    background-color: #460E0D !Important;
+    border: solid 1px white!Important;
+}
+
+.nadestack_btn:active {
+    background-color: #460E0D!Important;
+    border: none!Important;
+    box-shadow: 0 0 0!Important;
+}
+
+.rule_btn {
+    border-bottom: 1px solid white!Important;
+}
+
+label.error{
+    color: red;
+    font-size: 11px;
+}
+
+
+.selected_map {
+    background-color: #FF312E;
+}
+
+
+/*If Map is already taken we apply the unselect Class*/
+
+.unselectable{
+    cursor: not-allowed;
+    filter: grayscale(100%);
+    background-color:green;
+
+}
+
+/* Filter search results */
+.filter select {
+    width: 170px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 2px #aaa;
+    margin: 10px;
+    background: #eee;
+}
+
+.filter {
+    text-align: center;
+}
+
+.filter input {
+    margin: 30px;
+    width: 60%;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #eee;
+}
+
+
+
+/* Changes an Image to Black and White  */
+.black_and_white_img {
+
+
+    filter: grayscale(100%);
+}
+
+
+
+.social_icon_size {
+
+    width: 30px;
+    height:30px;
+
+
+}
+
