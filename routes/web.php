@@ -39,7 +39,9 @@ Route::get("league/rules", function() {
 /*
  * This Route defines My League
  */
-Route::get("league/myleague", "MyLeagueController@ViewOrganiser")->name("myleague")->middleware('verified')->middleware('auth');
+Route::get("league/myleague", "MyLeagueController@ViewOrganiser")->name("myleague")->middleware('auth');
+
+
 
 
 /*
@@ -122,6 +124,11 @@ Route::get('/forgotUsername', function() {
 /*
  *  --------------END OF AUTHENTIFICATION RELATED ROUTES--------------
  */
+
+
+
+
+
 
 
 

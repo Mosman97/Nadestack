@@ -408,3 +408,75 @@ label.error{
 
 }
 
+
+
+/*-------BEGINN MYLEAGUE STYLE*/
+
+.nadestack-list-ul{
+    list-style-type: none;
+    padding-top: 15px;
+    padding-inline-start: unset;
+    align-items: stretch;
+}
+.nadestack-list-ul > li{
+    width: 100%;
+    height: 100%;
+
+}
+.nadestack-list-ul-test{
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+    margin: 50px 0 0;
+    flex-wrap: wrap;
+}
+.player-li-entry{
+    flex-shrink: 0;
+    border: 2px solid #f2f2f2;
+    padding-top: 40px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 70px;
+    height: 120px;
+}
+.player-container-li{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -30px;
+    border-radius: 80px;
+    overflow: hidden;
+
+}
+.player-container-btn{
+    position: absolute;
+    bottom: -15px;
+    border-radius: 80px;
+    width: 110px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-size: .625rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+}
+/* As soons as the display resoultion is above 750px the list 'transforms' that everything is a row */
+@media (min-width:750px){
+    .player-li-entry{
+        width: 18%;
+    }
+    .nadestack-list-ul-test{
+        display: flex;
+    }
+}
+
+/*-------END MYLEAGUE STYLE */
+
