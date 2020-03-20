@@ -7,7 +7,7 @@
         @include('includes.head')
     </head>
     <body style="">
-      @include('includes.nav_without_login')
+      @include('includes.nav')
       @yield('content')   
       @include('includes.footer')
     </body>

@@ -111,8 +111,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col"></div>
-            <div class="col-xl-3"></div>
+            <div class="col" style='margin-top: 50px;'><a class="twitter-timeline" data-height="600" data-theme="light" href="https://twitter.com/99DAMAGEde?ref_src=twsrc%5Etfw">Tweets by 99DAMAGEde</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+            <div class="col-xl-3">
+            </div>
         </div>
     </div>
 @endsection
