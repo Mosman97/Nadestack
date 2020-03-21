@@ -133,18 +133,48 @@ a:hover {
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
+    font-size: 1.8em;
 }
 
 .nadestack_heading_two {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-size: 1.6em;
+}
+
+.nadestack_heading_three {
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 1.4em;
+}
+
+.nadestack_heading_four {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 1.3em;
 }
 
 .nadestack_body {
     background-color: #0F0F0F;
     font-family: Roboto;
     color: white;
+}
+
+.nadestack-firt-element {
+    padding-top: 10px;
+}
+
+.nadestack-last-element {
+    padding-bottom: 10px;
+}
+
+.nadestack-settings-div {
+    background-color: #2A292E;
+    padding-top: 15px;
+    padding-bottom: 15px
 }
 
 /* Lukes Styles, vor allem für Profilseiten */
@@ -225,12 +255,6 @@ a:hover {
 .matchstats{
     padding-top: 15px;
     padding-bottom: 15px;
-}
-
-.nadestack_heading_three {
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 /*Luke ende */

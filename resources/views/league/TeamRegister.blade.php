@@ -10,7 +10,7 @@
                     <!-- Start: Pretty Registration Form -->
                     <div class="row text-white register-form" style="color: rgb(255,255,255);">
                         <div class="col-md-8 offset-md-2">
-                            <form class="text-white" id="profile_settings_form" style="color: rgb(255,255,255);background-color: #333138;font-family: 'Roboto';padding: 0px;margin-top: 50px;margin-bottom: 50px;">
+                            <form class="text-white" id="profile_settings_form" style="color: rgb(255,255,255);background-color: #333138;font-family: 'Roboto';margin-top: 50px;margin-bottom: 50px;">
                                 <h1 class="text-center nadestack_heading_one" >Create Team</h1>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Teamname* :</label></div>
@@ -19,6 +19,18 @@
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Team-Tag* :</label></div>
                                     <div class="col-sm-6 input-column"><input class="form-control" type="text" id="teamtag" name="teamtag"></div>
+                                </div>
+                                <div class="form-row form-group">
+                                    <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Topic:</label></div>
+                                    <div class="col-sm-6 input-column">
+                                        <select class="form-control" required="">
+                                            <optgroup label="Country">
+                                                <option value="12">Deutschland</option>
+                                                <option value="13">Ostdeutschland</option>
+                                                <option value="14">Bayern</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Organization:</label></div>
@@ -46,8 +58,9 @@
                                     <div class="col-xl-4 offset-xl-3"><input type="file" style="margin-top: 10px;"></div>
                                     <div class="col offset-xl-2"><button class="btn text-light nadestack_btn" type="button">Upload</button></div>
                                 </div>
-
-                                <h2 class="text-center" style="padding-top: 12px;">Social Media</h2>
+                                <hr class="bg-light"/>
+                                <h2 class="nadestack_heading_two">Social Media</h2>
+                                <hr class="bg-light"/>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-twitter"></i><span style="padding-left: 10px;">Twitter:</span></div>
                                     <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" type="url" id="twitter" name="twitter"></div>
@@ -69,6 +82,7 @@
                                     <div class="col"></div>
                                 </div>
                                 <div class="form-check text-center"><input class="form-check-input" type="checkbox" id="formCheck" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
+                                <hr class="bg-light"/>
                                 <div class="form-row">
                                     <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="button">Save Settings</button></div>
                                 </div>

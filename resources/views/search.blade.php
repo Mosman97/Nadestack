@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid nadestack_body">
         <div class="row">
-            <div class="col-xl-2"></div>
+            <div class="col-xl-3"></div>
             <div class="col colum_content_big">
                 <h1 class="text-center nadestack_heading_one">Results for AlexRr</h1>
                 <div class="filter">
@@ -104,7 +104,7 @@
 
                     </div></div>
             </div>
-            <div class="col-xl-2"></div>
+            <div class="col-xl-3"></div>
         </div>
     </div>
 @endsection

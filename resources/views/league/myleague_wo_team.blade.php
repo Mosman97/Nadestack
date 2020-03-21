@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid nadestack_body">
         <div class="row">
-            <div class="col-xl-2"></div>
+            <div class="col-xl-3"></div>
             <div class="col colum_content_small">
                 <h1 class="text-center nadestack_heading_one">Join a team</h1>
                 <h2 class="text-center nadestack_heading_two">Find team by name:</h2>
@@ -26,7 +26,7 @@
                     <div class="col text-center"><button class="btn nadestack_btn" type="button">Create Team</button></div>
                 </div>
             </div>
-            <div class="col-xl-2"></div>
+            <div class="col-xl-3"></div>
         </div>
     </div>
 @endsection

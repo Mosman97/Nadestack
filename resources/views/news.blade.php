@@ -3,8 +3,8 @@
 @section('content')
     <div class="container-fluid nadestack_body">
         <div class="row">
-            <div class="col-xl-3 offset-xl-0"></div>
-            <div class="col-xl-6" style="margin-top: 50px;background-color: #333138;margin-bottom: 50px;">
+            <div class="col-xl-3"></div>
+            <div class="col-xl-6 colum_content_big">
                 <div class="border-white" id="news_container">
                     <div class="row">
                         <div class="col">
@@ -111,7 +111,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" style='margin-top: 50px;'><a class="twitter-timeline" data-height="600" data-theme="light" href="https://twitter.com/99DAMAGEde?ref_src=twsrc%5Etfw">Tweets by 99DAMAGEde</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+            <div class="col d-none d-lg-block" style='margin-top: 50px;'><a class="twitter-timeline" data-height="600" data-theme="light" href="https://twitter.com/99DAMAGEde?ref_src=twsrc%5Etfw">Tweets by 99DAMAGEde</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
             <div class="col-xl-3">
             </div>
         </div>

@@ -5,17 +5,13 @@
         <div class="row">
             <div class="col-xl-3"></div>
             <div class="col-xl-6" style="margin-top: 50px;margin-bottom: 50px;background-color: #333138;">
-                <h1 class="text-center" style="padding-top: 10px;padding-bottom: 5px;">Starter Division 22</h1>
-                <h2 class="text-center" style="padding-bottom: 5px;">Season 1</h2>
+                <h1 class="text-center nadestack_heading_one">Starter Division 22</h1>
+                <h2 class="text-center nadestack_heading_two">Season 1</h2>
                 <div class="row">
                     <div class="col text-center">
                         <label class="col-form-label">Default day:&nbsp;</label>
                         <label class="col-form-label">Saturday</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-4"><label class="col-form-label">Default day:&nbsp;</label></div>
-                    <div class="col-xl-8"><label class="col-form-label">Saturday</label></div>
                 </div>
 
                 <h3 class="text-left nadestack_heading_three">Most noticeable players:</h3>
@@ -79,36 +75,36 @@
                 </ul>
 
                 <!-- End of new  -->
-                <h3 style="padding-bottom: 10px;">Next Matches:</h3>
+                <h3 class="nadestack_heading_three">Next Matches:</h3>
                 <div class="table-responsive">
                     <table class="table nadestack-tbl">
                         <thead>
-                        <tr>
+                        <tr style="background-color: #2A292E">
                             <th>Match</th>
                             <th>Date</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr style="background-color: #2F2D33">
                             <td><a href="">Deckenglotzer vs Frechdachse</a></td>
                             <td>20.03.2020 - 19:00</td>
                         </tr>
-                        <tr>
+                        <tr style="background-color: #2A292E">
                             <td><a href="">Deckenglotzer vs Frechdachse</a></td>
                             <td>20.03.2020 - 19:00</td>
                         </tr>
-                        <tr>
+                        <tr style="background-color: #2F2D33">
                             <td><a href="">Astralis vs BIG</a></td>
                             <td>20.03.2020 - 19:00<br></td>
                         </tr>
-                        <tr>
+                        <tr style="background-color: #2A292E">
                             <td><a href="">Astralis vs BIG</a></td>
                             <td>20.03.2020 - 19:00<br></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <h3 style="padding-top: 10px;padding-bottom: 10px;">Standings:</h3>
+                <h3 class="nadestack_heading_three">Standings:</h3>
                 <div class="table-responsive">
                     <table class="table nadestack-tbl">
                         <thead style="background-color: #BA2422; color: white;">
@@ -162,9 +158,9 @@
                         </tbody>
                     </table>
                 </div>
-                <h3 style="padding-bottom: 5px;">All matches:</h3>
+                <h3 class="nadestack_heading_three">All matches:</h3>
                 <div>
-                    <h4 class="text-center">Week 1</h4>
+                    <h4 class="nadestack_heading_four">Week 1</h4>
                     <div class="table-responsive">
                         <table class="table nadestack-tbl">
                             <thead>
@@ -196,9 +192,9 @@
                     <hr>
                 </div>
                 <div>
-                    <h4 class="text-center">Week 2</h4>
+                    <h4 class="nadestack_heading_four">Week 2</h4>
                     <div class="table-responsive">
-                        <table class="table nadestack-tbl ">
+                        <table class="table nadestack-tbl" id="tableWithBgImage">
                             <thead>
                             <tr>
                                 <th>Match</th>
@@ -231,6 +227,4 @@
             <div class="col-xl-3"></div>
         </div>
     </div>
-
-
 @endsection

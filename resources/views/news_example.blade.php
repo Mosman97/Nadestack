@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid nadestack_body">
         <div class="row">
-            <div class="col-xl-3 offset-xl-0"></div>
+            <div class="col-xl-3"></div>
             <div class="col-xl-6 colum_content_big">
                 <h1 class="text-center nadestack_heading_one">AlexRr schießt alles um!</h1>
                 <p>AlexRr schießt alles um und mit dem Frechdachs Devrann wird er die Nadestack Liga wieder erobern. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
