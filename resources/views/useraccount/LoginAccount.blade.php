@@ -7,7 +7,7 @@
 <div class="container-fluid" style="background-color: #0F0F0F;">
     <div class="row">
         <div class="col-xl-2"></div>
-        <div class="col-xl-8">
+        <div class="col">
             <div id="login_form_container" style="padding-bottom: 0px;width:auto;height: auto;padding-top: 0px;padding-left: 00px; margin-left: auto;">
                 <!-- Start: Pretty Registration Form -->
                 <div class="row text-white register-form" style="color: rgb(255,255,255);">
@@ -19,7 +19,7 @@
                                 <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"  onsubmit="try {return window.confirm( & quot; Dieses Formular wird aufgrund bestimmter Sicherheitseinschränkungen möglicherweise nicht ordnungsgemäß angezeigt.\nWeiter? & quot; ); } catch (e) {return false; }">
                                     <label class="col-form-label">Username:</label>
                                 </div>
-                                <div class="col-sm-6 input-column"><input id="username"name="username"class="form-control" type="text"></div>
+                                <div class="col-sm-6 input-column"><input id="username"name="username"class="form-control" type="text" placeholder="Enter Username"></div>
                                 @error('username')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -27,7 +27,7 @@
                                 @enderror
                             </div>
                             <div class="form-row form-group">
-                                <div class="col-sm-4 col-xl-3 d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Password:</label></div>
+                                <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Password:</label></div>
                                 <div class="col-sm-6 input-column"><input  id="password" class="form-control" type="password"name="password"></div>
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -39,9 +39,12 @@
                             <div class="form-row">
                                 <div class="col-md-12 text-center" style="padding-bottom: 15px; padding-top: 15px;"><button class="btn nadestack_btn" type="submit">Login</button></div>
                             </div>
-                         <div class="form-row form-group">
+                            <hr class="bg-light"/>
+                            <div class="form-row form-group text-center">
                                 <div class="col-md-6"><a href="{{route('account.usernameforget')}}">Forgot Username?</a></div>
-                                  <div class="col-md-6"><a href="{{url('/password/reset')}}">Forgot Password?</a></div>
+                            </div>
+                            <div class="form-row form-group text-center">
+                                <div class="col-md-6"><a href="{{url('/password/reset')}}">Forgot Password?</a></div>
                             </div>
                         </form>
                     </div>
