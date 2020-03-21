@@ -12,11 +12,9 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-
                 <li class="nav-item navigationitemsleft grow">
                     <a class="nav-link " href="#">Forum</a>
                 </li>
-
                 <li class="nav-item dropdown navigationitemsleft grow">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">League
@@ -39,39 +37,38 @@
                 <li class='nav-item grow'><a class='nav-link'  href='{{ url("login") }}'>Login</a></li>
                 <li class='nav-item grow'><a class='nav-link' href='{{ url("register") }}'>Register</a></li>
                 @endguest
-                                        @auth
-                                        <li class="nav-item avatar dropdown">
-                                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-56" data-toggle="dropdown"
-                                               aria-haspopup="true" aria-expanded="false">1 <i class="fa fa-envelope"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-secondary ">
-                                                <div class="dropdown-item">  <small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/>
-                                                    <p>Lorem ipsum dolor </p></div>
-                                                <div class="dropdown-item">  <small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/>
-                                                    <p>Lorem ipsum dolor </p></div>
-                                                <div class="dropdown-item">  <small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/>
-                                                    <p>Lorem ipsum dolor </p></div>
-
-                                            </div>
-                                        </li>
-                                        <li class="nav-item avatar dropdown">
-                                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-                                               aria-haspopup="true" aria-expanded="false">
-                                                <img src="{{URL::asset('assets/img/profile_pictures/')}}/{{Auth::user()->avatar_url}}"  height="50px"width="50px" class="rounded-circle z-depth-0"
-                                                     alt="avatar image">
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-secondary">
-                                                <a class="dropdown-item " href="{{route('startpage')}}/user/{{Auth::user()->username}}">My Profile</a>
-                                                <a class="dropdown-item " href="{{route('profilesettings')}}">My Team</a>
-                                                <a class="dropdown-item " href="{{route('profilesettings')}}">Settings</a>
-                                                <a class="dropdown-item " href="{{ route('logout') }}">Logout</a>
-                                            </div>
-                                        </li>
-                                        @endauth
-                                        </ul>
-                                        </div>
-                                        </nav>
-                                        </div>
+                @auth
+                <li class="nav-item avatar dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-56" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">1 <i class="fa fa-envelope"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-secondary ">
+                        <div class="dropdown-item">  <small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/>
+                            <p>Lorem ipsum dolor </p></div>
+                        <div class="dropdown-item">  <small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/>
+                            <p>Lorem ipsum dolor </p></div>
+                        <div class="dropdown-item">  <small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/>
+                            <p>Lorem ipsum dolor </p></div>
+                    </div>
+                </li>
+                <li class="nav-item avatar dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src="{{URL::asset('assets/img/profile_pictures/')}}/{{Auth::user()->avatar_url}}"  height="50px"width="50px" class="rounded-circle z-depth-0"
+                             alt="avatar image">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-secondary">
+                        <a class="dropdown-item " href="{{route('startpage')}}/user/{{Auth::user()->username}}">My Profile</a>
+                        <a class="dropdown-item " href="{{route('profilesettings')}}">My Team</a>
+                        <a class="dropdown-item " href="{{route('profilesettings')}}">Settings</a>
+                        <a class="dropdown-item " href="{{ route('logout') }}">Logout</a>
+                    </div>
+                </li>
+                @endauth
+            </ul>
+        </div>
+    </nav>
+</div>
 
 
 
