@@ -33,13 +33,12 @@
                 <li class="nav-item navigationitemsleft grow">
                     <a class="nav-link" href="#">Statistics</a>
                 </li>
-
             </ul>
             <ul class="navbar nav">
                 @guest
-                <li class='nav-item grow'><a class='nav-link'  href='{{ url("login") }}'>Login<a></li>
-                            <li class='nav-item grow'><a class='nav-link' href='{{ url("register") }}'>Register<a></li>
-                                        @endguest
+                <li class='nav-item grow'><a class='nav-link'  href='{{ url("login") }}'>Login</a></li>
+                <li class='nav-item grow'><a class='nav-link' href='{{ url("register") }}'>Register</a></li>
+                @endguest
                                         @auth
                                         <li class="nav-item avatar dropdown">
                                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-56" data-toggle="dropdown"

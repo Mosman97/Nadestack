@@ -11,6 +11,7 @@ Route::get('/', function () {
 
 
 
+
 /*
  * --------------BEGINN OF LEAGUE RELATED ROUTES--------------
  */
