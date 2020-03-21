@@ -23,7 +23,7 @@
                 </div>
                 <h2 class="text-center nadestack_heading_two">Create your own team:</h2>
                 <div class="row" style="padding-bottom: 15px;">
-                    <div class="col text-center"><button class="btn nadestack_btn" type="button">Create Team</button></div>
+                    <div class="col text-center"><a href="{{route('teamregister')}}"><button class="btn nadestack_btn" type="button">Create a Team</button></a></div>
                 </div>
             </div>
             <div class="col-xl-2"></div>

@@ -15,12 +15,10 @@ class MyLeagueController extends Controller {
         if (Auth::user()->team_id == NULL) {
 
 
-            return view('league.MyLeague');
-
+            return view('league.myleague_wo_team');
         } else {
-
-
-            // return view("league.")
+            
+            return view("league.MyLeague");
         }
     }
 
