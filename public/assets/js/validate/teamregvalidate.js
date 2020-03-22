@@ -1,8 +1,8 @@
-$('document').ready(function(){
+$('document').ready(function () {
 
     var password_len = 7;
-    var teamname_min = 5;
-    var teamname_max= 20;
+    var teamname_min = 3;
+    var teamname_max = 20;
     var teamtag_min = 3;
     var teamtag_max = 7;
     var orga_len = 5;
@@ -13,8 +13,7 @@ $('document').ready(function(){
             teamname: {
                 required: true,
                 maxlength: teamname_max,
-                minlength: teamname_min
-            },
+                minlength: teamname_min},
             teamtag: {
                 required: true,
                 maxlength: teamtag_max,
@@ -58,10 +57,10 @@ $('document').ready(function(){
 
 
     // #region functions
-    $('#submit_btn').on('click',function(evt)
+    $('#submit_btn').on('click', function (evt)
     {
         var valid = $("#profile_settings_form").validate();
-        if ( valid.valid() == true){
+        if (valid.valid() == true) {
             alert("geht");
             //PHP Aufruf
         }
@@ -70,17 +69,17 @@ $('document').ready(function(){
 
     // #region focusout elements for validation
     var tn_counter = 0;
-    $( "#teamname" ).on('input' , function(e)
+    $("#teamname").on('input', function (e)
     {
+
         tn_counter++;
-        if(tn_counter > teamname_min)
+        if (tn_counter > teamname_min)
         {
-            if( $('#teamname').valid() )
+            if ($('#teamname').valid())
             {
-                $("#teamname").addClass("is-valid");
+                //$("#teamname").addClass("is-valid");
                 $("#teamname").removeClass("is-invalid");
-            }
-            else{
+            } else {
                 $("#teamname").addClass("is-invalid");
                 $("#teamname").removeClass("is-valid");
             }
@@ -88,17 +87,16 @@ $('document').ready(function(){
     })
 
     var tt_counter = 0;
-    $( "#teamtag" ).on('input' , function(e)
+    $("#teamtag").on('input', function (e)
     {
         tt_counter++;
-        if(tt_counter > teamtag_min)
+        if (tt_counter > teamtag_min)
         {
-            if( $('#teamtag').valid() )
+            if ($('#teamtag').valid())
             {
                 $("#teamtag").addClass("is-valid");
                 $("#teamtag").removeClass("is-invalid");
-            }
-            else{
+            } else {
                 $("#teamtag").addClass("is-invalid");
                 $("#teamtag").removeClass("is-valid");
             }
@@ -106,17 +104,16 @@ $('document').ready(function(){
     })
 
     var or_counter = 0;
-    $( "#orga" ).on('input' , function(e)
+    $("#orga").on('input', function (e)
     {
         or_counter++;
-        if(or_counter > orga_len)
+        if (or_counter > orga_len)
         {
-            if( $('#orga').valid() )
+            if ($('#orga').valid())
             {
                 $("#orga").addClass("is-valid");
                 $("#orga").removeClass("is-invalid");
-            }
-            else{
+            } else {
                 $("#orga").addClass("is-invalid");
                 $("#orga").removeClass("is-valid");
             }
@@ -124,16 +121,15 @@ $('document').ready(function(){
     })
 
     var pw_counter = 0;
-    $( "#password" ).on('input' , function(e)
+    $("#password").on('input', function (e)
     {
         pw_counter++;
-        if(pw_counter > password_len)
+        if (pw_counter > password_len)
         {
-            if( $('#password').valid() ){
+            if ($('#password').valid()) {
                 $("#password").addClass("is-valid");
                 $("#upassword").removeClass("is-invalid");
-            }
-            else{
+            } else {
                 $("#password").addClass("is-invalid");
                 $("#password").removeClass("is-valid");
             }
@@ -141,16 +137,16 @@ $('document').ready(function(){
     })
 
     var pwc_counter = 0;
-    $( "#password_con" ).on('input' , function(e)
+    $("#password_con").on('input', function (e)
     {
+
         pwc_counter++;
-        if(pwc_counter > password_len)
+        if (pwc_counter > password_len)
         {
-            if( $('#password_con').valid() ){
+            if ($('#password_con').valid()) {
                 $("#password_con").addClass("is-valid");
                 $("#password_con").removeClass("is-invalid");
-            }
-            else{
+            } else {
                 $("#password_con").addClass("is-invalid");
                 $("#password_cons").removeClass("is-valid");
             }

@@ -56,7 +56,15 @@ Route::get("league/myleague", "MyLeagueController@ViewOrganiser")->name("myleagu
  */
 Route::get("leauge/createTeam", "TeamRegisterController@index")->name("teamregister")->middleware('auth');
 
+/**
+ * Create a new Team Ressource
+ */
+Route::post("league/createTeam", "TeamRegisterController@createTeam")->name("createnewteam")->middleware('auth');
 
+/**
+ * Validate the Inputs via AJAX For Frontend Validation
+ */
+Route::post("league/createteam/validate", "TeamRegisterController@checkRemoteValidation")->name("validatecreateteam")->middleware('auth');
 
 
 
