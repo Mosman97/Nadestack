@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col">
                         <h1 class="text-center" style="padding-top: 15px;">Team Profile</h1>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="team-profile-tab" data-toggle="tab" href="#team-profile" role="tab" aria-controls="home" aria-selected="true">Profile</a>
                             </li>
@@ -18,7 +18,7 @@
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <!--new Tab-->
+                            <!-- Beginn of the teamprofile tab with general information -->
                             <div class="tab-pane fade show active" id="team-profile" role="tabpanel" aria-labelledby="team-profile-tab">
                                 <h2 class="text-center nadestack-heading">Berlin International Gaming</h2>
                                 <div class="row nadestack-profileview">
@@ -255,7 +255,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- New TAB -->
+                            !-- End of the teamprofile tab with general information -->
+                            !-- Beginn of the teamstats -->
                             <div class="tab-pane fade" id="team-stats" role="tabpanel" aria-labelledby="team-stats-tab">
                                 <h2 class="text-center nadestack-heading">Berlin International Gaming</h2>
                                 <div class="row">
@@ -393,6 +394,7 @@
                                     </div>
                                 </div>
                             </div>
+                            !-- End of the teamstats -->
                         </div>
                     </div>
                 </div>

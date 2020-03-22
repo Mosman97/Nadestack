@@ -13,19 +13,20 @@
                 <div class="col">
                     <h1 class="text-center nadestack-heading">Player Profile</h1>
                 </div>
-                <div class="col">  
+                <div class="col">
                     <!--Nav-Tab mit JS See: https://getbootstrap.com/docs/4.0/components/navs/#javascript-behavior -->
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
+                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#player-profile" role="tab" aria-controls="player-profile" aria-selected="true">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false">Stats</a>
+                            <a class="nav-link" id="stats-tab" data-toggle="tab" href="#player-stats" role="tab" aria-controls="player-stats" aria-selected="false">Stats</a>
                         </li>
                     </ul>
                     @foreach ($userdata as $user)
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <!-- Begin of the profile tab/general Infos-->
+                        <div class="tab-pane fade show active" id="player-profile" role="tabpanel" aria-labelledby="player-profile-tab">
                             <div class="row">
                                 <div class="col-xl-3">
                                     <div class="row">
@@ -209,7 +210,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+                        <!-- End of the profile tab/general Infos-->
+                        <!-- Begin of the Statistic -->
+                        <div class="tab-pane fade" id="player-stats" role="tabpanel" aria-labelledby="player-stats-tab">
                             <div class="col">
                                 <h2 class="text-center nadestack-heading">Statistics of {{$user->username}}</h2>
                             </div>
@@ -300,7 +303,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
+                        <!-- End of the Statistic -->
                     @endforeach
                 </div>
             </div>
@@ -308,7 +312,5 @@
         <div class="col"></div>
     </div>
 </div>
-
-
 
 @endsection
