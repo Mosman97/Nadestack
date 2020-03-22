@@ -1,11 +1,11 @@
 @extends('templates.default_template')
 
 @section('content')
-    <div class="container-fluid" style="background-color: #0F0F0F;">
+    <div class="container-fluid nadestack_body">
         <div class="row">
-            <div class="col-xl-3 offset-xl-0"></div>
-            <div class="col-xl-6 colum_content_small">
-                <h1 class="text-center">Rules</h1>
+            <div class="col-xl-3 "></div>
+            <div class="col-xl-6 colum_content_big">
+                <img src='{{URL::asset('assets/img/de_cache_ruleset.png')}}' class="img-fluid" style="padding-top: 20px; padding-bottom: 20px" />
                 <div id="rules_container">
                     <div class="row">
                         <div class="col"><button class="btn btn-danger btn-sm text-center text-white" type="button" data-toggle="collapse" data-target="#sub_rules_1" style="font-size: 16px;margin-top: -8px;"><i class="fa fa-arrow-circle-o-down"></i></button><span style="font-size: 25px;padding-left: 10px;padding-top: 1px;">1. General</span></div>

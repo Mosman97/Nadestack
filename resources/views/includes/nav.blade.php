@@ -69,7 +69,7 @@
                             <div class="dropdown-menu dropdown-menu-right dropdown-secondary nadestack-dropdown-menu">
                                 <a class="dropdown-item " href="{{route('startpage')}}/user/{{Auth::user()->username}}">My Profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item " href="{{ route('teampage', ['teamid' => Auth::user()->team_id]) }}">My Team</a>
+                                <a class="dropdown-item ">My Team</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item " href="{{route('profilesettings')}}">Settings</a>
                                 <div class="dropdown-divider"></div>

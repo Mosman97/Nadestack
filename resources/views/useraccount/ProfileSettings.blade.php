@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label d-xl-flex">Profile Description</label></div>
-                                    <div class="col-sm-6 input-column"><textarea  name="desc" class="form-control">{{$user->profiledescription}}</textarea></div>
+                                    <div class="col-sm-6 input-column"><textarea  style="height: 200px;" name="desc" class="form-control">{{$user->profiledescription}}</textarea></div>
                                 </div>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-steam"></i><span style="padding-left: 10px;">Steam-ID:</span></div>
