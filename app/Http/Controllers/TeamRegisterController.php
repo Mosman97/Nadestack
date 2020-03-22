@@ -8,6 +8,9 @@ use App\Rules\TeamTagNotTaken;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\UploadedFile;
 use DB;
+use Illuminate\Support\Facades\Hash;
+use App\Team;
+use Auth;
 
 class TeamRegisterController extends Controller {
 
@@ -73,11 +76,53 @@ class TeamRegisterController extends Controller {
 
             return redirect()->back()
                             ->withErrors($validator)
-                           ->withInput();
+                            ->withInput();
         }
 
 
-        return redirect()->back()->with("success", "Your Team has been created");
+
+        //If the Validation Process has no Erros we can create a new TEAM Ressource
+        else {
+
+            //Creating a new Instance of the Team-Model
+            $new_team = new Team;
+
+
+            //Required Inputs
+            $new_team->team_name = $teamname;
+            $new_team->team_tag = $teamtag;
+            $new_team->team_password = Hash::make($password);
+            $new_team->team_admin_id = Auth::user()->id;
+
+            //Optional Inputs
+
+            $new_team->team_website = $website;
+            $new_team->twitter_url = $twitter;
+            $new_team->twitch_url = $twitch;
+            $new_team->instagram_url = $instagram;
+            $new_team->youtube_url = $youtube;
+
+
+
+            $new_team->save();
+
+
+
+            //Retrieving newly created Teamaccount -ID
+
+
+            $new_team = Team::where('team_admin_id', "=", Auth::user()->id)->select('team_id')->get()->toArray();
+
+
+            $new_team_id = $new_team[0]['team_id'];
+
+            //var_dump($new_team);
+
+            return redirect()->action('TeamRegisterController@displayCustomer', ['id' => $id])->with('message', 'Customer Invoice Approved!!!');
+        }
+
+
+        //return redirect()->back()->with("success", "Your Team has been created");
     }
 
     public function checkRemoteValidation(Request $request) {

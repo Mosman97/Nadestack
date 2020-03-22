@@ -29,7 +29,7 @@ Value: {{ $error[0] }}
                             <h1 class="text-center nadestack_heading_one" >Create Team</h1>
                             <div class="form-row form-group">
                                 <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Teamname* :</label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control " type="text" id="teamname" name="teamname">
+                                <div class="col-sm-6 input-column"><input class="form-control " type="text" id="teamname" name="teamname" value="{{ old('teamname')}}">
 
                                     @if($errors->first('teamname') != NULL)
 
@@ -42,7 +42,7 @@ Value: {{ $error[0] }}
 
                             <div class="form-row form-group">
                                 <div class="col-sm-4 col-xl-3 d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Team-Tag* :</label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="text" id="teamtag" name="teamtag">
+                                <div class="col-sm-6 input-column"><input class="form-control" type="text" id="teamtag" name="teamtag" value="{{ old('teamtag')}}">
 
                                     @if($errors->first('teamname') != NULL)
 
@@ -58,11 +58,11 @@ Value: {{ $error[0] }}
                             </div>
                             <div class="form-row form-group">
                                 <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Password* :</label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="password" id="password" name="password"></div>
+                                <div class="col-sm-6 input-column"><input class="form-control" type="password" id="password" name="password" value="{{ old('password')}}"></div>
                             </div>
                             <div class="form-row form-group">
                                 <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Confirm Password* :</label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="password" id="password_con" name="password_con"></div>
+                                <div class="col-sm-6 input-column"><input class="form-control" type="password" id="password_con" name="password_con" value="{{ old('password_con')}}"></div>
                             </div>
                             <div class="form-row form-group">
                                 <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Website:</label></div>
