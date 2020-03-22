@@ -16,7 +16,7 @@
 
                 <h3 class="text-left nadestack_heading_three">Most noticeable players:</h3>
 
-                <ul class="text-center nadestack-list-ul-test">
+                <ul class="text-center nadestack-list-ul">
                     <li class="player-li-entry">
                         <a href="" title="syn">
                             <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>

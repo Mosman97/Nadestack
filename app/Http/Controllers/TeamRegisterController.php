@@ -128,10 +128,7 @@ class TeamRegisterController extends Controller {
            User::where('id', "=", Auth::user()->id)->update(['team_id' => $new_team_id]); 
            
            
-        
-
-
-
+       
 
            return Redirect::route('teampage', [$new_team_id])->with('message', 'Your Team has been created!');
         }

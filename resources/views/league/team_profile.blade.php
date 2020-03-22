@@ -262,7 +262,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- New TAB -->
+                            !-- End of the teamprofile tab with general information -->
+                            !-- Beginn of the teamstats -->
                             <div class="tab-pane fade" id="team-stats" role="tabpanel" aria-labelledby="team-stats-tab">
                                 <h2 class="text-center nadestack-heading">Berlin International Gaming</h2>
                                 <div class="row">
@@ -400,6 +401,7 @@
                                     </div>
                                 </div>
                             </div>
+                            !-- End of the teamstats -->
                         </div>
                     </div>
                 </div>

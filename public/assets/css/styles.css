@@ -438,17 +438,6 @@ label.error{
 /*-------BEGINN MYLEAGUE STYLE*/
 
 .nadestack-list-ul{
-    list-style-type: none;
-    padding-top: 15px;
-    padding-inline-start: unset;
-    align-items: stretch;
-}
-.nadestack-list-ul > li{
-    width: 100%;
-    height: 100%;
-
-}
-.nadestack-list-ul-test{
     flex-direction: row;
     justify-content: space-around;
     list-style-type: none;
@@ -505,3 +494,32 @@ label.error{
 
 /*-------END MYLEAGUE STYLE */
 
+
+/* Begin NAVBAR-Styling */
+.nadestack-dropdown-menu{
+    background-color: #2A292E;
+    border: 1px solid white;
+}
+.nadestack-dropdown-menu a{
+    color: white;
+}
+.nadestack-dropdown-menu a:hover{
+    background-color: #2A292E;
+    color:#FF312E;
+    font-weight: 900;
+}
+.nadestack-dropdown-menu div{
+    color: white;
+}
+.nadestack-dropdown-menu div:hover{
+    background-color: #2A292E;
+    color: white;
+}
+.nadestack-dropdown-menu div p:hover{
+    color:#FF312E;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+/* End NAVBAR-Styling*/
