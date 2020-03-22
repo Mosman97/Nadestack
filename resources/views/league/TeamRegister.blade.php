@@ -10,8 +10,11 @@ Key: {{ $key }}
 Value: {{ $error[0] }}
 @endforeach
 
-{{request()->input('teamtag')}}
+
 @endif
+
+
+{{ var_dump( Session::all())}}
 <script src='{{URL::asset('assets/js/validate/teamregvalidate.js')}}'></script>
 <div class="container-fluid" style="background-color: #0F0F0F;">
     <div class="row">
@@ -69,13 +72,7 @@ Value: {{ $error[0] }}
                                 <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Team Description:</label></div>
                                 <div class="col-sm-6 input-column"><textarea class="form-control" id="description" name="description"></textarea></div>
                             </div>
-                            <div class="form-row form-group">
-                                <div class="col-sm-4 col-xl-3 offset-xl-0 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label text-white" for="repeat-pawssword-input-field">Teamlogo:</label></div>
-                                <div class="col-sm-6 col-xl-9 offset-xl-0 text-justify input-column"><img src="assets/img/4c72a61f-c099-45b1-a3ac-b48669735afb.png" style="width: 100px;height: 100px;"></div>
-                                <div class="col-xl-4 offset-xl-3"><input type="file" style="margin-top: 10px;"></div>
-                                <div class="col offset-xl-2"><button class="btn text-light nadestack_btn" type="button">Upload</button></div>
-                            </div>
-
+                 
                             <h2 class="text-center" style="padding-top: 12px;">Social Media</h2>
                             <div class="form-row form-group">
                                 <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-twitter"></i><span style="padding-left: 10px;">Twitter:</span></div>
@@ -99,7 +96,7 @@ Value: {{ $error[0] }}
                             </div>
                             <div class="form-check text-center"><input class="form-check-input" type="checkbox" id="formCheck" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
                             <div class="form-row">
-                                <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="submit">Save Settings</button></div>
+                                <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="submit">Register Team</button></div>
                             </div>
                         </form>
                     </div>
