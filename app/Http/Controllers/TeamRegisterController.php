@@ -10,7 +10,9 @@ use Illuminate\Http\UploadedFile;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use App\Team;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
+use App\User;
 
 class TeamRegisterController extends Controller {
 
@@ -108,17 +110,30 @@ class TeamRegisterController extends Controller {
 
 
 
-            //Retrieving newly created Teamaccount -ID
 
+
+
+            //Retrieving newly created Teamaccount -ID
 
             $new_team = Team::where('team_admin_id', "=", Auth::user()->id)->select('team_id')->get()->toArray();
 
-
             $new_team_id = $new_team[0]['team_id'];
+            
+            
+       
 
-            //var_dump($new_team);
 
-            return redirect()->action('TeamRegisterController@displayCustomer', ['id' => $id])->with('message', 'Customer Invoice Approved!!!');
+            //Adding Team to User who created the Team
+
+           User::where('id', "=", Auth::user()->id)->update(['team_id' => $new_team_id]); 
+           
+           
+        
+
+
+
+
+           return Redirect::route('teampage', [$new_team_id])->with('message', 'Your Team has been created!');
         }
 
 

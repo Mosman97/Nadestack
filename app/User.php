@@ -28,7 +28,8 @@ class User extends Authenticatable  {
         'twitter_url',
         'twitch_url',
         'instagram_url',
-        'youtube_url'
+        'youtube_url',
+        
     ];
 
     /**

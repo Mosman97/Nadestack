@@ -53,46 +53,12 @@ Value: {{ $error[0] }}
 
                             </div>
                             <div class="form-row form-group">
-                                <div class="col-sm-4 col-xl-3 d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Organization:</label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="text" id="orga" name="orga"></div>
-                            </div>
-                            <div class="form-row form-group">
                                 <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Password* :</label></div>
                                 <div class="col-sm-6 input-column"><input class="form-control" type="password" id="password" name="password" value="{{ old('password')}}"></div>
                             </div>
                             <div class="form-row form-group">
                                 <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Confirm Password* :</label></div>
                                 <div class="col-sm-6 input-column"><input class="form-control" type="password" id="password_con" name="password_con" value="{{ old('password_con')}}"></div>
-                            </div>
-                            <div class="form-row form-group">
-                                <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Website:</label></div>
-                                <div class="col-sm-6 input-column"><input class="form-control" type="url" id="website" name="website"></div>
-                            </div>
-                            <div class="form-row form-group">
-                                <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Team Description:</label></div>
-                                <div class="col-sm-6 input-column"><textarea class="form-control" id="description" name="description"></textarea></div>
-                            </div>
-                 
-                            <h2 class="text-center" style="padding-top: 12px;">Social Media</h2>
-                            <div class="form-row form-group">
-                                <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-twitter"></i><span style="padding-left: 10px;">Twitter:</span></div>
-                                <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" type="url" id="twitter" name="twitter"></div>
-                                <div class="col"></div>
-                            </div>
-                            <div class="form-row form-group">
-                                <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-instagram"></i><span style="padding-left: 10px;">Instagram:</span></div>
-                                <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" type="url" id="instagram" name="instagram"></div>
-                                <div class="col"></div>
-                            </div>
-                            <div class="form-row form-group">
-                                <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-twitch"></i><span style="padding-left: 10px;">Twitch:</span></div>
-                                <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" type="url" id="twitch" name="twitch"></div>
-                                <div class="col"></div>
-                            </div>
-                            <div class="form-row form-group">
-                                <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-youtube"></i><span style="padding-left: 10px;">Youtube:</span></div>
-                                <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" type="url" id="youtube" name="youtube"></div>
-                                <div class="col"></div>
                             </div>
                             <div class="form-check text-center"><input class="form-check-input" type="checkbox" id="formCheck" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
                             <div class="form-row">

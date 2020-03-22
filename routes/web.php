@@ -49,8 +49,6 @@ Route::get("league/myleague", "MyLeagueController@ViewOrganiser")->name("myleagu
  * --------------END OF LEAGUE RELATED ROUTES--------------
  */
 
-
-
 /**
  * Route for creating a new Team Ressource (Can only be called if User is not in a Team)s
  */
@@ -144,6 +142,25 @@ Route::get('/forgotUsername', function() {
 
 
 
+
+
+/*
+ * --------------BEGIN OF TEAM RELEATED ROUTES--------------------
+ */
+
+
+
+/*
+ * Returns the View of the Team with the given Teamid
+ */
+Route::get("/teams/{teamid}", "TeamPageController@index")->name("teampage");
+
+
+
+
+/*
+ * --------------END OF TEAM RELATED ROUTES--------------------------
+ */
 
 
 
