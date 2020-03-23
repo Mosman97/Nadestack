@@ -12,8 +12,10 @@
                 <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="#">Forum</a></li>
                 <li class="nav-item  navigationitemsleft dropdown"style="margin-left: unset;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">League</a>
                     <div class="dropdown-menu dropdown-secondary nadestack-dropdown-menu" aria-labelledby="navbarDropdownMenuLink-555">
+                        @auth
                         <a class="dropdown-item" href="{{route('myleague')}}">My League</a>
                         <div class="dropdown-divider"></div>
+                        @endauth
                         <a class="dropdown-item" href="{{route('league_overview')}}">Overview</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('league_rules')}}">Rules</a>

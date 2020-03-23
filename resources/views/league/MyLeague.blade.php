@@ -5,17 +5,17 @@
         <div class="row">
             <div class="col-xl-3"></div>
             <div class="col-xl-6 colum_content_big">
-                <h1 class="text-center nadestack_heading_one">Starter Division 22</h1>
-                <h2 class="text-center nadestack_heading_two">Season 1</h2>
+                <h1 class="text-center nadestack_heading_one"><img id='nav_logo' src='{{URL::asset('assets/img/logo.png')}}' width="60px"/>Season 1<img id='nav_logo' src='{{URL::asset('assets/img/logo.png')}}' width="60px"/></h1>
+                <hr class="bg-light"/>
+                <h2 class="text-center nadestack_heading_two">Starter Division 22</h2>
                 <div class="row">
                     <div class="col text-center">
                         <label class="col-form-label">Default day:&nbsp;</label>
                         <label class="col-form-label">Saturday</label>
                     </div>
                 </div>
-
+                <hr class="bg-light"/>
                 <h3 class="text-left nadestack_heading_three">Most noticeable players:</h3>
-
                 <ul class="text-center nadestack-list-ul">
                     <li class="player-li-entry">
                         <a href="" title="syn">
