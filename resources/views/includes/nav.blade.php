@@ -28,7 +28,11 @@
                 <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="#">Statistics</a></li>
                 <li class="nav-item navigationitemsleft" role="presentation">
                     <form class="form-inline">
-                        <div class="form-group" id="search_bar"><label class="d-xl-flex justify-content-xl-start align-items-xl-center" id="search_bar_label"><i class="fa fa-search" id="search_bar_icon"></i><input class="form-control" type="search" id="ip"></label></div>
+                        <div class="form-group" id="search_bar">
+                            <label class="d-xl-flex justify-content-xl-start align-items-xl-center" id="search_bar_label">
+                               <a href="{{route('search')}}"><i class="fa fa-search" id="search_bar_icon"></i></a><input class="form-control" type="search" id="ip">
+                            </label>
+                        </div>
                     </form>
                 </li>
             </ul>
@@ -96,7 +100,6 @@
                     <input name="password" type="password" id="defaultForm-pass" class="form-control validate">
                     <a class="float-right" style="color: grey" href="{{url('/password/reset')}}">Forgot Password?</a>
                 </div>
-
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <button class="btn nadestack_btn" type="submit">Login</button>

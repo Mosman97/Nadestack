@@ -3,12 +3,22 @@
 use Illuminate\Support\Facades\Route;
 
 /*
- * Startpage of Nadestack aslo defined as the Newspage
+ * Startpage of Nadestack also defined as the Newspage
  */
 Route::get('/', function () {
     return view('news');
 })->name('startpage');
 
+
+
+/**
+ * Searchroute of Nadestack  
+ */
+Route::get("/search", function() {
+
+
+    return view("search");
+})->name('search');
 
 
 
@@ -37,10 +47,10 @@ Route::get("league/rules", function() {
 
 
 
-Route::get("league/overview",function() {
-    
-    
-    
+Route::get("league/overview", function() {
+
+
+
     return view("league.league_overview");
 })->name('league_overview');
 
