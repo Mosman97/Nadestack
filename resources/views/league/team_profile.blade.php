@@ -2,6 +2,10 @@
 
 @section('content')
 
+
+
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-xl-3 offset-xl-0"></div>
@@ -27,7 +31,7 @@
                         @endif
                             <!--new Tab-->
                             <div class="tab-pane fade show active" id="team-profile" role="tabpanel" aria-labelledby="team-profile-tab">
-                                <h2 class="text-center nadestack-heading">Berlin International Gaming</h2>
+                                <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
                                 <div class="row nadestack-profileview">
                                     <div class="col" style="text-align: center;"><img class="rounded-circle" src="../assets/img/big2.png" style="width:125px; height:125px;margin-top: 15px;"></div>
                                     <div class="col" style="padding-top: 15px;">
@@ -35,7 +39,7 @@
                                             <div class="col"><label class="col-form-label">League: Starter Division</label></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col"><label class="col-form-label">Founded: 2019-02-22</label></div>
+                                            <div class="col"><label class="col-form-label">Founded: {{\Carbon\Carbon::parse($teamdata[0]['created_at'])->format('m-d-Y')}}</label></div>
                                         </div>
                                         <div class="row">
                                             <div class="col"><label class="col-form-label">
@@ -59,34 +63,34 @@
                                                 <tr class="nadestack-tbl">
                                                     <td>
                                                         <a target="_blank" rel="noopener noreferrer" href="https://faceit.com">
-                                                            <img src="../assets/svg/faceit.svg" alt="faceitlogo" class="icons" id="faceit-logo">
+                                                            <img src="../assets/svg/faceit.svg" alt="faceitlogo" class="icon_grow" id="faceit-logo">
                                                         </a>
                                                     </td>
                                                     <td>
                                                         <a target="_blank" rel="noopener noreferrer" href="https://steam.com">
-                                                            <img src="../assets/svg/steam-symbol.svg" alt="steamlogo" class="icons" id="steam-symbol">
+                                                            <img src="../assets/svg/steam-symbol.svg" alt="steamlogo" class="icon_grow" id="steam-symbol">
                                                         </a>
                                                     </td>
                                                     <td>
                                                         <a target="_blank" rel="noopener noreferrer" href="https://instagram.com">
-                                                            <img src="../assets/svg/instagram.svg" alt="instgramlogo" class="icons" id="instagram-symbol">
+                                                            <img src="../assets/svg/instagram.svg" alt="instgramlogo" class="icon_grow" id="instagram-symbol">
                                                         </a>
 
                                                     </td>
                                                     <td>
                                                         <a target="_blank" rel="noopener noreferrer" href="https://twitch.com">
-                                                            <img src="../assets/svg/twitch.svg" alt="twitchlogo" class="icons" id="twitch-symbol">
+                                                            <img src="../assets/svg/twitch.svg" alt="twitchlogo" class="icon_grow" id="twitch-symbol">
                                                         </a>
 
                                                     </td>
                                                     <td>
                                                         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com">
-                                                            <img src="../assets/svg/twitter.svg" alt="twitterlogo" class="icons" id="twitter-symbol">
+                                                            <img src="../assets/svg/twitter.svg" alt="twitterlogo" class="icon_grow" id="twitter-symbol">
                                                         </a>
                                                     </td>
                                                     <td>
                                                         <a target="_blank" rel="noopener noreferrer" href="https://youtube.com">
-                                                            <img src="../assets/svg/youtube.svg" alt="youtubelogo" class="icons" id="yotube-symbol">
+                                                            <img src="../assets/svg/youtube.svg" alt="youtubelogo" class="icon_grow" id="yotube-symbol">
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -265,7 +269,7 @@
                             !-- End of the teamprofile tab with general information -->
                             !-- Beginn of the teamstats -->
                             <div class="tab-pane fade" id="team-stats" role="tabpanel" aria-labelledby="team-stats-tab">
-                                <h2 class="text-center nadestack-heading">Berlin International Gaming</h2>
+                                <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
                                 <div class="row">
                                     <div class="col"><label class="col-form-label">Wins: 100</label></div>
                                 </div>
@@ -408,6 +412,5 @@
             </div>
 
         </div>
-    </div>
-
+</div>
     @endsection
