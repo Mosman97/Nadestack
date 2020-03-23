@@ -76,6 +76,8 @@
 <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
+            <form action="{{ route('login')}}"  method="POST">
+                @csrf
             <div class="modal-header text-center">
                 <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
@@ -85,20 +87,21 @@
             <div class="modal-body mx-3">
                 <div class="md-form mb-5 text-center">
                     <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
-                    <input type="email" id="defaultForm-email" class="form-control validate">
+                    <input name="username" type="text" id="defaultForm-email" class="form-control validate">
                     <a class="float-right" style="color: grey" href="{{route('account.usernameforget')}}">Forgot Username?</a>
                 </div>
 
                 <div class="md-form mb-4 text-center">
                     <label  data-error="wrong" data-success="right" for="defaultForm-pass">Password</label>
-                    <input type="password" id="defaultForm-pass" class="form-control validate">
+                    <input name="password" type="password" id="defaultForm-pass" class="form-control validate">
                     <a class="float-right" style="color: grey" href="{{url('/password/reset')}}">Forgot Password?</a>
                 </div>
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button class="btn nadestack_btn">Login</button>
+                <button class="btn nadestack_btn" type="submit">Login</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
