@@ -520,5 +520,7 @@ label.error{
 .navbar-dark .navbar-nav .nav-link {
     color: white;
 }
-
+.nadestack-second-menu{
+    font-size: 20px;
+}
 /* End NAVBAR-Styling*/

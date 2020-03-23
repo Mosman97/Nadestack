@@ -10,6 +10,7 @@
                 </div>
             </div>
             <div class="col-xl-6">
+                
                 <div class="collapse navbar-collapse" id="nadestack-main-menu">
                     <ul class="nav navbar-nav ml-auto mr-auto">
                         <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link active" href="{{route('startpage')}}">News</a></li>

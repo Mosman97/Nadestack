@@ -23,8 +23,7 @@ class TeamPageController extends Controller {
             return view("news");
         } else if ($team == 1) {
             
-            
-            
+               
             //Getting Data From Team
             
             $team = Team::where("team_id",'=',$team_id)->get()->toArray();

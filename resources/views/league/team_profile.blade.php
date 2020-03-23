@@ -4,6 +4,7 @@
 
 
 
+{{var_dump($teamdata)}}
 
 
 <div class="container-fluid">

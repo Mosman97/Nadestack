@@ -15,12 +15,12 @@
                     <div class="col-md-8 offset-md-2">
                         <form class="text-white" id="profile_settings_form" style="color: rgb(255,255,255);background-color: #333138;font-family: 'Roboto';padding: 0px;margin-top: 180px;margin-bottom: 250px;" method="POST" action="{{url('/forgotUsername')}}">
                             @csrf
-                            <h1 class="text-center text-light nadestack_heading_one nadestack-firt-element">Request Username</h1>
+                            <h2 class="text-center text-light" style="padding-top: 15px;">Request Username</h2>
                             <div class="form-row form-group">
                                 <div class="col-sm-4 col-xl-3 d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Email:</label></div>
                                 <div class="col-sm-6 input-column"><input class="form-control" type="email" name="email" minlength="2"></div>
                             </div>
-                            <div class="form-row nadestack-last-element">
+                            <div class="form-row">
                                 <div class="col text-center" style="padding-bottom: 15px;"><button id="submit_btn" class="btn nadestack_btn" type="submit" style="margin-top: 10px;">Request Username</button></div>
                             </div>
                         </form>
