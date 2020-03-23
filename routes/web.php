@@ -40,8 +40,10 @@ Route::get("league/rules", function() {
 Route::get("league/overview",function() {
     
     
+    
     return view("league.league_overview");
 })->name('league_overview');
+
 
 
 /*
