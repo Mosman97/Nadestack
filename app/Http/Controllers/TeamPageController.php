@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Team;
 
 class TeamPageController extends Controller {
 
     public function index(Request $request, $team_id) {
-
-
-
+        
+        
+       
+     
         if ($request->input("message") != null) {
 
 

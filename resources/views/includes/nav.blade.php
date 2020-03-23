@@ -52,7 +52,7 @@
                         @auth
                         <li class="nav-item avatar dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-56" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">1 <i class="fa fa-envelope"></i>
+                               aria-haspopup="true" aria-expanded="false">1 <i class="fa fa-envelope"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-secondary nadestack-dropdown-menu ">
                                 <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p>Lorem ipsum dolor </p></div>
@@ -68,8 +68,12 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-secondary nadestack-dropdown-menu">
                                 <a class="dropdown-item " href="{{route('startpage')}}/user/{{Auth::user()->username}}">My Profile</a>
+
+                                @if(Auth::user()->team_id != NULL)
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item ">My Team</a>
+                                <a class="dropdown-item " href="{{route('teampage',Auth::user()->team_id)}}">My Team</a>
+                                @endif
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item " href="{{route('profilesettings')}}">Settings</a>
                                 <div class="dropdown-divider"></div>
