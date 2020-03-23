@@ -19,7 +19,7 @@
                             <div class="dropdown-menu dropdown-secondary nadestack-dropdown-menu" aria-labelledby="navbarDropdownMenuLink-555">
                                 <a class="dropdown-item" href="{{route('myleague')}}">My League</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Overview</a>
+                                <a class="dropdown-item" href="{{route('league_overview')}}">Overview</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{route('league_rules')}}">Rules</a>
                                 <div class="dropdown-divider"></div>
