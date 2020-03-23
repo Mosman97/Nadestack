@@ -1,6 +1,6 @@
 <div id="nav_container">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-        <a class="navbar-brand" href="{{route('startpage')}}"><img id='nav_logo' src='{{URL::asset('assets/img/logo.png')}}' width="100px"/></a>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1C2022">
+        <a class="navbar-brand" href="{{route('startpage')}}"><img id='nav_logo' src='{{URL::asset('assets/img/logo.png')}}' width="80px"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,8 +34,8 @@
             </ul>
             <ul class="navbar-nav nadestack-second-menu">
                 @guest
-                <li class="nav-item" role="presentation"><a class="nav-link" href='{{ url("login") }}'>Login</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link  " href='{{ url("register") }}'><button class="nadestack_btn ">Register</button></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="modal" data-target="#modalLogin">Login</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link  " href='{{ url("register") }}'><button class="nadestack_btn" style="background-color: #86C232">Register</button></a></li>
                 @endguest
                     @auth
                         <li class="nav-item avatar dropdown" style="align-self: center">
@@ -70,4 +70,35 @@
             </ul>
         </div>
     </nav>
+</div>
+
+<!-- modaler dialog für den login -->
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5 text-center">
+                    <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
+                    <input type="email" id="defaultForm-email" class="form-control validate">
+                    <a class="float-right" style="color: grey" href="{{route('account.usernameforget')}}">Forgot Username?</a>
+                </div>
+
+                <div class="md-form mb-4 text-center">
+                    <label  data-error="wrong" data-success="right" for="defaultForm-pass">Password</label>
+                    <input type="password" id="defaultForm-pass" class="form-control validate">
+                    <a class="float-right" style="color: grey" href="{{url('/password/reset')}}">Forgot Password?</a>
+                </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button class="btn nadestack_btn">Login</button>
+            </div>
+        </div>
+    </div>
 </div>

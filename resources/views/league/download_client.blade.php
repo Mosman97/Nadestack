@@ -4,7 +4,7 @@
 
     <div class="container-fluid nadestack_body">
         <div class="row">
-            <div class="col-xl-2"></div>
+            <div class="col-xl-3"></div>
             <div class="col colum_content_small">
                 <h1 class="text-center nadestack_heading_one">Download Nadestack Client</h1>
                 <div class="row text-center">
@@ -19,7 +19,7 @@
                     <div class="col"><label class="col-form-label">Supports only Windows 64 Bit</label></div>
                 </div>
             </div>
-            <div class="col-xl-2"></div>
+            <div class="col-xl-3"></div>
         </div>
     </div>
 

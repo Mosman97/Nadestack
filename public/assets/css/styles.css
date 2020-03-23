@@ -112,19 +112,19 @@ a:hover {
 
 /* Erics allgemeine Styles */
 .colum_content_big {
-    background-color: #333138;
+    background-color: #474B4F;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
 .colum_content_small {
-    background-color: #333138;
+    background-color: #474B4F;
     margin-top: 75px;
     margin-bottom: 75px;
 }
 
 .nadestack_form {
-    background-color: #333138;
+    background-color: #474B4F;
     margin-top: 50px;
     margin-bottom: 50px;
     font-family: 'Roboto';
@@ -159,7 +159,7 @@ a:hover {
 }
 
 .nadestack_body {
-    background-color: #0F0F0F;
+    background-color: #222629;
     font-family: Roboto;
     color: white;
 }
@@ -226,7 +226,7 @@ a:hover {
     height: 30px;
 }
 .icons:hover {
-   
+
 }
 .nadestack-profileview {
     align-items: center;
@@ -327,7 +327,6 @@ a:hover {
 }
 
 #news_container {
-    background-color: #333138;
     border-bottom: 1px solid white;
     padding-top: 10px;
 }
@@ -496,14 +495,14 @@ label.error{
 
 /* Begin NAVBAR-Styling */
 .nadestack-dropdown-menu{
-    background-color: #2A292E;
+    background-color: #1C2022;
     border: 1px solid white;
 }
 .nadestack-dropdown-menu a{
     color: white;
 }
 .nadestack-dropdown-menu a:hover{
-    background-color: #2A292E;
+    background-color: #1C2022;
     color:#FF312E;
     font-weight: 900;
 }
@@ -511,7 +510,7 @@ label.error{
     color: white;
 }
 .nadestack-dropdown-menu div:hover{
-    background-color: #2A292E;
+    background-color: #1C2022;
     color: white;
 }
 .nadestack-dropdown-menu div p:hover{

@@ -2,7 +2,7 @@
 
 @section('content')
     <script src='{{URL::asset('assets/js/validate/supportvalidate.js')}}'></script>
-    <div class="container-fluid" style="background-color: #0F0F0F;">
+    <div class="container-fluid nadestack_body">
         <div class="row">
             <div class="col-xl-2"></div>
             <div class="col">
@@ -15,7 +15,7 @@
                                 <hr class="bg-light"/>
                                 <h2 class="text-center nadestack_heading_two" >Instant Support during match:</h2>
                                 <a href="https://discord.gg/p7K2qwt" target="_blank">
-                                    <img src='{{URL::asset('assets/img/discord-logo.png')}}' class="mx-auto d-block" style="height: 60px" >
+                                    <img src='{{URL::asset('assets/img/discord-logo.png')}}' class="mx-auto d-block" style="height: 60px; background-color: #FF312E;  border-radius: 8%" >
                                 </a>
                                 <hr class="bg-light"/>
                                 <h2 class="nadestack_heading_two">Submit Support Ticket</h2>
