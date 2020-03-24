@@ -62,7 +62,9 @@
                                     <div class="row">
                                         <div class="col">
                                             <h5 class="text-center nadestack-heading">Current Team:</h5>
-                                            <h3 class="text-center">BIG</h3>
+                                            @if($user->team_name !=NULL)<h3 class="text-center"><a href="{{route('teampage',$user->team_id)}}">{{$user->team_name}}</a></h3>
+                                            @else<h3 class="text-center">/</h3>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
