@@ -496,7 +496,7 @@ label.error{
 /* Begin NAVBAR-Styling */
 .nadestack-dropdown-menu{
     background-color: #1C2022;
-    border: 1px solid white;
+    border: 1px solid #222629;
 }
 .nadestack-dropdown-menu a{
     color: white;
