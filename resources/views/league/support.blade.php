@@ -10,12 +10,12 @@
                     <!-- Start: Pretty Registration Form -->
                     <div class="row text-white register-form" style="color: rgb(255,255,255);">
                         <div class="col-md-8 offset-md-2">
-                            <form class="nadestack_form nadestack-firt-element" id="profile_settings_form" method="post" enctype="multipart/form-data" action="#">
+                            <form class="nadestack_form nadestack-first-element" id="profile_settings_form" method="post" enctype="multipart/form-data" action="#">
                                 <h1 class="text-center nadestack_heading_one">Nadestack Support</h1>
                                 <hr class="bg-light"/>
                                 <h2 class="text-center nadestack_heading_two" >Instant Support during match:</h2>
                                 <a href="https://discord.gg/p7K2qwt" target="_blank">
-                                    <img src='{{URL::asset('assets/img/discord-logo.png')}}' class="mx-auto d-block" style="height: 60px; background-color: #FF312E;  border-radius: 8%" >
+                                    <img src='{{URL::asset('assets/img/discord-logo.png')}}' class="mx-auto d-block" style="height: 60px;" >
                                 </a>
                                 <hr class="bg-light"/>
                                 <h2 class="nadestack_heading_two">Submit Support Ticket</h2>
