@@ -5,8 +5,6 @@
 
 <script>
 
-
-
     $('document').ready(function (e) {
 
         $.ajaxSetup({

@@ -23,8 +23,6 @@ class UserprofilePageController extends Controller {
 
         if ($user_exits == 1) {
 
-
-
             $user_data = User::where("username", "=", $username)
                     ->leftJoin('teams', 'users.team_id', '=', 'teams.team_id')
                     ->select('users.*', 'teams.team_name')

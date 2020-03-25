@@ -193,3 +193,26 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
+
+
+
+
+/*
+ * ----------------------------BEGIN OF ADMIN RELATED ROUTES------------------
+ */
+
+
+
+Route::get("/admin",function()  {
+    
+    
+echo("sass");
+})->middleware('admin');
+
+
+
+/*
+ * -----------------------------END OF ADMIN RELATED ROUTES-------------------
+ */
+
+

@@ -4,9 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
-class Admin
-{
+class Admin {
+
     /**
      * Handle an incoming request.
      *
@@ -14,8 +15,14 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
+    public function handle($request, Closure $next) {
+
+        if (Auth::user()->nadestackadmin) {
+
+
+            echo "<script>alert('hi');</script>";
+        }
         return $next($request);
     }
+
 }
