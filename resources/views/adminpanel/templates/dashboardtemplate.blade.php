@@ -1,7 +1,10 @@
-!DOCTYPE
+<!DOCTYPE html>
 <html>
-    @include('');
-
-
+    @include('adminpanel.includes.adminpanel_head')
+ <body>
+     @yield('content')
+  
+    @include('adminpanel.includes.adminpanel_scripts')
+</body>
 
 </html>
