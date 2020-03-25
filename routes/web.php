@@ -203,7 +203,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Route::get("/admin","adminpanel\AdminpanelIndexController@index")->middleware('admin')->name('admin');
+Route::get("/admin", "adminpanel\AdminpanelIndexController@index")->middleware('admin')->name('admin');
+
+Route::get('/admin/news', "adminpanel\AdminpanelIndexController@newsindex")->middleware('admin')->name('adminpanel_newsindex');
 
 
 

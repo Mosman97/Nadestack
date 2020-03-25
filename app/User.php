@@ -29,6 +29,7 @@ class User extends Authenticatable  {
         'twitch_url',
         'instagram_url',
         'youtube_url',
+        'nadestack_admin'
         
     ];
 

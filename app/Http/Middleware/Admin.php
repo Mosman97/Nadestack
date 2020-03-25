@@ -18,14 +18,26 @@ class Admin {
      */
     public function handle($request, Closure $next) {
 
-        if (Auth::user()->nadestack_admin) {
 
-            //Returning Admin Dashboard
-            return $next($request);
+
+        if (isset(Auth::user()->nadestack_admin)) {
+
+            if (Auth::user()->nadestack_admin) {
+
+                //Returning Admin Dashboard
+                return $next($request);
+            } else {
+
+                //Throwing 403 - User is not an Admin
+                abort(403);
+            }
+        } else {
+
+
+
+            //Returning User to Startpage if he is not an Admin
+            return redirect("/");
         }
-
-        //Returning User to Startpage if he is not an Admin
-        return redirect('/');
     }
 
 }
