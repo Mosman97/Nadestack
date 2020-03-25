@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 class Admin {
 
@@ -19,10 +20,12 @@ class Admin {
 
         if (Auth::user()->nadestack_admin) {
 
-
-            echo "<script>alert('hi');</script>";
+            //Returning Admin Dashboard
+            return $next($request);
         }
-        return $next($request);
+
+        //Returning User to Startpage if he is not an Admin
+        return redirect('/');
     }
 
 }

@@ -26,8 +26,7 @@ class UserprofilePageController extends Controller {
             $user_data = User::where("username", "=", $username)
                     ->leftJoin('teams', 'users.team_id', '=', 'teams.team_id')
                     ->select('users.*', 'teams.team_name')
-                    ->get()
-                   ;
+                    ->get();
 
 
             return view("useraccount.profile")->with("userdata", $user_data);

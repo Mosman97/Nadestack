@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration {
             $table->string("instagram_url")->nullable();
             $table->string("youtube_url")->nullable();
             $table->string("faceit_url")->nullable();
+            $table->tinyInteger('nadestack_admin')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

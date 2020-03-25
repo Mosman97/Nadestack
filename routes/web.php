@@ -205,9 +205,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get("/admin",function()  {
     
-    
-echo("sass");
-})->middleware('admin');
+    return view("adminpanel.adminindex");
+})->middleware('admin')->name('admin');
 
 
 

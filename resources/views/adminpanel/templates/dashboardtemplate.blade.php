@@ -1,0 +1,7 @@
+!DOCTYPE
+<html>
+    @include('');
+
+
+
+</html>
