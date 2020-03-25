@@ -203,10 +203,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Route::get("/admin",function()  {
-    
-    return view("adminpanel.adminindex");
-})->middleware('admin')->name('admin');
+Route::get("/admin","adminpanel\AdminpanelIndexController@index")->middleware('admin')->name('admin');
 
 
 
