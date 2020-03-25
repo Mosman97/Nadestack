@@ -17,7 +17,7 @@ class Admin {
      */
     public function handle($request, Closure $next) {
 
-        if (Auth::user()->nadestackadmin) {
+        if (Auth::user()->nadestack_admin) {
 
 
             echo "<script>alert('hi');</script>";
