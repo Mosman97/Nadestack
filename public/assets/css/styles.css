@@ -523,5 +523,13 @@ label.error{
     font-size: 20px;
 }
 
+/* sets the new cancel button on the search bar */
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 13px;
+    width: 13px;
+    background: url("../svg/cancel.svg");
+    background-size: 13px;
+}
 
 /* End NAVBAR-Styling*/

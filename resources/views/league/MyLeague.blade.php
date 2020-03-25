@@ -19,7 +19,7 @@
                 <ul class="text-center nadestack-list-ul">
                     <li class="player-li-entry">
                         <a href="" title="syn">
-                            <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>
+                            <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="../assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>
                             <span>Syn</span>
                         </a>
                         <div>
@@ -30,7 +30,7 @@
                     </li>
                     <li class="player-li-entry">
                         <a href="" title="syn">
-                            <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>
+                            <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="../assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>
                             <span>Syn</span>
                         </a>
                         <div>
@@ -41,7 +41,7 @@
                     </li>
                     <li class="player-li-entry">
                         <a href="" title="syn">
-                            <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>
+                            <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="../assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>
                             <span>Syn</span>
                         </a>
                         <div>
@@ -52,7 +52,7 @@
                     </li>
                     <li class="player-li-entry">
                         <a href="" title="syn">
-                            <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>
+                            <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="../assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>
                             <span>Syn</span>
                         </a>
                         <div>
@@ -63,7 +63,7 @@
                     </li>
                     <li class="player-li-entry">
                         <a href="" title="syn">
-                            <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>
+                            <div class="player-container-li"><img class="rounded-circle img-fluid figure-img" src="../assets/img/profile_pictures/syn.png" width="50px" height="50px"></div>
                             <span>Syn</span>
                         </a>
                         <div>
