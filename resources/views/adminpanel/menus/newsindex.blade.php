@@ -45,7 +45,7 @@
                 </div>
                 <div class="table-responsive"
                      style="padding-top: 10px;">
-                    <table class="table">
+                    <table class="table table-striped text-center">
                         <thead>
                             <tr>
                                 <th></th>
@@ -54,12 +54,13 @@
                                 <th>Autor</th>
                                 <th>Status</th>
                                 <th>Date</th>
+                                <th>Settings</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             @foreach ($news as $newsitem)
-                            <tr>
+                            <tr id='{{ $newsitem->news_id }}'>
                                 <td><input type="checkbox"></td>
 
                                 <td> {{ $newsitem->news_id }}</td>
@@ -67,6 +68,10 @@
                                 <td> {{ $newsitem->news_author }}</td>
                                 <td> TODO</td>
                                 <td> {{ $newsitem->created_at }}</td>
+                                <td><div class="btn-group"  style="margin-left:50px;"role="group" aria-label="Basic example">
+                                        <button type="button"  class="btn btn-info">Edit</button>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </div></td>
 
                             </tr>
 

@@ -10,7 +10,7 @@
             <li class="nav-item" role="presentation"><a class="nav-link" href="{{route('adminpanel_newsindex')}}"><i class="fas fa-newspaper"></i><span>News</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="profile.html"><i class="fas fa-ticket-alt"></i><span>Tickets</span></a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>Players</span></a><a class="nav-link" href="profile.html"><i class="fas fa-users"></i><span>Teams</span></a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Logout</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ route('logout') }}"><i class="far fa-user-circle"></i><span>Logout</span></a></li>
         </ul>
         <div class="text-center d-none d-md-inline">
             <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
