@@ -17,25 +17,6 @@ class AdminpanelIndexController extends Controller {
         return view('adminpanel.adminindex');
     }
 
-    /**
-     * Handles the NewsIndexpage in the Adminpanel
-     * @param Request $request
-     * @return type
-     */
-    public function newsindex(Request $request) {
 
-
-
-
-        //Retrieving 10 News per Page 
-        $news_data = News::paginate(10)->toArray();
-
-        //Retrieving all News from the Datbase
-
-
-        return view("adminpanel.menus.newsindex")->with("news", $news_data);
-        
-
-    }
 
 }

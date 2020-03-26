@@ -203,9 +203,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
+/**
+ * Index/Startpage of the Adminpanel
+ */
 Route::get("/admin", "adminpanel\AdminpanelIndexController@index")->middleware('admin')->name('admin');
-
-Route::get('/admin/news', "adminpanel\AdminpanelIndexController@newsindex")->middleware('admin')->name('adminpanel_newsindex');
+/**
+ * Overview of all News
+ */
+Route::get('/admin/news', "adminpanel\AdminPanelNewsController@index")->middleware('admin')->name('adminpanel_newsindex');
+/**
+ * Returns the View to create a new News
+ */
+Route::get("/admin/news/new", "adminpanel\AdminPanelNewsController@create")->middleware('admin')->name("adminpanel_createnews");
 
 
 

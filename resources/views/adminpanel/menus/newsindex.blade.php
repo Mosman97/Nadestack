@@ -3,22 +3,15 @@
 <div id="wrapper">
     @include('adminpanel.includes.adminpanel_sidenav')
     <div class="d-flex flex-column" id="content-wrapper">
-        <div id="content">
+        <div id="content" class="">
             @include('adminpanel.includes.adminpanel_rightmenu')
-
-            {{ print_r($news['data']) }}
-
-
-
-
-
-
-
             <div class="container-fluid">
-                <h3 class="text-dark mb-1" style="padding-bottom: 15px;">News</h3><button class="btn btn-primary" type="button">Create new article</button>
+                <h3 class="text-dark mb-1" style="padding-bottom: 15px;">News</h3>
+                <a href="{{route('adminpanel_createnews')}}" class="btn btn-primary" role="button">Create new News</a>
+          
                 <hr>
 
-                @if( $news['data']!= NULL)
+                @if( $news!= NULL)
 
                 <div>
                     <a href="#" style="padding-right: 30px;">All</a>
@@ -41,44 +34,23 @@
                         </thead>
                         <tbody>
 
-
-
-                            @for ($i = 0; $i < sizeof($news['data']); $i++)
+                            @foreach ($news as $newsitem)
                             <tr>
                                 <td><input type="checkbox"></td>
 
-                                <td> {{ $news['data'][$i]['news_id'] }}</td>
-                                <td> {{ $news['data'][$i]['news_title'] }}</td>
-                                <td> {{ $news['data'][$i]['news_author'] }}</td>
+                                <td> {{ $newsitem->news_id }}</td>
+                                <td> {{ $newsitem->news_title }}</td>
+                                <td> {{ $newsitem->news_author }}</td>
                                 <td> TODO</td>
-                                <td> {{ $news['data'][$i]['created_at'] }}</td>
+                                <td> {{ $newsitem->created_at }}</td>
 
                             </tr>
 
 
-                            @endfor
+                            @endforeach
+
                         </tbody>
                     </table>
-                </div>
-                <div id ="news_pagination"class="row mx-auto">
-                    <div class="col-md-12 mx-auto text-center">
-                        <nav aria-label="...">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
                 </div>
 
                 @else 
@@ -90,7 +62,17 @@
                 @endif
             </div>
 
+
+
         </div>
+
+        <div id="news_pagination" class="mx-auto">
+
+            {{$news->render()}}
+
+        </div>
+
+
     </div>
 </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
 @endsection
