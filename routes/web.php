@@ -216,7 +216,7 @@ Route::get('/admin/news', "adminpanel\AdminPanelNewsController@index")->middlewa
  */
 Route::get("/admin/news/new", "adminpanel\AdminPanelNewsController@create")->middleware('admin')->name("adminpanel_createnews");
 
-
+Route::post("/admin/news/store", "adminpanel\AdminPanelNewsController@store")->middleware('admin')->name("adminpanel_storenews");
 
 /*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------

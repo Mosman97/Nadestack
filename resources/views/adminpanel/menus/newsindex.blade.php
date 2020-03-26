@@ -2,13 +2,37 @@
 @section('content')
 <div id="wrapper">
     @include('adminpanel.includes.adminpanel_sidenav')
+
+
+
+
+
     <div class="d-flex flex-column" id="content-wrapper">
         <div id="content" class="">
             @include('adminpanel.includes.adminpanel_rightmenu')
             <div class="container-fluid">
+                @if(session('new_news_success'))
+
+
+                <div class="alert alert-success" id='success-alert'>
+                    {{ session('new_news_success') }}
+                </div>
+
+                <script>
+
+                    $('document').ready(function (e) {
+
+
+                        $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                            $("#success-alert").slideUp(500);
+                        });
+                    });
+                </script>
+                @endif
+
                 <h3 class="text-dark mb-1" style="padding-bottom: 15px;">News</h3>
                 <a href="{{route('adminpanel_createnews')}}" class="btn btn-primary" role="button">Create new News</a>
-          
+
                 <hr>
 
                 @if( $news!= NULL)
