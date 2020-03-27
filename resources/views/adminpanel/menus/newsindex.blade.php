@@ -6,11 +6,17 @@
 
 
 
-
     <div class="d-flex flex-column" id="content-wrapper">
         <div id="content" class="">
             @include('adminpanel.includes.adminpanel_rightmenu')
             <div class="container-fluid">
+                
+                
+              
+
+
+
+
                 @if(session('new_news_success'))
 
 
@@ -18,7 +24,7 @@
                     {{ session('new_news_success') }}
                 </div>
 
-      
+
 
                 @elseif (session('news_delete'))
 
@@ -34,7 +40,7 @@
 
                 <hr>
 
-                @if( $news!= NULL)
+                @if( count($news) != 0)
 
                 <script>
 
@@ -45,6 +51,16 @@
                                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                             }
                         });
+                        
+                        
+                        
+//                        
+//                      $('#news_table >tbody >tr > td > input').each(function(e){
+//                          
+//                          
+//                          console.log("HM");
+//                          $(this).attr("checked",false);
+//                      });
 
 
 
@@ -108,9 +124,17 @@
 
 
                         });
+                        
+                        
+                        $('#news_edit_btn').on('click',function(e){
+                            
+                            
+                         window.location.href = "{{route('adminpanel_editnews','')}}/"+selected_row;
+                        });
                     });
 
-                </script>
+                </script>     
+
                 <div class="row">
                     <div class="col">
                         <a href="#" style="padding-right: 30px;">All</a>
@@ -149,7 +173,7 @@
                                 <td> TODO</td>
                                 <td> {{ $newsitem->created_at }}</td>
                                 <td><div class="btn-group"  style="margin-left:50px;"role="group" aria-label="Basic example">
-                                        <button type="button" disabled="true" class="btn btn-info">Edit</button>
+                                        <button type="button" disabled="true" class="btn btn-info" id='news_edit_btn'>Edit</button>
                                         <div class="divider"></div>
                                         <button type="button" disabled="true"class="btn btn-success">Archive</button>
                                         <div class="divider"></div>
@@ -169,7 +193,7 @@
                 @else
 
                 <div class=' text-center alert-warning'>
-                    No Newsarticles Found in the Datbase
+                    No Newsarticles Found in the Database
                 </div>
 
                 @endif
@@ -212,17 +236,17 @@
 </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
 
 
-          <script>
+<script>
 
-                    $('document').ready(function (e) {
-
-
-                        $("#success-alert").fadeTo(1000, 500).slideUp(500, function () {
-                            $("#success-alert").slideUp(500);
-                        });
-                    });
+    $('document').ready(function (e) {
 
 
+        $("#success-alert").fadeTo(1000, 500).slideUp(500, function () {
+            $("#success-alert").slideUp(500);
+        });
+    });
 
-                </script>
+
+
+</script>
 @endsection

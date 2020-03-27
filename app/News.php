@@ -10,7 +10,12 @@ class News extends Model {
     use HasTrixRichText;
 
     protected $fillable = [
-        'news_id', 'news_author', 'news_title', 'news_content', 'news_date'
+        'news_id',
+        'news_author',
+        'news_subheading',
+        'news_title',
+        'news_content',
+        'news_date'
     ];
      protected $guarded = [];
 

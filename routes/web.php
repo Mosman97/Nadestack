@@ -228,6 +228,15 @@ Route::post("/admin/news/store", "adminpanel\AdminPanelNewsController@store")->m
 Route::post("/admin/news/delete/{id}", "adminpanel\AdminPanelNewsController@destroy")->middleware('admin')->name("adminpanel_deltenews");
 
 /*
+ * Edits a News with the given ID
+ */
+Route::get("/admin/news/edit/{id}", "adminpanel\AdminPanelNewsController@edit")->middleware('admin')->name("adminpanel_editnews");
+
+/*
+ * Updates a News with the given ID
+ */
+Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@update")->middleware('admin')->name("adminpanel_updatenews");
+/*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------
  */
 

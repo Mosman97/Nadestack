@@ -50,19 +50,21 @@ class AdminPanelNewsController extends Controller {
 
         //Getting News Heading
         $news_heading = $request->input("news_heading");
-        
-        
+
+
         //Getting News Subheading
-        
         $news_subheading = $request->input("news_subheading");
-        
-        
 
         //Getting Rich Text News Content
         $news_content = $request->input("news-trixFields");
 
         //Creating a New News in the DB
-        $new_post = News::create(['news_title' => $news_heading, "news_author" => Auth::user()->username, "news_content" => $news_content['content']]);
+        $new_post = News::create(
+                        ['news_title' => $news_heading,
+                            "news_subheading" => $news_subheading,
+                            "news_author" => Auth::user()->username,
+                            "news_content" => $news_content['content'],
+        ]);
 
         //Redirect to Index with Success Msg
         return Redirect::route('adminpanel_newsindex')->with("new_news_success", "a new News was just published!");
@@ -85,7 +87,20 @@ class AdminPanelNewsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+
+        $news = News::where("news_id", "=", $id)->count();
+
+
+        if ($news == 1) {
+
+
+            $news = News::where("news_id", "=", $id)->get();
+
+
+            return view('adminpanel.menus.newscreate')->with("news_data", $news);
+        }
+
+        abort(404);
     }
 
     /**
@@ -96,7 +111,28 @@ class AdminPanelNewsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+
+        $news = News::where("news_id", "=", $id)->count();
+
+
+        if ($news == 1) {
+
+            //Getting Rich Text News Content
+            $news_content = $request->input("news-trixFields");
+
+            //Updating News
+            $news = News::where("news_id", "=", $id)->update([
+                'news_title' => $request->input("news_heading"),
+                'news_subheading' => $request->input("news_subheading"),
+                'news_content' => $news_content['content']
+            ]);
+
+
+
+            return back()->with("update_success", "News was succesfully edited!");
+        }
+
+        abort(404);
     }
 
     /**
@@ -117,7 +153,7 @@ class AdminPanelNewsController extends Controller {
             $news = News::where("news_id", "=", $id)->delete();
             //Flashing news Delete Msg to Session
             $request->session()->flash("news_delete", "News successfully removed from the Database!");
-            
+
             return json_encode(true);
         }
 
