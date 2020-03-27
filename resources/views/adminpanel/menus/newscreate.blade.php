@@ -17,9 +17,9 @@
                         </div>
                     </div>
                     <div class="form-group row" style="padding-top: 5px; padding-bottom: 10px">
-                        <label  class="col-sm-2 col-form-label">Small-Heading</label>
+                        <label  class="col-sm-2 col-form-label">Sub-Heading</label>
                         <div class="col-sm-6">
-                            <input type="text" name="news_small_heading" class="form-control"  placeholder="Enter small title">
+                            <input type="text" name="news_subheading" class="form-control"  placeholder="Enter small title">
                         </div>
                     </div>
                     <hr>

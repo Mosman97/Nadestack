@@ -203,20 +203,29 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-/**
+/*
  * Index/Startpage of the Adminpanel
  */
 Route::get("/admin", "adminpanel\AdminpanelIndexController@index")->middleware('admin')->name('admin');
-/**
+/*
  * Overview of all News
  */
 Route::get('/admin/news', "adminpanel\AdminPanelNewsController@index")->middleware('admin')->name('adminpanel_newsindex');
-/**
+/*
  * Returns the View to create a new News
  */
 Route::get("/admin/news/new", "adminpanel\AdminPanelNewsController@create")->middleware('admin')->name("adminpanel_createnews");
 
+
+/*
+ * Stores /Saves a newly created News in the Datbase
+ */
 Route::post("/admin/news/store", "adminpanel\AdminPanelNewsController@store")->middleware('admin')->name("adminpanel_storenews");
+
+/*
+ * Deletes a News with the given News ID
+ */
+Route::post("/admin/news/delete/{id}", "adminpanel\AdminPanelNewsController@destroy")->middleware('admin')->name("adminpanel_deltenews");
 
 /*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------

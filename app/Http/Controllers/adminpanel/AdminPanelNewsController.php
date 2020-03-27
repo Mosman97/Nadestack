@@ -16,11 +16,14 @@ class AdminPanelNewsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        //Retrieving 10 News per Page 
-        $news = News::paginate(10);
+        //Retrieving 10 News per Page Sorted by Date DESC
+        $news = News::orderBy('created_at', "desc")->paginate(10);
 
 
-        return view("adminpanel.menus.newsindex")->with("news", $news)->with("new_news_success", $request->input('new_news_sucess'));
+        return view("adminpanel.menus.newsindex")
+                        ->with("news", $news)
+                        ->with("new_news_success", $request->input('new_news_sucess'))
+                        ->with("news_delete_error", $request->input('news_delete_error'));
     }
 
     /**
@@ -47,6 +50,13 @@ class AdminPanelNewsController extends Controller {
 
         //Getting News Heading
         $news_heading = $request->input("news_heading");
+        
+        
+        //Getting News Subheading
+        
+        $news_subheading = $request->input("news_subheading");
+        
+        
 
         //Getting Rich Text News Content
         $news_content = $request->input("news-trixFields");
@@ -91,12 +101,37 @@ class AdminPanelNewsController extends Controller {
 
     /**
      * Remove the specified resource from storage.
+     * Deletes a single selected News
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-        //
+    public function destroy(Request $request, $id) {
+
+
+        $news = News::where("news_id", "=", $id)->count();
+
+
+        if ($news == 1) {
+            //Deleting News in  Database
+            $news = News::where("news_id", "=", $id)->delete();
+            //Flashing news Delete Msg to Session
+            $request->session()->flash("news_delete", "News successfully removed from the Database!");
+            
+            return json_encode(true);
+        }
+
+//TODO Implent Erros Handling when Use deleting could be proceed
+
+        return json_encode(false);
+    }
+
+    /**
+     * Delets mutliple News
+     * @param Request $request
+     */
+    public function mulidestroy(Request $request) {
+        
     }
 
 }
