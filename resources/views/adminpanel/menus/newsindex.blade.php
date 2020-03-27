@@ -36,12 +36,17 @@
                 <hr>
 
                 @if( $news!= NULL)
-
-                <div>
-                    <a href="#" style="padding-right: 30px;">All</a>
-                    <a href="#" style="padding-right: 30px;">My articels</a>
-                    <a href="#" style="padding-right: 30px;">Draft</a>
-                    <a href="#" style="padding-right: 30px;">Archieved</a>
+                <div class="row">
+                    <div class="col">
+                        <a href="#" style="padding-right: 30px;">All</a>
+                        <a href="#" style="padding-right: 30px;">My articels</a>
+                        <a href="#" style="padding-right: 30px;">Draft</a>
+                        <a href="#" style="padding-right: 30px;">Archieved</a>
+                    </div>
+                    <div class=" col text-right">
+                        <button type="button" class="btn btn-danger">Archive news</button>
+                        <button type="button" class="btn btn-success">Publish news</button>
+                    </div>
                 </div>
                 <div class="table-responsive"
                      style="padding-top: 10px;">
@@ -70,7 +75,7 @@
                                 <td> {{ $newsitem->created_at }}</td>
                                 <td><div class="btn-group"  style="margin-left:50px;"role="group" aria-label="Basic example">
                                         <button type="button"  class="btn btn-info">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                        <button type="button" class="btn btn-danger">Archive</button>
                                     </div></td>
 
                             </tr>
@@ -82,7 +87,7 @@
                     </table>
                 </div>
 
-                @else 
+                @else
 
                 <div class=' text-center alert-warning'>
                     No Newsarticles Found in the Datbase
