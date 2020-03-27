@@ -53,7 +53,7 @@
 
     });
 </script>
-<div class="container-fluid" style="background-color: #0F0F0F;">
+<div class="container-fluid">
     <div class="row">
         <div class="col-xl-2"></div>
         <div class="col">
@@ -65,7 +65,7 @@
                     @endforeach
                 <div class="row text-white register-form" style="color: rgb(255,255,255);">
                     <div class="col-md-8 offset-md-2">
-                        <form  method="POST" action="{{url('updateProfile')}}" class="text-white" id="profile_settings_form" style="color: rgb(255,255,255);background-color: #333138;font-family: 'Roboto';margin-top: 50px;margin-bottom: 50px;">
+                        <form class="colum_content_big" method="POST" action="{{url('updateProfile')}}"  id="profile_settings_form" style="margin-top: 50px;margin-bottom: 50px;">
                         <!-- @foreach($userdata as $user) -->
                             <h1 class="nadestack_heading_one">Profile Settings</h1>
                             <ul class="nav nav-tabs" role="tablist">

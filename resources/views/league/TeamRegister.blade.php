@@ -24,7 +24,7 @@ Value: {{ $error[0] }}
                 <!-- Start: Pretty Registration Form -->
                 <div class="row text-white register-form" style="color: rgb(255,255,255);">
                     <div class="col-md-8 offset-md-2">
-                        <form method="POST"  action="{{route('createnewteam')}}"class="text-white" id="profile_settings_form" style="color: rgb(255,255,255);background-color: #333138;font-family: 'Roboto';padding: 0px;margin-top: 50px;margin-bottom: 50px;">
+                        <form class="colum_content_big" method="POST"  action="{{route('createnewteam')}}" id="profile_settings_form" style="padding: 0px;margin-top: 50px;margin-bottom: 50px;">
                             @csrf
                             <h1 class="text-center nadestack_heading_one" >Create Team</h1>
                             <div class="form-row form-group">

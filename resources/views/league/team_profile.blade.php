@@ -27,10 +27,10 @@
                         @if (session('message'))
                         <div class="alert alert-success">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session('message') }}
-                            
+
                         </div>
                         @endif
-                            <!--new Tab-->
+                            <!--Beginn of the teamprofile tab with general information -->
                             <div class="tab-pane fade show active" id="team-profile" role="tabpanel" aria-labelledby="team-profile-tab">
                                 <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
                                 <div class="row nadestack-profileview">
@@ -267,8 +267,8 @@
                                     </div>
                                 </div>
                             </div>
-                            !-- End of the teamprofile tab with general information -->
-                            !-- Beginn of the teamstats -->
+                            <!-- End of the teamprofile tab with general information -->
+                            <!-- Beginn of the teamstats -->
                             <div class="tab-pane fade" id="team-stats" role="tabpanel" aria-labelledby="team-stats-tab">
                                 <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
                                 <div class="row">
@@ -406,7 +406,7 @@
                                     </div>
                                 </div>
                             </div>
-                            !-- End of the teamstats -->
+                            <!-- End of the teamstats -->
                         </div>
                     </div>
                 </div>
