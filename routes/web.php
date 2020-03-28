@@ -236,6 +236,15 @@ Route::get("/admin/news/edit/{id}", "adminpanel\AdminPanelNewsController@edit")-
  * Updates a News with the given ID
  */
 Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@update")->middleware('admin')->name("adminpanel_updatenews");
+
+
+
+Route::get("admin/player","adminpanel\Playercontroller@index")->middleware("admin")->name("adminpanel_playerindex");
+
+
+
+
+
 /*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------
  */

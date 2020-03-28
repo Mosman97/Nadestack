@@ -1,19 +1,12 @@
 @extends('adminpanel.templates.dashboardtemplate')
 @section('content')
-<div id="wrapper">
-    @include('adminpanel.includes.adminpanel_sidenav')
-
-
 
 
 
     @if(!empty($news_data))
     @foreach ($news_data as $news)
-
-
-    <div class="d-flex flex-column" id="content-wrapper">
-        <div id="content" class="">
-            @include('adminpanel.includes.adminpanel_rightmenu')
+    
+        
 
 
             @if(session('update_success'))
@@ -51,8 +44,7 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div> 
+
     <script>
 
         /**
@@ -74,10 +66,10 @@
     @else
 
     {{--No Data is avaible so its a plain News Creating--}}
-    <div class="d-flex flex-column" id="content-wrapper">
-        <div id="content" class="">
-            @include('adminpanel.includes.adminpanel_rightmenu')
-            <div class="container-fluid">
+
+     
+      
+            
                 <h1 class="text-dark mb-1">Create news</h1>
                 <hr>
                 <form method="POST" class=""action="{{route('adminpanel_storenews')}}">
@@ -103,9 +95,9 @@
                         <button class="text-center btn btn-success" style="margin-left: 25px">create News</button>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>   
+          
+       
+
 
     @endif
 
@@ -117,8 +109,5 @@
 
 
 
-
-
-</div>
 <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 @endsection
