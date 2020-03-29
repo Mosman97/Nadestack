@@ -533,3 +533,41 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* End NAVBAR-Styling*/
+
+/* Start of legaueoverview */
+
+
+.nadestack-divisions li{
+    display: inline-block;
+    padding: 5px 5px 0 0;
+
+}
+.nadestack-divisions li a{
+    text-align: center;
+    padding: 10px 0;
+    width: 145px;
+    overflow: hidden;
+    color: white;
+    background: #222629;
+}
+.nadestack-division li a:hover{
+    color:#FF312E ;
+}
+/* all groups of on divison e.g. Starter Div */
+.division-groups li a{
+    display: block;
+}
+/* Center all divisions of a season */
+.divisions {
+    text-align: center;
+}
+
+.divisions li{
+    display: block;
+
+}
+.divisions li a{
+    display: inline-block;
+}
+
+/* End of leagueoverview */
