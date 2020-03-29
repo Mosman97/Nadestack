@@ -112,6 +112,19 @@ Route::post('/updateProfileImage', "ProfileSettingsController@updateProfilePictu
 Route::post("updateProfile", "ProfileSettingsController@updateProfileSettings")->name("updateProfile")->middleware('auth');
 
 
+
+
+/*
+ * Displays Profile related Tickets
+ * 
+ */
+
+
+Route::get("/mytickets","ProfileTicketController@index")->middleware('auth')->name("profiletickets"); 
+
+
+
+
 /*
  * -------------- END OF PROFILE RELATED ROUTES--------------
  */
@@ -190,6 +203,8 @@ Route::get("/teams/{teamid}", "TeamPageController@index")->name("teampage");
  * Startpage as Logged-In User
  */
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 
 

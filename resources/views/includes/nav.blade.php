@@ -69,7 +69,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item " href="{{route('profilesettings')}}">Settings</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item " href="#">Support Tickets</a>
+                                <a class="dropdown-item " href="{{route('profiletickets')}}">Support Tickets</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item " href="{{ route('logout') }}">Logout</a>
                             </div>
