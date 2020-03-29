@@ -5,19 +5,24 @@ namespace App\Http\Controllers\adminpanel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PlayerController extends Controller
-{
+use App\User;
+
+class PlayerController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
+        //Retrieving 10 User per Page Sorted by Date DESC
+        $users = User::orderBy('created_at', "desc")->paginate(1);
+
+
        
-        
-        
-        return view("adminpanel.menus.players.playerindex");
+
+
+        return view("adminpanel.menus.players.playerindex")->with("users",$users);
     }
 
     /**
@@ -25,8 +30,7 @@ class PlayerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -36,8 +40,7 @@ class PlayerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -47,8 +50,7 @@ class PlayerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -58,8 +60,7 @@ class PlayerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -70,8 +71,7 @@ class PlayerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -81,8 +81,8 @@ class PlayerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
+
 }
