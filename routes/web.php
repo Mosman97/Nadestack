@@ -118,8 +118,6 @@ Route::post("updateProfile", "ProfileSettingsController@updateProfileSettings")-
  * Displays Profile related Tickets
  * 
  */
-
-
 Route::get("/mytickets","ProfileTicketController@index")->middleware('auth')->name("profiletickets"); 
 
 
