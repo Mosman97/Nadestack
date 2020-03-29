@@ -2,6 +2,15 @@
 @section('content')
 
 
+@if(count($users) == 0)
+
+<div class="alert alert-danger" id='success-alert'>
+   No User with the given Search Parameter Found
+</div>
+
+@endif
+
+
 <script>
 
     $('document').ready(function (e) {
@@ -77,32 +86,67 @@
          */
 
 
-        $(document).on('keyup', '#player_search', function () {
-            //stuff happens
-            console.log("key");
-
-            $.ajax({
-                type: 'GET',
-                url: "{{route('adminpanel_playerindex')}}",
-                data: {_token: "{{ csrf_token() }}",search_input:$('#player_search').val()
-                },
-                dataType: 'json',
-                success: function (msg) {
-                    
-                    
-                    $('#player_table >tbody').html("");
-
-
-            
-                },
-                error:function(e){
-                    
-                   console.log(e);
-                }
-            });
-
-
-        });
+        /*  $(document).on('keyup', '#player_search', function () {
+         
+         
+         if ($('#player_search').val().length == 0) {
+         
+         
+         location.reload();
+         } else {
+         
+         //stuff happens
+         console.log("key");
+         
+         $.ajax({
+         type: 'GET',
+         url: "{{route('adminpanel_playerindex')}}",
+         data: {_token: "{{ csrf_token() }}", search_input: $('#player_search').val()
+         },
+         dataType: 'json',
+         success: function (result) {
+         
+         console.log(result);
+         
+         
+         $('#player_table >tbody').html("");
+         
+         
+         for (var i = 0; i < result.length; i++) {
+         
+         $('#player_table >tbody').append("<tr id='" + result[i]['id'] + "'>");
+         $('#player_table > tbody').append("<td><input type='checkbox'></td>");
+         $('#player_table >tbody').append("<td>" + result[i]['id'] + "</td>");
+         $('#player_table >tbody').append("<td>" + result[i]['username'] + "</td>");
+         
+         if (result[i]['team_name'] != null) {
+         
+         $('#player_table >tbody').append("<td>" + result[i]['team_name'] + "</td>");
+         } else {
+         
+         $('#player_table >tbody').append("<td>" + "No Team" + "</td>");
+         }
+         $('#player_table >tbody').append("<td>" + result[i]['created_at'] + "</td>");
+         $('#player_table >tbody').append("</tr>");
+         
+         
+         
+         }
+         
+         
+         
+         },
+         error: function (e) {
+         
+         console.log(e);
+         }
+         });
+         
+         }
+         
+         
+         
+         });*/
 
 
 
@@ -121,14 +165,13 @@
 
 
 <div class="row text-center justify-content-center">
-
     <div class="col-md-6">
-
-        <form class="form navbar-search">
+        <form class="form navbar-search" method="GET" action="{{route('adminpanel_playerindex')}}">
+            @csrf
             <div class="input-group">
-                <input class="bg-white form-control border-0 small" id="player_search" type="text"placeholder="Search Playername or Player-ID in Database">
+                <input class="bg-white form-control border-0 small" id="player_search" name="search_query" type="text"placeholder="Search Playername or Player-ID in Database">
                 <div class="input-group-append">
-                    <button class="btn btn-primary py-0" type="button"><i class="fas fa-search"></i></button>
+                    <button class="btn btn-primary py-0" type="submit"><i class="fas fa-search"></i></button>
                 </div>
             </div>
         </form>
