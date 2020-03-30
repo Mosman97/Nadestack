@@ -48,7 +48,7 @@
 
 
 
-                //Enable Buttons 
+                //Enable Buttons
                 $(this).parent().parent().find("td:last").find("button").prop('disabled', false);
 
                 $(this).parent().parent().addClass("news_select_highlightning");
@@ -104,7 +104,7 @@
         });
     });
 
-</script>     
+</script>
 
 <div class="row">
     <div class="col">
@@ -168,7 +168,6 @@
 </div>
 
 @endif
-</div>
 
 
 
