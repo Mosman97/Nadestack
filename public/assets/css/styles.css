@@ -571,3 +571,22 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* End of leagueoverview */
+
+/* Begin of styling for profilesettingssite */
+.nadestack-info-button{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+/*  End of styling for profilesettingssite*/
+
+/* Start Calender widget styling for leaguestyling */
+.row-striped:nth-of-type(n){
+    background-color: #131517;
+    border-bottom: 2px #FF312E solid;
+}
+
+.row-striped {
+    padding: 15px 0;
+}
+/* End Calender widget styling for leaguestyling */

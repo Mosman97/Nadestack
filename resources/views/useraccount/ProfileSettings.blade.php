@@ -165,7 +165,7 @@
                                                 </select>
                                             </div>
                                             <div class="col">
-                                                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top" style="border-radius: 50%;">?</button>
+                                                <button type="button" class="btn btn-secondary nadestack-info-button" data-toggle="tooltip" data-placement="top" title="Tooltip on top">?</button>
                                             </div>
                                         </div>
                                         <div class="form-row form-group">
@@ -179,7 +179,7 @@
                                                 </select>
                                             </div>
                                             <div class="col">
-                                                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top" style="border-radius: 50%;">?</button>
+                                                <button type="button" class="btn btn-secondary nadestack-info-button" data-toggle="tooltip" data-placement="top" title="Tooltip on top">?</button>
                                             </div>
                                         </div>
                                         <div class="form-row form-group">
@@ -193,7 +193,7 @@
                                                 </select>
                                             </div>
                                             <div class="col">
-                                                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top" style="border-radius: 50%;">?</button>
+                                                <button type="button" class="btn btn-secondary nadestack-info-button" data-toggle="tooltip" data-placement="top" title="Tooltip on top">?</button>
                                             </div>
                                         </div>
                                         <div class="form-row form-group">
@@ -207,7 +207,7 @@
                                                 </select>
                                             </div>
                                             <div class="col">
-                                                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top" style="border-radius: 50%;">?</button>
+                                                <button type="button" class="btn btn-secondary nadestack-info-button" data-toggle="tooltip" data-placement="top" title="Tooltip on top">?</button>
                                             </div>
                                         </div>
                                     </div>
