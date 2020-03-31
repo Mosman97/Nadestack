@@ -32,7 +32,16 @@
                         @endif
                             <!--Beginn of the teamprofile tab with general information -->
                             <div class="tab-pane fade show active" id="team-profile" role="tabpanel" aria-labelledby="team-profile-tab">
-                                <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
+
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
+                                    </div>
+                                    <div class="col text-right">
+                                        <button class="btn nadestack_btn" style="margin-top: 13px;">Edit</button>
+                                    </div>
+                                </div>
+
                                 <div class="row nadestack-profileview">
                                     <div class="col" style="text-align: center;"><img class="rounded-circle" src="../assets/img/big2.png" style="width:125px; height:125px;margin-top: 15px;"></div>
                                     <div class="col" style="padding-top: 15px;">
