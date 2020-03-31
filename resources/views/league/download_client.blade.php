@@ -19,8 +19,8 @@
                     <div class="col"><label class="col-form-label">Supports only Windows 64 Bit</label></div>
                 </div>
             </div>
-            <div class="col-xl-3 d-none d-lg-block" style="margin-top: 50px;">
-                <h2 class="nadestack_heading_three font-weight-bold">League Standing</h2>
+            <div class="col-xl-3 d-none d-lg-block" style="margin-top: 27px;">
+                <h2 class="nadestack_heading_three font-weight-bold">Starter Division 27</h2>
                 <div class="table-responsive">
                     <table class="table nadestack-tbl table-sm table-borderless" style="color: white;">
                         <thead style="background-color: #131517;">
@@ -84,37 +84,35 @@
                     </table>
                 </div>
                 <div class="col">
-                    <h2 class="nadestack_heading_three font-weight-bold">Next Matches:</h2>
+                    <h3 class="nadestack_heading_three font-weight-bold">Next Matches:</h3>
                     <div class="row row-striped">
                         <div class="col-2 text-right">
-                            <h1 class="display-6"><span class="badge badge-secondary">23</span></h1>
-                            <h3>Mar</h3>
+                            <h2 class="display-6"><span class="badge badge-secondary">23</span></h2>
+                            <h4>Mar</h4>
                         </div>
                         <div class="col-10">
-                            <h3 class="text-uppercase"><strong><a href="">Match vs Astralis</a></strong></h3>
+                            <h4 class="text-uppercase"><strong><a href="">Astralis</a></strong></h4>
                             <ul class="list-inline">
                                 <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> Monday</li>
                                 <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
                                 <li class="list-inline-item"><i class="fa fa-location-arrow" aria-hidden="true"></i> League</li>
                                 <li class="list-inline-item"><i class="fa fa-hashtag"></i> 2</li>
                             </ul>
-                            <!-- <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
                         </div>
                     </div>
                     <div class="row row-striped">
                         <div class="col-2 text-right">
-                            <h1 class="display-6"><span class="badge badge-secondary">02</span></h1>
-                            <h3>Apr</h3>
+                            <h2 class="display-6"><span class="badge badge-secondary">02</span></h2>
+                            <h4>Apr</h4>
                         </div>
                         <div class="col-10">
-                            <h3 class="text-uppercase"><strong><a href="">Match vs Astralis</a></strong></h3>
+                            <h4 class="text-uppercase"><strong><a href="">Astralis</a></strong></h4>
                             <ul class="list-inline">
                                 <li class="list-inline-item"><i class="fa fa-calendar-o" aria-hidden="true"></i> Monday</li>
                                 <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 12:30 PM - 2:00 PM</li>
                                 <li class="list-inline-item"><i class="fa fa-location-arrow" aria-hidden="true"></i> League</li>
                                 <li class="list-inline-item"><i class="fa fa-hashtag"></i> 2</li>
                             </ul>
-                            <!-- <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
                         </div>
                     </div>
                 </div>

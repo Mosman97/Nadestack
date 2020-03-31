@@ -272,4 +272,5 @@
             <div class="col-xl-3"></div>
         </div>
     </div>
+    </div>
 @endsection

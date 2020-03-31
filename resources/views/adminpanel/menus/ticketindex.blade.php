@@ -1,7 +1,7 @@
 @extends('adminpanel.templates.dashboardtemplate')
 @section('content')
 
-    <h3 class="text-dark mb-1" style="padding-bottom: 15px;">News</h3>
+    <h3 class="text-dark mb-1" style="padding-bottom: 15px;">Tickets</h3>
     <hr>
 
     <div class="row">
