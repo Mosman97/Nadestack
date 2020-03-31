@@ -26,6 +26,36 @@ Route::get("/search", function() {
  * --------------BEGINN OF LEAGUE RELATED ROUTES--------------
  */
 
+
+
+/**
+ * Returns the View for an Overview of all Seasons
+ */
+Route::get("league/overview", function() {
+
+
+
+    return view("league.leagueoverview.league_overview");
+})->name('league_overview');
+
+
+Route::get("league/season/{season_id}", "SeasonController@index")->name("season_overview");
+
+
+/*
+ * displays all Divisions related to the Seasons
+ */
+Route::get("league/season/{season_id}/divisions","DivisonController@index")->name("divison_overview");
+
+
+
+/*
+ * Displays all Groups related to the Division and Season
+ */
+Route::get("league/season/{season_id}/divison/{divison_id}/groups")->name("group_overview");
+
+
+Route::get("league/season/{season_id}/divison/{divison_id}/group/{group_id}","")->name("single_group");
 /*
  * This Route describes the Client
  */
@@ -47,12 +77,7 @@ Route::get("league/rules", function() {
 
 
 
-Route::get("league/overview", function() {
 
-
-
-    return view("league.league_overview");
-})->name('league_overview');
 
 
 
@@ -118,9 +143,17 @@ Route::post("updateProfile", "ProfileSettingsController@updateProfileSettings")-
  * Displays Profile related Tickets
  * 
  */
-Route::get("/mytickets","ProfileTicketController@index")->middleware('auth')->name("profiletickets"); 
+Route::get("/mytickets", "ProfileTicketController@index")->middleware('auth')->name("profiletickets");
 
 
+/**
+ * Displays the Form to create a new Ticket
+ */
+Route::get("mytickets/new", function() {
+
+
+    return view("useraccount.ticket");
+})->middleware('auth')->name("newticket");
 
 
 /*
@@ -252,9 +285,11 @@ Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@upda
 
 
 
-Route::get("admin/player","adminpanel\Playercontroller@index")->middleware("admin")->name("adminpanel_playerindex");
+Route::get("admin/player", "adminpanel\Playercontroller@index")->middleware("admin")->name("adminpanel_playerindex");
 
 
+
+Route::get("admin/tickets", "adminpanel\TicketController@index")->middleware("admin")->name("adminpanel_ticketindex");
 
 
 

@@ -8,7 +8,7 @@
             <div class="col colum_content_big">
 
                 <h1 class="text-center nadestack_heading_one">Your Support Tickets</h1>
-                <a href="{{route('support')}}" class="btn nadestack_btn" type="button" style="margin-bottom: 15px; background-color: #86C232; color: #222629">New Ticket</a>
+                <a href="{{route('newticket')}}" class="btn nadestack_btn" type="button" style="margin-bottom: 15px; background-color: #86C232; color: #222629">New Ticket</a>
 
                 <table class="table nadestack-tbl" style="color: white;">
                     <thead style="background-color: #1C2022;">
