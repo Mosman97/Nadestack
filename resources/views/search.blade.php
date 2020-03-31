@@ -7,7 +7,7 @@
             <div class="col colum_content_big">
                 <h1 class="text-center nadestack_heading_one">Results for AlexRr</h1>
                 <div class="filter">
-                    <form style="background-color: #262429; padding-bottom: 10px;">
+                    <form style="padding-bottom: 10px;">
                         <input placeholder="e.g S1mple, Astralis, ...">
                         <select>
                             <option value="all">All</option>
@@ -17,15 +17,9 @@
                             <option value="forumtopic">Forum</option>
                             <option value="comment">Comment</option>
                         </select>
-                        <select>
-                            <option value="alltime">All time</option>
-                            <option value="today">Today</option>
-                            <option value="week">This week</option>
-                            <option value="month">This month</option>
-                            <option value="year">This year</option>
-                        </select>
                     </form>
                 </div>
+                <hr class="bg-light">
                 <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
                     <div class="col">
                         <div class="row">
