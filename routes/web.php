@@ -52,10 +52,10 @@ Route::get("league/season/{season_id}/divisions","DivisonController@index")->nam
 /*
  * Displays all Groups related to the Division and Season
  */
-Route::get("league/season/{season_id}/divison/{divison_id}/groups")->name("group_overview");
+Route::get("league/season/{season_id}/divison/{divison_id}/groups","GroupController@index")->name("group_overview");
 
 
-Route::get("league/season/{season_id}/divison/{divison_id}/group/{group_id}","")->name("single_group");
+//Route::get("league/season/{season_id}/divison/{divison_id}/group/{group_id}","")->name("single_group");
 /*
  * This Route describes the Client
  */
