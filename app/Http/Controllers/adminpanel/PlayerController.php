@@ -14,10 +14,6 @@ class PlayerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-
-
-
-
         /*
          * If Request is not AJAX it will show up the Custom Scheme
          */
@@ -50,13 +46,14 @@ class PlayerController extends Controller {
                         ->where("users.username", "like", $search_input . "%")
                         ->orWhere("users.id", "like", $search_input . "%")
                         ->orderBy('users.created_at', "desc")
-                         ->paginate(2);
-                  
-
+                        ->paginate(2);
 
                 return view("adminpanel.menus.players.playerindex")->with("users", $users);
             }
         }
+
+
+
 
 
 
@@ -124,8 +121,11 @@ class PlayerController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
-        //
+    public function edit($player_id) {
+
+
+
+        return view("adminpanel.menus.editplayer");
     }
 
     /**

@@ -5,7 +5,7 @@
 @if(count($users) == 0)
 
 <div class="alert alert-danger" id='success-alert'>
-   No User with the given Search Parameter Found
+    No User with the given Search Parameter Found
 </div>
 
 @endif
@@ -31,11 +31,8 @@
                 //Getting Row ID
                 selected_row = $(this).parent().parent().attr("id");
 
-
-
                 //Enable Buttons 
                 $(this).parent().parent().find("td:last").find("button").prop('disabled', false);
-
                 $(this).parent().parent().addClass("news_select_highlightning");
 
             } else {
@@ -80,6 +77,13 @@
 
 
         });
+
+
+       /* $('#player_edit_btn').on('click', function (e) {
+
+
+            window.location.href = "{{route('adminpanel_editnews','')}}/" + selected_row;
+        });*/
 
         /**
          * Search Logic
@@ -225,7 +229,7 @@
                 <td> TODO</td>
                 <td> {{ $user->created_at }}</td>
                 <td><div class="btn-group"  style="margin-left:50px;"role="group" aria-label="Basic example">
-                        <button type="button" disabled="true" class="btn btn-info" id='player_edit_btn'>Edit Player</button>
+                        <a type="button" disabled="true" class="btn btn-info" id='player_edit_btn' href="{{route('adminpanel_editplayer',$user->id)}}">Edit Player</a>
                         <div class="divider"></div>
                         <button type="button" disabled="true"class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Ban Player</button>
                     </div>

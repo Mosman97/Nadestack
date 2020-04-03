@@ -45,14 +45,14 @@ Route::get("league/season/{season_id}", "SeasonController@index")->name("season_
 /*
  * displays all Divisions related to the Seasons
  */
-Route::get("league/season/{season_id}/divisions","DivisonController@index")->name("divison_overview");
+Route::get("league/season/{season_id}/divisions", "DivisonController@index")->name("divison_overview");
 
 
 
 /*
  * Displays all Groups related to the Division and Season
  */
-Route::get("league/season/{season_id}/divison/{divison_id}/groups","GroupController@index")->name("group_overview");
+Route::get("league/season/{season_id}/divison/{divison_id}/groups", "GroupController@index")->name("group_overview");
 
 
 //Route::get("league/season/{season_id}/divison/{divison_id}/group/{group_id}","")->name("single_group");
@@ -285,10 +285,22 @@ Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@upda
 
 
 
+/*
+ * Default View for all Players /Users in Nadestack
+ */
 Route::get("admin/player", "adminpanel\Playercontroller@index")->middleware("admin")->name("adminpanel_playerindex");
 
 
+/*
+ * Edits a playerprofile with the given player-ID
+ */
+Route::get("admin/player/{player_id}/edit","adminpanel\Playercontroller@edit")->middleware("admin")->name("adminpanel_editplayer");
 
+
+
+/*
+ * 
+ */
 Route::get("admin/tickets", "adminpanel\TicketController@index")->middleware("admin")->name("adminpanel_ticketindex");
 
 
