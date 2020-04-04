@@ -19,8 +19,6 @@ class PlayerController extends Controller {
          */
         if (!$request->ajax()) {
 
-
-
             if ($request->input("search_query") == NULL) {
 
                 //Retrieving 10 User per Page Sorted by Date DESC
@@ -32,10 +30,8 @@ class PlayerController extends Controller {
                 return view("adminpanel.menus.players.playerindex")->with("users", $users);
             }
 
-
             //Search Request
             else {
-
 
                 $search_input = $request->input("search_query");
 

@@ -306,6 +306,11 @@ Route::get("admin/tickets", "adminpanel\TicketController@index")->middleware("ad
 
 
 /*
+ * Route for the Overview of all teams in the Adminpanel
+ */
+Route::get("admin/teams","adminpanel\TeamController@index")->middleware("admin")->name("adminpanel_teamindex");
+
+/*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------
  */
 
