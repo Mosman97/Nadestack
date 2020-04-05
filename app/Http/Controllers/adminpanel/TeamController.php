@@ -75,7 +75,11 @@ class TeamController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+       
+        
+        
+        
+        return view("adminpanel.menus.teams.editteam");
     }
 
     /**

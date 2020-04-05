@@ -201,6 +201,7 @@
         <thead>
             <tr>
                 <th></th>
+                <th>Profilepicture</th>
                 <th>User-ID</th>
                 <th>Username</th>
                 <th>Team</th>
@@ -214,6 +215,8 @@
             @foreach ($users as $user)
             <tr id='{{ $user->id}}'>
                 <td><input type="checkbox"></td>
+                
+                <td><img src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user->avatar_url}}" width="50px" height="50px"></td>
 
                 <td> {{ $user->id }}</td>
                 <td> {{$user->username}}</td>

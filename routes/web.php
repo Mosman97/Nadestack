@@ -294,7 +294,7 @@ Route::get("admin/player", "adminpanel\Playercontroller@index")->middleware("adm
 /*
  * Edits a playerprofile with the given player-ID
  */
-Route::get("admin/player/{player_id}/edit","adminpanel\Playercontroller@edit")->middleware("admin")->name("adminpanel_editplayer");
+Route::get("admin/player/{player_id}/edit", "adminpanel\Playercontroller@edit")->middleware("admin")->name("adminpanel_editplayer");
 
 
 
@@ -308,7 +308,14 @@ Route::get("admin/tickets", "adminpanel\TicketController@index")->middleware("ad
 /*
  * Route for the Overview of all teams in the Adminpanel
  */
-Route::get("admin/teams","adminpanel\TeamController@index")->middleware("admin")->name("adminpanel_teamindex");
+Route::get("admin/teams", "adminpanel\TeamController@index")->middleware("admin")->name("adminpanel_teamindex");
+
+
+
+/*
+ * Route for Editing a Team
+ */
+Route::get("admin/team/{teamid}/edit", "adminpanel\TeamController@edit")->middleware("admin")->name("adminpanel_editteam");
 
 /*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------

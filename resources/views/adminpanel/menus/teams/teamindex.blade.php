@@ -197,10 +197,11 @@
 
 <div class="table-responsive"
      style="padding-top: 10px;">
-    <table class="table  text-center" id="player_table">
+    <table class="table text-center" id="player_table">
         <thead>
             <tr>
                 <th></th>
+                <th>Teampicture</th>
                 <th>Team-ID</th>
                 <th>Teamname</th>
                 <th>Team-Tag</th>
@@ -214,6 +215,7 @@
             @foreach ($teams as $team)
             <tr id='{{ $team->team_id}}'>
                 <td><input type="checkbox"></td>
+                <td><img src="{{URL::asset('assets/img/team_pictures/')}}/{{$team->team_logo}}" width="50px" height="50px"></td>
 
                 <td> {{ $team->team_id }}</td>
                 <td> {{ $team->team_name }}</td>
