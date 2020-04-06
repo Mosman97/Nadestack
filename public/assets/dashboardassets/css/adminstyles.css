@@ -89,6 +89,12 @@ a {
   box-shadow: 0 0 0 .2rem rgba(78,115,223,.25);
 }
 
+/* editplayer */
+
+.editrow {
+    margin-top: 12px;
+}
+
 
 /*Beginn of custom Styles made by sYn*/
 
@@ -99,9 +105,9 @@ a {
 
 /* This Class is used when a News is selected to Highlight it*/
 .news_select_highlightning {
-    
+
     background-color: #FFFF99;
-    
+
 }
 
 .divider{
