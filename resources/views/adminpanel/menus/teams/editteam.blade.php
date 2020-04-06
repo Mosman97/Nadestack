@@ -19,6 +19,9 @@
             <button class="btn btn-danger" type="button">
                 <i class="fa fa-edit"></i>
             </button>
+            <button class="btn btn-success" type="button">
+                <i class="fa fa-save"></i>
+            </button>
         </div>
     </div> 
     <div class="form-group row">
@@ -30,6 +33,7 @@
         </div>
         <div class="col-4">
             <button class="btn btn-danger" type="button"><i class="fa fa-edit"></i></button>
+            <button class="btn btn-success" type="button"><i class="fa fa-save"></i></button>
         </div>
     </div> 
 

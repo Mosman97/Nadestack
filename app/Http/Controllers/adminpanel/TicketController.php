@@ -16,7 +16,7 @@ class TicketController extends Controller
     {
         
         
-        return view("adminpanel.menus.ticketindex");
+        return view("adminpanel.menus.tickets.ticketindex");
     }
 
     /**
@@ -59,7 +59,9 @@ class TicketController extends Controller
      */
     public function edit($id)
     {
-        //
+       
+        
+        return view("adminpanel.menus.tickets.editticket");
     }
 
     /**
