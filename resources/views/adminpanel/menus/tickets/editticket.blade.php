@@ -23,7 +23,6 @@
             <a href="#" style="color: red">IMG-4724782478</a>
         </div>
     </div>
-
     <!-- AntwortSection -->
     <hr>
     <div class="row" style="margin-top: 15px">

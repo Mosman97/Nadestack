@@ -12,11 +12,32 @@ class TicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         
+        //If no Searchparameter is omitted we return Tickets sorted by Date
+        if ($request->input('search_query') == NULL) {
+            //Retrieving 10 Teams per Page Sorted by Date DESC
+            $teams = Team::orderBy('created_at', "desc")->paginate(2);
+
+            return view("adminpanel.menus.teams.teamindex")->with("teams", $teams);
+        } else {
+
+            $search_input = $request->input("search_query");
+
+
+            //Retrieving 50 Results
+            $teams = Team::where("team_name", "like", $search_input . "%")
+                    ->orWhere("team_id", "like", $search_input . "%")
+                    ->orWhere("team_tag", "like", $search_input . "%")
+                    ->orderBy('created_at', "desc")
+                    ->paginate(2);
+
+            return view("adminpanel.menus.teams.teamindex")->with("teams", $teams);
+        }
         
-        return view("adminpanel.menus.tickets.ticketindex");
+        
+    //    return view("adminpanel.menus.tickets.ticketindex");
     }
 
     /**

@@ -191,7 +191,7 @@
         <a href="#" style="padding-right: 30px;">Sort by Status</a>
     </div>
     <div class=" col text-right">
-        <button type="button" class="btn btn-danger">Ban User</button>
+      <!--  <button type="button" class="btn btn-danger">Ban User</button> -->
     </div>
 </div>
 
@@ -222,10 +222,9 @@
                 <td> {{$team->team_tag}}</td>
                 <td> TODO</td>
                 <td> {{ $team->created_at }}</td>
-                <td><div class="btn-group"  style="margin-left:50px;"role="group" aria-label="Basic example">
-                        <a type="button" disabled="true" class="btn btn-info" id='player_edit_btn' href="{{route('adminpanel_editplayer',$team->team_id)}}">Edit Team</a>
+                <td><div class="btn-group"  style=""role="group" aria-label="Basic example">
+                        <a type="button" disabled="true" class="btn btn-info" id='player_edit_btn' href="{{route('adminpanel_editteam',$team->team_id)}}">Edit Team</a>
                         <div class="divider"></div>
-                        <button type="button" disabled="true"class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Ban Team</button>
                     </div>
                 </td>
             </tr>
