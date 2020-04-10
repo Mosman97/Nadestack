@@ -1,11 +1,7 @@
-@extends('templates.default_template')
+@extends('templates.league_default_template')
 
 @section('content')
-
-    <div class="container-fluid nadestack_body">
-        <div class="row">
-            <div class="col-xl-3 offset-xl-0"></div>
-            <div class="col-xl-6 colum_content_big ">
+    <div class="col-xl-6 colum_content_big ">
                 <h1 class="text-center nadestack_heading_one">League requierments</h1>
                 <h2 class="text-center nadestack_heading_two">1. Connect your Account to steam</h2><label>In addition to play we need to know which Account you are using. You are also able to change your steam account later if you have any issues</label>
                 <div class="row text-center">
@@ -19,8 +15,4 @@
                     <div class="col"><button class="btn btn-primary nadestack_btn" type="button">Verify</button></div>
                 </div>
             </div>
-            <div class="col"></div>
-        </div>
-    </div>
-
 @endsection

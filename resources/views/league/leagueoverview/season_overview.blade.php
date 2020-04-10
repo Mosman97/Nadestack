@@ -1,4 +1,4 @@
-@extends('league.Leagueoverview.league_overview')
+@extends('league.leagueoverview.league_overview')
 
 @section('divisions')
     <div class="row">
