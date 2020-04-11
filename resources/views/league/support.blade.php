@@ -1,15 +1,12 @@
-@extends('templates.default_template')
+@extends('templates.league_default_template')
 
 @section('content')
     <script src='{{URL::asset('assets/js/validate/supportvalidate.js')}}'></script>
-    <div class="container-fluid nadestack_body">
-        <div class="row">
-            <div class="col-xl-2"></div>
-            <div class="col">
+            <div class="col-xl-6">
                 <div id="profile_settings_form_container">
                     <!-- Start: Pretty Registration Form -->
                     <div class="row text-white register-form" style="color: rgb(255,255,255);">
-                        <div class="col-md-8 offset-md-2">
+                        <div style="width: 100%">
                             <form class="nadestack_form nadestack-first-element" id="profile_settings_form" method="post" enctype="multipart/form-data" action="#">
                                 <h1 class="text-center nadestack_heading_one">Nadestack Support</h1>
                                 <hr class="bg-light"/>
@@ -67,8 +64,4 @@
                     <!-- End: Pretty Registration Form -->
                 </div>
             </div>
-            <div class="col-xl-2"></div>
-        </div>
-    </div>
-
 @endsection

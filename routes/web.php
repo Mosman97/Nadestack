@@ -12,7 +12,7 @@ Route::get('/', function () {
 
 
 /**
- * Searchroute of Nadestack  
+ * Searchroute of Nadestack
  */
 Route::get("/search", function() {
 
@@ -35,7 +35,7 @@ Route::get("league/overview", function() {
 
 
 
-    return view("league.leagueoverview.league_overview");
+    return view("league.leagueoverview.season_overview");
 })->name('league_overview');
 
 
@@ -141,7 +141,7 @@ Route::post("updateProfile", "ProfileSettingsController@updateProfileSettings")-
 
 /*
  * Displays Profile related Tickets
- * 
+ *
  */
 Route::get("/mytickets", "ProfileTicketController@index")->middleware('auth')->name("profiletickets");
 
