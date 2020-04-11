@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Tickets extends Migration {
+class CreateTicketresponsesTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class Tickets extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('tickets', function (Blueprint $table) {
-            $table->bigIncrements('ticket_id');
-            $table->bigInteger('creator_id');
+        Schema::create('ticketresponses', function (Blueprint $table) {
+            $table->bigIncrements('ticket_response_id');
+            $table->bigInteger('user_id');
             $table->longtext('content');
-            $table->bigInteger("attached_file_id_1")->nullable();
+            $table->bigIncrements("attached_file_id_1")->nullable();
             $table->string('title');
             $table->boolean('status');
             $table->timestamps();
@@ -29,7 +29,7 @@ class Tickets extends Migration {
      * @return void
      */
     public function down() {
-         Schema::dropIfExists('tickets');
+        Schema::dropIfExists('ticketresponses');
     }
 
 }

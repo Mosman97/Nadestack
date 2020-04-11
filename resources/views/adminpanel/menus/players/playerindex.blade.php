@@ -233,8 +233,6 @@
                 <td> {{ $user->created_at }}</td>
                 <td><div class="btn-group"  style="margin-left:50px;"role="group" aria-label="Basic example">
                         <a type="button" disabled="true" class="btn btn-info" id='player_edit_btn' href="{{route('adminpanel_editplayer',$user->id)}}">Edit Player</a>
-                        <div class="divider"></div>
-                        <button type="button" disabled="true"class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Ban Player</button>
                     </div>
                 </td>
             </tr>
@@ -257,7 +255,7 @@
 
 
 <!-- Ban Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -302,7 +300,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 
 
