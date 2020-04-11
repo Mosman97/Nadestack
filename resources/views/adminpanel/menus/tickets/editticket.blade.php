@@ -1,30 +1,40 @@
 @extends('adminpanel.templates.dashboardtemplate')
 @section('content')
 
-    <h2 class="text-center nadestack_heading_two nadestack-first-element">Ticket: Bitte AlexRr für freche Plays bannen!</h2>
+
+
+
+    <h2 class="text-center nadestack_heading_two nadestack-first-element">Ticket: {{$ticket_metadata[0]['title']}}</h2>
     <hr>
     <h3 class="text-center nadestack_heading_three" style="color: green">Status: Open</h3>
-    <h3 class="text-center nadestack_heading_three">Category: Cheating</h3>
+    <h3 class="text-center nadestack_heading_three">Category: {{$ticket_metadata[0]['category']}}</h3>
     <button class="btn btn-warning" type="button">
         <a data-toggle="modal" data-target="#modalComment">Add Comment</a>
     </button>
     <hr style="margin-bottom: 13px">
+    
+    
+    
+    
+    @foreach($responses as $response)
+        <div class="row">
+        <div class="col-md-3">
+            <p>{{$response->username}}</p>
+            <p>{{$response->created_at}}</p>
+        </div>
+        <div class="col">
+            <p>{{$response->content}}</p>
+        </div>
+    </div>    
+       <hr>
+
+    @endforeach
 
     <!-- Nachrichtsection -->
 
-    <div class="row">
-        <div class="col-md-3">
-            <p>Admin</p>
-            <p>Syn</p>
-            <p>20.3.20 - 19:22</p>
-        </div>
-        <div class="col">
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <a href="#" style="color: red">IMG-4724782478</a>
-        </div>
-    </div>
+
     <!-- AntwortSection -->
-    <hr>
+ 
     <div class="row" style="margin-top: 15px">
         <div class="col">
             <form class="nadestack_form" method="post" enctype="multipart/form-data" action="#">

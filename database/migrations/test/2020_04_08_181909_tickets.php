@@ -15,7 +15,6 @@ class Tickets extends Migration {
         Schema::create('tickets', function (Blueprint $table) {
             $table->bigIncrements('ticket_id');
             $table->bigInteger('creator_id');
-            $table->string("category");
             $table->longtext('content');
             $table->bigInteger("attached_file_id_1")->nullable();
             $table->string('title');

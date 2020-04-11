@@ -11,7 +11,7 @@
         <form class="form navbar-search" method="GET" action="{{route('adminpanel_teamindex')}}">
             @csrf
             <div class="input-group">
-                <input class="bg-white form-control border-0 small" id="team_search" name="search_query" type="text"placeholder="Search Teamname, Team-Tag or Team-ID in Database">
+                <input class="bg-white form-control border-0 small" id="team_search" name="search_query" type="text"placeholder="Search Ticket-ID or Tickets related to a User-ID">
                 <div class="input-group-append">
                     <button class="btn btn-primary py-0" type="submit"><i class="fas fa-search"></i></button>
                 </div>
@@ -29,7 +29,7 @@
         <a href="#" style="padding-right: 30px;">Sort by Status</a>
     </div>
     <div class=" col text-right">
-      <!--  <button type="button" class="btn btn-danger">Ban User</button> -->
+        <!--  <button type="button" class="btn btn-danger">Ban User</button> -->
     </div>
 </div>
 
@@ -38,29 +38,25 @@
     <table class="table text-center" id="player_table">
         <thead>
             <tr>
-                <th></th>
-                <th>Teampicture</th>
-                <th>Team-ID</th>
-                <th>Teamname</th>
-                <th>Team-Tag</th>
+                <th>Ticket-ID</th>
+                <th>Creator-ID</th>
+                <th>Title</th>
                 <th>Status</th>
-                <th>Date</th>
+                <th>Created At</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach ($teams as $team)
-            <tr id='{{ $team->team_id}}'>
-                <td><input type="checkbox"></td>
-                <td> {{ $team->team_id }}</td>
-                <td> {{ $team->team_name }}</td>
-                <td> {{$team->team_tag}}</td>
-                <td> TODO</td>
-                <td> {{ $team->created_at }}</td>
+            @foreach ($tickets as $ticket)
+            <tr id='{{ $ticket->ticket_id}}'>
+                <td> {{ $ticket->ticket_id }}</td>
+                <td> {{ $ticket->creator_id }}</td>
+                <td>{{$ticket->title}}</td>
+                <td> {{$ticket->status}}</td>
+                <td> {{ $ticket->created_at }}</td>
                 <td><div class="btn-group"  style=""role="group" aria-label="Basic example">
-                        <a type="button" disabled="true" class="btn btn-info" id='player_edit_btn' href="{{route('adminpanel_editteam',$team->team_id)}}">Edit Team</a>
-                        <div class="divider"></div>
+                        <a href="{{route('adminpanel_editticket',$ticket->ticket_id)}}" type="button" class="btn btn-success">Edit</a>
                     </div>
                 </td>
             </tr>
@@ -75,7 +71,7 @@
 
 <div id="team_pagination" class="mx-auto">
 
-    {{$teams->render()}}
+    {{$tickets->render()}}
 </div>
 
 @endsection
