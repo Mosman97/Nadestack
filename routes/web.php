@@ -146,6 +146,12 @@ Route::post("updateProfile", "ProfileSettingsController@updateProfileSettings")-
 Route::get("/mytickets", "ProfileTicketController@index")->middleware('auth')->name("profiletickets");
 
 
+/*
+ * Views the Details of the Ticket with the given ID
+ */
+Route::get("myticket/{ticket_id}","ProfileTicketController@getTicketDetails")->middleware('auth')->name("viewticket");
+
+
 /**
  * Displays the Form to create a new Ticket
  */
@@ -170,6 +176,11 @@ Route::get("/support", function() {
 })->name('support');
 
 
+/*
+ * Creates a new Supportticket
+ */
+
+Route::post("/support/new","ProfileTicketController@store")->middleware("auth")->name("createticket");
 
 /*
  *  --------------BEGINN OF AUTHENTIFICATION RELATED ROUTES--------------
