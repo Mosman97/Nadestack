@@ -22,31 +22,24 @@ class TicketController extends Controller {
             //Retrieving 10 Teams per Page Sorted by Date DESC
             $tickets = Ticket::orderBy('created_at', "desc")->paginate(2);
 
-            return view("adminpanel.menus.tickets.ticketindex")->with("tickets", $tickets)->with("data","ss");
+            return view("adminpanel.menus.tickets.ticketindex")->with("tickets", $tickets);
         } else {
 
             $search_input = $request->input("search_query");
-            
-                $data = "hallo";
-            //Retrieving 50 Results
+            //Retrieving 50 Results matched to the Search-Parameter
             $tickets = Ticket::where("ticket_id", "like", $search_input . "%")
                     ->orWhere("creator_id", "like", $search_input . "%")
                     ->orderBy('created_at', "desc")
                     ->paginate(2);
-
-          /*      return view("adminpanel.menus.tickets.ticketindex")
-            ->with("s", $data)
-                        ->with("tickets", $tickets)
-                        ->with("no_ticket_found","No Ticket was found")
-                        ->with("hi","lol");*/
+            //Returning the Resultset
+            return view('adminpanel.menus.tickets.ticketindex')->with("tickets",$tickets)->with("no_ticket_found","ss");
+            //
+            //
             
-            
-            return redirect()->back()->with("tickets", $tickets)->with("data","ddsdsd")->with("no_ticket_found","No Ticket with the given Search-Parameter was found");
-     
+           // return redirect()->back()->with("tickets", $tickets)->with("data", "ddsdsd")->with("no_ticket_found", "No Ticket with the given Search-Parameter was found");
         }
 
 
-        //    return view("adminpanel.menus.tickets.ticketindex");
     }
 
     /**

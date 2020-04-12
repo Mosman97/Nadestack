@@ -7,25 +7,16 @@
 
 
 
-{{$data}}
-
-
-{{var_dump(session()->all())}}
 
 
 
-
-{{var_dump(session('no_ticket_found'))}}
-
-@if(session('no_ticket_found')!= NULL)
+@if(count($tickets) == 0)
 
 <div class="alert alert-danger" id='success-alert'>
-    {{session('no_ticket_found')}}
+    No Ticket with the given Search Parameter Found
 </div>
+
 @endif
-
-
-
 
 <div class="row text-center justify-content-center">
     <div class="col-md-6">
@@ -80,6 +71,8 @@
                 <td> {{ $ticket->created_at }}</td>
                 <td><div class="btn-group"  style=""role="group" aria-label="Basic example">
                         <a href="{{route('adminpanel_editticket',$ticket->ticket_id)}}" type="button" class="btn btn-success">Edit</a>
+                        <div class='divider'></div>
+                        <button type='button' class='btn btn-info'>Change Status</button>
                     </div>
                 </td>
             </tr>
