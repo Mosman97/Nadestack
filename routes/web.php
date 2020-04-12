@@ -296,8 +296,6 @@ Route::get("admin/player", "adminpanel\Playercontroller@index")->middleware("adm
  */
 Route::get("admin/player/{player_id}/edit", "adminpanel\Playercontroller@edit")->middleware("admin")->name("adminpanel_editplayer");
 
-
-
 /*
  * Overview of all Tickets
  */
@@ -306,14 +304,17 @@ Route::get("admin/tickets", "adminpanel\TicketController@index")->middleware("ad
 /*
  * Edits a Ticket with the given ID
  */
-Route::get("admin/ticket/{id}/edit","adminpanel\TicketController@edit")->middleware("admin")->name("adminpanel_editticket");
+Route::get("admin/ticket/{id}/edit", "adminpanel\TicketController@edit")->middleware("admin")->name("adminpanel_editticket");
+
+/**
+ * Adds a new Repsonse to the given Ticket-ID Entry
+ */
+Route::post("admin/ticket/{id}/store", "adminpanel\TicketController@store")->middleware("admin")->name("adminpanel_ticketresponse");
 
 /*
  * Route for the Overview of all teams in the Adminpanel
  */
 Route::get("admin/teams", "adminpanel\TeamController@index")->middleware("admin")->name("adminpanel_teamindex");
-
-
 
 /*
  * Route for Editing a Team

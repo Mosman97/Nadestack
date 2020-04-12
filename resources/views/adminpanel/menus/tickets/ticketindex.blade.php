@@ -6,9 +6,30 @@
 <hr>
 
 
+
+{{$data}}
+
+
+{{var_dump(session()->all())}}
+
+
+
+
+{{var_dump(session('no_ticket_found'))}}
+
+@if(session('no_ticket_found')!= NULL)
+
+<div class="alert alert-danger" id='success-alert'>
+    {{session('no_ticket_found')}}
+</div>
+@endif
+
+
+
+
 <div class="row text-center justify-content-center">
     <div class="col-md-6">
-        <form class="form navbar-search" method="GET" action="{{route('adminpanel_teamindex')}}">
+        <form class="form navbar-search" method="GET" action="{{route('adminpanel_ticketindex')}}">
             @csrf
             <div class="input-group">
                 <input class="bg-white form-control border-0 small" id="team_search" name="search_query" type="text"placeholder="Search Ticket-ID or Tickets related to a User-ID">
@@ -20,6 +41,8 @@
     </div>
 </div>
 <hr>
+
+
 
 <div class="row">
     <div class="col">
@@ -66,12 +89,15 @@
     </table>
 </div>
 
-
-
-
 <div id="team_pagination" class="mx-auto">
 
     {{$tickets->render()}}
 </div>
+
+
+
+
+
+
 
 @endsection

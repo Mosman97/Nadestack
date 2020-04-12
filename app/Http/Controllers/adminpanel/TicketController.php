@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Ticket;
 use App\ticketresponse;
+use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller {
 
@@ -21,19 +22,27 @@ class TicketController extends Controller {
             //Retrieving 10 Teams per Page Sorted by Date DESC
             $tickets = Ticket::orderBy('created_at', "desc")->paginate(2);
 
-            return view("adminpanel.menus.tickets.ticketindex")->with("tickets", $tickets);
+            return view("adminpanel.menus.tickets.ticketindex")->with("tickets", $tickets)->with("data","ss");
         } else {
 
             $search_input = $request->input("search_query");
-
-
+            
+                $data = "hallo";
             //Retrieving 50 Results
             $tickets = Ticket::where("ticket_id", "like", $search_input . "%")
                     ->orWhere("creator_id", "like", $search_input . "%")
                     ->orderBy('created_at', "desc")
                     ->paginate(2);
 
-            return view("adminpanel.menus.tickets.ticketindex")->with("tickets", $tickets);
+          /*      return view("adminpanel.menus.tickets.ticketindex")
+            ->with("s", $data)
+                        ->with("tickets", $tickets)
+                        ->with("no_ticket_found","No Ticket was found")
+                        ->with("hi","lol");*/
+            
+            
+            return redirect()->back()->with("tickets", $tickets)->with("data","ddsdsd")->with("no_ticket_found","No Ticket with the given Search-Parameter was found");
+     
         }
 
 
@@ -56,7 +65,20 @@ class TicketController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+
+
+
+        $ticket_response_content = $request->input("content");
+        //Create a new TicketResponse
+        $ticket_response = new ticketresponse;
+        $ticket_response->ticket_id = $request->input("ticket_id");
+        $ticket_response->user_id = Auth::user()->id;
+        $ticket_response->content = $ticket_response_content;
+
+        $ticket_response->save();
+
+
+        return back()->with("message", "a new Response was made!");
     }
 
     /**
@@ -76,19 +98,19 @@ class TicketController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        
-        
-        
+
+
+
         $ticket_data = Ticket::where("ticket_id", "=", $id)->get();
 
         $ticket_responses = ticketresponse::select('ticketresponses.*', 'users.username')
                 ->where("ticket_id", "=", $id)
-                ->leftJoin("users","users.id", "=", "ticketresponses.user_id")
+                ->leftJoin("users", "users.id", "=", "ticketresponses.user_id")
                 ->orderBy('created_at', "asc")
                 ->get();
 
 
-        return view("adminpanel.menus.tickets.editticket")->with("responses", $ticket_responses)->with("ticket_metadata",$ticket_data);
+        return view("adminpanel.menus.tickets.editticket")->with("responses", $ticket_responses)->with("ticket_metadata", $ticket_data);
     }
 
     /**
