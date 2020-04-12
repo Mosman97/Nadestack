@@ -3,7 +3,6 @@
 @section('content')
 
 
-{{var_dump($userdata)}}
 
 <div class="container-fluid" style="background-color: #0F0F0F;">
     <div class="row">

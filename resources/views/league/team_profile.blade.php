@@ -4,7 +4,6 @@
 
 
 
-{{var_dump($teamdata)}}
         <div class="col-xl-3 offset-xl-0"></div>
         <div class="col-xl-6 colum_content_big">
             <div class="row">
