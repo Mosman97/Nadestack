@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34e4f4481fd1a69a83034e5fb4b8d9e3",
+    "content-hash": "811767b8f3f76d78fee84ec9172fc1ba",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -102,6 +102,42 @@
                 "math"
             ],
             "time": "2020-02-17T13:57:43+00:00"
+        },
+        {
+            "name": "devdojo/chatter",
+            "version": "0.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thedevdojo/chatter.git",
+                "reference": "ca1b4d6e76dacbd77867d046f9bdcca0b6a75f61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thedevdojo/chatter/zipball/ca1b4d6e76dacbd77867d046f9bdcca0b6a75f61",
+                "reference": "ca1b4d6e76dacbd77867d046f9bdcca0b6a75f61",
+                "shasum": ""
+            },
+            "require-dev": {
+                "illuminate/cache": "~5.1.20|5.2.*|5.3.*",
+                "illuminate/console": "~5.1.20|5.2.*|5.3.*",
+                "mockery/mockery": "^0.9.5",
+                "phpunit/phpunit": "~5.7.14"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DevDojo\\Chatter\\": "/src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Tony Lea",
+                    "email": "tony@devdojo.com"
+                }
+            ],
+            "description": "A simple forum package for your laravel app",
+            "time": "2017-03-12T21:13:57+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -500,6 +536,73 @@
             "time": "2020-03-11T21:05:07+00:00"
         },
         {
+            "name": "graham-campbell/markdown",
+            "version": "v12.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
+                "reference": "584eb9f24004238b80ee98b6e7be82f0933554dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Markdown/zipball/584eb9f24004238b80ee98b6e7be82f0933554dd",
+                "reference": "584eb9f24004238b80ee98b6e7be82f0933554dd",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^6.0|^7.0",
+                "illuminate/support": "^6.0|^7.0",
+                "illuminate/view": "^6.0|^7.0",
+                "league/commonmark": "^1.3",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "graham-campbell/analyzer": "^3.0",
+                "graham-campbell/testbench": "^5.4",
+                "mockery/mockery": "^1.3.1",
+                "phpunit/phpunit": "^8.5|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "12.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "GrahamCampbell\\Markdown\\MarkdownServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Markdown\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com"
+                }
+            ],
+            "description": "Markdown Is A CommonMark Wrapper For Laravel",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Markdown",
+                "Laravel-Markdown",
+                "common mark",
+                "commonmark",
+                "framework",
+                "laravel",
+                "markdown"
+            ],
+            "time": "2020-04-14T16:14:52+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.5.2",
             "source": {
@@ -728,6 +831,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -774,6 +878,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
