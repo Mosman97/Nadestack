@@ -12,16 +12,12 @@
             <div style="width: 100%">
                 @if(session('success'))
 
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong>     {{session('success')}}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
-
-                {{session('success')}}
-
                 @endif
                 <form class="nadestack_form nadestack-first-element" id="profile_settings_form" method="post" enctype="multipart/form-data" action="{{route('createticket')}}">
                     @csrf

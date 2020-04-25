@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Ticket;
+use App\ticketresponse;
 
 class ProfileTicketController extends Controller {
 
@@ -16,11 +17,24 @@ class ProfileTicketController extends Controller {
 
         return view("useraccount.tickets_overview")->with("tickets", $tickets);
     }
+    
+   
+
 
     public function getTicketDetails($ticket_id) {
 
-
-        return view("useraccount.ticket");
+        //Get Metadata of the Ticket
+        $ticket_metadata = Ticket::select('tickets.*', 'users.username')
+                ->where("ticket_id", "=", $ticket_id)
+                ->leftJoin('users', 'users.id', "=", "tickets.creator_id")
+                ->get();
+        //Responses related to the Ticket
+        $ticket_responses = ticketresponse::select('ticketresponses.*',"users.username","users.nadestack_admin")->where('ticket_id', "=", $ticket_id)
+                ->leftJoin('users', 'users.id', "=", "ticketresponses.user_id")
+                ->orderBy("created_at","asc")
+                ->get();
+        //Returning Ticket with Responses 
+        return view("useraccount.ticket")->with("ticket_metadata", $ticket_metadata)->with("ticket_responses", $ticket_responses);
     }
 
     /*
@@ -42,8 +56,8 @@ class ProfileTicketController extends Controller {
         $ticket->category = $ticket_category;
         $ticket->status = 0;
         $ticket->save();
-        
-        return back()->with("success","Your Ticket has been created!");
+
+        return back()->with("success", "Your Ticket has been created!");
     }
 
 }

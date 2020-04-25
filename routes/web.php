@@ -81,9 +81,6 @@ Route::get("league/rules", function() {
 
 
 
-
-
-
 /*
  * This Route defines My League
  */
@@ -99,7 +96,7 @@ Route::get("league/myleague", "MyLeagueController@ViewOrganiser")->name("myleagu
 /**
  * Route for creating a new Team Ressource (Can only be called if User is not in a Team)s
  */
-Route::get("leauge/createTeam", "TeamRegisterController@index")->name("teamregister")->middleware('auth');
+Route::get("league/createTeam", "TeamRegisterController@index")->name("teamregister")->middleware('auth');
 
 /**
  * Create a new Team Ressource
@@ -152,7 +149,7 @@ Route::get("/mytickets", "ProfileTicketController@index")->middleware('auth')->n
 /*
  * Views the Details of the Ticket with the given ID
  */
-Route::get("myticket/{ticket_id}","ProfileTicketController@getTicketDetails")->middleware('auth')->name("viewticket");
+Route::get("myticket/{ticket_id}", "ProfileTicketController@getTicketDetails")->middleware('auth')->name("viewticket");
 
 
 /**
@@ -183,7 +180,7 @@ Route::get("/support", function() {
  * Creates a new Supportticket
  */
 
-Route::post("/support/new","ProfileTicketController@store")->middleware("auth")->name("createticket");
+Route::post("/support/new", "ProfileTicketController@store")->middleware("auth")->name("createticket");
 
 /*
  *  --------------BEGINN OF AUTHENTIFICATION RELATED ROUTES--------------
@@ -249,6 +246,47 @@ Route::get("/teams/{teamid}", "TeamPageController@index")->name("teampage");
  */
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+/*
+ * --------------BEGIN OF FORUM RELEATED ROUTES--------------------
+ */
+
+
+
+
+/**
+ * Displays the Root of the Forum aka the Forum-Overview
+ */
+Route::get("/forum", function() {
+
+
+    return view("forum.forum_overview");
+});
+
+
+
+/*
+ * Displays all Threads
+ */
+Route::get("forum/threads", function() {
+
+
+    return view("forum.thread_overview");
+});
+
+
+/**
+ * Displays a Single Forum Thread with the given ID
+ */
+Route::get("forum/thread/{id}", function() {
+
+
+    return view("forum.thread");
+});
+
+/*
+ * --------------END OF TEAM RELEATED ROUTES--------------------
+ */
 
 
 
