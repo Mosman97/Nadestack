@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Zyberspace\SteamWebApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\UploadedFile;
@@ -96,26 +97,19 @@ class ProfileSettingsController extends Controller {
         }
     }
 
-    
-    
-    
-    
     /**
      * This Function gets called if the User openes his Settings
      * @param Request $request
      */
     function getProfileSettings(Request $request) {
-        
-        
-        $user_data = User::where('id','=',Auth::id())->get();
-        
-        
-        
-        
-        return view("useraccount.ProfileSettings")->with("userdata",$user_data);
-        
-        
-        
+
+
+        $user_data = User::where('id', '=', Auth::id())->get();
+
+
+
+
+        return view("useraccount.ProfileSettings")->with("userdata", $user_data);
     }
 
     /**
@@ -197,7 +191,23 @@ class ProfileSettingsController extends Controller {
      * This function sets the SteamID of the User in the Database.This can only be called one single Time by the User
      */
     public function setSteamID() {
+
+
+        $web_api_key = "AD8538EE0A8A99DEFD8E78F54DCD2325";
         
+        $client = new \Zyberspace\SteamWebApi\Client($web_api_key);
+        
+  
+       // $steamUser = new \Zyberspace\SteamWebApi\Interfaces\ISteamUser($client);
+       
+        
+        $oauth = new \Zyberspace\SteamWebApi\Interfaces\ISteamUserOAuth($client);
+        
+        
+       $test = $oauth->GetTokenDetailsV1($web_api_key);
+        //$response = $steamUser->GetPlayerSummariesV1("76561198037463757");
+
+        var_dump($test);
     }
 
 }

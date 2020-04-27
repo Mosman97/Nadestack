@@ -102,7 +102,14 @@
                                         <div class="form-row form-group">
                                             <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-steam"></i><span style="padding-left: 10px;">Steam-ID:</span></div>
                                             <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" type="text"></div>
-                                            <div class="col"><button class="btn text-white nadestack_btn" type="button" style="font-size: 16px;">change Request</button></div>
+                                            <div class="col">
+                                                @if(Auth::user()->steam_id == NULL)
+                                                        <a class="btn text-white nadestack_btn" type="button" style="font-size: 16px;" href="{{route('setsteamid')}}">verify Steamaccount</a>
+                                                @else
+                                                       <button class="btn text-white nadestack_btn" type="button" style="font-size: 16px;">change Request</button>
+                                                @endif
+                                         
+                                            </div>
                                         </div>
                                         <div class="form-row form-group">
                                             <div class="col-sm-4 col-xl-3 offset-xl-0 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label text-white" for="repeat-pawssword-input-field">Avatar:</label></div>
