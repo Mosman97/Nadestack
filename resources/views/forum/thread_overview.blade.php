@@ -7,7 +7,10 @@
             <div class="col-xl-6 colum_content_big">
                 <div class="row">
                     <div class="col">
-                        <h1 class="nadestack_heading_one text-left">League problems</h1>
+                        <h1 class="nadestack_heading_one">League problems</h1>
+                        @auth
+                        <button class="nadestack_btn" style="background-color: #86C232; margin-bottom: 8px">Create thread</button>
+                        @endauth
                         <div class="table-responsive">
                             <table class="table nadestack-tbl table-borderless">
                                 <thead>
