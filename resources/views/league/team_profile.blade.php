@@ -1,8 +1,7 @@
 @extends('templates.league_default_template')
 
 @section('content')
-        <div class="col-xl-3 offset-xl-0"></div>
-        <div class="col-xl-6 colum_content_big">
+        <div class="col colum_content_big">
             <div class="row">
                 <div class="col">
                     <h1 class="text-center" style="padding-top: 15px;">Team Profile</h1>
