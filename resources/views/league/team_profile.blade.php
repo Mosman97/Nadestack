@@ -272,6 +272,9 @@
                             <div class="tab-pane fade" id="team-stats" role="tabpanel" aria-labelledby="team-stats-tab">
                                 <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
                                 <div class="row">
+                                    <div class="col"><label class="col-form-label">Matches: 0</label></div>
+                                </div>
+                                <div class="row">
                                     <div class="col"><label class="col-form-label">Wins: 100</label></div>
                                 </div>
                                 <div class="row">
@@ -379,7 +382,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="match">
+                                    <div class="match nadestack-last-element">
                                         <hr class="nadestack-line">
                                         <div class="row">
                                             <div class="col-xl-5" style="text-align: center;"><img src="../assets/img/maps/de_mirage.jpg" style="width: 227px;"></div>
