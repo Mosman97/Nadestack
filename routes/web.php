@@ -126,6 +126,13 @@ Route::get("/user/{username}", "UserprofilePageController@getUserProfileData")->
 Route::get("/mySettings", "ProfileSettingsController@getProfileSettings")->name("profilesettings")->middleware('auth');
 
 
+
+/**
+ * Sets the Steam-ID of the current User, this should be done only once and can only be revoked by an Admin
+ */
+Route::get("verifySteamAccount", "ProfileSettingsController@setSteamID")->name("setsteamid")->middleware('auth');
+
+
 /*
  * Updates the ProfileImage
  */

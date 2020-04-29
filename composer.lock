@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "811767b8f3f76d78fee84ec9172fc1ba",
+    "content-hash": "96cbf30a9a8700b32f9244800d8ad8fd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3715,6 +3715,54 @@
                 "php"
             ],
             "time": "2020-03-13T01:23:26+00:00"
+        },
+        {
+            "name": "zyberspace/steam-web-api-client",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zyberspace/php-steam-web-api-client.git",
+                "reference": "35cd3fc8b3035a713ddb064697649c20324213a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zyberspace/php-steam-web-api-client/zipball/35cd3fc8b3035a713ddb064697649c20324213a3",
+                "reference": "35cd3fc8b3035a713ddb064697649c20324213a3",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0"
+            },
+            "require-dev": {
+                "nikic/php-parser": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zyberspace\\SteamWebApi\\": "lib/Zyberspace/SteamWebApi/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "zyberspace",
+                    "email": "zyberspace@zyberware.org"
+                }
+            ],
+            "description": "Automatically generated api client for the Steam Web API in style of the google-api-php-client.",
+            "homepage": "https://github.com/zyberspace/php-steam-web-api-client",
+            "keywords": [
+                "api",
+                "automatically",
+                "client",
+                "generated",
+                "steam",
+                "web"
+            ],
+            "time": "2016-10-13T17:38:25+00:00"
         }
     ],
     "packages-dev": [

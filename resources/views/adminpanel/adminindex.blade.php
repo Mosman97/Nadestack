@@ -8,8 +8,8 @@
             <div class="card-body">
                 <div class="row align-items-center no-gutters">
                     <div class="col mr-2">
-                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>USer</span></div>
-                        <div class="text-dark font-weight-bold h5 mb-0"><span>5000</span></div>
+                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>User</span></div>
+                        <div class="text-dark font-weight-bold h5 mb-0"><span>{{$user_count}}</span></div>
                     </div>
                     <div class="col-auto"><i class="fas fa-user fa-2x text-gray-300"></i></div>
                 </div>
@@ -22,7 +22,7 @@
                 <div class="row align-items-center no-gutters">
                     <div class="col mr-2">
                         <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Teams</span></div>
-                        <div class="text-dark font-weight-bold h5 mb-0"><span>1000</span></div>
+                        <div class="text-dark font-weight-bold h5 mb-0"><span>{{$team_count}}</span></div>
                     </div>
                     <div class="col-auto"><i class="fas fa-users fa-2x text-gray-300"></i></div>
                 </div>
@@ -57,7 +57,7 @@
                 <div class="row align-items-center no-gutters">
                     <div class="col mr-2">
                         <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>Pending Tickets</span></div>
-                        <div class="text-dark font-weight-bold h5 mb-0"><span>18</span></div>
+                        <div class="text-dark font-weight-bold h5 mb-0"><span>{{$open_tickets}}</span></div>
                     </div>
                     <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
                 </div>
