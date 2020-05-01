@@ -216,12 +216,13 @@ Route::get('/forgotUsername', function() {
 })->middleware('guest')->name('account.usernameforget');
 
 
-
+/**
+ * Startpage as Logged-In User
+ */
+Route::get('/home', 'HomeController@index')->name('home');
 /*
  *  --------------END OF AUTHENTIFICATION RELATED ROUTES--------------
  */
-
-
 
 
 
@@ -229,14 +230,10 @@ Route::get('/forgotUsername', function() {
  * --------------BEGIN OF TEAM RELEATED ROUTES--------------------
  */
 
-
-
 /*
  * Returns the View of the Team with the given Teamid
  */
 Route::get("/teams/{teamid}", "TeamPageController@index")->name("teampage");
-
-
 
 
 /*
@@ -245,21 +242,9 @@ Route::get("/teams/{teamid}", "TeamPageController@index")->name("teampage");
 
 
 
-
-
-
-/**
- * Startpage as Logged-In User
- */
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 /*
  * --------------BEGIN OF FORUM RELEATED ROUTES--------------------
  */
-
-
-
 
 /**
  * Displays the Root of the Forum aka the Forum-Overview
@@ -268,7 +253,7 @@ Route::get("/forum", function() {
 
 
     return view("forum.forum_overview");
-});
+})->name('forum');
 
 
 
@@ -292,15 +277,32 @@ Route::get("forum/thread/{id}", function() {
 });
 
 /*
- * --------------END OF TEAM RELEATED ROUTES--------------------
+ * --------------END OF FORUM ROUTES--------------------
  */
 
+/*
+ * ----------------------------BEGIN OF STATISTIC ROUTES------------------
+ */
 
+Route::get("/statistics", function() {
+    return view("statistics.statistics_overview");
+})->name('statistics');
 
+Route::get("/statistics/teams", function() {
+    return view("statistics.statistics_teams");
+})->name('teamstats');
 
+Route::get("/statistics/players", function() {
+    return view("statistics.statistics_players");
+})->name('playerstats');
 
+Route::get("/statistics/maps", function() {
+    return view("statistics.statistics_maps");
+})->name('mapstats');
 
-
+/*
+ * --------------END OF STATISTIC ROUTES--------------------
+ */
 
 /*
  * ----------------------------BEGIN OF ADMIN RELATED ROUTES------------------

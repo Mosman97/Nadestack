@@ -9,7 +9,7 @@
                 <li class="nav-item active navigationitemsleft" role="presentation">
                     <a class="nav-link active" href="{{route('startpage')}}">News<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="#">Forum</a></li>
+                <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="{{route('forum')}}">Forum</a></li>
                 <li class="nav-item  navigationitemsleft dropdown"style="margin-left: unset;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">League</a>
                     <div class="dropdown-menu dropdown-secondary nadestack-dropdown-menu" aria-labelledby="navbarDropdownMenuLink-555">
                         @auth
@@ -27,7 +27,7 @@
                         <a class="dropdown-item" href="{{route('client_download')}}">Download Client</a>
                     </div>
                 </li>
-                <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="#">Statistics</a></li>
+                <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="{{route('statistics')}}">Statistics</a></li>
                 <li class="nav-item navigationitemsleft" role="presentation">
                     <form class="form-inline">
                         <div class="form-group" id="search_bar">
