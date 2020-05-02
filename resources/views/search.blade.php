@@ -7,7 +7,7 @@
             <div class="col colum_content_big">
                 <h1 class="text-center nadestack_heading_one">Results for AlexRr</h1>
                 <div class="filter">
-                    <form style="padding-bottom: 10px;">
+                    <form>
                         <input placeholder="e.g S1mple, Astralis, ...">
                         <select>
                             <option value="all">All</option>
@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-xl-2"></div>
                             <div class="col border">
-                                <div class="row">
+                                <div class="row" style="margin-top: 5px">
                                     <div class="col">
                                         <h3><a style="color: #FF312E;" href="https://twitter.com/alexrrcs">AlexRr</a></h3>
                                     </div>
@@ -39,44 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="padding-bottom: 10px;">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col-xl-2"></div>
-                            <div class="col border">
-                                <div class="row">
-                                    <div class="col">
-                                        <h3><a style="color: #FF312E;" href="https://twitter.com/alexrrcs">AlexRr</a></h3>
-                                    </div>
-                                    <div class="col-xl-3"><label class="col-form-label">02-10-1997</label></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col"><label style="font-size: 11px;">Player</label><label>Hier würde der der Anfang einer News, Teambeschreibung, Prfilbeschreibung, Kommentaranfang oder Match stehen.<br></label></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-2"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="padding-bottom: 10px;">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col-xl-2"></div>
-                            <div class="col border">
-                                <div class="row">
-                                    <div class="col">
-                                        <h3><a style="color: #FF312E;" href="https://twitter.com/alexrrcs">AlexRr</a></h3>
-                                    </div>
-                                    <div class="col-xl-3"><label class="col-form-label">02-10-1997</label></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col"><label style="font-size: 11px;">Player</label><label>Hier würde der der Anfang einer News, Teambeschreibung, Prfilbeschreibung, Kommentaranfang oder Match stehen.<br></label></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-2"></div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="row" style="margin-top: 20px;"><div id ="news_pagination" class="row mx-auto">
                         <div class="col-md-12 mx-auto text-center">
                             <nav aria-label="...">

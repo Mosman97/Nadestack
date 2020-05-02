@@ -1,7 +1,7 @@
 @extends('templates.default_template')
 
 @section('content')
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 
     <div class="row">
         <div class="col-xl-3"></div>
@@ -16,7 +16,7 @@
                         labels: ['Cache', 'Mirage', 'Nuke', 'Overpass', 'Inferno', 'Train'],
                         datasets: [{
                             data: [12, 19, 3, 5, 2, 3],
-                            barThickness: 0.5,
+                            barThickness: 30,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
@@ -60,10 +60,12 @@
                         labels: ['Cache', 'Mirage', 'Nuke', 'Overpass', 'Inferno', 'Train'],
                         datasets: [
                             {
+                                barThickness: 25,
                                 label: "Counter-Terrorists",
                                 backgroundColor: "#3e95cd",
                                 data: [45,45,55,52,60,47]
                             }, {
+                                barThickness: 25,
                                 label: "Terrorists",
                                 backgroundColor: "#FFFF99",
                                 data: [55,55,45,48,40,53]
