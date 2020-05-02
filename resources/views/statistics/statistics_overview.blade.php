@@ -5,6 +5,9 @@
         <div class="col-xl-3"></div>
         <div class="col colum_content_big">
             <h1 class="text-center nadestack_heading_one">Nadestack statistics</h1>
+            <div class="row">
+                <button class="btn nadestack_btn" style="margin-left: 15px"><a href="{{route('mapstats')}}">Maps</a></button>
+            </div>
             <h2 class="nadestack_heading_two">Best of the current season</h2>
             <div class="row">
                 <div class="col">

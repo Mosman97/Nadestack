@@ -84,6 +84,10 @@
                                                 <td>{{$user->forname}}</td>
                                             </tr>
                                             <tr>
+                                                <td>Flagge</td>
+                                                <td>Deutschland</td>
+                                            </tr>
+                                            <tr>
                                                 <td>Age:</td>
                                                 <td>22</td>
                                             </tr>

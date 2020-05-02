@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-xl-6 colum_content_big">
-        <h1 class="text-center nadestack_heading_one"><img id='nav_logo' src='{{URL::asset('assets/img/logo.png')}}' width="60px"/>Season 1<img id='nav_logo' src='{{URL::asset('assets/img/logo.png')}}' width="60px"/></h1>
+        <h1 class="text-center nadestack_heading_one nadestack-first-element"><img id='nav_logo' src='{{URL::asset('assets/img/logo.png')}}' width="60px"/>Season 1<img id='nav_logo' src='{{URL::asset('assets/img/logo.png')}}' width="60px"/></h1>
         <hr class="bg-light"/>
         <h2 class="text-center nadestack_heading_two">Starter Division 22</h2>
         <div class="row">

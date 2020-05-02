@@ -46,11 +46,10 @@
 
             @endforeach
             <hr class="bg-light">
-            <h3 class="text-center">Response to Ticket</h3>
-            <div class="row">  
+            <h3 class="text-center nadestack_heading_three">Response to Ticket</h3>
+            <div class="row">
                 <div class="col">
-                    <form class="nadestack_form" method="post" enctype="multipart/form-data" action="#">
-
+                    <form method="post" enctype="multipart/form-data" action="#">
                         <div class="form-row form-group">
                             <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Answer:</label></div>
                             <div class="col-sm-8 input-column"><textarea class="form-control" style="height: 250px;"></textarea></div>
@@ -62,7 +61,7 @@
                         <hr class="bg-light"/>
                         <div class="form-check text-center"><input class="form-check-input" type="checkbox" id="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
                         <div class="form-row">
-                            <div class="col text-center nadestack-last-element"><button id="submit_btn" class="btn nadestack_btn" type="button" style="margin-top: 10px;">Answer</button></div>
+                            <div class="col text-center "><button id="submit_btn" class="btn nadestack_btn" type="button" style="margin-top: 10px;">Answer</button></div>
                         </div>
                     </form>
                 </div>

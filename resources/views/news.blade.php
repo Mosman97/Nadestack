@@ -8,7 +8,10 @@
                 <div id="news_container">
                     <div class="row">
                         <div class="col">
-                            <p class="text-left" style="padding-left: 15px; color: #FF312E">Kopiert er Rischemoves?</p>
+                            <div class="row">
+                                <p class="col text-left" style="margin-left: 15px; color: #FF312E">Kopiert er Rischemoves?</p>
+                                <p class="col text-right" style="margin-right: 10px;">12.05.20 19:00</p>
+                            </div>
                             <h3 class="text-left" style="padding-left: 15px;">AlexRr bringing back dem HeadShotzz</h3>
                             <p class="text-left" style="padding-left: 15px;">Dies ist ein Beispieltext für eine Unterüberschrift einer News wo AlexRr mal wieder DevranN die AWP stibitzt hat ( der kleine Frechsdachs) aber eigentlich hätte eine Flash vor Rot gerreicht</p>
                         </div>
@@ -19,7 +22,10 @@
                         <div class="col">
                             <div class="row">
                                 <div class="col">
-                                    <p class="text-left" style="padding-left: 15px; color: #FF312E">Kopiert er Rischemoves?</p>
+                                    <div class="row">
+                                        <p class="col text-left" style="margin-left: 15px; color: #FF312E">Kopiert er Rischemoves?</p>
+                                        <p class="col text-right" style="margin-right: 10px;">12.05.20 19:00</p>
+                                    </div>
                                     <h3 class="text-left" style="padding-left: 15px;">AlexRr bringing back dem HeadShotzz</h3>
                                     <p class="text-left" style="padding-left: 15px;">Dies ist ein Beispieltext für eine Unterüberschrift einer News wo AlexRr mal wieder DevranN die AWP stibitzt hat ( der kleine Frechsdachs) aber eigentlich hätte eine Flash vor Rot gerreicht</p>
                                 </div>
@@ -32,7 +38,10 @@
                         <div class="col">
                             <div class="row">
                                 <div class="col">
-                                    <p class="text-left" style="padding-left: 15px; color: #FF312E">Kopiert er Rischemoves?</p>
+                                    <div class="row">
+                                        <p class="col text-left" style="margin-left: 15px; color: #FF312E">Kopiert er Rischemoves?</p>
+                                        <p class="col text-right" style="margin-right: 10px;">12.05.20 19:00</p>
+                                    </div>
                                     <h3 class="text-left" style="padding-left: 15px;">AlexRr bringing back dem HeadShotzz</h3>
                                     <p class="text-left" style="padding-left: 15px;">Dies ist ein Beispieltext für eine Unterüberschrift einer News wo AlexRr mal wieder DevranN die AWP stibitzt hat ( der kleine Frechsdachs) aber eigentlich hätte eine Flash vor Rot gerreicht</p>
                                 </div>
@@ -45,7 +54,10 @@
                         <div class="col">
                             <div class="row">
                                 <div class="col">
-                                    <p class="text-left" style="padding-left: 15px; color: #FF312E">Kopiert er Rischemoves?</p>
+                                    <div class="row">
+                                        <p class="col text-left" style="margin-left: 15px; color: #FF312E">Kopiert er Rischemoves?</p>
+                                        <p class="col text-right" style="margin-right: 10px;">12.05.20 19:00</p>
+                                    </div>
                                     <h3 class="text-left" style="padding-left: 15px;">AlexRr bringing back dem HeadShotzz</h3>
                                     <p class="text-left" style="padding-left: 15px;">Dies ist ein Beispieltext für eine Unterüberschrift einer News wo AlexRr mal wieder DevranN die AWP stibitzt hat ( der kleine Frechsdachs) aber eigentlich hätte eine Flash vor Rot gerreicht</p>
                                 </div>
@@ -58,7 +70,10 @@
                         <div class="col">
                             <div class="row">
                                 <div class="col">
-                                    <p class="text-left" style="padding-left: 15px; color: #FF312E">Kopiert er Rischemoves?</p>
+                                    <div class="row">
+                                        <p class="col text-left" style="margin-left: 15px; color: #FF312E">Kopiert er Rischemoves?</p>
+                                        <p class="col text-right" style="margin-right: 10px;">12.05.20 19:00</p>
+                                    </div>
                                     <h3 class="text-left" style="padding-left: 15px;">AlexRr bringing back dem HeadShotzz</h3>
                                     <p class="text-left" style="padding-left: 15px;">Dies ist ein Beispieltext für eine Unterüberschrift einer News wo AlexRr mal wieder DevranN die AWP stibitzt hat ( der kleine Frechsdachs) aber eigentlich hätte eine Flash vor Rot gerreicht</p>
                                 </div>

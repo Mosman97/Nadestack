@@ -15,14 +15,8 @@ Route::get('/', function () {
  * Searchroute of Nadestack
  */
 Route::get("/search", function() {
-
-
     return view("search");
 })->name('search');
-
-
-
-
 
 
 /*
@@ -42,20 +36,23 @@ Route::get("league/overview", function() {
 })->name('league_overview');
 
 
-Route::get("league/season/{season_id}", "SeasonController@index")->name("season_overview");
+Route::get("league/season/{season_id}", "SeasonController@index")
+    ->name("season_overview");
 
 
 /*
  * displays all Divisions related to the Seasons
  */
-Route::get("league/season/{season_id}/divisions", "DivisonController@index")->name("divison_overview");
+Route::get("league/season/{season_id}/divisions", "DivisonController@index")
+    ->name("divison_overview");
 
 
 
 /*
  * Displays all Groups related to the Division and Season
  */
-Route::get("league/season/{season_id}/divison/{divison_id}/groups", "GroupController@index")->name("group_overview");
+Route::get("league/season/{season_id}/divison/{divison_id}/groups", "GroupController@index")
+    ->name("group_overview");
 
 
 //Route::get("league/season/{season_id}/divison/{divison_id}/group/{group_id}","")->name("single_group");
@@ -63,8 +60,6 @@ Route::get("league/season/{season_id}/divison/{divison_id}/groups", "GroupContro
  * This Route describes the Client
  */
 Route::get("league/client", function() {
-
-
     return view("league.download_client");
 })->name("client_download");
 
@@ -73,8 +68,6 @@ Route::get("league/client", function() {
  * This Route describes the League Rules
  */
 Route::get("league/rules", function() {
-
-
     return view("league.rules");
 })->name("league_rules");
 
@@ -84,7 +77,8 @@ Route::get("league/rules", function() {
 /*
  * This Route defines My League
  */
-Route::get("league/myleague", "MyLeagueController@ViewOrganiser")->name("myleague")->middleware('auth');
+Route::get("league/myleague", "MyLeagueController@ViewOrganiser")
+    ->name("myleague")->middleware('auth');
 
 
 
@@ -96,17 +90,20 @@ Route::get("league/myleague", "MyLeagueController@ViewOrganiser")->name("myleagu
 /**
  * Route for creating a new Team Ressource (Can only be called if User is not in a Team)s
  */
-Route::get("league/createTeam", "TeamRegisterController@index")->name("teamregister")->middleware('auth');
+Route::get("league/createTeam", "TeamRegisterController@index")
+    ->name("teamregister")->middleware('auth');
 
 /**
  * Create a new Team Ressource
  */
-Route::post("league/createTeam", "TeamRegisterController@createTeam")->name("createnewteam")->middleware('auth');
+Route::post("league/createTeam", "TeamRegisterController@createTeam")
+    ->name("createnewteam")->middleware('auth');
 
 /**
  * Validate the Inputs via AJAX For Frontend Validation
  */
-Route::post("league/createteam/validate", "TeamRegisterController@checkRemoteValidation")->name("validatecreateteam")->middleware('auth');
+Route::post("league/createteam/validate", "TeamRegisterController@checkRemoteValidation")
+    ->name("validatecreateteam")->middleware('auth');
 
 
 
@@ -118,30 +115,35 @@ Route::post("league/createteam/validate", "TeamRegisterController@checkRemoteVal
 /*
  * Returns the View of the Userprofile
  */
-Route::get("/user/{username}", "UserprofilePageController@getUserProfileData")->name("profilepage");
+Route::get("/user/{username}", "UserprofilePageController@getUserProfileData")
+    ->name("profilepage");
 
 /*
  * Returns the View of the Profilesettings
  */
-Route::get("/mySettings", "ProfileSettingsController@getProfileSettings")->name("profilesettings")->middleware('auth');
+Route::get("/mySettings", "ProfileSettingsController@getProfileSettings")
+    ->name("profilesettings")->middleware('auth');
 
 
 
 /**
  * Sets the Steam-ID of the current User, this should be done only once and can only be revoked by an Admin
  */
-Route::get("verifySteamAccount", "ProfileSettingsController@setSteamID")->name("setsteamid")->middleware('auth');
+Route::get("verifySteamAccount", "ProfileSettingsController@setSteamID")
+    ->name("setsteamid")->middleware('auth');
 
 
 /*
  * Updates the ProfileImage
  */
-Route::post('/updateProfileImage', "ProfileSettingsController@updateProfilePicture")->name('updateprofilepicture')->middleware('auth');
+Route::post('/updateProfileImage', "ProfileSettingsController@updateProfilePicture")
+    ->name('updateprofilepicture')->middleware('auth');
 
 /*
  * Updates the rest of the Profile
  */
-Route::post("updateProfile", "ProfileSettingsController@updateProfileSettings")->name("updateProfile")->middleware('auth');
+Route::post("updateProfile", "ProfileSettingsController@updateProfileSettings")
+    ->name("updateProfile")->middleware('auth');
 
 
 
@@ -150,13 +152,15 @@ Route::post("updateProfile", "ProfileSettingsController@updateProfileSettings")-
  * Displays Profile related Tickets
  *
  */
-Route::get("/mytickets", "ProfileTicketController@index")->middleware('auth')->name("profiletickets");
+Route::get("/mytickets", "ProfileTicketController@index")
+    ->middleware('auth')->name("profiletickets");
 
 
 /*
  * Views the Details of the Ticket with the given ID
  */
-Route::get("myticket/{ticket_id}", "ProfileTicketController@getTicketDetails")->middleware('auth')->name("viewticket");
+Route::get("myticket/{ticket_id}", "ProfileTicketController@getTicketDetails")
+    ->middleware('auth')->name("viewticket");
 
 
 /**
@@ -187,7 +191,8 @@ Route::get("/support", function() {
  * Creates a new Supportticket
  */
 
-Route::post("/support/new", "ProfileTicketController@store")->middleware("auth")->name("createticket");
+Route::post("/support/new", "ProfileTicketController@store")
+    ->middleware("auth")->name("createticket");
 
 /*
  *  --------------BEGINN OF AUTHENTIFICATION RELATED ROUTES--------------
@@ -211,7 +216,6 @@ Route::get('/logout', function() {
  * Displays a Forogt Username
  */
 Route::get('/forgotUsername', function() {
-
     return view('emails.ForgotUsername');
 })->middleware('guest')->name('account.usernameforget');
 
@@ -219,7 +223,8 @@ Route::get('/forgotUsername', function() {
 /**
  * Startpage as Logged-In User
  */
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+    ->name('home');
 /*
  *  --------------END OF AUTHENTIFICATION RELATED ROUTES--------------
  */
@@ -233,7 +238,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 /*
  * Returns the View of the Team with the given Teamid
  */
-Route::get("/teams/{teamid}", "TeamPageController@index")->name("teampage");
+Route::get("/teams/{teamid}", "TeamPageController@index"
+)->name("teampage");
 
 
 /*
@@ -250,19 +256,13 @@ Route::get("/teams/{teamid}", "TeamPageController@index")->name("teampage");
  * Displays the Root of the Forum aka the Forum-Overview
  */
 Route::get("/forum", function() {
-
-
     return view("forum.forum_overview");
 })->name('forum');
-
-
 
 /*
  * Displays all Threads
  */
 Route::get("forum/threads", function() {
-
-
     return view("forum.thread_overview");
 });
 
@@ -274,8 +274,6 @@ Route::get("/forum/create", function() {
  * Displays a Single Forum Thread with the given ID
  */
 Route::get("forum/thread/{id}", function() {
-
-
     return view("forum.thread");
 });
 
@@ -316,80 +314,104 @@ Route::get("/statistics/maps", function() {
 /*
  * Index/Startpage of the Adminpanel
  */
-Route::get("/admin", "adminpanel\AdminpanelIndexController@index")->middleware('admin')->name('admin');
+Route::get("/admin", "adminpanel\AdminpanelIndexController@index")
+    ->middleware('admin')->name('admin');
 /*
  * Overview of all News
  */
-Route::get('/admin/news', "adminpanel\AdminPanelNewsController@index")->middleware('admin')->name('adminpanel_newsindex');
+Route::get('/admin/news', "adminpanel\AdminPanelNewsController@index")
+    ->middleware('admin')->name('adminpanel_newsindex');
 /*
  * Returns the View to create a new News
  */
-Route::get("/admin/news/new", "adminpanel\AdminPanelNewsController@create")->middleware('admin')->name("adminpanel_createnews");
+Route::get("/admin/news/new", "adminpanel\AdminPanelNewsController@create")
+    ->middleware('admin')->name("adminpanel_createnews");
 
 
 /*
  * Stores /Saves a newly created News in the Datbase
  */
-Route::post("/admin/news/store", "adminpanel\AdminPanelNewsController@store")->middleware('admin')->name("adminpanel_storenews");
+Route::post("/admin/news/store", "adminpanel\AdminPanelNewsController@store")
+    ->middleware('admin')->name("adminpanel_storenews");
 
 /*
  * Deletes a News with the given News ID
  */
-Route::post("/admin/news/delete/{id}", "adminpanel\AdminPanelNewsController@destroy")->middleware('admin')->name("adminpanel_deltenews");
+Route::post("/admin/news/delete/{id}", "adminpanel\AdminPanelNewsController@destroy")
+    ->middleware('admin')->name("adminpanel_deltenews");
 
 /*
  * Edits a News with the given ID
  */
-Route::get("/admin/news/edit/{id}", "adminpanel\AdminPanelNewsController@edit")->middleware('admin')->name("adminpanel_editnews");
+Route::get("/admin/news/edit/{id}", "adminpanel\AdminPanelNewsController@edit")
+    ->middleware('admin')->name("adminpanel_editnews");
 
 /*
  * Updates a News with the given ID
  */
-Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@update")->middleware('admin')->name("adminpanel_updatenews");
+Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@update")
+    ->middleware('admin')->name("adminpanel_updatenews");
 
 
 
 /*
  * Default View for all Players /Users in Nadestack
  */
-Route::get("admin/player", "adminpanel\Playercontroller@index")->middleware("admin")->name("adminpanel_playerindex");
+Route::get("admin/player", "adminpanel\Playercontroller@index")
+    ->middleware("admin")->name("adminpanel_playerindex");
 
 
 /*
  * Edits a playerprofile with the given player-ID
  */
-Route::get("admin/player/{player_id}/edit", "adminpanel\Playercontroller@edit")->middleware("admin")->name("adminpanel_editplayer");
+Route::get("admin/player/{player_id}/edit", "adminpanel\Playercontroller@edit")
+    ->middleware("admin")->name("adminpanel_editplayer");
 
 /*
  * Overview of all Tickets
  */
-Route::get("admin/tickets", "adminpanel\TicketController@index")->middleware("admin")->name("adminpanel_ticketindex");
+Route::get("admin/tickets", "adminpanel\TicketController@index")
+    ->middleware("admin")->name("adminpanel_ticketindex");
 
 /*
  * Edits a Ticket with the given ID
  */
-Route::get("admin/ticket/{id}/edit", "adminpanel\TicketController@edit")->middleware("admin")->name("adminpanel_editticket");
+Route::get("admin/ticket/{id}/edit", "adminpanel\TicketController@edit")
+    ->middleware("admin")->name("adminpanel_editticket");
 
 /**
  * Adds a new Repsonse to the given Ticket-ID Entry
  */
-Route::post("admin/ticket/{id}/store", "adminpanel\TicketController@store")->middleware("admin")->name("adminpanel_ticketresponse");
+Route::post("admin/ticket/{id}/store", "adminpanel\TicketController@store")
+    ->middleware("admin")->name("adminpanel_ticketresponse");
 
 /*
  * Route for the Overview of all teams in the Adminpanel
  */
-Route::get("admin/teams", "adminpanel\TeamController@index")->middleware("admin")->name("adminpanel_teamindex");
+Route::get("admin/teams", "adminpanel\TeamController@index")
+    ->middleware("admin")->name("adminpanel_teamindex");
 
 /*
  * Route for Editing a Team
  */
-Route::get("admin/team/{teamid}/edit", "adminpanel\TeamController@edit")->middleware("admin")->name("adminpanel_editteam");
-
-
+Route::get("admin/team/{teamid}/edit", "adminpanel\TeamController@edit")
+    ->middleware("admin")->name("adminpanel_editteam");
 
 
 /*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------
+ */
+
+/*
+ * -----------------------------BEGIN OF FOOTER ROUTES-------------------
+ */
+
+Route::get("/about", function() {
+    return view("about");
+})->name('about');
+
+/*
+ * -----------------------------END OF FOOTER ROUTES-------------------
  */
 
 

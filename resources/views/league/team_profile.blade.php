@@ -29,7 +29,8 @@
                                         <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
                                     </div>
                                     <div class="col text-right">
-                                        <button class="btn nadestack_btn" style="margin-top: 13px;">Edit</button>
+                                        <button class="btn nadestack_btn" style="margin-top: 13px;margin-right: 10px">Leave Team</button>
+                                        <button class="btn nadestack_btn" style="margin-top: 13px;">Edit Team</button>
                                     </div>
                                 </div>
 
@@ -62,11 +63,6 @@
                                             </thead>
                                             <tbody>
                                                 <tr class="nadestack-tbl">
-                                                    <td>
-                                                        <a target="_blank" rel="noopener noreferrer" href="https://faceit.com">
-                                                            <img src="../assets/svg/faceit.svg" alt="faceitlogo" class="icon_grow" id="faceit-logo">
-                                                        </a>
-                                                    </td>
                                                     <td>
                                                         <a target="_blank" rel="noopener noreferrer" href="https://steam.com">
                                                             <img src="../assets/svg/steam-symbol.svg" alt="steamlogo" class="icon_grow" id="steam-symbol">
