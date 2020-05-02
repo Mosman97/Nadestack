@@ -266,6 +266,9 @@ Route::get("forum/threads", function() {
     return view("forum.thread_overview");
 });
 
+Route::get("/forum/create", function() {
+    return view("forum.create_thread");
+})->name('createthread');
 
 /**
  * Displays a Single Forum Thread with the given ID

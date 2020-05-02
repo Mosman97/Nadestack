@@ -9,7 +9,7 @@
                     <div class="col">
                         <h1 class="nadestack_heading_one">League problems</h1>
                         @auth
-                        <button class="nadestack_btn" style="background-color: #86C232; margin-bottom: 8px">Create thread</button>
+                            <button class="nadestack_btn" style="background-color: #86C232; margin-bottom: 8px"><a href="{{route('createthread')}}">Create thread</a></button>
                         @endauth
                         <div class="table-responsive">
                             <table class="table nadestack-tbl table-borderless">

@@ -4,10 +4,10 @@
 
 
 
-<div class="container-fluid" style="background-color: #0F0F0F;">
+<div class="container-fluid" >
     <div class="row">
-        <div class="col-xl-3 offset-xl-0"></div>
-        <div class="col-xl-6 colum_content_big">
+        <div class="col-xl-3"></div>
+        <div class="col colum_content_big">
             <div class="row nadestack-row">
                 <div class="col">
                     <h1 class="text-center nadestack-heading">Player Profile</h1>
@@ -310,7 +310,7 @@
                 </div>
             </div>
         </div>
-        <div class="col"></div>
+        <div class="col-xl-3"></div>
     </div>
 </div>
 
