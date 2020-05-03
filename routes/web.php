@@ -63,6 +63,10 @@ Route::get("league/client", function() {
     return view("league.download_client");
 })->name("client_download");
 
+Route::get("/faq", function() {
+    return view("league.faq");
+})->name('faq');
+
 
 /*
  * This Route describes the League Rules

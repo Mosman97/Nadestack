@@ -20,11 +20,13 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('league_rules')}}">Rules</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">FAQ</a>
+                        <a class="dropdown-item" href="{{route('faq')}}">FAQ</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('support')}}">Support</a>
+                        <!-- vorerst wird kein ac verwendet!
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('client_download')}}">Download Client</a>
+                        -->
                     </div>
                 </li>
                 <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="{{route('statistics')}}">Statistics</a></li>
