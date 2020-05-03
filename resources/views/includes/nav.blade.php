@@ -48,14 +48,24 @@
                 @auth
                 <li class="nav-item avatar dropdown" style="align-self: center">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-56" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">1 <i class="fa fa-envelope"></i>
+                       aria-haspopup="true" aria-expanded="false">{{Auth::user()->notifications->count() }} <i class="fa fa-envelope"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-secondary nadestack-dropdown-menu ">
-                        <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p>Lorem ipsum dolor </p></div>
+
+                        @foreach (Auth::user()->unReadNotifications as $notification)
+
+                        <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime($notification->created_at)) }}</i></small><br/><p> {{$notification->data['data']}}</p></div>
                         <div class="dropdown-divider"></div>
-                        <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p>Lorem ipsum dolor </p></div>
+                        @endforeach
+
+                        <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p> </p></div>
                         <div class="dropdown-divider"></div>
-                        <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p>Lorem ipsum dolor </p></div>
+                        <!--
+                     <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p>Lorem ipsum dolor </p></div>
+                     <div class="dropdown-divider"></div>
+                     <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p>Lorem ipsum dolor </p></div>
+                     
+                        -->
                     </div>
                 </li>
                 <li class="nav-item avatar dropdown">

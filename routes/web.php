@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
  * Startpage of Nadestack also defined as the Newspage
  */
@@ -37,14 +38,14 @@ Route::get("league/overview", function() {
 
 
 Route::get("league/season/{season_id}", "SeasonController@index")
-    ->name("season_overview");
+        ->name("season_overview");
 
 
 /*
  * displays all Divisions related to the Seasons
  */
 Route::get("league/season/{season_id}/divisions", "DivisonController@index")
-    ->name("divison_overview");
+        ->name("divison_overview");
 
 
 
@@ -52,7 +53,7 @@ Route::get("league/season/{season_id}/divisions", "DivisonController@index")
  * Displays all Groups related to the Division and Season
  */
 Route::get("league/season/{season_id}/divison/{divison_id}/groups", "GroupController@index")
-    ->name("group_overview");
+        ->name("group_overview");
 
 
 //Route::get("league/season/{season_id}/divison/{divison_id}/group/{group_id}","")->name("single_group");
@@ -82,7 +83,7 @@ Route::get("league/rules", function() {
  * This Route defines My League
  */
 Route::get("league/myleague", "MyLeagueController@ViewOrganiser")
-    ->name("myleague")->middleware('auth');
+        ->name("myleague")->middleware('auth');
 
 
 
@@ -95,19 +96,19 @@ Route::get("league/myleague", "MyLeagueController@ViewOrganiser")
  * Route for creating a new Team Ressource (Can only be called if User is not in a Team)s
  */
 Route::get("league/createTeam", "TeamRegisterController@index")
-    ->name("teamregister")->middleware('auth');
+        ->name("teamregister")->middleware('auth');
 
 /**
  * Create a new Team Ressource
  */
 Route::post("league/createTeam", "TeamRegisterController@createTeam")
-    ->name("createnewteam")->middleware('auth');
+        ->name("createnewteam")->middleware('auth');
 
 /**
  * Validate the Inputs via AJAX For Frontend Validation
  */
 Route::post("league/createteam/validate", "TeamRegisterController@checkRemoteValidation")
-    ->name("validatecreateteam")->middleware('auth');
+        ->name("validatecreateteam")->middleware('auth');
 
 
 
@@ -120,34 +121,41 @@ Route::post("league/createteam/validate", "TeamRegisterController@checkRemoteVal
  * Returns the View of the Userprofile
  */
 Route::get("/user/{username}", "UserprofilePageController@getUserProfileData")
-    ->name("profilepage");
+        ->name("profilepage");
 
 /*
  * Returns the View of the Profilesettings
  */
 Route::get("/mySettings", "ProfileSettingsController@getProfileSettings")
-    ->name("profilesettings")->middleware('auth');
+        ->name("profilesettings")->middleware('auth');
 
 
+
+
+Route::post("/notification/{notification_id}/read", function() {
+
+//Auth::user()->unreadNotifications->where('id', $id)->markAsRead();
+
+});
 
 /**
  * Sets the Steam-ID of the current User, this should be done only once and can only be revoked by an Admin
  */
 Route::get("verifySteamAccount", "ProfileSettingsController@setSteamID")
-    ->name("setsteamid")->middleware('auth');
+        ->name("setsteamid")->middleware('auth');
 
 
 /*
  * Updates the ProfileImage
  */
 Route::post('/updateProfileImage', "ProfileSettingsController@updateProfilePicture")
-    ->name('updateprofilepicture')->middleware('auth');
+        ->name('updateprofilepicture')->middleware('auth');
 
 /*
  * Updates the rest of the Profile
  */
 Route::post("updateProfile", "ProfileSettingsController@updateProfileSettings")
-    ->name("updateProfile")->middleware('auth');
+        ->name("updateProfile")->middleware('auth');
 
 
 
@@ -157,14 +165,14 @@ Route::post("updateProfile", "ProfileSettingsController@updateProfileSettings")
  *
  */
 Route::get("/mytickets", "ProfileTicketController@index")
-    ->middleware('auth')->name("profiletickets");
+        ->middleware('auth')->name("profiletickets");
 
 
 /*
  * Views the Details of the Ticket with the given ID
  */
 Route::get("myticket/{ticket_id}", "ProfileTicketController@getTicketDetails")
-    ->middleware('auth')->name("viewticket");
+        ->middleware('auth')->name("viewticket");
 
 
 /**
@@ -196,7 +204,7 @@ Route::get("/support", function() {
  */
 
 Route::post("/support/new", "ProfileTicketController@store")
-    ->middleware("auth")->name("createticket");
+        ->middleware("auth")->name("createticket");
 
 /*
  *  --------------BEGINN OF AUTHENTIFICATION RELATED ROUTES--------------
@@ -228,7 +236,7 @@ Route::get('/forgotUsername', function() {
  * Startpage as Logged-In User
  */
 Route::get('/home', 'HomeController@index')
-    ->name('home');
+        ->name('home');
 /*
  *  --------------END OF AUTHENTIFICATION RELATED ROUTES--------------
  */
@@ -244,6 +252,12 @@ Route::get('/home', 'HomeController@index')
  */
 Route::get("/teams/{teamid}", "TeamPageController@index"
 )->name("teampage");
+
+
+/**
+ * User leaves the Team if he wishes to do 
+ */
+Route::post("/teams/leave", "TeamPageController@leaveTeam")->name("leave_team")->middleware('auth');
 
 
 /*
@@ -319,42 +333,42 @@ Route::get("/statistics/maps", function() {
  * Index/Startpage of the Adminpanel
  */
 Route::get("/admin", "adminpanel\AdminpanelIndexController@index")
-    ->middleware('admin')->name('admin');
+        ->middleware('admin')->name('admin');
 /*
  * Overview of all News
  */
 Route::get('/admin/news', "adminpanel\AdminPanelNewsController@index")
-    ->middleware('admin')->name('adminpanel_newsindex');
+        ->middleware('admin')->name('adminpanel_newsindex');
 /*
  * Returns the View to create a new News
  */
 Route::get("/admin/news/new", "adminpanel\AdminPanelNewsController@create")
-    ->middleware('admin')->name("adminpanel_createnews");
+        ->middleware('admin')->name("adminpanel_createnews");
 
 
 /*
  * Stores /Saves a newly created News in the Datbase
  */
 Route::post("/admin/news/store", "adminpanel\AdminPanelNewsController@store")
-    ->middleware('admin')->name("adminpanel_storenews");
+        ->middleware('admin')->name("adminpanel_storenews");
 
 /*
  * Deletes a News with the given News ID
  */
 Route::post("/admin/news/delete/{id}", "adminpanel\AdminPanelNewsController@destroy")
-    ->middleware('admin')->name("adminpanel_deltenews");
+        ->middleware('admin')->name("adminpanel_deltenews");
 
 /*
  * Edits a News with the given ID
  */
 Route::get("/admin/news/edit/{id}", "adminpanel\AdminPanelNewsController@edit")
-    ->middleware('admin')->name("adminpanel_editnews");
+        ->middleware('admin')->name("adminpanel_editnews");
 
 /*
  * Updates a News with the given ID
  */
 Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@update")
-    ->middleware('admin')->name("adminpanel_updatenews");
+        ->middleware('admin')->name("adminpanel_updatenews");
 
 
 
@@ -362,44 +376,44 @@ Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@upda
  * Default View for all Players /Users in Nadestack
  */
 Route::get("admin/player", "adminpanel\Playercontroller@index")
-    ->middleware("admin")->name("adminpanel_playerindex");
+        ->middleware("admin")->name("adminpanel_playerindex");
 
 
 /*
  * Edits a playerprofile with the given player-ID
  */
 Route::get("admin/player/{player_id}/edit", "adminpanel\Playercontroller@edit")
-    ->middleware("admin")->name("adminpanel_editplayer");
+        ->middleware("admin")->name("adminpanel_editplayer");
 
 /*
  * Overview of all Tickets
  */
 Route::get("admin/tickets", "adminpanel\TicketController@index")
-    ->middleware("admin")->name("adminpanel_ticketindex");
+        ->middleware("admin")->name("adminpanel_ticketindex");
 
 /*
  * Edits a Ticket with the given ID
  */
 Route::get("admin/ticket/{id}/edit", "adminpanel\TicketController@edit")
-    ->middleware("admin")->name("adminpanel_editticket");
+        ->middleware("admin")->name("adminpanel_editticket");
 
 /**
  * Adds a new Repsonse to the given Ticket-ID Entry
  */
 Route::post("admin/ticket/{id}/store", "adminpanel\TicketController@store")
-    ->middleware("admin")->name("adminpanel_ticketresponse");
+        ->middleware("admin")->name("adminpanel_ticketresponse");
 
 /*
  * Route for the Overview of all teams in the Adminpanel
  */
 Route::get("admin/teams", "adminpanel\TeamController@index")
-    ->middleware("admin")->name("adminpanel_teamindex");
+        ->middleware("admin")->name("adminpanel_teamindex");
 
 /*
  * Route for Editing a Team
  */
 Route::get("admin/team/{teamid}/edit", "adminpanel\TeamController@edit")
-    ->middleware("admin")->name("adminpanel_editteam");
+        ->middleware("admin")->name("adminpanel_editteam");
 
 
 /*

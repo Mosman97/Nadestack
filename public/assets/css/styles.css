@@ -796,3 +796,27 @@ a.forum-item-title:hover {
 }
 
 /*End of Forum Styling*/
+
+
+
+/* Begin Team-Styling */
+
+
+.modal-content {
+    
+    background-color:#474B4F;
+}
+
+.modal-header >  button{
+    
+    background-color:#BA2423;
+    size: 4px;
+      
+
+}
+
+
+
+
+
+/*End Team-Styling */

@@ -4,12 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-/**
- * Migration for the UserNotifications 
- */
-
-class CreateNotificationsTable extends Migration
+class ForumSections extends Migration
 {
     /**
      * Run the migrations.
@@ -18,11 +13,13 @@ class CreateNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('notifications', function (Blueprint $table) {
-            $table->bigIncrements('notification_id');
-            $table->bigInteger('userid');
-            $table->string('content');
-            $table->boolean('read');
+          Schema::create('forum_categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->integer('order')->default(1);
+            $table->string('name');
+            $table->string('color', 20);
+            $table->string('slug');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreateNotificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notifications');
+        //
     }
 }
