@@ -55,9 +55,9 @@
 </script>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-2"></div>
+        <div class="col-xl-1"></div>
         <div class="col">
-            <div id="profile_settings_form_container" style="width: auto;height: auto;">
+            <div id="profile_settings_form_container" >
                 <!-- Start: Pretty Registration Form -->
                 {{var_dump($errors)}}
                 @foreach ($errors->all() as $error)
@@ -108,7 +108,14 @@
                                                 @else
                                                        <button class="btn text-white nadestack_btn" type="button" style="font-size: 16px;">change Request</button>
                                                 @endif
-                                         
+
+                                            </div>
+                                        </div>
+                                        <div class="form-row form-group">
+                                            <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><span style="padding-left: 10px;">Verification-ID</span></div>
+                                            <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" type="text" placeholder="100231"></div>
+                                            <div class="col">
+                                                <button class="btn text-white nadestack_btn" type="button" style="font-size: 16px;">Delete my Data!</button>
                                             </div>
                                         </div>
                                         <div class="form-row form-group">
@@ -234,7 +241,7 @@
                 <!-- End: Pretty Registration Form -->
             </div>
         </div>
-        <div class="col-xl-2"></div>
+        <div class="col-xl-1"></div>
     </div>
 </div>
 @endsection
