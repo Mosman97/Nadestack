@@ -104,7 +104,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="table-responive">
-                                            <table class="table nadestack-tbl text-center">
+                                            <table class="table nadestack-tbl text-center table-sm">
                                                 <thead>
                                                     <tr>
                                                         <th></th>
@@ -207,7 +207,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="table-responsive">
-                                            <table class="table nadestack-tbl text-center">
+                                            <table class="table table-sm nadestack-tbl text-center">
                                                 <thead>
                                                     <tr>
                                                         <th>Enemy</th>
@@ -262,6 +262,34 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col"><button class="btn btn-danger btn-sm text-center text-white" type="button" data-toggle="collapse" data-target="#log_table" style="font-size: 16px;margin-top: -8px;"><i class="fa fa-arrow-circle-o-down"></i></button><span style="padding-left: 10px;padding-top: 1px;">Teamlog</span></div>
+                                </div>
+                                <div id="log_table" class="row accordion-body collapse">
+                                    <div class="col">
+                                        <div class="table-responsive">
+                                            <table class="table table-sm nadestack-tbl" style="font-size: small;">
+                                                <thead>
+                                                <tr>
+                                                    <th>Time</th>
+                                                    <th>User</th>
+                                                    <th>Action</th>
+                                                    <th>Target</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>20.02.20 - 19:00</td>
+                                                    <td>Syn</td>
+                                                    <td>kick</td>
+                                                    <td>AlexRr</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: 15px"></div>
                             </div>
                             <!-- End of the teamprofile tab with general information -->
                             <!-- Beginn of the teamstats -->
