@@ -2,42 +2,46 @@
 
 @section('content')
     <div class="col-xl-6 colum_content_big" style="background-color: #474B4F">
-        <h1 class="text-center nadestack_heading_one"><img id='nav_logo' src="assets/img/logo.png" width="60px"/>Nadestack League</h1>
-        <hr style="background-color: #222629; height:1px; border:none;color: #222629 "/>
-        <h2 class="text-center nadestack_heading_two">Timetable - Season 1</h2>
+        <h1 class="text-center nadestack_heading_one nadestack-first-element"><img id='nav_logo' src='{{URL::asset('assets/img/logo.png')}}' width="60px"/>Nadestack League<img id='nav_logo' src='{{URL::asset('assets/img/logo.png')}}' width="60px"/></h1>
+        <hr class="bg-light"/>
+        <h2 class="text-center nadestack_heading_two">Make sure you are prepared</h2>
+        <hr class="bg-light"/>
+        <h2 class="text-center nadestack_heading_two">Time schedule - Season 1</h2>
         <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col">
-                <div class="table-responsive">
-                    <table class="table nadestack-tbl">
-                        <thead style="background-color: #6B6E70; color: white;">
-                        <tr>
-                            <th>Date</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody style="background-color: #6B6E70;">
-                        <tr>
-                            <td>05-03-20 - 05-09-20</td>
-                            <td>Week 1</td>
-                        </tr>
-                        <tr>
-                            <td>05-10-20 - 05-16-20</td>
-                            <td>Week 2</td>
-                        </tr>
-                        <tr>
-                            <td>05-17-20 - 05-23-20</td>
-                            <td>Week 3</td>
-                        </tr>
-                        <tr>
-                            <td>05-24-20 - 05-30-20</td>
-                            <td>Week 4</td>
-                        </tr>
-                        </tbody>
-                    </table>
+            <div class="col-md-12">
+                <div class="main-timeline">
+                    <div class="timeline">
+                        <a href="#" class="timeline-content">
+                            <span class="timeline-year">02.10.20</span>
+                            <div class="timeline-icon">
+                                <i class="fas fa-door-open"></i>
+                            </div>
+                            <h3 class="title">Anmeldung</h3>
+                            <p class="description">Teams can sign in to the Nadestack league</p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <a href="#" class="timeline-content">
+                            <span class="timeline-year">16.10.20</span>
+                            <div class="timeline-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <h3 class="title">Planung</h3>
+                            <p class="description">We are starting to organize the divisions</p>
+                        </a>
+                    </div>
+                    <div class="timeline">
+                        <a href="#" class="timeline-content">
+                            <span class="timeline-year">24.10.20</span>
+                            <div class="timeline-icon">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <h3 class="title">Ligaphase</h3>
+                            <p class="description">The leaue is starting and you are able to play now</p>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
         <h2 class="text-center nadestack_heading_two">Find Division</h2>
 
