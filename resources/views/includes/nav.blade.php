@@ -50,29 +50,15 @@
                        aria-haspopup="true" aria-expanded="false">{{Auth::user()->unReadNotifications->count() }} <i class="fa fa-envelope"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-secondary nadestack-dropdown-menu ">
-
-
-
                         @foreach (Auth::user()->unReadNotifications as $notification)
-
                         <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime($notification->created_at)) }}</i></small><br/><p> {{$notification->data['data']}}</p></div>
                         <div class="dropdown-divider"></div>
                         @endforeach
-
                         @if(Auth::user()->unReadNotifications->count() > 0)
                         <div class="dropdown-item"><a href="{{route('readAllNotifications')}}" type="button" class="nadestack_btn">Mark All as Read</a></div>
                         @else
                         <div class="dropdown-item">No New Notifications</div>
                         @endif
-
-
-
-                        <!--
-                     <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p>Lorem ipsum dolor </p></div>
-                     <div class="dropdown-divider"></div>
-                     <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p>Lorem ipsum dolor </p></div>
-                     
-                        -->
                     </div>
                 <li class="nav-item avatar dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" class="nadestack-dropdown-menu"data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">

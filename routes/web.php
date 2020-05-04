@@ -3,15 +3,25 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * BEGIN OF ERROR HANDLING ROUTES
+ */
+Route::fallback(function() {
+    return view('errors.404');
+});
+
+/**
+ * END OF ERROR HANDLING ROUTES
+ */
 /*
  * Startpage of Nadestack also defined as the Newspage
  */
-/**Route::get('/', function () {
-    return view('news');
-})->name('startpage');**/
+/* * Route::get('/', function () {
+  return view('news');
+  })->name('startpage');* */
 
 
-Route::get("/","nadestack\NewsController@index")->name('startpage');
+Route::get("/", "nadestack\NewsController@index")->name('startpage');
 
 
 
@@ -138,15 +148,13 @@ Route::get("/mySettings", "ProfileSettingsController@getProfileSettings")
 Route::post("/notification/{notification_id}/read", function() {
 
 //Auth::user()->unreadNotifications->where('id', $id)->markAsRead();
-
 });
 
 
-Route::get("/notifications/read",function(){
-    
-   Auth::user()->unReadNotifications->markAsRead();
-  return redirect()->back();
-    
+Route::get("/notifications/read", function() {
+
+    Auth::user()->unReadNotifications->markAsRead();
+    return redirect()->back();
 })->middleware('auth')->name('readAllNotifications');
 
 /**

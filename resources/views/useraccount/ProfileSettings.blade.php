@@ -59,7 +59,7 @@
         <div class="col">
             <div id="profile_settings_form_container" >
                 <!-- Start: Pretty Registration Form -->
-                {{var_dump($errors)}}
+           
                 @foreach ($errors->all() as $error)
                 <div>{{ $error }}</div>
                     @endforeach
