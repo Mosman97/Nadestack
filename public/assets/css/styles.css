@@ -797,6 +797,8 @@ a.forum-item-title:hover {
 
 /*End of Forum Styling*/
 
+/*Start of Timeline Styling*/
+
 .main-timeline{
     position: relative;
 }
@@ -812,7 +814,7 @@ a.forum-item-title:hover {
 }
 .main-timeline .timeline-content{
     color: #fff;
-    background: linear-gradient(to right,#eb273e,#bf0f23);
+    background: #eb273e;
     text-align: center;
     padding: 10px 10px 10px 100px;
     border-radius: 0 20px 20px 0;
@@ -822,7 +824,7 @@ a.forum-item-title:hover {
 }
 .main-timeline .timeline-content:hover{ text-decoration: none; }
 .main-timeline .timeline-year{
-    color: #eb273e;
+    color: #131517;
     background-color: #fff;
     font-size: 16px;
     font-weight: 600;
@@ -879,17 +881,17 @@ a.forum-item-title:hover {
     left: auto;
 }
 .main-timeline .timeline:nth-child(4n+2) .timeline-content{
-    background: linear-gradient(to right,#db3d08,#ee5a24);
+    background: #131517;
 }
-.main-timeline .timeline:nth-child(4n+2) .timeline-year{ color: #ee5a24; }
+.main-timeline .timeline:nth-child(4n+2) .timeline-year{ color: #131517 }
 .main-timeline .timeline:nth-child(4n+3) .timeline-content{
-    background: linear-gradient(to right,#009432,#037529);
+    background: #eb273e;
 }
-.main-timeline .timeline:nth-child(4n+3) .timeline-year{ color: #009432; }
+.main-timeline .timeline:nth-child(4n+3) .timeline-year{ color: #131517 }
 .main-timeline .timeline:nth-child(4n+4) .timeline-content{
-    background: linear-gradient(to right,#0e6dcc,#2e86de);
+    background: #131517;
 }
-.main-timeline .timeline:nth-child(4n+4) .timeline-year{ color: #2e86de; }
+.main-timeline .timeline:nth-child(4n+4) .timeline-year{ color: #131517 }
 @media screen and (max-width:767px){
     .main-timeline .timeline{
         width: 100%;
@@ -921,3 +923,5 @@ a.forum-item-title:hover {
 @media screen and (max-width:576px){
     .main-timeline .title{ font-size: 18px; }
 }
+
+/*End of Timeline Styling*/
