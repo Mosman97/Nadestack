@@ -6,9 +6,12 @@ use Illuminate\Support\Facades\Auth;
 /*
  * Startpage of Nadestack also defined as the Newspage
  */
-Route::get('/', function () {
+/**Route::get('/', function () {
     return view('news');
-})->name('startpage');
+})->name('startpage');**/
+
+
+Route::get("/","nadestack\NewsController@index")->name('startpage');
 
 
 
