@@ -42,16 +42,18 @@ class TeamPageController extends Controller {
 
     public function leaveTeam(Request $request) {
 
-        
 
-        //Removing Team ID From User
-     //   Auth::user()->team_id = NULL;
-        Auth::user()->save();
-        
+
+
+
+        //Notify the User that he successfully left the Team
         Auth::user()->notify(new \App\Notifications\LeaveTeamNotification());
 
+        //Removing Team ID From User
+        Auth::user()->team_id = NULL;
+        Auth::user()->save();
+
         return redirect()->route('myleague');
-        // return view("league.myleague_wo_team")->with("success","you successfully left your Team");
     }
 
 }

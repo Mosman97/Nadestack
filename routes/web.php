@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
  * Startpage of Nadestack also defined as the Newspage
@@ -137,6 +137,14 @@ Route::post("/notification/{notification_id}/read", function() {
 //Auth::user()->unreadNotifications->where('id', $id)->markAsRead();
 
 });
+
+
+Route::get("/notifications/read",function(){
+    
+   Auth::user()->unReadNotifications->markAsRead();
+  return redirect()->back();
+    
+})->middleware('auth')->name('readAllNotifications');
 
 /**
  * Sets the Steam-ID of the current User, this should be done only once and can only be revoked by an Admin

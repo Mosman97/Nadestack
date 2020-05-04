@@ -31,13 +31,12 @@
                 </li>
                 <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="{{route('statistics')}}">Statistics</a></li>
                 <li class="nav-item navigationitemsleft" role="presentation">
-                    <form class="form-inline">
-                        <div class="form-group" id="search_bar">
-                            <label class="d-xl-flex justify-content-xl-start align-items-xl-center" id="search_bar_label">
-                                <a href="{{route('search')}}"><i class="fa fa-search" id="search_bar_icon"></i></a><input class="form-control" type="search" id="ip">
-                            </label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addonsearch"><a href="{{route('search')}}" style="color: grey"><i class="fa fa-search" id="search_bar_icon"></i></a></span>
                         </div>
-                    </form>
+                        <input type="text" class="form-control" placeholder="Search for..." aria-describedby="addonsearch">
+                    </div>
                 </li>
             </ul>
             <ul class="navbar-nav nadestack-second-menu">
@@ -48,9 +47,11 @@
                 @auth
                 <li class="nav-item avatar dropdown" style="align-self: center">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-56" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">{{Auth::user()->notifications->count() }} <i class="fa fa-envelope"></i>
+                       aria-haspopup="true" aria-expanded="false">{{Auth::user()->unReadNotifications->count() }} <i class="fa fa-envelope"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-secondary nadestack-dropdown-menu ">
+
+
 
                         @foreach (Auth::user()->unReadNotifications as $notification)
 
@@ -58,8 +59,14 @@
                         <div class="dropdown-divider"></div>
                         @endforeach
 
-                        <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p> </p></div>
-                        <div class="dropdown-divider"></div>
+                        @if(Auth::user()->unReadNotifications->count() > 0)
+                        <div class="dropdown-item"><a href="{{route('readAllNotifications')}}" type="button" class="nadestack_btn">Mark All as Read</a></div>
+                        @else
+                        <div class="dropdown-item">No New Notifications</div>
+                        @endif
+
+
+
                         <!--
                      <div class="dropdown-item"><small><i>{{date('F j, Y, g:i a',strtotime(now())) }}</i></small><br/><p>Lorem ipsum dolor </p></div>
                      <div class="dropdown-divider"></div>
@@ -67,7 +74,6 @@
                      
                         -->
                     </div>
-                </li>
                 <li class="nav-item avatar dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" class="nadestack-dropdown-menu"data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
                         <img src="{{URL::asset('assets/img/profile_pictures/')}}/{{Auth::user()->avatar_url}}"  height="50px"width="50px" class="rounded-circle z-depth-0"alt="avatar image">

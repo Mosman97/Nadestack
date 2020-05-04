@@ -3,13 +3,6 @@
 @section('content')
 
 <div class="col colum_content_small">
-    @if (session('success'))
-    <div class="alert alert-success">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session('success') }}
-    </div>
-    @else 
-    <h3>Keine Session</h3>
-    @endif
     <h1 class="text-center nadestack_heading_one">Join a team</h1>
     <h2 class="text-center nadestack_heading_two">Find team by name:</h2>
     <div class="row">
