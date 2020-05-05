@@ -14,7 +14,7 @@
                                 <input type="text" name="thread-title" class="form-control"  placeholder="Enter Title" value=''>
                             </div>
                         </div>
-                        @trix(\App\News::class, 'content')
+                         @trix(\App\News::class, 'content')
                         <div style="padding-top: 20px">
                             <button class="text-center nadestack_btn">create thread</button>
                         </div>

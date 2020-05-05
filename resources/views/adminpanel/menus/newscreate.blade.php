@@ -67,9 +67,6 @@
 
     {{--No Data is avaible so its a plain News Creating--}}
 
-     
-      
-            
                 <h1 class="text-dark mb-1">Create news</h1>
                 <hr>
                 <form method="POST" class=""action="{{route('adminpanel_storenews')}}">
