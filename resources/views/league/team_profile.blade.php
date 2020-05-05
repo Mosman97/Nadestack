@@ -308,6 +308,36 @@
                     <div class="row">
                         <div class="col"><label class="col-form-label">Niederlagen: 0</label></div>
                     </div>
+                    <hr class="nadestack-line">
+                    <h3 class="nadestack_heading_three">Seasonal Course</h3>
+
+                    <div class="table-responsive">
+                        <table class="table nadestack-tbl" style="color: white;">
+                            <thead>
+                            <tr>
+                                <th>Season</th>
+                                <th>Division</th>
+                                <th>Place</th>
+                                <th>Standing</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Starter Division 24</td>
+                                <td>2</td>
+                                <td>8:2</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>4. Division 24</td>
+                                <td>2</td>
+                                <td>8:2</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
 
                     <div class="matches">
                         <div class="match">
@@ -488,14 +518,14 @@
                 <form>
                     <h6 class="text-center">Timeout-Option</h6>
                     <div class="form-group row">
-                        <label for="timeout_value" class="col-4 col-form-label">Timeout:</label> 
+                        <label for="timeout_value" class="col-4 col-form-label">Timeout:</label>
                         <div class="col-8">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
                                         <i class="fa fa-calendar-times-o"></i>
                                     </div>
-                                </div> 
+                                </div>
                                 <input id="timeout_value" name="timeout_value" type="date" class="form-control">
                             </div>
                         </div>
@@ -504,14 +534,14 @@
                     <h6 class="text-center">Permaban-Option</h6>
 
                     <div class="form-group row">
-                        <label class="col-4">Permaban:</label> 
+                        <label class="col-4">Permaban:</label>
                         <div class="col-8">
                             <div class="custom-control custom-checkbox custom-control-inline">
-                                <input name="checkbox" id="checkbox_0" type="checkbox" class="custom-control-input" value="permaban" aria-describedby="checkboxHelpBlock"> 
+                                <input name="checkbox" id="checkbox_0" type="checkbox" class="custom-control-input" value="permaban" aria-describedby="checkboxHelpBlock">
                                 <label for="checkbox_0" class="custom-control-label">Perman Player</label>
-                            </div> 
+                            </div>
                         </div>
-                    </div> 
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

@@ -339,23 +339,6 @@ a:hover {
     border: none;
 }
 
-#news_pagination .pagination > li > a {
-    background-color: #FF312E;
-    color: white;
-}
-
-#news_pagination .pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
-    color: #BA2422;
-    background-color: white;
-    border-color: white;
-}
-
-#news_pagination .pagination > .active > a {
-    color: white;
-    background-color: #460E0D !Important;
-    border: solid 1px white!Important;
-}
-
 .nadestack_btn:active {
     background-color: #460E0D!Important;
     border: none!Important;
@@ -816,7 +799,7 @@ a.forum-item-title:hover {
     color: #fff;
     background: #eb273e;
     text-align: center;
-    padding: 10px 10px 10px 100px;
+    padding: 15px 15px 15px 100px;
     border-radius: 0 20px 20px 0;
     box-shadow: 0 5px 5px rgba(0,0,0,0.3);
     display: block;
@@ -863,7 +846,7 @@ a.forum-item-title:hover {
     margin: 0 20px 20px 0;
 }
 .main-timeline .timeline:nth-child(even) .timeline-content{
-    padding: 10px 100px 10px 10px;
+    padding: 15px 100px 15px 15px;
     border-radius: 20px 0 0 20px;
 }
 .main-timeline .timeline:nth-child(even) .timeline-content:before{
@@ -931,20 +914,16 @@ a.forum-item-title:hover {
 
 
 .modal-content {
-    
+
     background-color:#474B4F;
 }
 
 .modal-header >  button{
-    
+
     background-color:#BA2423;
     size: 4px;
-      
+
 
 }
-
-
-
-
 
 /*End Team-Styling */

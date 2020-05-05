@@ -11,7 +11,7 @@
 
                 @foreach($news as $news_entry)
 
-                <div class="row">
+                <div class="row" style="margin-top: 10px">
                     <div class="col">
                         <div class="row">
                             <p class="col text-left" style="margin-left: 15px; color: #FF312E">{{$news_entry->news_title}}</p>
@@ -27,7 +27,7 @@
 
             </div>
 
-            <div class="text-center" id="news_paginator">            {{$news->render()}}</div>
+            <div class="d-flex justify-content-center nadestack-pagination" style="margin-top: 10px" id="news_paginator">{{$news->render()}}</div>
 
 
 
