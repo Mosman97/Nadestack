@@ -506,6 +506,9 @@ label.error{
     font-size: 20px;
 }
 
+.dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover{
+    background-color:transparent !important;
+}
 /* sets the new cancel button on the search bar */
 input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
@@ -527,6 +530,10 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
 /* End NAVBAR-Styling*/
+
+.rulesetparagraph {
+    text-indent : 3em;
+}
 
 /* Start of legaueoverview */
 

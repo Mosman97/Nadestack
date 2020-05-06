@@ -31,7 +31,7 @@
                 //Getting Row ID
                 selected_row = $(this).parent().parent().attr("id");
 
-                //Enable Buttons 
+                //Enable Buttons
                 $(this).parent().parent().find("td:last").find("button").prop('disabled', false);
                 $(this).parent().parent().addClass("news_select_highlightning");
 
@@ -91,17 +91,17 @@
 
 
         /*  $(document).on('keyup', '#player_search', function () {
-         
-         
+
+
          if ($('#player_search').val().length == 0) {
-         
-         
+
+
          location.reload();
          } else {
-         
+
          //stuff happens
          console.log("key");
-         
+
          $.ajax({
          type: 'GET',
          url: "{{route('adminpanel_playerindex')}}",
@@ -109,47 +109,47 @@
          },
          dataType: 'json',
          success: function (result) {
-         
+
          console.log(result);
-         
-         
+
+
          $('#player_table >tbody').html("");
-         
-         
+
+
          for (var i = 0; i < result.length; i++) {
-         
+
          $('#player_table >tbody').append("<tr id='" + result[i]['id'] + "'>");
          $('#player_table > tbody').append("<td><input type='checkbox'></td>");
          $('#player_table >tbody').append("<td>" + result[i]['id'] + "</td>");
          $('#player_table >tbody').append("<td>" + result[i]['username'] + "</td>");
-         
+
          if (result[i]['team_name'] != null) {
-         
+
          $('#player_table >tbody').append("<td>" + result[i]['team_name'] + "</td>");
          } else {
-         
+
          $('#player_table >tbody').append("<td>" + "No Team" + "</td>");
          }
          $('#player_table >tbody').append("<td>" + result[i]['created_at'] + "</td>");
          $('#player_table >tbody').append("</tr>");
-         
-         
-         
+
+
+
          }
-         
-         
-         
+
+
+
          },
          error: function (e) {
-         
+
          console.log(e);
          }
          });
-         
+
          }
-         
-         
-         
+
+
+
          });*/
 
 
@@ -190,9 +190,6 @@
         <a href="#" style="padding-right: 30px;">Sort by Username</a>
         <a href="#" style="padding-right: 30px;">Sort by Status</a>
     </div>
-    <div class=" col text-right">
-        <button type="button" class="btn btn-danger">Ban User</button>
-    </div>
 </div>
 
 <div class="table-responsive"
@@ -215,7 +212,7 @@
             @foreach ($users as $user)
             <tr id='{{ $user->id}}'>
                 <td><input type="checkbox"></td>
-                
+
                 <td><img src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user->avatar_url}}" width="50px" height="50px"></td>
 
                 <td> {{ $user->id }}</td>
@@ -232,7 +229,7 @@
                 <td> TODO</td>
                 <td> {{ $user->created_at }}</td>
                 <td><div class="btn-group"  style="margin-left:50px;"role="group" aria-label="Basic example">
-                        <a type="button" disabled="true" class="btn btn-info" id='player_edit_btn' href="{{route('adminpanel_editplayer',$user->id)}}">Edit Player</a>
+                        <a type="button" disabled="true" class="btn btn-info" id='player_edit_btn' href="{{route('adminpanel_editplayer',$user->id)}}">Show Player</a>
                     </div>
                 </td>
             </tr>
@@ -268,14 +265,14 @@
                 <form>
                     <h6 class="text-center">Timeout-Option</h6>
                     <div class="form-group row">
-                        <label for="timeout_value" class="col-4 col-form-label">Timeout:</label> 
+                        <label for="timeout_value" class="col-4 col-form-label">Timeout:</label>
                         <div class="col-8">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
                                         <i class="fa fa-calendar-times-o"></i>
                                     </div>
-                                </div> 
+                                </div>
                                 <input id="timeout_value" name="timeout_value" type="date" class="form-control">
                             </div>
                         </div>
@@ -284,14 +281,14 @@
                     <h6 class="text-center">Permaban-Option</h6>
 
                     <div class="form-group row">
-                        <label class="col-4">Permaban:</label> 
+                        <label class="col-4">Permaban:</label>
                         <div class="col-8">
                             <div class="custom-control custom-checkbox custom-control-inline">
-                                <input name="checkbox" id="checkbox_0" type="checkbox" class="custom-control-input" value="permaban" aria-describedby="checkboxHelpBlock"> 
+                                <input name="checkbox" id="checkbox_0" type="checkbox" class="custom-control-input" value="permaban" aria-describedby="checkboxHelpBlock">
                                 <label for="checkbox_0" class="custom-control-label">Perman Player</label>
-                            </div> 
+                            </div>
                         </div>
-                    </div> 
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

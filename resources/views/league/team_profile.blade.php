@@ -299,22 +299,38 @@
                 <!-- Beginn of the teamstats -->
                 <div class="tab-pane fade" id="team-stats" role="tabpanel" aria-labelledby="team-stats-tab">
                     <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
-                    <div class="row">
-                        <div class="col"><label class="col-form-label">Matches: 0</label></div>
+
+                    <div class="card-deck text-center" style="margin-top: 10px">
+                        <div class="card border-danger text-white bg-dark ">
+                            <div class="card-body">
+                                <h5 class="card-title">Matches</h5>
+                                <i class="fa-3x fas fa-map"></i>
+                                <p class="card-text" style="margin-top: 5px">4</p>
+                            </div>
+                        </div>
+                        <div class="card border-danger text-white bg-dark ">
+                            <div class="card-body">
+                                <h5 class="card-title">Siege</h5>
+                                <i class="fa-3x fas fa-trophy"></i>
+                                <p class="card-text" style="margin-top: 5px">2</p>
+                            </div>
+                        </div>
+                        <div class="card border-danger text-white bg-dark " >
+                            <div class="card-body">
+                                <h5 class="card-title">Niederlagen</h5>
+                                <i class="fa-3x fas fa-window-close"></i>
+                                <p class="card-text" style="margin-top: 5px">2</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col"><label class="col-form-label">Wins: 100</label></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><label class="col-form-label">Niederlagen: 0</label></div>
-                    </div>
+
                     <hr class="nadestack-line">
-                    <h3 class="nadestack_heading_three">Seasonal Course</h3>
+                    <h2 class="nadestack_heading_two">Seasonal Course</h2>
 
                     <div class="table-responsive">
                         <table class="table nadestack-tbl" style="color: white;">
                             <thead>
-                            <tr>
+                            <tr style="background-color: #303436">
                                 <th>Season</th>
                                 <th>Division</th>
                                 <th>Place</th>
@@ -328,7 +344,7 @@
                                 <td>2</td>
                                 <td>8:2</td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #303436">
                                 <td>2</td>
                                 <td>4. Division 24</td>
                                 <td>2</td>
@@ -343,7 +359,7 @@
                         <div class="match">
                             <hr class="nadestack-line">
                             <div class="row">
-                                <div class="col-xl-5" style="text-align: center;"><img src="../assets/img/maps/de_cache_map.png" style="width: 227px;"></div>
+                                <div class="col-xl-5 d-none d-md-block" style="text-align: center;"><img src="../assets/img/maps/de_cache_map.png" style="width: 227px;"></div>
                                 <div class="col">
                                     <h3 style="padding-top: 3px;">de_cache</h3>
                                     <div class="row">
@@ -368,7 +384,7 @@
                         <div class="match">
                             <hr class="nadestack-line">
                             <div class="row">
-                                <div class="col-xl-5" style="text-align: center;"><img src="../assets/img/maps/de_overpass.jpg" style="width: 227px;"></div>
+                                <div class="col-xl-5 d-none d-md-block" style="text-align: center;"><img src="../assets/img/maps/de_overpass.jpg" style="width: 227px;"></div>
                                 <div class="col">
                                     <h3 style="padding-top: 3px;">de_overpass</h3>
                                     <div class="row">
@@ -393,7 +409,7 @@
                         <div class="match">
                             <hr class="nadestack-line">
                             <div class="row">
-                                <div class="col-xl-5" style="text-align: center;"><img src="../assets/img/maps/de_inferno.jpg" style="width: 227px;"></div>
+                                <div class="col-xl-5 d-none d-md-block" style="text-align: center;"><img src="../assets/img/maps/de_inferno.jpg" style="width: 227px;"></div>
                                 <div class="col">
                                     <h3 style="padding-top: 3px;">de_inferno</h3>
                                     <div class="row">
@@ -418,7 +434,7 @@
                         <div class="match">
                             <hr class="nadestack-line">
                             <div class="row">
-                                <div class="col-xl-5" style="text-align: center;"><img src="../assets/img/maps/de_dust2.jpg" style="width: 227px;"></div>
+                                <div class="col-xl-5 d-none d-md-block" style="text-align: center;"><img src="../assets/img/maps/de_dust2.jpg" style="width: 227px;"></div>
                                 <div class="col">
                                     <h3 style="padding-top: 3px;">de_dust2</h3>
                                     <div class="row">
@@ -443,7 +459,7 @@
                         <div class="match nadestack-last-element">
                             <hr class="nadestack-line">
                             <div class="row">
-                                <div class="col-xl-5" style="text-align: center;"><img src="../assets/img/maps/de_mirage.jpg" style="width: 227px;"></div>
+                                <div class="col-xl-5 d-none d-md-block" style="text-align: center;"><img src="../assets/img/maps/de_mirage.jpg" style="width: 227px;"></div>
                                 <div class="col">
                                     <h3 style="padding-top: 3px;">de_mirage</h3>
                                     <div class="row">

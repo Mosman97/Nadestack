@@ -1,17 +1,33 @@
 @extends('adminpanel.templates.dashboardtemplate')
 @section('content')
 
+
     <div style="margin-top: 18px; margin-bottom: 18px">
         <button type="button" class="btn btn-warning">Warn User</button>
         <button type="button" class="btn btn-danger">Ban User</button>
     </div>
 
     <h3 class="text-dark mb-1" style="padding-bottom: 15px;">Edit User Syn</h3>
+    <!-- if user is not verified -->
+    <button type="button" class="btn btn-lg btn-success">Verify User</button>
 
     <form>
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Username:</label>
             <input class="col form-control" type="text" id="username">
+            <div class="col-md-3"></div>
+        </div>
+
+        <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
+            <label class="col-md-1">Verification ID:</label>
+            <input class="col form-control" type="text" id="verifyid" readonly>
+            <div class="col-md-3"></div>
+        </div>
+
+        <!-- Link zur Teamansicht Adminpanel, nicht normale Seite!-->
+        <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
+            <label class="col-md-1">Team:</label>
+            <a class="col form-control text-left" href="99damage.de">SADN</a>
             <div class="col-md-3"></div>
         </div>
 
@@ -87,8 +103,10 @@
 
     </form>
 
-    <div class="text-center" style="margin-top: 18px; margin-bottom: 18px">
+    <div class="text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow" style="margin-top: 18px; margin-bottom: 18px">
+        <div class="col-md-1"></div>
         <button type="button" class="btn btn-success">Save User</button>
+        <div class="col-md-3"></div>
     </div>
 
 @endsection

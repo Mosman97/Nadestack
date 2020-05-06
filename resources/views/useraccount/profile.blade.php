@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col text-center d-xl-flex justify-content-xl-center align-items-xl-center">
-                                            <a href=""><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center team-pic-big" src="../assets/img/BIG2.png"></a>
+                                            <a href="{{route('teampage',$user->team_id)}}"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center team-pic-big" src="../assets/img/BIG2.png"></a>
                                         </div>
                                     </div>
                                     <div class="row">
