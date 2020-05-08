@@ -33,7 +33,7 @@
                             @endif
 
                             @if(Auth::user()->team_id == $teamdata[0]['team_id'] && Auth::user()->id ==  $teamdata[0]['team_admin_id'] ||  $teamdata[0]['team_captain_1_id']  || $teamdata[0]['team_captain_2_id'] || $teamdata[0]['team_manger_id'] )
-                            <button class="btn nadestack_btn" style="margin-top: 13px;">Edit Team</button>
+                            <a type="button" class="btn nadestack_btn" href="{{route('edit_team',Auth::user()->team_id)}}" style="margin-top: 13px;">Edit Team</a>
                             @endif
                         </div>
                     </div>

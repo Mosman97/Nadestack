@@ -11,7 +11,7 @@
                     <div class="row text-white register-form" style="color: rgb(255,255,255);">
                         <div class="col-md-8 offset-md-2">
                             <form class="text-white nadestack_form" id="profile_settings_form" style="color: rgb(255,255,255);">
-                                <h1 class="text-center nadestack_heading_one" >Create Team</h1>
+                                <h1 class="text-center nadestack_heading_one" >Team-Settings</h1>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Teamname* :</label></div>
                                     <div class="col-sm-6 input-column"><input class="form-control" type="text" id="teamname" name="teamname"></div>

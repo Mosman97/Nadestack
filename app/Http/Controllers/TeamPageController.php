@@ -39,11 +39,16 @@ class TeamPageController extends Controller {
             }
         }
     }
+    
+    
+    public function edit(Request $request, $teamid) {
+        
+        
+        
+        return view("league.team_settings");
+    }
 
     public function leaveTeam(Request $request) {
-
-
-
 
 
         //Notify the User that he successfully left the Team

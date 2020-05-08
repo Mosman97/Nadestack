@@ -18,7 +18,7 @@
                             <p class="col text-right" style="margin-right: 10px;">{{$news_entry->created_at}}</p>
                         </div>
                         <h3 class="text-left" style="padding-left: 15px;">{{$news_entry->news_subheading}}</h3>
-                        <p class="text-left" style="padding-left: 15px;">{{$news_entry->news_content}}</p>
+                        <p class="text-left" style="padding-left: 15px;">{!!$news_entry->news_content!!}</p>
                     </div>
                 </div>
                 <div class="border-white" id="news_container"></div>

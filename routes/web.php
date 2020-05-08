@@ -273,6 +273,9 @@ Route::get("/teams/{teamid}", "TeamPageController@index"
 )->name("teampage");
 
 
+Route::get("teams/{teamid}/edit","TeamPageController@edit")->name('edit_team')->middleware('team_admin');
+
+
 /**
  * User leaves the Team if he wishes to do 
  */
