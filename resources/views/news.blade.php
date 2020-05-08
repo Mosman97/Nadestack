@@ -6,12 +6,12 @@
 <div class="container-fluid nadestack_body">
     <div class="row">
         <div class="col-xl-3"></div>
-        <div class="col-xl-6 colum_content_big">
+        <div class="col-xl-6 colum_content_big d-flex  flex-column">
             <div id="news_container">
 
                 @foreach($news as $news_entry)
 
-                <div class="row" style="margin-top: 10px">
+                <div class="row" style="margin-top: 5px">
                     <div class="col">
                         <div class="row">
                             <p class="col text-left" style="margin-left: 15px; color: #FF312E">{{$news_entry->news_title}}</p>
@@ -27,7 +27,7 @@
 
             </div>
 
-            <div class="d-flex justify-content-center nadestack-pagination" style="margin-top: 10px" id="news_paginator">{{$news->render()}}</div>
+            <div class="d-flex justify-content-center nadestack-pagination mt-auto " style="padding-top: 10px" id="news_paginator">{{$news->render()}}</div>
 
 
 
