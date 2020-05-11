@@ -13,6 +13,8 @@ use App\Team;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
 use App\User;
+use App\Tools\TeamLogHelper;
+use App\teamlog;
 
 class TeamRegisterController extends Controller {
 
@@ -108,29 +110,31 @@ class TeamRegisterController extends Controller {
 
             $new_team->save();
 
-
-
-
-
-
             //Retrieving newly created Teamaccount -ID
 
             $new_team = Team::where('team_admin_id', "=", Auth::user()->id)->select('team_id')->get()->toArray();
 
             $new_team_id = $new_team[0]['team_id'];
-            
-            
-       
-
-
             //Adding Team to User who created the Team
+            User::where('id', "=", Auth::user()->id)->update(['team_id' => $new_team_id]);
 
-           User::where('id', "=", Auth::user()->id)->update(['team_id' => $new_team_id]); 
-           
-           
-       
 
-           return Redirect::route('teampage', [$new_team_id])->with('message', 'Your Team has been created!');
+            //Adding Logentry for Team Creation
+
+            $loghelper = new TeamLogHelper();
+
+
+            $log = new teamlog;
+            
+            //Create Log Entry for Creation
+            $log->action_id = \Ramsey\Uuid\Nonstandard\Uuid::uuid4();
+            $log->action_parent_id = $loghelper->getTeamCreatedUUIDFromDatabase();
+            $log->user_id = Auth::user()->id;
+            $log->action = TeamLogHelper::TEAM_CREATED_ACTION_DB_NAME;
+            $log->save();
+
+
+            return Redirect::route('teampage', [$new_team_id])->with('message', 'Your Team has been created!');
         }
 
 
