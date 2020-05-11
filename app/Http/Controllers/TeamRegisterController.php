@@ -130,6 +130,7 @@ class TeamRegisterController extends Controller {
             $log->action_id = \Ramsey\Uuid\Nonstandard\Uuid::uuid4();
             $log->action_parent_id = $loghelper->getTeamCreatedUUIDFromDatabase();
             $log->user_id = Auth::user()->id;
+            $log->team_id = $new_team_id;
             $log->action = TeamLogHelper::TEAM_CREATED_ACTION_DB_NAME;
             $log->save();
 
