@@ -2,10 +2,12 @@
 
 @section('content')
 
-{{var_dump($team_data)}}
+
 
 <script src='{{URL::asset('assets/js/validate/teamregvalidate.js')}}'></script>
 <div class="container-fluid">
+
+
     <div class="row">
         <div class="col-xl-1"></div>
         <div class="col">
@@ -15,6 +17,11 @@
                     <div class="col-md-8 offset-md-2">
                         <form class="text-white nadestack_form" id="profile_settings_form" style="color: rgb(255,255,255);">
                             <h1 class="text-center nadestack_heading_one" >Team-Settings</h1>
+                            @if (session('kick_message'))
+                            <div class="alert alert-success">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session('kick_message') }}
+                            </div>
+                            @endif
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="team-general-tab" data-toggle="tab" href="#team-general" role="tab" aria-controls="home" aria-selected="true">General</a>
@@ -142,9 +149,9 @@
                                                                 <td><a href="{{route('profilepage',$user->username)}}">{{$user->username}}</a></td>
                                                                 <td>/</td>
                                                                 <td>
-                                             
-                                                                  
-                                                                  <select @if(Auth::user()->id !=$team_data[0]['team_admin_id'] ) disabled="" @endif >
+
+
+                                                                    <select @if(Auth::user()->id !=$team_data[0]['team_admin_id'] ) disabled="" @endif >
                                                                              <optgroup>
                                                                             @if($user->id == $team_data[0]['team_admin_id'])
                                                                             <option selected=""value="1">Admin</option>
@@ -161,9 +168,9 @@
                                                                             <option value="2">Captain</option>
                                                                             <option selected=""value="3">Manager</option>
                                                                             <option value="4">Player</option>
-                                                                            
+
                                                                             @elseif($user->id == $team_data[0]['team_coach'])
-                                                                            
+
                                                                             @else
                                                                             <option value="1">Admin</option>
                                                                             <option value="2">Captain</option>
@@ -175,8 +182,8 @@
                                                                 </td>
                                                                 @if(Auth::user()->id == $team_data[0]['team_admin_id'])
                                                                 <td> <a href="{{route('kick_player_from_team',['teamid'=>$team_data[0]['team_id'],'userid'=>$user->id])}}" type="button" class="btn nadestack_btn">Kick Player</a>
-                                                                
-   
+
+
                                                                 </td>
                                                                 @endif
                                                             </tr>

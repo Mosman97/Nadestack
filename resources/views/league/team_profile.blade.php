@@ -279,12 +279,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($logdata as $logentry)
                                         <tr>
-                                            <td>20.02.20 - 19:00</td>
-                                            <td>Syn</td>
-                                            <td>kick</td>
-                                            <td>AlexRr</td>
+                                            <td>{{$logentry->created_at}}</td>
+                                            <td>{{$logentry->user_id}}</td>
+                                            <td>{{$logentry->action}}</td>
+                                            <td>/</td>
                                         </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
@@ -327,26 +330,26 @@
                     <div class="table-responsive">
                         <table class="table nadestack-tbl" style="color: white;">
                             <thead>
-                            <tr style="background-color: #303436">
-                                <th>Season</th>
-                                <th>Division</th>
-                                <th>Place</th>
-                                <th>Standing</th>
-                            </tr>
+                                <tr style="background-color: #303436">
+                                    <th>Season</th>
+                                    <th>Division</th>
+                                    <th>Place</th>
+                                    <th>Standing</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Starter Division 24</td>
-                                <td>2</td>
-                                <td>8:2</td>
-                            </tr>
-                            <tr style="background-color: #303436">
-                                <td>2</td>
-                                <td>4. Division 24</td>
-                                <td>2</td>
-                                <td>8:2</td>
-                            </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Starter Division 24</td>
+                                    <td>2</td>
+                                    <td>8:2</td>
+                                </tr>
+                                <tr style="background-color: #303436">
+                                    <td>2</td>
+                                    <td>4. Division 24</td>
+                                    <td>2</td>
+                                    <td>8:2</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

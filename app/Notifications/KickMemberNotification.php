@@ -6,14 +6,11 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\Auth;
 use App\Team;
-
-class LeaveTeamNotification extends Notification {
+use Illuminate\Support\Facades\Auth;
+class KickMemberNotification extends Notification {
 
     use Queueable;
-
- 
 
     /**
      * Create a new notification instance.
@@ -21,8 +18,7 @@ class LeaveTeamNotification extends Notification {
      * @return void
      */
     public function __construct() {
-
-
+        //
     }
 
     /**
@@ -51,7 +47,7 @@ class LeaveTeamNotification extends Notification {
     public function toDatabase() {
         //getting Information about the Team before it gets deleted
         $teamname = Team::where('team_id', "=", Auth::user()->team_id)->get();
-         return ['data' => "You got kicked from " . $teamname[0]['team_name'], "teamname" => $teamname[0]['team_name'], 'team_id' => $teamname[0]['team_id']];
+        return ['data' => "You got kicked from " . $teamname[0]['team_name'], "teamname" => $teamname[0]['team_name'], 'team_id' => $teamname[0]['team_id']];
     }
 
     /**
