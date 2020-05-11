@@ -23,7 +23,7 @@ class TeamAdmin {
             $team_data = Team::where("team_id", "=", Auth::user()->team_id)->get();
 
             //Checking if the requested User is allowed to Edit the Team
-            if (Auth::user()->id == $team_data[0]['team_admin_id'] || Auth::user()->id == $team_data[0]['team_captain_1_id'] || Auth::user()->id == $team_data[0]['team_captain_2_id'] || Auth::user()->id == $team_data[0]['team_manger_id']) {
+            if (Auth::user()->id == $team_data[0]['team_admin_id'] || Auth::user()->id == $team_data[0]['team_captain_1_id'] || Auth::user()->id == $team_data[0]['team_captain_2_id'] || Auth::user()->id == $team_data[0]['team_manager_id']) {
                 return $next($request);
             } else {
 

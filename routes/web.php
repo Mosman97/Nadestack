@@ -273,13 +273,16 @@ Route::get("/teams/{teamid}", "TeamPageController@index"
 )->name("teampage");
 
 
-Route::get("teams/{teamid}/edit","TeamPageController@edit")->name('edit_team')->middleware('team_admin');
+Route::get("teams/{teamid}/edit", "TeamPageController@edit")->name('edit_team')->middleware('team_admin');
 
 
 /**
  * User leaves the Team if he wishes to do 
  */
 Route::post("/teams/leave", "TeamPageController@leaveTeam")->name("leave_team")->middleware('auth');
+
+
+Route::get("/team/{teamid}/kick/{userid}", "TeamPageController@kickPlayerFromTeam")->name('kick_player_from_team')->middleware('team_admin');
 
 
 /*

@@ -32,7 +32,7 @@ class UserprofilePageController extends Controller {
             return view("useraccount.profile")->with("userdata", $user_data);
         } else {
 
-            echo("USER NOT FOUND");
+            abort(404);
         }
     }
 

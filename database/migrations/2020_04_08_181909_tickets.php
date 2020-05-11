@@ -22,6 +22,8 @@ class Tickets extends Migration {
             $table->boolean('status');
             $table->timestamps();
         });
+        
+        
     }
 
     /**

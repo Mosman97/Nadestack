@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Team;
 use Auth;
-use App\Notification;
+use App\User;
+use Illuminate\Support\Facades\Notification;
+
 
 class TeamPageController extends Controller {
 
@@ -39,17 +41,20 @@ class TeamPageController extends Controller {
             }
         }
     }
-    
-    
-    public function edit(Request $request, $teamid) {
-        
-        
-        
-        return view("league.team_settings");
+
+    public function edit(Request $request, $team_id) {
+
+        $team_data = Team::leftJoin('users', "users.team_id", "=", 'teams.team_id')->where('teams.team_id', '=', $team_id)->get();
+        $user_data = User::where("team_id", "=", $team_id)->get();
+
+        return view("league.team_settings")->with("team_data", $team_data)->with("user_data", $user_data);
     }
 
-    public function leaveTeam(Request $request) {
+    /*
+     * if a User leaves a Team
+     */
 
+    public function leaveTeam(Request $request) {
 
         //Notify the User that he successfully left the Team
         Auth::user()->notify(new \App\Notifications\LeaveTeamNotification());
@@ -59,6 +64,25 @@ class TeamPageController extends Controller {
         Auth::user()->save();
 
         return redirect()->route('myleague');
+    }
+
+    public function kickPlayerFromTeam(Request $request, $teamid, $userid) {
+
+        if (Auth::user()->team_id == $teamid) {
+
+
+            $kicked_user_info = User::where("id", "=", $userid)->get();
+            
+        
+         //  Notification::send($kicked_user_info,new \App\Notifications\);
+  
+          //  $kicked_user = User::where("id", "=", $userid)->notify(new \App\Notifications\LeaveTeamNotification($kicked_user_info[0]['id']));
+
+            //Updating UserData
+            //$kicked_user = User::where("id", "=", $userid)->update(array('team_id' => null));
+
+           // return back()->with("success", "Kick!");
+        }
     }
 
 }

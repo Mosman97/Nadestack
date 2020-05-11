@@ -23,7 +23,8 @@ class Teams extends Migration {
             $table->bigInteger('team_admin_id');
             $table->bigInteger('team_captain_1_id')->nullable();
             $table->bigInteger('team_captain_2_id')->nullable();
-            $table->bigInteger('team_manger_id')->nullable();
+            $table->bigInteger('team_manager_id')->nullable();
+            $table->bigInteger("team_coach_id")->nullable();
             $table->string("team_website")->nullable();
             $table->string("twitter_url")->nullable();
             $table->string("twitch_url")->nullable();
@@ -44,7 +45,8 @@ class Teams extends Migration {
      * @return void
      */
     public function down() {
-        //
+
+        Schema::dropIfExists('teams');
     }
 
 }

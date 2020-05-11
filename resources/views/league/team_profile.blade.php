@@ -27,17 +27,14 @@
                             <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
                         </div>
                         <div class="col text-right">
-
                             @if(Auth::user()->team_id == $teamdata[0]['team_id'])
                             <button data-toggle="modal" data-target="#leave" class="btn nadestack_btn" style="margin-top: 13px;margin-right: 10px">Leave Team</button>
                             @endif
-
-                            @if(Auth::user()->team_id == $teamdata[0]['team_id'] && Auth::user()->id ==  $teamdata[0]['team_admin_id'] ||  $teamdata[0]['team_captain_1_id']  || $teamdata[0]['team_captain_2_id'] || $teamdata[0]['team_manger_id'] )
+                            @if(Auth::user()->team_id == $teamdata[0]['team_id'] && Auth::user()->id ==  $teamdata[0]['team_admin_id'] ||  $teamdata[0]['team_captain_1_id']  || $teamdata[0]['team_captain_2_id'] || $teamdata[0]['team_manager_id'] )
                             <a type="button" class="btn nadestack_btn" href="{{route('edit_team',Auth::user()->team_id)}}" style="margin-top: 13px;">Edit Team</a>
                             @endif
                         </div>
                     </div>
-
                     <div class="row nadestack-profileview">
                         <div class="col" style="text-align: center;"><img class="rounded-circle" src="../assets/img/big2.png" style="width:125px; height:125px;margin-top: 15px;"></div>
                         <div class="col" style="padding-top: 15px;">
