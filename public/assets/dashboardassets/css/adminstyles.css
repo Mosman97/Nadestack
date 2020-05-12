@@ -122,3 +122,16 @@ a {
 
 /* End of custom Styles made by sYn*/
 
+/*Start of Pagenavigator Styling*/
+.nadestack-pagination-admin ul{
+    justify-content: center;
+}
+.nadestack-pagination-admin .page-item.active .page-link{
+    color: white;
+    background: #FF312E;
+    border-color:#880F0E;
+}
+.nadestack-pagination-admin .page-item .page-link{
+    color: #FF312E;
+}
+/*End of Pagenavigator Styling*/

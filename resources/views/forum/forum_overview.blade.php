@@ -41,7 +41,7 @@
                                                 <span class="views-number">
                                                     1216
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Views</small>
                                             </div>
                                         </div>
@@ -49,7 +49,7 @@
                                                 <span class="views-number">
                                                     368
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Topics</small>
                                             </div>
                                         </div>
@@ -57,7 +57,7 @@
                                                 <span class="views-number">
                                                     140
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Posts</small>
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                                 <span class="views-number">
                                                     890
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Views</small>
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@
                                                 <span class="views-number">
                                                     120
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Topics</small>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@
                                                 <span class="views-number">
                                                     154
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Posts</small>
                                             </div>
                                         </div>
@@ -111,7 +111,7 @@
                                                 <span class="views-number">
                                                     680
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Views</small>
                                             </div>
                                         </div>
@@ -119,7 +119,7 @@
                                                 <span class="views-number">
                                                     124
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Topics</small>
                                             </div>
                                         </div>
@@ -127,7 +127,7 @@
                                                 <span class="views-number">
                                                     61
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Posts</small>
                                             </div>
                                         </div>
@@ -146,7 +146,7 @@
                                                 <span class="views-number">
                                                     1450
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Views</small>
                                             </div>
                                         </div>
@@ -154,7 +154,7 @@
                                                 <span class="views-number">
                                                     652
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Topics</small>
                                             </div>
                                         </div>
@@ -162,7 +162,7 @@
                                                 <span class="views-number">
                                                     572
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Posts</small>
                                             </div>
                                         </div>
@@ -189,7 +189,7 @@
                                                 <span class="views-number">
                                                     1516
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Views</small>
                                             </div>
                                         </div>
@@ -197,7 +197,7 @@
                                                 <span class="views-number">
                                                     238
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Topics</small>
                                             </div>
                                         </div>
@@ -205,7 +205,7 @@
                                                 <span class="views-number">
                                                     180
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Posts</small>
                                             </div>
                                         </div>
@@ -224,7 +224,7 @@
                                                 <span class="views-number">
                                                     1766
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Views</small>
                                             </div>
                                         </div>
@@ -232,7 +232,7 @@
                                                 <span class="views-number">
                                                     321
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Topics</small>
                                             </div>
                                         </div>
@@ -240,7 +240,7 @@
                                                 <span class="views-number">
                                                     42
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Posts</small>
                                             </div>
                                         </div>
@@ -259,7 +259,7 @@
                                                 <span class="views-number">
                                                     765
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Views</small>
                                             </div>
                                         </div>
@@ -267,7 +267,7 @@
                                                 <span class="views-number">
                                                     90
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Topics</small>
                                             </div>
                                         </div>
@@ -275,7 +275,7 @@
                                                 <span class="views-number">
                                                     11
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Posts</small>
                                             </div>
                                         </div>
@@ -294,7 +294,7 @@
                                                 <span class="views-number">
                                                     2550
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Views</small>
                                             </div>
                                         </div>
@@ -302,7 +302,7 @@
                                                 <span class="views-number">
                                                     122
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Topics</small>
                                             </div>
                                         </div>
@@ -310,7 +310,7 @@
                                                 <span class="views-number">
                                                     92
                                                 </span>
-                                            <div>
+                                            <div class="views-number-description">
                                                 <small>Posts</small>
                                             </div>
                                         </div>

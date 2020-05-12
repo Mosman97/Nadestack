@@ -653,6 +653,38 @@ input[type="search"]::-webkit-search-cancel-button {
     line-height: 18px;
     font-weight: 400;
 }
+.views-number-description{
+    padding-top: 5px;
+}
+
+@media (max-width: 1760px){
+
+    .views-number {
+        font-size: 18px;
+    }
+    .views-number-description{
+        font-size: 12px;
+    }
+    .forum-sub-title{
+        font-size: 14px;
+    }
+
+}
+@media (max-width: 1199px){
+
+    .views-number {
+        font-size: 24px;
+    }
+    .views-number-description > small{
+        font-size: 12.8px;
+    }
+    .forum-sub-title{
+        font-size: 20px;
+    }
+
+
+}
+
 .forum-container,
 .forum-post-container {
     padding: 30px !important;
@@ -763,30 +795,27 @@ a.forum-item-title:hover {
 .message-input {
     height: 90px !important;
 }
-.form-control, .single-line {
-    background-color: #FFFFFF;
-    background-image: none;
-    border: 1px solid #e5e6e7;
-    border-radius: 1px;
-    color: inherit;
-    display: block;
-    padding: 6px 12px;
-    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 100%;
-    font-size: 14px;
-}
-.text-navy {
-    color: #1ab394;
-}
-.mid-icon {
-    font-size: 66px !important;
-}
 .m-b-sm {
     margin-bottom: 10px;
 }
 
+
 /*End of Forum Styling*/
 
+/*Start of Thread Oveview Styling*/
+.nadestack-thread-heading{
+    color: #FF312E;
+    display: flex;
+    text-align: center;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.nadestack-thread-icon{
+    margin-right: 5px;
+    font-size: 35px;
+}
+/*End of Thread Oveview Styling*/
 /*Start of Timeline Styling*/
 
 .main-timeline{
@@ -934,3 +963,55 @@ a.forum-item-title:hover {
 }
 
 /*End Team-Styling */
+
+/*Start of Pagenavigator Styling*/
+.nadestack-pagination .page-item .page-link{
+    color: white;
+    background: #FF312E;
+}
+.nadestack-pagination .page-item.active .page-link{
+    color: white;
+    background: #880F0E;
+    border-color:white;
+}
+/*End of Pagenavigator Styling*/
+
+/*Start of styling for the footer*/
+
+.nadestack-footer{
+    background-color: #1c2022 !important;
+    padding: 25px 0 !important;
+    display: table-row;
+    height: 1%;
+}
+.nadestack-footer footer{
+    padding: 25px 0 !important;
+}
+
+.nadestack-footer ul{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px !important;
+    list-style-type: initial !important;
+    list-style-position: inside !important;
+}
+.nadestack-footer  ul  li {
+    padding: 0px 5px 10px 5px;
+}
+.nadestack-footer ul  li  a{
+    margin-left: -10px;
+}
+@media(max-width: 765px){
+    .nadestack-footer ul{
+        display: grid;
+    }
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+/*shoutouts to https://stackoverflow.com/a/25218797/6904703*/
+/*End of stying for the footer*/
+

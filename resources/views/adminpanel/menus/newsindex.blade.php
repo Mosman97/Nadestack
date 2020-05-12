@@ -173,7 +173,7 @@
 
 
 
-<div id="news_pagination" class="mx-auto">
+<div id="news_pagination" class="mx-auto nadestack-pagination-admin">
 
     {{$news->render()}}
 

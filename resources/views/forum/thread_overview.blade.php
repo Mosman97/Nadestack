@@ -4,12 +4,20 @@
     <div class="container-fluid nadestack_body">
         <div class="row">
             <div class="col-xl-3"></div>
-            <div class="col-xl-6 colum_content_big">
+            <div class="col-xl-6 colum_content_big  flex-column">
                 <div class="row">
                     <div class="col">
-                        <h1 class="nadestack_heading_one">League problems</h1>
+                        <div class="nadestack-thread-heading">
+                            <i class="fa fa-shield-alt nadestack-thread-icon"></i>
+                            <h1>League Problems</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="nadestack-line"></div>
+                <div class="row">
+                    <div class="col">
                         @auth
-                            <button class="nadestack_btn" style="background-color: #86C232; margin-bottom: 8px"><a href="{{route('createthread')}}">Create thread</a></button>
+                            <button class="nadestack_btn" style="background-color: #86C232; margin-bottom: 8px">Create thread </button>
                         @endauth
                         <div class="table-responsive">
                             <table class="table nadestack-tbl table-borderless">
@@ -24,48 +32,43 @@
                                 </thead>
                                 <tbody>
                                 <tr style="background-color: #404448">
-                                    <td>Problems (hier der link zur threadübersicht)</td>
+                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337">Warum ist Eric ein Ossi?</a> </td>
                                     <td>200</td>
-                                    <th></th>
-                                    <th></th>
-                                    <td>hier der link für den thread</td>
+                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">Luke_1337</a><img class="rounded-circle" src="../assets/img/profile_pictures/syn.png" width="25px" height="25x"></td>
+                                    <td></td>
+                                    <td>2 Seconds ago</td>
                                 </tr>
                                 <tr>
-                                    <td>Problems (hier der link zur threadübersicht)</td>
+                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337">Warum ist der Trommler so ein krasser Typ?</a> </td>
                                     <td>200</td>
-                                    <th></th>
-                                    <th></th>
-                                    <td>hier der link für den thread</td>
+                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">Luke_1337</a><img class="rounded-circle" src="../assets/img/profile_pictures/syn.png" width="25px" height="25x"></td>
+                                    <td></td>
+                                    <td>3 Hours ago</td>
                                 </tr>
                                 <tr style="background-color: #404448">
-                                    <td>Problems (hier der link zur threadübersicht)</td>
+                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337">Einfach einen Köftespieß</a> </td>
                                     <td>200</td>
-                                    <th></th>
-                                    <th></th>
-                                    <td>hier der link für den thread</td>
+                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">Kolbstraße</a><img class="rounded-circle" src="../assets/img/profile_pictures/syn.png" width="25px" height="25x"></td>
+                                    <td></td>
+                                    <td>1 Month ago</td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
-                <div class="row" style="margin-top: 10px;">
-                    <div id="news_pagination" class="row mx-auto">
-                        <div class="col-md-12 mx-auto text-center">
-                            <nav>
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+                <!--<div class="d-flex justify-content-center nadestack-pagination mt-auto" style="padding-top: 10px"></div>-->
+                <div class="d-flex justify-content-center nadestack-pagination mt-auto" style="padding-top: 10px">
+                    <nav>
+                        <ul class="pagination Nadestack-pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
                 </div>
-            </div>
             </div>
             <div class="col-xl-3"></div>
         </div>
