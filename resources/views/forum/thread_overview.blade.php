@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col">
                         @auth
-                            <button class="nadestack_btn" style="background-color: #86C232; margin-bottom: 8px">Create thread </button>
+                            <button class="nadestack_btn" style="background-color: #86C232; margin-bottom: 8px">Create thread <i class="fa fa-file-alt"></i> </button>
                         @endauth
                         <div class="table-responsive">
                             <table class="table nadestack-tbl table-borderless">
@@ -34,22 +34,22 @@
                                 <tr style="background-color: #404448">
                                     <td><a href="https://liga.99damage.de/de/users/703337-luke_1337">Warum ist Eric ein Ossi?</a> </td>
                                     <td>200</td>
-                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">Luke_1337</a><img class="rounded-circle" src="../assets/img/profile_pictures/syn.png" width="25px" height="25x"></td>
-                                    <td></td>
+                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">Luke_1337</a></td>
+                                    <td><img class="rounded-circle" src="../assets/img/profile_pictures/syn.png" width="30px" height="30px"></td>
                                     <td>2 Seconds ago</td>
                                 </tr>
                                 <tr>
                                     <td><a href="https://liga.99damage.de/de/users/703337-luke_1337">Warum ist der Trommler so ein krasser Typ?</a> </td>
                                     <td>200</td>
-                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">Luke_1337</a><img class="rounded-circle" src="../assets/img/profile_pictures/syn.png" width="25px" height="25x"></td>
-                                    <td></td>
+                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">Luke_1337</a></td>
+                                    <td><img class="rounded-circle" src="../assets/img/profile_pictures/syn.png" width="30px" height="30px"></td>
                                     <td>3 Hours ago</td>
                                 </tr>
                                 <tr style="background-color: #404448">
                                     <td><a href="https://liga.99damage.de/de/users/703337-luke_1337">Einfach einen Köftespieß</a> </td>
                                     <td>200</td>
-                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">Kolbstraße</a><img class="rounded-circle" src="../assets/img/profile_pictures/syn.png" width="25px" height="25x"></td>
-                                    <td></td>
+                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">Kolbstraße</a></td>
+                                    <td><img class="rounded-circle" src="../assets/img/profile_pictures/syn.png" width="30px" height="30px"></td>
                                     <td>1 Month ago</td>
                                 </tr>
                                 </tbody>
