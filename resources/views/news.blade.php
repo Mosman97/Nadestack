@@ -12,13 +12,13 @@
                 @foreach($news as $news_entry)
 
                 <div class="row" style="margin-top: 5px">
-                    <div class="col">
+                    <div class="col" style="margin-left: 10px">
                         <div class="row">
-                            <p class="col text-left" style="margin-left: 15px; color: #FF312E">{{$news_entry->news_title}}</p>
-                            <p class="col text-right" style="margin-right: 10px;">{{$news_entry->created_at}}</p>
+                            <p class="col text-left" style="color: #FF312E">{{$news_entry->news_subheading}}</p>
+                            <p class="col text-right" style="margin-right: 10px">{{$news_entry->created_at}}</p>
                         </div>
-                        <h3 class="text-left" style="padding-left: 15px;">{{$news_entry->news_subheading}}</h3>
-                        <p class="text-left" style="padding-left: 15px;">{!!$news_entry->news_content!!}</p>
+                        <a href='{{route('viewnews',$news_entry->news_id)}}'><h3 class="text-left">{{$news_entry->news_title}}</h3></a>
+                        <p class="text-left">{!!$news_entry->news_content!!}</p>
                     </div>
                 </div>
                 <div class="border-white" id="news_container"></div>

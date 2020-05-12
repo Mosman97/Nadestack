@@ -23,4 +23,15 @@ class NewsController extends Controller {
         return view("news")->with("news", $news);
     }
 
+    public function getNewsDetails($news_id){
+
+        //get Metadata of the articel
+        $news_metadata = News::select('news.*')
+            ->where("news_id", "=", $news_id)
+            ->get();
+        //get comments of the articel
+        //TODO
+        return view("news_example")->with("news_metadata", $news_metadata);
+    }
+
 }

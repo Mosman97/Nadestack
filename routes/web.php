@@ -23,6 +23,8 @@ Route::fallback(function() {
 
 Route::get("/", "nadestack\NewsController@index")->name('startpage');
 
+Route::get("news/{news_id}", "nadestack\NewsController@getNewsDetails")
+    ->name("viewnews");
 
 
 /**
@@ -277,7 +279,7 @@ Route::get("teams/{teamid}/edit", "TeamPageController@edit")->name('edit_team')-
 
 
 /**
- * User leaves the Team if he wishes to do 
+ * User leaves the Team if he wishes to do
  */
 Route::post("/teams/leave", "TeamPageController@leaveTeam")->name("leave_team")->middleware('auth');
 
