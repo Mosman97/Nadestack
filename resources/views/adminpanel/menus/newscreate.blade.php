@@ -5,8 +5,8 @@
 
     @if(!empty($news_data))
     @foreach ($news_data as $news)
-    
-        
+
+
 
 
             @if(session('update_success'))
@@ -15,7 +15,7 @@
             <div class="alert alert-success" id='success-alert'>
                 {{ session('update_success') }}
             </div>
-            
+
             @endif
 
             <div class="container-fluid">
@@ -39,6 +39,9 @@
                     @csrf
                     <h2 class="text-center" style="padding-bottom: 10px">News Content</h2>
                     @trix(\App\News::class, 'content')
+                    <div style="padding-top: 20px">
+                        <button class="text-center btn btn-success" style="margin-left: 25px">Preview</button>
+                    </div>
                     <div style="padding-top: 20px">
                         <button class="text-center btn btn-success" style="margin-left: 25px">Update News</button>
                     </div>
@@ -88,12 +91,14 @@
                     <h2 class="text-center" style="padding-bottom: 10px">News Content</h2>
                     @trix(\App\News::class, 'content')
                     <div style="padding-top: 20px">
-                        <!--<button class="text-center btn btn-danger">Publish News</button>-->
                         <button class="text-center btn btn-success" style="margin-left: 25px">create News</button>
                     </div>
                 </form>
-          
-       
+    <div style="padding-top: 20px">
+        <button href="{{route('adminpanel_shownews')}}" class="text-center btn btn-success" style="margin-left: 25px">Preview</button>
+    </div>
+
+
 
 
     @endif

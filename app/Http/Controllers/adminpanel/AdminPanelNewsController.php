@@ -76,8 +76,14 @@ class AdminPanelNewsController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
-        //
+    public function show(Request $request) {
+
+        //get Metadata of the articel
+        $news_metadata[0]['news_title'] = $request->input("news_heading");
+        $news_metadata[0]['news_subheading'] = $request->input("news_subheading");
+        $news_metadata[0]['news_content'] = $request->input("news-trixFields");
+        $news_metadata[0]['news_author'] = Auth::user()->username;
+        return view("news_example")->with("news_metadata", $news_metadata);
     }
 
     /**
@@ -167,7 +173,7 @@ class AdminPanelNewsController extends Controller {
      * @param Request $request
      */
     public function mulidestroy(Request $request) {
-        
+
     }
 
 }

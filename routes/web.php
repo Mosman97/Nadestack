@@ -374,10 +374,16 @@ Route::get("/admin/news/new", "adminpanel\AdminPanelNewsController@create")
 
 
 /*
- * Stores /Saves a newly created News in the Datbase
+ * Stores /Saves a newly created News in the Database
  */
 Route::post("/admin/news/store", "adminpanel\AdminPanelNewsController@store")
         ->middleware('admin')->name("adminpanel_storenews");
+
+/*
+ * Shows a newly created News as preview
+ */
+Route::post("/admin/news/show", "adminpanel\AdminPanelNewsController@show")
+    ->middleware('admin')->name("adminpanel_shownews");
 
 /*
  * Deletes a News with the given News ID
