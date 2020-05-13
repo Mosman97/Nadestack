@@ -47,16 +47,24 @@ class AdminPanelNewsController extends Controller {
      */
     public function store(Request $request) {
 
-        if($_POST["preview"]) {
-            //get Metadata of the articel
+
+
+
+        //Defining if the Requested Ressoruce shoudl  be created or previewed
+
+
+        if ($request->input('action') == "preview") {
+
             $news_metadata[0]['news_title'] = $request->input("news_heading");
             $news_metadata[0]['news_subheading'] = $request->input("news_subheading");
             $news_metadata[0]['news_content'] = $request->input("news-trixFields");
             $news_metadata[0]['news_author'] = Auth::user()->username;
-            return view("news_example")->with("news_metadata", $news_metadata);
-        }
 
-        else if($_POST["create"]) {
+
+
+            return view("news_example")->with("news_metadata", $news_metadata);
+        } else if ($request->input('action') == "create") {
+
             //Getting News Heading
             $news_heading = $request->input("news_heading");
 
@@ -69,15 +77,52 @@ class AdminPanelNewsController extends Controller {
 
             //Creating a New News in the DB
             $new_post = News::create(
-                ['news_title' => $news_heading,
-                    "news_subheading" => $news_subheading,
-                    "news_author" => Auth::user()->username,
-                    "news_content" => $news_content['content'],
-                ]);
+                            ['news_title' => $news_heading,
+                                "news_subheading" => $news_subheading,
+                                "news_author" => Auth::user()->username,
+                                "news_content" => $news_content['content'],
+            ]);
 
             //Redirect to Index with Success Msg
             return Redirect::route('adminpanel_newsindex')->with("new_news_success", "a new News was just published!");
         }
+
+
+
+
+
+
+        /*  if($_POST["preview"]) {
+          //get Metadata of the articel
+          $news_metadata[0]['news_title'] = $request->input("news_heading");
+          $news_metadata[0]['news_subheading'] = $request->input("news_subheading");
+          $news_metadata[0]['news_content'] = $request->input("news-trixFields");
+          $news_metadata[0]['news_author'] = Auth::user()->username;
+          return view("news_example")->with("news_metadata", $news_metadata);
+          }
+
+          else if($_POST["create"]) {
+          //Getting News Heading
+          $news_heading = $request->input("news_heading");
+
+
+          //Getting News Subheading
+          $news_subheading = $request->input("news_subheading");
+
+          //Getting Rich Text News Content
+          $news_content = $request->input("news-trixFields");
+
+          //Creating a New News in the DB
+          $new_post = News::create(
+          ['news_title' => $news_heading,
+          "news_subheading" => $news_subheading,
+          "news_author" => Auth::user()->username,
+          "news_content" => $news_content['content'],
+          ]);
+
+          //Redirect to Index with Success Msg
+          return Redirect::route('adminpanel_newsindex')->with("new_news_success", "a new News was just published!");
+          } */
     }
 
     /**
@@ -183,7 +228,7 @@ class AdminPanelNewsController extends Controller {
      * @param Request $request
      */
     public function mulidestroy(Request $request) {
-
+        
     }
 
 }

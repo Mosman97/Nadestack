@@ -6,9 +6,6 @@
     @if(!empty($news_data))
     @foreach ($news_data as $news)
 
-
-
-
             @if(session('update_success'))
 
 
@@ -91,10 +88,10 @@
                     <h2 class="text-center" style="padding-bottom: 10px">News Content</h2>
                     @trix(\App\News::class, 'content')
                     <div style="padding-top: 20px">
-                        <button name="create" id="create" type="submit" class="text-center btn btn-success" style="margin-left: 25px">create News</button>
+                        <button  name="action"value="create" id="create" type="submit" class="text-center btn btn-success" style="margin-left: 25px">create News</button>
                     </div>
                     <div style="padding-top: 20px">
-                        <button name="preview" id="preview" type="submit" class="text-center btn btn-success" style="margin-left: 25px">Preview</button>
+                        <button name = "action" value="preview" id="preview" type="submit" class="text-center btn btn-success" style="margin-left: 25px">Preview</button>
                     </div>
                 </form>
 

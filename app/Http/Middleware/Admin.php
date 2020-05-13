@@ -32,9 +32,6 @@ class Admin {
                 abort(403);
             }
         } else {
-
-
-
             //Returning User to Startpage if he is not an Admin
             return redirect("/");
         }
