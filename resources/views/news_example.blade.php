@@ -8,10 +8,10 @@
     <div class="row">
         <div class="col-xl-3"></div>
         <div class="col-xl-6 colum_content_big">
-            <h2 class="nadestack_heading_two">{{$news_metadata[0]['news_subheading']}}</h2>
-            <h1 class="text-center nadestack_heading_one">{{$news_metadata[0]['news_title']}}</h1>
+            <h4 class="nadestack_heading_four nadestack-first-element text-left">{{$news_metadata[0]['news_subheading']}}</h4>
+            <h1 class="text-left">{{$news_metadata[0]['news_title']}}</h1>
             <p>{!!$news_metadata[0]['news_content']['content']!!}</p>
-            <p>{{$news_metadata[0]['news_author']}}</p>
+            <p class="text-left italic">Written: {{$news_metadata[0]['news_author']}}</p>
             <hr class="bg-light" />
             <div class="row">
                 <div class="col-xl-12">

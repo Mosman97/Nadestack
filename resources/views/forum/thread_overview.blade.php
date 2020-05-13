@@ -7,7 +7,7 @@
             <div class="col-xl-6 colum_content_big  flex-column">
                 <div class="row">
                     <div class="col">
-                        <div class="nadestack-thread-heading">
+                        <div class="nadestack-thread-heading nadestack-first-element">
                             <i class="fa fa-shield-alt nadestack-thread-icon"></i>
                             <h1>League Problems</h1>
                         </div>
@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col">
                         @auth
-                            <button class="nadestack_btn" style="background-color: #86C232; margin-bottom: 8px">Create thread <i class="fa fa-file-alt"></i> </button>
+                            <a class="btn nadestack_btn" href="{{route('createthread')}}" style="background-color: #86C232; margin-bottom: 8px">Create thread <i class="fa fa-file-alt"></i> </a>
                         @endauth
                         <div class="table-responsive">
                             <table class="table nadestack-tbl table-borderless">
