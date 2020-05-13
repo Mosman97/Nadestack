@@ -91,12 +91,12 @@
                     <h2 class="text-center" style="padding-bottom: 10px">News Content</h2>
                     @trix(\App\News::class, 'content')
                     <div style="padding-top: 20px">
-                        <button class="text-center btn btn-success" style="margin-left: 25px">create News</button>
+                        <button name="create" id="create" type="submit" class="text-center btn btn-success" style="margin-left: 25px">create News</button>
+                    </div>
+                    <div style="padding-top: 20px">
+                        <button name="preview" id="preview" type="submit" class="text-center btn btn-success" style="margin-left: 25px">Preview</button>
                     </div>
                 </form>
-    <div style="padding-top: 20px">
-        <button href="{{route('adminpanel_shownews')}}" class="text-center btn btn-success" style="margin-left: 25px">Preview</button>
-    </div>
 
 
 
