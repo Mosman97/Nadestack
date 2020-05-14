@@ -59,6 +59,7 @@ class AdminPanelNewsController extends Controller {
             $news_metadata[0]['news_subheading'] = $request->input("news_subheading");
             $news_metadata[0]['news_content'] = $request->input("news-trixFields");
             $news_metadata[0]['news_author'] = Auth::user()->username;
+            $news_metadata[0]['preview'] = 1;
 
 
 
@@ -228,7 +229,7 @@ class AdminPanelNewsController extends Controller {
      * @param Request $request
      */
     public function mulidestroy(Request $request) {
-        
+
     }
 
 }

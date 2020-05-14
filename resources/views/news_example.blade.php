@@ -10,7 +10,11 @@
         <div class="col-xl-6 colum_content_big">
             <h4 class="nadestack_heading_four nadestack-first-element text-left">{{$news_metadata[0]['news_subheading']}}</h4>
             <h1 class="text-left">{{$news_metadata[0]['news_title']}}</h1>
-            <p>{!!$news_metadata[0]['news_content']['content']!!}</p>
+            @if($news_metadata[0]['preview'] == 1)
+                <p>{!!$news_metadata[0]['news_content']['content']!!}</p>
+            @else
+                <p>{!!$news_metadata[0]['news_content']!!}</p>
+            @endif
             <p class="text-left italic">Written: {{$news_metadata[0]['news_author']}}</p>
             <hr class="bg-light" />
             <div class="row">

@@ -11,14 +11,13 @@
                     </div>
                 </div>
 
-                <!-- "Adminrow"-->
-                @admin
+                @if(Auth::user()->nadestack_admin)
                <div class="row" style="margin-bottom: 8px">
                    <div class="col">
                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalClose">Close Thread</button>
                    </div>
                </div>
-                @endadmin
+                @endif
 
                <!-- Nachrichtenblock bzw eine Nachricht-->
                 <div class="row">
@@ -42,14 +41,13 @@
                         </div>
                         @endauth
 
-                        <!-- "Adminrow"-->
-                        @admin
+                        @if(Auth::user()->nadestack_admin)
                         <div class="row" style="margin-bottom: 3px; margin-top: 3px">
                             <div class="col">
                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalDelete" >Delete Message</button>
                             </div>
                         </div>
-                        @endadmin
+                        @endif
 
                         <hr class="bg-light">
                     </div>
