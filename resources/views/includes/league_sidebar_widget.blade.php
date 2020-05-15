@@ -95,4 +95,26 @@
             </div>
         </div>
     </div>
+    <div class="nadestack-league-widget">
+        <div class="widget-title">
+            <h3>Not verified!</h3>
+        </div>
+        <p>Your Nadestack account hasn't been verified yet. Without you won't be able to participate in our League!</p>
+        <div><button class="btn btn-primary nadestack_btn" type="button">Verify</button></div>
+    </div>
+    <div class="nadestack-league-widget">
+        <div class="widget-title">
+            <h3>No active Season</h3>
+        </div>
+        <p>There is no active Nadestack Season going on right now! The next season will start at 23/10/2020. Please make sure that your Team is registered for the
+            following season<br> Status: <span style="color: green">Registered for Season 1</span> </p>
+        <div><button class="btn btn-primary nadestack_btn" type="button">Register</button></div>
+    </div>
+    <div class="nadestack-league-widget">
+        <div class="widget-title">
+            <h3>Missing Gameaccount!</h3>
+        </div>
+        <p>Please verify your Steam Account. Without you won't be able to participate in our League!</p>
+        <div><button class="btn btn-primary nadestack_btn" type="button">Verify</button></div>
+    </div>
 </div>

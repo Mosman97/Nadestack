@@ -1015,3 +1015,40 @@ html, body {
 /*shoutouts to https://stackoverflow.com/a/25218797/6904703*/
 /*End of stying for the footer*/
 
+/*Start of stying for the league widget*/
+.nadestack-league-widget{
+    border: 3px solid #303436;
+    padding: 10px;
+    margin: 5px 0 5px 0;
+}
+.nadestack-league-widget .widget-title{
+    display: flex;
+    align-items: center;
+}
+.nadestack-league-widget .widget-title::before, .nadestack-league-widget .widget-title::after{
+    content: "";
+    flex-grow: 1;
+    height: 3px;
+    background: #FF312E;
+}
+
+.nadestack-league-widget .widget-title h3{
+    padding: 0 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: #FF312E;;
+}
+.nadestack-league-widget p {
+    margin: 15px;
+    text-align: left;
+}
+
+.nadestack-league-widget div {
+    text-align: center;
+}
+.nadestack-league-widget button {
+    min-width: 100px;
+    text-transform: uppercase;
+}
+/*End of stying for the league widget*/
+
