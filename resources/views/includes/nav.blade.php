@@ -13,16 +13,16 @@
                 <li class="nav-item  navigationitemsleft dropdown"style="margin-left: unset;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">League</a>
                     <div class="dropdown-menu dropdown-secondary nadestack-dropdown-menu" aria-labelledby="navbarDropdownMenuLink-555">
                         @auth
-                        <a class="dropdown-item" href="{{route('myleague')}}">My League</a>
+                        <a class="dropdown-item" href="{{route('myleague')}}"><i class="fa fa-trophy nadestack-navbar-icon"></i>My League</a>
                         <div class="dropdown-divider"></div>
                         @endauth
-                        <a class="dropdown-item" href="{{route('league_overview')}}">Overview</a>
+                        <a class="dropdown-item" href="{{route('league_overview')}}"><i class="fa fa-binoculars nadestack-navbar-icon"></i>Overview</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{route('league_rules')}}">Rules</a>
+                        <a class="dropdown-item" href="{{route('league_rules')}}"><i class="fa fa-list nadestack-navbar-icon"></i>Rules</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{route('faq')}}">FAQ</a>
+                        <a class="dropdown-item" href="{{route('faq')}}"><i class="fa fa-question nadestack-navbar-icon"></i>FAQ</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{route('support')}}">Support</a>
+                        <a class="dropdown-item" href="{{route('support')}}"><i class="fa fa-ticket-alt nadestack-navbar-icon"></i>Support</a>
                         <!-- vorerst wird kein ac verwendet!
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('client_download')}}">Download Client</a>
