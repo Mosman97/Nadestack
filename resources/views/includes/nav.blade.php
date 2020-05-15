@@ -32,7 +32,7 @@
                 <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="{{route('statistics')}}">Statistics</a></li>
                 <li class="nav-item navigationitemsleft" role="presentation">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search for..." aria-describedby="addonsearch" style="border-top-left-radius: 6px;border-bottom-left-radius: 6px;">
+                        <input type="text" class="form-control nadestack-navbar-search" placeholder="Search for..." aria-describedby="addonsearch" style="border-top-left-radius: 6px;border-bottom-left-radius: 6px;">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="addonsearch" style="border-top-right-radius: 6px;border-bottom-right-radius: 6px;"><a href="{{route('search')}}" style="color: grey"><i class="fa fa-search" id="search_bar_icon"></i></a></span>
                         </div>
