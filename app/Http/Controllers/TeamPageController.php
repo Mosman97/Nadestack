@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -29,9 +28,14 @@ class TeamPageController extends Controller {
             //Getting Data From Team
 
             $team = Team::where("team_id", '=', $team_id)->get()->toArray();
-            
+
             //Getting Logdata from the Team
-            $team_logdata = teamlog::where("team_id","=",$team_id)->orderBy('created_at',"asc")->get();
+            // $team_logdata = teamlog::where("team_id","=",$team_id)->orderBy('created_at',"asc")->get();
+
+            $team_logdata = teamlog::select('teamlogs.*',"performer.username as performer","target.username as target")->where("teamlogs.team_id", "=", $team_id)
+                    ->leftJoin("users as performer", "performer.id", "=", "teamlogs.user_id")
+                    ->leftJoin("users as target", "target.id", "=", "teamlogs.target_id")
+                    ->get();
 
 
             //If Team was just created we omit a sucess Message
@@ -42,7 +46,7 @@ class TeamPageController extends Controller {
             } else {
 
                 //Returning Team-ID page without Notification that a Team
-                return view("league.team_profile")->with("teamdata", $team)->with("logdata",$team_logdata);
+                return view("league.team_profile")->with("teamdata", $team)->with("logdata", $team_logdata);
             }
         }
     }
@@ -70,8 +74,7 @@ class TeamPageController extends Controller {
 
         return redirect()->route('myleague');
     }
-    
-    
+
     /**
      * Kicks a Player from the Team
      * @param Request $request
@@ -79,7 +82,6 @@ class TeamPageController extends Controller {
      * @param type $userid The User who will get kicked
      * @return type
      */
-
     public function kickPlayerFromTeam(Request $request, $teamid, $userid) {
 
         if (Auth::user()->team_id == $teamid) {
@@ -89,28 +91,28 @@ class TeamPageController extends Controller {
 
             //Sending Notification to the Person who got kicked
             Notification::send($kicked_user_info, new \App\Notifications\KickMemberNotification());
-            
+
             //Updating UserData
             $kicked_user = User::where("id", "=", $userid)->update(array('team_id' => null));
-            
-            
+
+
             //Adding Kicked Player to the TeamLog
-            
-            
+
+
             $log_helper = new \App\Tools\TeamLogHelper();
 
-                $kicked_player_logentry = new teamlog;
-                
-                $kicked_player_logentry->action_id = \Ramsey\Uuid\Nonstandard\Uuid::uuid4();
-                $kicked_player_logentry->action_parent_id = $log_helper->getPlayerKickedUUIDFromDatabase();
-                $kicked_player_logentry->user_id = Auth::user()->id;
-                $kicked_player_logentry->username = Auth::user()->username;
-                $kicked_player_logentry->target_id = $userid;
-                $kicked_player_logentry->target_username = $kicked_user_info[0]['username'];
-                $kicked_player_logentry->team_id = $teamid;
-                $kicked_player_logentry->action = TeamLogHelper::PLAYER_KICKED_ACTION_DB_NAME;
-                $kicked_player_logentry->save();
- 
+            $kicked_player_logentry = new teamlog;
+            //Maybe username can be deleted in log since usertabel holds it
+            $kicked_player_logentry->action_id = \Ramsey\Uuid\Nonstandard\Uuid::uuid4();
+            $kicked_player_logentry->action_parent_id = $log_helper->getPlayerKickedUUIDFromDatabase();
+            $kicked_player_logentry->user_id = Auth::user()->id;
+            $kicked_player_logentry->username = Auth::user()->username;
+            $kicked_player_logentry->target_id = $userid;
+            $kicked_player_logentry->target_username = $kicked_user_info[0]['username'];
+            $kicked_player_logentry->team_id = $teamid;
+            $kicked_player_logentry->action = TeamLogHelper::PLAYER_KICKED_ACTION_DB_NAME;
+            $kicked_player_logentry->save();
+
             return back()->with("kick_message", $kicked_user_info[0]['username'] . " was successfully removed from your Team!");
         }
     }

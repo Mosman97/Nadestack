@@ -1,6 +1,8 @@
 @extends('templates.league_default_template')
 
 @section('content')
+
+
 <div class="col colum_content_big">
     <div class="row">
         <div class="col">
@@ -282,13 +284,13 @@
                                         @foreach($logdata as $logentry)
                                         <tr>
                                             <td>{{$logentry->created_at}}</td>
-                                            <td><a href="{{route('profilepage',$logentry->username)}}">{{$logentry->username}}</a></td>
+                                            <td><a href="{{route('profilepage',$logentry->performer)}}">{{$logentry->performer}}</a></td>
                                             <td>{{$logentry->action}}</td>
                                             
                                             @if($logentry->target_id == NULL)
                                             <td>/</td>
                                             @else
-                                            <td><a href="{{route('profilepage',$logentry->target_username)}}">{{$logentry->target_username}}</a></td>
+                                            <td><a href="{{route('profilepage',$logentry->target)}}">{{$logentry->target}}</a></td>
                                             @endif
                                         </tr>
                                         @endforeach
