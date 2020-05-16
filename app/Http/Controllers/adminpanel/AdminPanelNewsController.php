@@ -88,11 +88,6 @@ class AdminPanelNewsController extends Controller {
             return Redirect::route('adminpanel_newsindex')->with("new_news_success", "a new News was just published!");
         }
 
-
-
-
-
-
         /*  if($_POST["preview"]) {
           //get Metadata of the articel
           $news_metadata[0]['news_title'] = $request->input("news_heading");

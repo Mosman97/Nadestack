@@ -70,12 +70,19 @@ class TeamPageController extends Controller {
 
         return redirect()->route('myleague');
     }
+    
+    
+    /**
+     * Kicks a Player from the Team
+     * @param Request $request
+     * @param type $teamid The Team which the User belongs to
+     * @param type $userid The User who will get kicked
+     * @return type
+     */
 
     public function kickPlayerFromTeam(Request $request, $teamid, $userid) {
 
         if (Auth::user()->team_id == $teamid) {
-
-
 
             //Getting UserData from the Target-User who will be get kicked from the Team
             $kicked_user_info = User::where("id", "=", $userid)->get();
@@ -91,26 +98,19 @@ class TeamPageController extends Controller {
             
             
             $log_helper = new \App\Tools\TeamLogHelper();
-            
-            
-                //TeamLogHelper::PLAYER_KICKED_ACTION_DB_NAME;
-            
-            
-            
-           
+
                 $kicked_player_logentry = new teamlog;
                 
                 $kicked_player_logentry->action_id = \Ramsey\Uuid\Nonstandard\Uuid::uuid4();
                 $kicked_player_logentry->action_parent_id = $log_helper->getPlayerKickedUUIDFromDatabase();
-                $kicked_player_logentry->user_id = $userid;
+                $kicked_player_logentry->user_id = Auth::user()->id;
+                $kicked_player_logentry->username = Auth::user()->username;
+                $kicked_player_logentry->target_id = $userid;
+                $kicked_player_logentry->target_username = $kicked_user_info[0]['username'];
                 $kicked_player_logentry->team_id = $teamid;
                 $kicked_player_logentry->action = TeamLogHelper::PLAYER_KICKED_ACTION_DB_NAME;
                 $kicked_player_logentry->save();
-                
-                
-                
-                
-            
+ 
             return back()->with("kick_message", $kicked_user_info[0]['username'] . " was successfully removed from your Team!");
         }
     }

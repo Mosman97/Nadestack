@@ -282,9 +282,14 @@
                                         @foreach($logdata as $logentry)
                                         <tr>
                                             <td>{{$logentry->created_at}}</td>
-                                            <td>{{$logentry->user_id}}</td>
+                                            <td><a href="{{route('profilepage',$logentry->username)}}">{{$logentry->username}}</a></td>
                                             <td>{{$logentry->action}}</td>
+                                            
+                                            @if($logentry->target_id == NULL)
                                             <td>/</td>
+                                            @else
+                                            <td><a href="{{route('profilepage',$logentry->target_username)}}">{{$logentry->target_username}}</a></td>
+                                            @endif
                                         </tr>
                                         @endforeach
 

@@ -55,7 +55,13 @@
                                     </div>
                                     <div class="row">
                                         <div class="col text-center d-xl-flex justify-content-xl-center align-items-xl-center">
+                                            
+                                            @if($user->team_id != NULL)
+                                          
                                             <a href="{{route('teampage',$user->team_id)}}"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center team-pic-big" src="../assets/img/BIG2.png"></a>
+                                            @else
+                                            <a href="#"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center team-pic-big" src="../assets/img/BIG2.png"></a>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="row">

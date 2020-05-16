@@ -17,6 +17,7 @@ class Teamlog extends Migration {
             $table->uuid("action_parent_id")->nullable();
             $table->bigInteger("user_id")->nullable();
             $table->foreignId('team_id')->nullable();
+            $table->bigInteger("target_id")->nullable();
             $table->text('action');
             $table->text('logtext')->nullable();
             $table->timestamps();
