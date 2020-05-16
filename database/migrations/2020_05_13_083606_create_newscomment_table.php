@@ -13,7 +13,7 @@ class CreateNewscommentTable extends Migration
      */
     public function up()
     {
-        Schema::create('newscomment', function (Blueprint $table) {
+        Schema::create('newscomments', function (Blueprint $table) {
             $table->bigIncrements('newscomment_id')->primaray();
             $table->uuid('news_id');
             $table->bigInteger('user_id');
@@ -29,6 +29,6 @@ class CreateNewscommentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('newscomment');
+        Schema::dropIfExists('newscomments');
     }
 }

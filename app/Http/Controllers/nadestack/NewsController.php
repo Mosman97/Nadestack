@@ -5,8 +5,8 @@ namespace App\Http\Controllers\nadestack;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\News;
-
-
+use Illuminate\Support\Facades\Auth;
+use App\newscomment;
 
 
 class NewsController extends Controller {
@@ -30,8 +30,26 @@ class NewsController extends Controller {
             ->where("news_id", "=", $news_id)
             ->get();
         //get comments of the articel
-        //TODO
-        return view("news_example")->with("news_metadata", $news_metadata);
+        $news_comments = newscomment::select('newscomments.*')
+            ->where("news_id", "=", $news_id)
+            ->leftJoin("users", "users.id", "=", "newscomments.user_id")
+            ->orderBy('created_at', "asc")
+            ->get();
+        return view("news_example")->with("news_metadata", $news_metadata)->with("news_comments", $news_comments);
+    }
+
+    public function storeComment(Request $request, $news_id){
+
+        $comment = $request -> input("comment");
+
+        $new_comment = Newscomment::create(
+            [   "comment" => $comment,
+                "user_id" => Auth::user()->id,
+                "news_id" => $news_id,
+            ]);
+
+        return redirect()->back()->with('success', 'comment created');
+
     }
 
 }

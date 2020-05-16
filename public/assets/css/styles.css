@@ -527,7 +527,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .nadestack-navbar-search:focus {
     border-color: #FF312E;
     outline: 0;
-    -webkit-box-shadow: 0.75px 0.75px 0.75px 0.75px rgba(255,49,46,1);
+    -webkit-box-shadow: 0.2px 0.2px 0.2px 0.2px rgba(255,49,46,1);
 }
 
 /*Styles the Icons in the Usermenu*/

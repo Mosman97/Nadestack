@@ -26,6 +26,9 @@ Route::get("/", "nadestack\NewsController@index")->name('startpage');
 Route::get("news/{news_id}", "nadestack\NewsController@getNewsDetails")
     ->name("viewnews");
 
+Route::post("news/{news_id}", "nadestack\NewsController@storeComment")
+    ->name("StoreNewsComment");
+
 
 /**
  * Searchroute of Nadestack
