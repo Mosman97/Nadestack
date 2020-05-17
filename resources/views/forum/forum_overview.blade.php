@@ -35,7 +35,7 @@
                                                 <i class="fa fa-shield-alt"></i>
                                             </div>
                                             <a href="forum_post.html" class="forum-item-title">General Discussion</a>
-                                            <div class="forum-sub-title">Talk about sports, entertainment, music, movies, your favorite color, talk about enything.</div>
+                                            <div class="forum-sub-title">General discussions about any eSports related topics</div>
                                         </div>
                                         <div class="col-md-1 forum-info">
                                                 <span class="views-number">
@@ -67,10 +67,10 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="forum-icon">
-                                                <i class="fa fa-bolt"></i>
+                                                <i class="fa fa-users"></i>
                                             </div>
-                                            <a href="forum_post.html" class="forum-item-title">Introductions</a>
-                                            <div class="forum-sub-title">New to the community? Please stop by, say hi and tell us a bit about yourself. </div>
+                                            <a href="forum_post.html" class="forum-item-title">Player searching a team</a>
+                                            <div class="forum-sub-title">If you're a player who currently a looking for a team. This is the place to go!</div>
                                         </div>
                                         <div class="col-md-1 forum-info">
                                                 <span class="views-number">
@@ -102,10 +102,10 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="forum-icon">
-                                                <i class="fa fa-calendar"></i>
+                                                <i class="fa fa-user-plus"></i>
                                             </div>
-                                            <a href="forum_post.html" class="forum-item-title">Announcements</a>
-                                            <div class="forum-sub-title">This forum features announcements from the community staff. If there is a new post in this forum, please check it out. </div>
+                                            <a href="forum_post.html" class="forum-item-title">Team searching a player </a>
+                                            <div class="forum-sub-title">If you're a team who's currently looking for new valuable players. This is the place to go!. </div>
                                         </div>
                                         <div class="col-md-1 forum-info">
                                                 <span class="views-number">
@@ -137,10 +137,45 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="forum-icon">
-                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-trophy"></i>
                                             </div>
-                                            <a href="forum_post.html" class="forum-item-title">Staff Discussion</a>
-                                            <div class="forum-sub-title">This forum is for private, staff member only discussions, usually pertaining to the community itself. </div>
+                                            <a href="forum_post.html" class="forum-item-title">Competition Area</a>
+                                            <div class="forum-sub-title">Here you can talk/discuss about leagues, tournaments and events </div>
+                                        </div>
+                                        <div class="col-md-1 forum-info">
+                                                <span class="views-number">
+                                                    1450
+                                                </span>
+                                            <div class="views-number-description">
+                                                <small>Views</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 forum-info">
+                                                <span class="views-number">
+                                                    652
+                                                </span>
+                                            <div class="views-number-description">
+                                                <small>Topics</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 forum-info">
+                                                <span class="views-number">
+                                                    572
+                                                </span>
+                                            <div class="views-number-description">
+                                                <small>Posts</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="forum-item">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="forum-icon">
+                                                <i class="fa fa-video"></i>
+                                            </div>
+                                            <a href="forum_post.html" class="forum-item-title">Broadcast</a>
+                                            <div class="forum-sub-title">Here you can talk/discuss about VODs, demos, livestreams, fragclips and similar stuff. Feel free to introduce yourself to the community!</div>
                                         </div>
                                         <div class="col-md-1 forum-info">
                                                 <span class="views-number">
@@ -180,10 +215,10 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="forum-icon">
-                                                <i class="fa fa-clock"></i>
+                                                <i class="fa fa-comment"></i>
                                             </div>
-                                            <a href="forum_post.html" class="forum-item-title">Lorem Ipsum is simply dummy text. </a>
-                                            <div class="forum-sub-title">Various versions have evolved over the years, sometimes by accident, sometimes on purpose passage of Lorem Ipsum (injected humour and the like).</div>
+                                            <a href="forum_post.html" class="forum-item-title">Feedback </a>
+                                            <div class="forum-sub-title">Here you can provide suggestions for improvement. We all can learn from each other, maybe you got the right idea what we could change in the future!</div>
                                         </div>
                                         <div class="col-md-1 forum-info">
                                                 <span class="views-number">
@@ -215,10 +250,10 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="forum-icon">
-                                                <i class="fa fa-bomb"></i>
+                                                <i class="fa fa-bookmark"></i>
                                             </div>
-                                            <a href="forum_post.html" class="forum-item-title">There are many variations of passages</a>
-                                            <div class="forum-sub-title"> If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the . </div>
+                                            <a href="forum_post.html" class="forum-item-title">Off-Topic</a>
+                                            <div class="forum-sub-title"> Discussions on anything not seriously related to eSports or Nadestack</div>
                                         </div>
                                         <div class="col-md-1 forum-info">
                                                 <span class="views-number">
@@ -250,10 +285,10 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="forum-icon">
-                                                <i class="fa fa-bookmark"></i>
+                                                <i class="fa fa-desktop"></i>
                                             </div>
-                                            <a href="forum_post.html" class="forum-item-title">The standard chunk of Lorem Ipsum</a>
-                                            <div class="forum-sub-title">Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</div>
+                                            <a href="forum_post.html" class="forum-item-title">Hardware & Tweaks</a>
+                                            <div class="forum-sub-title">Here you can discuss about any technical stuff like talking about the newest hardware!</div>
                                         </div>
                                         <div class="col-md-1 forum-info">
                                                 <span class="views-number">
@@ -281,42 +316,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="forum-item">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <div class="forum-icon">
-                                                <i class="fa fa-ambulance"></i>
-                                            </div>
-                                            <a href="forum_post.html" class="forum-item-title">Lorem Ipsum, you need to be sure there</a>
-                                            <div class="forum-sub-title">Internet tend to repeat predefined chunks as necessary, making this the</div>
-                                        </div>
-                                        <div class="col-md-1 forum-info">
-                                                <span class="views-number">
-                                                    2550
-                                                </span>
-                                            <div class="views-number-description">
-                                                <small>Views</small>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1 forum-info">
-                                                <span class="views-number">
-                                                    122
-                                                </span>
-                                            <div class="views-number-description">
-                                                <small>Topics</small>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1 forum-info">
-                                                <span class="views-number">
-                                                    92
-                                                </span>
-                                            <div class="views-number-description">
-                                                <small>Posts</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
