@@ -102,13 +102,10 @@ class TeamPageController extends Controller {
             $log_helper = new \App\Tools\TeamLogHelper();
 
             $kicked_player_logentry = new teamlog;
-            //Maybe username can be deleted in log since usertabel holds it
             $kicked_player_logentry->action_id = \Ramsey\Uuid\Nonstandard\Uuid::uuid4();
             $kicked_player_logentry->action_parent_id = $log_helper->getPlayerKickedUUIDFromDatabase();
             $kicked_player_logentry->user_id = Auth::user()->id;
-            $kicked_player_logentry->username = Auth::user()->username;
             $kicked_player_logentry->target_id = $userid;
-            $kicked_player_logentry->target_username = $kicked_user_info[0]['username'];
             $kicked_player_logentry->team_id = $teamid;
             $kicked_player_logentry->action = TeamLogHelper::PLAYER_KICKED_ACTION_DB_NAME;
             $kicked_player_logentry->save();

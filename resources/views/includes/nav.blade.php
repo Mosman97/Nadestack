@@ -72,6 +72,11 @@
                         <a class="dropdown-item " href="{{route('startpage')}}/user/{{Auth::user()->username}}">
                             <i class="fa fa-user"></i><span class='nadestack-usermenu-icon'></span>
                             My Profile</a>
+                        
+                        @if(Auth::user()->nadestack_admin)
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{route('admin')}}"><i class="fa fa-toolbox"></i><span class='nadestack-usermenu-icon'></span>Admin-Dashboard</a>
+                        @endif
                         @if(Auth::user()->team_id != NULL)
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item " href="{{route('teampage',Auth::user()->team_id)}}"><i class="fa fa-users"></i><span class='nadestack-usermenu-icon'></span>My Team</a>
