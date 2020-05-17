@@ -25,6 +25,8 @@ class HomeController extends Controller implements MustVerifyEmail
      */
     public function index()
     {
+        
+      
         return view('home');
     }
 
