@@ -16,7 +16,14 @@
                 <div class="row text-white register-form" style="color: rgb(255,255,255);">
                     <div class="col-md-8 offset-md-2">
                         <form class="text-white nadestack_form" id="profile_settings_form" style="color: rgb(255,255,255);">
-                            <h1 class="text-center nadestack_heading_one" >Team-Settings</h1>
+                            <div class="row">
+                                <div class="col-sm-3 col-12 text-center">
+                                    <a class="btn nadestack_btn" style="margin: 10px 0 10px 10px" href="{{route('teampage',Auth::user()->team_id)}}"><i class="fas fa-arrow-circle-left"></i> Profile</a>
+                                </div>
+                                <div class="col-sm-6 col-12">
+                                    <h1 class="nadestack_heading_one" >Team-Settings</h1>
+                                </div>
+                            </div>
                             @if (session('kick_message'))
                             <div class="alert alert-success">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session('kick_message') }}
@@ -86,7 +93,7 @@
                                         <hr class="bg-light"/>
                                         <div class="form-check text-center"><input class="form-check-input" type="checkbox" id="formCheck" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
                                         <div class="form-row">
-                                            <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="button">Save Settings</button></div>
+                                            <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="submit">Save Settings</button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +126,7 @@
                                         <hr class="bg-light"/>
                                         <div class="form-check text-center"><input class="form-check-input" type="checkbox" id="formCheck" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
                                         <div class="form-row">
-                                            <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="button">Save Settings</button></div>
+                                            <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="submit">Save Settings</button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +205,7 @@
                                         <hr class="bg-light"/>
                                         <div class="form-check text-center"><input class="form-check-input" type="checkbox" id="formCheck" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
                                         <div class="form-row">
-                                            <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="button">Save Settings</button></div>
+                                            <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="submit">Save Settings</button></div>
                                         </div>
                                     </div>
                                 </div>
