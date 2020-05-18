@@ -287,7 +287,14 @@ Route::get("teams/{teamid}/edit", "TeamPageController@edit")->name('edit_team')-
 Route::post("/teams/leave", "TeamPageController@leaveTeam")->name("leave_team")->middleware('auth');
 
 
+/**
+ * Save Team-Settings
+ */
+Route::post("/teams/save","TeamPageController@saveSettings")->name("save_team")->middleware("team_admin");
+
+
 Route::get("/team/{teamid}/kick/{userid}", "TeamPageController@kickPlayerFromTeam")->name('kick_player_from_team')->middleware('team_admin');
+
 
 
 /*

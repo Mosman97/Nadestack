@@ -6,8 +6,6 @@
 
 <script src='{{URL::asset('assets/js/validate/teamregvalidate.js')}}'></script>
 <div class="container-fluid">
-
-
     <div class="row">
         <div class="col-xl-1"></div>
         <div class="col">
@@ -132,6 +130,7 @@
                                         <div class="row">
                                             <div class="col-md-1"></div>
                                             <div class="col">
+                                               
                                                 <h3 class="nadestack_heading_three text-left">Verbleibende Wechselslots: 3</h3>
                                                 <div class="table-responive">
                                                     <table class="table nadestack-tbl text-center">
@@ -149,8 +148,6 @@
                                                                 <td><a href="{{route('profilepage',$user->username)}}">{{$user->username}}</a></td>
                                                                 <td>/</td>
                                                                 <td>
-
-
                                                                     <select @if(Auth::user()->id !=$team_data[0]['team_admin_id'] ) disabled="" @endif >
                                                                              <optgroup>
                                                                             @if($user->id == $team_data[0]['team_admin_id'])
@@ -182,24 +179,22 @@
                                                                 </td>
                                                                 @if(Auth::user()->id == $team_data[0]['team_admin_id'])
                                                                 <td> <a href="{{route('kick_player_from_team',['teamid'=>$team_data[0]['team_id'],'userid'=>$user->id])}}" type="button" class="btn nadestack_btn">Kick Player</a>
-
-
                                                                 </td>
                                                                 @endif
                                                             </tr>
-
                                                             @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>
+
                                             </div>
                                             <div class="col-md-1"></div>
                                         </div>
-                                        <hr class="bg-light"/>
-                                        <div class="form-check text-center"><input class="form-check-input" type="checkbox" id="formCheck" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
-                                        <div class="form-row">
-                                            <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="button">Save Settings</button></div>
-                                        </div>
+                                        <!--  <hr class="bg-light"/>
+                                          <div class="form-check text-center"><input class="form-check-input" type="checkbox" id="formCheck" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
+                                          <div class="form-row">
+                                              <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="button">Save Settings</button></div>
+                                          </div>-->
                                     </div>
                                 </div>
                                 <!-- End of the members tab -->

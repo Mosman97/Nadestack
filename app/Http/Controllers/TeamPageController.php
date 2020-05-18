@@ -32,7 +32,7 @@ class TeamPageController extends Controller {
             //Getting Logdata from the Team
             // $team_logdata = teamlog::where("team_id","=",$team_id)->orderBy('created_at',"asc")->get();
 
-            $team_logdata = teamlog::select('teamlogs.*',"performer.username as performer","target.username as target")->where("teamlogs.team_id", "=", $team_id)
+            $team_logdata = teamlog::select('teamlogs.*', "performer.username as performer", "target.username as target")->where("teamlogs.team_id", "=", $team_id)
                     ->leftJoin("users as performer", "performer.id", "=", "teamlogs.user_id")
                     ->leftJoin("users as target", "target.id", "=", "teamlogs.target_id")
                     ->get();
@@ -60,7 +60,7 @@ class TeamPageController extends Controller {
     }
 
     /*
-     * if a User leaves a Team
+     * if a User leaves a Team this function will get called 
      */
 
     public function leaveTeam(Request $request) {
@@ -72,6 +72,7 @@ class TeamPageController extends Controller {
         Auth::user()->team_id = NULL;
         Auth::user()->save();
 
+        //Returning back to myLeauge View
         return redirect()->route('myleague');
     }
 
@@ -111,6 +112,21 @@ class TeamPageController extends Controller {
             $kicked_player_logentry->save();
 
             return back()->with("kick_message", $kicked_user_info[0]['username'] . " was successfully removed from your Team!");
+        }
+    }
+
+    /**
+     * 
+     * @param Request $request
+     * @param type $teamid
+     */
+    public function saveSettings(Request $request, $teamid) {
+
+        echo("backend");
+        //Checking if Request contains a role Changing
+        if ($request->has("role_changed")) {
+
+            //Determine which user will get his role changed 
         }
     }
 
