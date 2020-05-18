@@ -46,11 +46,11 @@
                                     <div class="nadestack-settings-div" style="margin-top: 20px; ">
                                         <div class="form-row form-group">
                                             <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Teamname:</label></div>
-                                            <div class="col-sm-6 input-column"><input class="form-control" style="color:black;" type="text" id="teamname" value="{{$team_data[0]['team_name']}}" name="teamname"></div>
+                                            <div class="col-sm-6 input-column"><input class="form-control" type="text" id="teamname" value="{{$team_data[0]['team_name']}}" name="teamname"></div>
                                         </div>
                                         <div class="form-row form-group">
                                             <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Team-Tag :</label></div>
-                                            <div class="col-sm-6 input-column"><input style="color:black;"class="form-control" type="text" id="teamtag"value="{{$team_data[0]['team_tag']}}" name="teamtag" ></div>
+                                            <div class="col-sm-6 input-column"><input class="form-control" type="text" id="teamtag"value="{{$team_data[0]['team_tag']}}" name="teamtag" ></div>
                                         </div>
                                         <div class="form-row form-group">
                                             <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Country:</label></div>
