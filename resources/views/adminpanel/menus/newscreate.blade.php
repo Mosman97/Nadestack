@@ -94,10 +94,6 @@
                         <button name = "action" value="preview" id="preview" type="submit" class="text-center btn btn-success" style="margin-left: 25px">Preview</button>
                     </div>
                 </form>
-
-
-
-
     @endif
 
 
