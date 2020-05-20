@@ -12,7 +12,7 @@
                     <!-- Start: Pretty Registration Form -->
                       <div class="row text-white register-form" style="color: rgb(255,255,255);">
                         <div class="col-md-8 offset-md-2">
-                            <form class="nadestack_form" id="registration_form" style="color: rgb(255,255,255);margin-top: 50px;margin-bottom: 50px;"action="{{ route('register')}}"  method="POST">
+                            <form class="nadestack_form" id="registration_form" style="color: rgb(255,255,255);margin-top: 50px;margin-bottom: 50px;"action="{{ route('register')}}"  method="POST" novalidate="">
                              @csrf
                                 <h1 class="text-center text-light nadestack_heading_one">Create Account</h1>
                                 <div class="form-row form-group">
