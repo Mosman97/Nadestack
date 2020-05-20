@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class forum_categorie extends Model
 {
     protected $fillable = [
-        'forum_categories_id',
-        'forum_categories_title',
+        'forum_categorie_id',
+        'forum_categorie_title',
+        'forum_categorie_icon',
+        'forum_categorie_text',
     ];
     protected $guarded = [];
 }

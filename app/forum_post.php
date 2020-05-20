@@ -10,6 +10,7 @@ class forum_post extends Model
         'forum_posts_id',
         'forum_threads_id',
         'forum_posts_content',
+        'is_deleted',
     ];
     protected $guarded = [];
 }

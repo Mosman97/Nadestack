@@ -15,7 +15,10 @@ class CreateForumCategoriesTable extends Migration
     {
         Schema::create('forum_categories', function (Blueprint $table) {
             $table->bigIncrements('forum_categories_id');
+            $table->int('forum_ranking');
             $table->longtext('forum_categories_title');
+            $table->string('forum_categories_icon');
+            $table->longtext('forum_categories_text');
         });
     }
 

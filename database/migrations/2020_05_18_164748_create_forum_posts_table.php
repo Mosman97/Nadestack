@@ -15,8 +15,10 @@ class CreateForumPostsTable extends Migration
     {
         Schema::create('forum_posts', function (Blueprint $table) {
             $table->bigIncrements('forum_posts_id');
-            $table->uuid('forum_threads_id');
+            $table->foreign('forum_threads_id')->references('forum_threads_id')->on('forum_threads');
             $table->longtext('forum_posts_content');
+            $table->tinyInteger('is_deleted')->default('0');
+            $table->timestamps();
         });
     }
 

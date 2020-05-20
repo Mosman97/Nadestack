@@ -104,23 +104,23 @@
                                     <div class="nadestack-settings-div" style="margin-top: 20px">
                                         <div class="form-row form-group">
                                             <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-twitter"></i><span style="padding-left: 10px;">Twitter:</span></div>
-                                            <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" type="url" value ="{{$team_data[1]['twitter_url']}}" id="twitter" name="twitter"></div>
+                                            <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" type="url" value ="{{$team_data[0]['twitter_url']}}" id="twitter" name="twitter"></div>
                                             <div class="col"></div>
                                         </div>
                                         <div class="form-row form-group">
                                             <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-instagram"></i><span style="padding-left: 10px;">Instagram:</span></div>
-                                            <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" value ="{{$team_data[1]['instagram_url']}}"type="url" id="instagram" name="instagram"></div>
+                                            <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control" value ="{{$team_data[0]['instagram_url']}}"type="url" id="instagram" name="instagram"></div>
                                             <div class="col"></div>
                                         </div>
                                         <div class="form-row form-group">
                                             <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-twitch"></i><span style="padding-left: 10px;">Twitch:</span></div>
-                                            <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control"  value ="{{$team_data[1]['twitch_url']}}"type="url" id="twitch" name="twitch"></div>
+                                            <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control"  value ="{{$team_data[0]['twitch_url']}}"type="url" id="twitch" name="twitch"></div>
                                             <div class="col"></div>
                                         </div>
-                                      
+
                                         <div class="form-row form-group">
                                             <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-center align-items-center justify-content-xl-center align-items-xl-center label-column"><i class="fa fa-youtube"></i><span style="padding-left: 10px;">Youtube:</span></div>
-                                            <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control"value ="{{$team_data[1]['youtube_url']}}" type="url" id="youtube" name="youtube"></div>
+                                            <div class="col-sm-6 col-xl-6 d-xl-flex justify-content-xl-center align-items-xl-center input-column"><input class="form-control"value ="{{$team_data[0]['youtube_url']}}" type="url" id="youtube" name="youtube"></div>
                                             <div class="col"></div>
                                         </div>
                                         <hr class="bg-light"/>
@@ -138,7 +138,7 @@
                                         <div class="row">
                                             <div class="col-md-1"></div>
                                             <div class="col">
-                                               
+
                                                 <h3 class="nadestack_heading_three text-left">Verbleibende Wechselslots: 3</h3>
                                                 <div class="table-responive">
                                                     <table class="table nadestack-tbl text-center">
