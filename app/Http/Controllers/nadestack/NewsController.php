@@ -18,9 +18,11 @@ class NewsController extends Controller {
 
     public function index(Request $request) {
 
-        $news = News::orderBy('created_at', "desc")->paginate(5);
+    $news = News::orderBy('created_at', "desc")->paginate(5);
+        
+  
 
-        return view("news")->with("news", $news);
+    return view("news")->with("news", $news);
     }
 
     public function getNewsDetails($news_id){

@@ -1,9 +1,7 @@
 @extends('templates.default_template')
 
 @section('content')
-<script src='{{URL::asset('assets/js/validate/registervalidate.js')}}'></script>
 <!-- Google Captcha script -->
-<script src='https://www.google.com/recaptcha/api.js'></script>
     <div class="container-fluid nadestack_body">
         <div class="row">
             <div class="col-xl-2"></div>
@@ -16,7 +14,7 @@
                              @csrf
                                 <h1 class="text-center text-light nadestack_heading_one">Create Account</h1>
                                 <div class="form-row form-group">
-                                    <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"  onsubmit="try {return window.confirm(&quot;Dieses Formular wird aufgrund bestimmter Sicherheitseinschränkungen möglicherweise nicht ordnungsgemäß angezeigt.\nWeiter?&quot;);} catch (e) {return false;}">
+                                    <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;">
                                         <label class="col-form-label">Username:</label>
                                     </div>
                                     <div class="col-sm-6 input-column"><input id="username"name="username"class="form-control" type="text"></div>
@@ -51,11 +49,6 @@
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Confirm Password:</label></div>
                                     <div class="col-sm-6 input-column"><input class="form-control" id="password_con" name="password_con" type="password"></div>
-                                </div>
-                                <div class=" form-row form-group justify-content-xl-center align-items-xl-center" style="justify-content: center">
-                                    <div class="g-recaptcha" data-sitekey="6LdNP9oUAAAAAFh6snkQAA_6iZWmD56ouU1jdgMD" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                                    <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
-                                    <div class="help-block with-errors"></div>
                                 </div>
                                 <hr class="bg-light"/>
                                 <div class="form-check text-center"><input class="form-check-input" type="checkbox" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>

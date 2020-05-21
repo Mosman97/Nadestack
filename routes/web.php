@@ -30,6 +30,9 @@ Route::post("news/{news_id}", "nadestack\NewsController@storeComment")
     ->name("StoreNewsComment");
 
 
+
+
+
 /**
  * Searchroute of Nadestack
  */
@@ -236,6 +239,11 @@ Route::post("/support/new", "ProfileTicketController@store")
 
 /* Holds all necessary Authentication Routes */
 Auth::routes();
+
+/**
+ * Custom Logout Route to prevend Logout-Errors
+ */
+Route::get('/user/logout', 'Auth\LoginController@logout')->name('advanced_logout')->middleware('auth');
 
 /**
  * Overrides the Logout Method (Maybe not Secure enough?)

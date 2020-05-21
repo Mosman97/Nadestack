@@ -86,7 +86,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item " href="{{route('profiletickets')}}"><i class="fa fa-ticket-alt"></i><span class='nadestack-usermenu-icon '></span>Support Tickets</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item " href="{{ route('logout') }}"><i class="fa fa-sign-out-alt"></i><span class='nadestack-usermenu-icon '></span>Logout</a>
+                        <a class="dropdown-item " href="{{ route('advanced_logout') }}"><i class="fa fa-sign-out-alt"></i><span class='nadestack-usermenu-icon '></span>Logout</a>
                     </div>
                 </li>
                 @endauth
