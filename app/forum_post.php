@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class forum_post extends Model
 {
     protected $fillable = [
-        'forum_posts_id',
-        'forum_threads_id',
-        'forum_posts_content',
+        'forum_post_id',
+        'forum_thread_id',
+        'forum_post_content',
         'is_deleted',
     ];
     protected $guarded = [];

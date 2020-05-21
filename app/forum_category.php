@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class forum_thread extends Model
+class forum_category extends Model
 {
     protected $fillable = [
-        'forum_thread_id',
-        'forum_thread_title',
         'forum_category_id',
-        'is_closed',
+        'forum_category_title',
+        'forum_category_icon',
+        'forum_category_text',
     ];
     protected $guarded = [];
 }

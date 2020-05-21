@@ -14,9 +14,10 @@ class CreateForumPostsTable extends Migration
     public function up()
     {
         Schema::create('forum_posts', function (Blueprint $table) {
-            $table->bigIncrements('forum_posts_id');
-            $table->foreign('forum_threads_id')->references('forum_threads_id')->on('forum_threads');
-            $table->longtext('forum_posts_content');
+            $table->increments('forum_post_id');
+            $table->integer('forum_thread_id')->unsigned();
+            $table->foreign('forum_thread_id')->references('forum_thread_id')->on('forum_threads');
+            $table->longtext('forum_post_content');
             $table->tinyInteger('is_deleted')->default('0');
             $table->timestamps();
         });
