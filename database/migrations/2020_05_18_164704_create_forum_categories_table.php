@@ -14,11 +14,11 @@ class CreateForumCategoriesTable extends Migration
     public function up()
     {
         Schema::create('forum_categories', function (Blueprint $table) {
-            $table->bigIncrements('forum_categories_id');
-            $table->int('forum_ranking');
-            $table->longtext('forum_categories_title');
-            $table->string('forum_categories_icon');
-            $table->longtext('forum_categories_text');
+            $table->increments('forum_category_id');
+            $table->bigInteger('forum_ranking');
+            $table->longtext('forum_category_title');
+            $table->string('forum_category_icon');
+            $table->longtext('forum_category_text');
         });
     }
 

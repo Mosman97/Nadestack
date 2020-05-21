@@ -319,9 +319,7 @@ Route::get("/team/{teamid}/kick/{userid}", "TeamPageController@kickPlayerFromTea
 /**
  * Displays the Root of the Forum aka the Forum-Overview
  */
-Route::get("/forum", function() {
-    return view("forum.forum_overview");
-})->name('forum');
+Route::get("/forum", "ForumController@index")->name('forum');
 
 /*
  * Displays all Threads
