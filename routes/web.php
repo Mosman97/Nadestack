@@ -24,10 +24,10 @@ Route::fallback(function() {
 Route::get("/", "nadestack\NewsController@index")->name('startpage');
 
 Route::get("news/{news_id}", "nadestack\NewsController@getNewsDetails")
-    ->name("viewnews");
+        ->name("viewnews");
 
 Route::post("news/{news_id}", "nadestack\NewsController@storeComment")
-    ->name("StoreNewsComment");
+        ->name("StoreNewsComment");
 
 
 
@@ -238,23 +238,23 @@ Route::post("/support/new", "ProfileTicketController@store")
  */
 
 /* Holds all necessary Authentication Routes */
-Auth::routes();
-
 /**
  * Custom Logout Route to prevend Logout-Errors
  */
-Route::get('/user/logout', 'Auth\LoginController@logout')->name('advanced_logout')->middleware('auth');
 
-/**
- * Overrides the Logout Method (Maybe not Secure enough?)
- */
-Route::get('/logout', function() {
 
-    //Logging Out the Guard
+
+
+Auth::routes();
+
+
+Route::get("/logout", function() {
+
     Auth::logout();
-    //Return news aka startpage
-    return view('news');
-});
+
+    return view('about');
+})->name('advanced_logout');
+
 
 /**
  * Displays a Forogt Username
@@ -298,7 +298,7 @@ Route::post("/teams/leave", "TeamPageController@leaveTeam")->name("leave_team")-
 /**
  * Save Team-Settings
  */
-Route::post("/teams/save","TeamPageController@saveSettings")->name("save_team")->middleware("team_admin");
+Route::post("/teams/save", "TeamPageController@saveSettings")->name("save_team")->middleware("team_admin");
 
 Route::post("/teams/updateImage")->name('team_updateTeamlogo')->middleware('auth')->middleware("team_admin");
 
@@ -402,7 +402,7 @@ Route::post("/admin/news/store", "adminpanel\AdminPanelNewsController@store")
  * Shows a newly created News as preview
  */
 Route::post("/admin/news/show", "adminpanel\AdminPanelNewsController@show")
-    ->middleware('admin')->name("adminpanel_shownews");
+        ->middleware('admin')->name("adminpanel_shownews");
 
 /*
  * Deletes a News with the given News ID
