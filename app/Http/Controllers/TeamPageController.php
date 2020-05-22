@@ -132,7 +132,6 @@ class TeamPageController extends Controller {
      */
     public function saveSettings(Request $request) {
 
-
         //TODO VALIDATION FOR ALL THE CASES 
         //Checking if the Request contains one of the three options if not we redirect back with an Error
         $SAVE_SOCIALS = "socials";
@@ -141,9 +140,6 @@ class TeamPageController extends Controller {
 
         //Getting Teamdata 
         $team_data = Team::where("team_id", "=", Auth::user()->team_id)->first();
-
-
-
 
         //var_dump($request->input());
         //var_dump($team_data);
@@ -298,7 +294,7 @@ class TeamPageController extends Controller {
             }
 
 
-             //Can be deleted if validation works
+            //Can be deleted if validation works
             if ($team_password != NULL && $team_password_con != NULL) {
 
 
@@ -329,10 +325,114 @@ class TeamPageController extends Controller {
             $default_settings_logentry->save();
 
 
-            return back()->with("message","General Settings updated!");
+            return back()->with("message", "General Settings updated!");
         } elseif ($request->input("action") == $SAVE_ROLES) {
-            
-        } else {
+
+            //This Values are related to the  Positions
+            $ADMIN_ROLE_VALUE = 1;
+            $CAPTAIN_ROLE_VALUE = 2;
+            $MANAGER_ROLE_VALUE = 3;
+            $COACH_ROLE_VALUE = 4;
+            $PLAYER_ROLE_VALUE = 5;
+
+
+
+            $team_users = User::select('id')->where("team_id", "=", Auth::user()->team_id)->get();
+
+            foreach ($team_users as $user) {
+
+
+                $current_id = $user->id;
+
+                //Sumibtted ID is an Actual Teammeber
+                if ($request->input($current_id) != NULL) {
+
+                    $current_team_role = NULL;
+
+                    //Determine which current Role the Teammember holds
+                    if ($current_id == $team_data->team_admin_id) {
+
+                        $current_team_role = $ADMIN_ROLE_VALUE;
+                    } else if ($current_id == $team_data->team_captain_1_id || $current_id == $team_data->team_captain_2_id) {
+
+                        $current_team_role = $CAPTAIN_ROLE_VALUE;
+                    } elseif ($current_id == $team_data->team_manager_id) {
+
+
+                        $current_team_role = $MANAGER_ROLE_VALUE;
+                    } elseif ($current_id == $team_data->team_coach_id) {
+
+                        $current_team_role = $COACH_ROLE_VALUE;
+                    } else {
+
+                        $current_team_role = $PLAYER_ROLE_VALUE;
+                    }
+
+                    //IF a Change Occurs
+                    if ($request->input($current_id) != $current_team_role) {
+
+                        $destinated_team_role = $request->input($current_id);
+
+                        if ($destinated_team_role == $ADMIN_ROLE_VALUE) {
+
+                            $team_data->team_admin_id = $current_id;
+                            $team_data->save();
+                        } elseif ($destinated_team_role == $CAPTAIN_ROLE_VALUE) {
+
+                            if ($team_data->team_captain_1_id == NULL) {
+
+                                $team_data->team_captain_1_id = $current_id;
+                                $team_data->save();
+                            } elseif ($team_data->team_captain_2_id == NULL) {
+
+                                $team_data->team_captain_2_id = $current_id;
+                                $team_data->save();
+                            } else {
+
+                                //Returning Back if Max Captain Limit is reached TODO implement Logic to avoid this
+                                return redirect()->back()->with("error", "Max Captain Limit reached!");
+                            }
+                        } elseif ($destinated_team_role == $MANAGER_ROLE_VALUE) {
+
+                            $team_data->team_manager_id = $current_id;
+                            $team_data->save();
+                        } elseif ($destinated_team_role == $COACH_ROLE_VALUE) {
+
+                            $team_data->team_coach_id = $current_id;
+                            $team_data->save();
+                        }
+                        //If Selected User gets the Player Role Back
+                        else {
+
+                            switch ($current_id) {
+
+                                case $team_data->team_captain_1_id == $current_id : $team_data->team_captain_1_id = NULL;
+                                    $team_data->save();
+                            }
+                        }
+
+                        $log_helper = new \App\Tools\TeamLogHelper();
+                        $rolechange_logentry = new teamlog;
+                        $rolechange_logentry->action_id = \Ramsey\Uuid\Nonstandard\Uuid::uuid4();
+                        $rolechange_logentry->action_parent_id = $log_helper->getRoleChangedUUIDFromDatabase();
+                        $rolechange_logentry->user_id = Auth::user()->id;
+                        $rolechange_logentry->team_id = Auth::user()->team_id;
+                        $rolechange_logentry->target_id = $current_id;
+                        $rolechange_logentry->action = TeamLogHelper::ROLE_CHANGED;
+                        $rolechange_logentry->save();
+                    }
+                }
+            }
+
+
+            return redirect()->back()->with("message", "Team Roles updated!");
+        }
+
+
+        //var_dump($team_users);
+        //Checking Which Member got a Role change
+        // var_dump($request->input());
+        else {
 
             //if the requested action is not found we redirect the Request back to the Teamsettings Page
             return redirect()->back()->with("error", "Something went wrong please try again Later!");

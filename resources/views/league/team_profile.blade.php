@@ -278,6 +278,7 @@
                                             <th>User</th>
                                             <th>Action</th>
                                             <th>Target</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -292,6 +293,7 @@
                                             @else
                                             <td><a href="{{route('profilepage',$logentry->target)}}">{{$logentry->target}}</a></td>
                                             @endif
+                                            <td><button type="button" class="nadestack_btn" data-toggle="tooltip" data-placement="top" @if($logentry->logtext == NULL)title="No additional Informations about this Logentry" @else title="{{$logentry->logtext}}" @endif><i class="fas fa-info"></i></button></td>
                                         </tr>
                                         @endforeach
 

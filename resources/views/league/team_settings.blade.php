@@ -151,36 +151,46 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            @php
+                                                            $captain_counter = 0
+                                                            @endphp
                                                             @foreach($user_data as $user)
                                                             <tr>
                                                                 <td><a href="{{route('profilepage',$user->username)}}">{{$user->username}}</a></td>
                                                                 <td>/</td>
                                                                 <td>
-                                                                    <select @if(Auth::user()->id !=$team_data[0]['team_admin_id'] ) disabled="" @endif >
+                                                                    <select @if(Auth::user()->id !=$team_data[0]['team_admin_id'] ) disabled="" @endif  name="{{$user->id}}">
                                                                              <optgroup>
                                                                             @if($user->id == $team_data[0]['team_admin_id'])
                                                                             <option selected=""value="1">Admin</option>
-                                                                            <option value="2">Captain</option>
+                                                                            <option  value="2">Captain</option>
                                                                             <option value="3">Manager</option>
-                                                                            <option value="4">Player</option>
+                                                                            <option value="4">Coach</option>
+                                                                            <option value="5">Player</option>
                                                                             @elseif ($user->id == $team_data[0]['team_captain_1_id'] || $user->id == $team_data[0]['team_captain_2_id'] )
                                                                             <option value="1">Admin</option>
                                                                             <option selected=""value="2">Captain</option>
                                                                             <option value="3">Manager</option>
-                                                                            <option value="4">Player</option>
+                                                                            <option value="4">Coach</option>
+                                                                            <option value="5">Player</option>
                                                                             @elseif($user->id == $team_data[0]['team_manager_id'])
                                                                             <option value="1">Admin</option>
                                                                             <option value="2">Captain</option>
                                                                             <option selected=""value="3">Manager</option>
-                                                                            <option value="4">Player</option>
-
-                                                                            @elseif($user->id == $team_data[0]['team_coach'])
-
+                                                                            <option value="4">Coach</option>
+                                                                            <option value="5">Player</option>
+                                                                            @elseif($user->id == $team_data[0]['team_coach_id'])
+                                                                            <option value="1">Admin</option>
+                                                                            <option value="2">Captain</option>
+                                                                            <option value="3">Manager</option>
+                                                                            <option selected="" value="4">Coach</option>
+                                                                            <option value="5">Player</option>
                                                                             @else
                                                                             <option value="1">Admin</option>
                                                                             <option value="2">Captain</option>
                                                                             <option value="3">Manager</option>
-                                                                            <option selected=""value="4">Player</option>
+                                                                            <option value="4">Coach</option>
+                                                                            <option selected=""value="5">Player</option>
                                                                             @endif
                                                                         </optgroup>
                                                                     </select>
@@ -201,7 +211,7 @@
                                         <hr class="bg-light"/>
                                         <div class="form-check text-center"><input class="form-check-input" type="checkbox" id="formCheck" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
                                         <div class="form-row">
-                                            <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" type="submit">Save Settings</button></div>
+                                            <div class="col text-center" style="padding-bottom: 15px; padding-top: 12px;"><button class="btn nadestack_btn" name = "action" value="roles"type="submit">Save Settings</button></div>
                                         </div>
                                     </div>
                                 </div>
