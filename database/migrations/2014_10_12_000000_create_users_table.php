@@ -34,6 +34,7 @@ class CreateUsersTable extends Migration {
             $table->tinyInteger('nadestack_admin')->default('0');
             $table->rememberToken();
             $table->timestamps();
+            $table->boolean('verified')->default(false);
         });
 
         //Changing the Start Value of Auto Increment to Hide some Datbase Structure
