@@ -8,7 +8,7 @@
     </head>
     <body class="nadestack_body">
       @include('includes.nav')
-      @yield('content')   
+      @yield('content')
       @include('includes.footer')
     </body>
  </html>
