@@ -3,6 +3,80 @@
 @section('content')
 
 
+<script>
+
+
+    $('document').ready(function (e) {
+
+
+
+    $('#role_table > tbody >tr > td > select').on('change', function (e) {
+
+
+    getAllowedRoleAmount();
+    });
+    function getAllowedRoleAmount() {
+
+    var captain_counter = 0;
+    var manager_counter = 0;
+    var coach_counter = 0;
+    $('#role_table > tbody >tr > td > select').each(function (e) {
+
+
+
+    var selected_role_val = $(this).children().children('option:selected').val();
+    if (selected_role_val == 2) {
+
+
+    captain_counter++;
+    if (captain_counter > 2) {
+
+    $(this).children().children('option[value=5]').attr("selected", "selected");
+    }
+    } else if (selected_role_val == 3) {
+
+    manager_counter++;
+    if (manager_counter > 1) {
+
+
+    $(this).children().children('option[value=5]').attr("selected", "selected");
+    }
+    } else if (selected_role_val == 4) {
+
+    coach_counter++;
+    if (coach_counter > 1) {
+
+
+    $(this).children().children('option[value=5]').attr("selected", "selected");
+    }
+    }
+
+
+
+
+
+    });
+    if (captain_counter > 2) {
+
+
+    alert("Captaincount can only be 2");
+    } else if (manager_counter > 1) {
+
+
+    alert("Managercount can only be 1");
+    } else if (coach_counter > 1) {
+
+
+    alert("Coachcount can only be 1");
+    }
+
+
+
+    }
+
+
+    });</script>
+
 
 <script src='{{URL::asset('assets/js/validate/teamregvalidate.js')}}'></script>
 <div class="container-fluid">
@@ -141,7 +215,7 @@
 
                                                 <h3 class="nadestack_heading_three text-left">Verbleibende Wechselslots: 3</h3>
                                                 <div class="table-responive">
-                                                    <table class="table nadestack-tbl text-center">
+                                                    <table class="table nadestack-tbl text-center" id="role_table">
                                                         <thead>
                                                             <tr>
                                                                 <th>Name</th>
@@ -151,9 +225,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @php
-                                                            $captain_counter = 0
-                                                            @endphp
+
                                                             @foreach($user_data as $user)
                                                             <tr>
                                                                 <td><a href="{{route('profilepage',$user->username)}}">{{$user->username}}</a></td>
@@ -162,31 +234,28 @@
                                                                     <select @if(Auth::user()->id !=$team_data[0]['team_admin_id'] ) disabled="" @endif  name="{{$user->id}}">
                                                                              <optgroup>
                                                                             @if($user->id == $team_data[0]['team_admin_id'])
-                                                                            <option selected=""value="1">Admin</option>
-                                                                            <option  value="2">Captain</option>
-                                                                            <option value="3">Manager</option>
-                                                                            <option value="4">Coach</option>
-                                                                            <option value="5">Player</option>
+                                                                            <option selected="" disabled="">Admin</option>
+
                                                                             @elseif ($user->id == $team_data[0]['team_captain_1_id'] || $user->id == $team_data[0]['team_captain_2_id'] )
-                                                                            <option value="1">Admin</option>
+
                                                                             <option selected=""value="2">Captain</option>
                                                                             <option value="3">Manager</option>
                                                                             <option value="4">Coach</option>
                                                                             <option value="5">Player</option>
                                                                             @elseif($user->id == $team_data[0]['team_manager_id'])
-                                                                            <option value="1">Admin</option>
+
                                                                             <option value="2">Captain</option>
                                                                             <option selected=""value="3">Manager</option>
                                                                             <option value="4">Coach</option>
                                                                             <option value="5">Player</option>
                                                                             @elseif($user->id == $team_data[0]['team_coach_id'])
-                                                                            <option value="1">Admin</option>
+
                                                                             <option value="2">Captain</option>
                                                                             <option value="3">Manager</option>
                                                                             <option selected="" value="4">Coach</option>
                                                                             <option value="5">Player</option>
                                                                             @else
-                                                                            <option value="1">Admin</option>
+
                                                                             <option value="2">Captain</option>
                                                                             <option value="3">Manager</option>
                                                                             <option value="4">Coach</option>

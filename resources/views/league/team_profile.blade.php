@@ -29,12 +29,14 @@
                             <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
                         </div>
                         <div class="col text-right">
+                            @auth
                             @if(Auth::user()->team_id == $teamdata[0]['team_id'])
                             <button data-toggle="modal" data-target="#leave" class="btn nadestack_btn" style="margin-top: 13px;margin-right: 10px">Leave Team</button>
                             @endif
                             @if(Auth::user()->team_id == $teamdata[0]['team_id'] && Auth::user()->id ==  $teamdata[0]['team_admin_id'] ||  $teamdata[0]['team_captain_1_id']  || $teamdata[0]['team_captain_2_id'] || $teamdata[0]['team_manager_id'] )
                             <a type="button" class="btn nadestack_btn" href="{{route('edit_team',Auth::user()->team_id)}}" style="margin-top: 13px;">Edit Team</a>
                             @endif
+                            @endauth
                         </div>
                     </div>
                     <div class="row nadestack-profileview">
@@ -266,10 +268,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col"><button class="btn btn-danger btn-sm text-center text-white" type="button" data-toggle="collapse" data-target="#log_table" style="font-size: 16px;margin-top: -8px;"><i class="fa fa-arrow-circle-o-down"></i></button><span style="padding-left: 10px;padding-top: 1px;">Teamlog</span></div>
+                        <div class="col-md-12">
+                            <button class="btn btn-danger btn-sm text-center text-white" type="button" data-toggle="collapse" data-target="#log_table" style="font-size: 16px;margin-top: -8px;"><i class="fa fa-arrow-circle-o-down"></i></button><span style="padding-left: 10px;padding-top: 1px;">Teamlog</span>
+                        </div>
                     </div>
                     <div id="log_table" class="row accordion-body collapse">
-                        <div class="col">
+                        <div class="col-md-12">
                             <div class="table-responsive">
                                 <table class="table table-sm nadestack-tbl" style="font-size: small;">
                                     <thead>
@@ -287,7 +291,7 @@
                                             <td>{{$logentry->created_at}}</td>
                                             <td><a href="{{route('profilepage',$logentry->performer)}}">{{$logentry->performer}}</a></td>
                                             <td>{{$logentry->action}}</td>
-                                            
+
                                             @if($logentry->target_id == NULL)
                                             <td>/</td>
                                             @else
@@ -296,11 +300,14 @@
                                             <td><button type="button" class="nadestack_btn" data-toggle="tooltip" data-placement="top" @if($logentry->logtext == NULL)title="No additional Informations about this Logentry" @else title="{{$logentry->logtext}}" @endif><i class="fas fa-info"></i></button></td>
                                         </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                        <div class="col-md-12 d-flex justify-content-center nadestack-pagination mt-auto ">{{$logdata->render()}}</div>
+
+                        <!--<div class="d-flex justify-content-center nadestack-pagination mt-auto " style="padding-top: 10px" id="news_paginator"></div>-->
+
                     </div>
                     <div style="margin-bottom: 15px"></div>
                 </div>

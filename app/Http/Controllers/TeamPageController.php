@@ -36,9 +36,9 @@ class TeamPageController extends Controller {
             // $team_logdata = teamlog::where("team_id","=",$team_id)->orderBy('created_at',"asc")->get();
 
             $team_logdata = teamlog::select('teamlogs.*', "performer.username as performer", "target.username as target")->where("teamlogs.team_id", "=", $team_id)
-                    ->leftJoin("users as performer", "performer.id", "=", "teamlogs.user_id")
-                    ->leftJoin("users as target", "target.id", "=", "teamlogs.target_id")
-                    ->get();
+                            ->leftJoin("users as performer", "performer.id", "=", "teamlogs.user_id")
+                            ->leftJoin("users as target", "target.id", "=", "teamlogs.target_id")
+                            ->orderBy("created_at", "desc")->paginate(5);
 
 
             //If Team was just created we omit a sucess Message
@@ -96,6 +96,14 @@ class TeamPageController extends Controller {
     public function kickPlayerFromTeam(Request $request, $teamid, $userid) {
 
         if (Auth::user()->team_id == $teamid) {
+            
+            
+            //Delete User ID From the Team Account
+            
+            $team_data = Team::where("team_id","=",$teamid)->first();
+            
+            
+         
 
             //Getting UserData from the Target-User who will be get kicked from the Team
             $kicked_user_info = User::where("id", "=", $userid)->get();
@@ -105,10 +113,10 @@ class TeamPageController extends Controller {
 
             //Updating UserData
             $kicked_user = User::where("id", "=", $userid)->update(array('team_id' => null));
-
-
+            
+            
+           
             //Adding Kicked Player to the TeamLog
-
 
             $log_helper = new \App\Tools\TeamLogHelper();
 
@@ -308,13 +316,10 @@ class TeamPageController extends Controller {
 
             $team_data->save();
 
-
-
-
-
             //Adding Logentry
 
             $log_helper = new \App\Tools\TeamLogHelper();
+
 
             $default_settings_logentry = new teamlog;
             $default_settings_logentry->action_id = \Ramsey\Uuid\Nonstandard\Uuid::uuid4();
@@ -328,16 +333,58 @@ class TeamPageController extends Controller {
             return back()->with("message", "General Settings updated!");
         } elseif ($request->input("action") == $SAVE_ROLES) {
 
-            //This Values are related to the  Positions
-            $ADMIN_ROLE_VALUE = 1;
+            //These Values are related to the  Positions
             $CAPTAIN_ROLE_VALUE = 2;
             $MANAGER_ROLE_VALUE = 3;
             $COACH_ROLE_VALUE = 4;
             $PLAYER_ROLE_VALUE = 5;
 
-
-
+            //Getting all Users related to the Team
             $team_users = User::select('id')->where("team_id", "=", Auth::user()->team_id)->get();
+
+
+            //First we gonna check if the Amount of specific Postion is in Range
+
+            $captain_role_count = 0;
+            $manager_role_count = 0;
+            $coach_role_count = 0;
+
+            foreach ($team_users as $user) {
+
+
+                $current_id = $user->id;
+
+                //Sumibtted ID is an Actual Teammeber
+                if ($request->input($current_id) != NULL) {
+
+                    $destinated_team_role = $request->input($current_id);
+
+
+                    if ($destinated_team_role == $CAPTAIN_ROLE_VALUE) {
+
+                        $captain_role_count ++;
+                    } elseif ($destinated_team_role == $MANAGER_ROLE_VALUE) {
+
+                        $manager_role_count++;
+                    } elseif ($destinated_team_role == $COACH_ROLE_VALUE) {
+
+                        $coach_role_count++;
+                    }
+                }
+            }
+
+
+
+            if ($captain_role_count < 3 && $manager_role_count <= 1 && $coach_role_count <= 1) {
+                
+            } else {
+
+
+                return redirect()->back()->with("message", "Your Roles are not correct, please make sure to use the allowed Numbers");
+            }
+            
+            
+            //If no allowed double Value occured we proceed
 
             foreach ($team_users as $user) {
 
@@ -350,10 +397,7 @@ class TeamPageController extends Controller {
                     $current_team_role = NULL;
 
                     //Determine which current Role the Teammember holds
-                    if ($current_id == $team_data->team_admin_id) {
-
-                        $current_team_role = $ADMIN_ROLE_VALUE;
-                    } else if ($current_id == $team_data->team_captain_1_id || $current_id == $team_data->team_captain_2_id) {
+                    if ($current_id == $team_data->team_captain_1_id || $current_id == $team_data->team_captain_2_id) {
 
                         $current_team_role = $CAPTAIN_ROLE_VALUE;
                     } elseif ($current_id == $team_data->team_manager_id) {
@@ -373,11 +417,31 @@ class TeamPageController extends Controller {
 
                         $destinated_team_role = $request->input($current_id);
 
-                        if ($destinated_team_role == $ADMIN_ROLE_VALUE) {
+                        //Delete old Position in Database
+                        if ($current_team_role == $CAPTAIN_ROLE_VALUE) {
 
-                            $team_data->team_admin_id = $current_id;
+                            if ($current_id == $team_data->team_captain_1_id) {
+
+                                $team_data->team_captain_1_id = NULL;
+                                $team_data->save();
+                            } else {
+
+                                $team_data->team_captain_2_id = NULL;
+                                $team_data->save();
+                            }
+                        } elseif ($current_team_role == $MANAGER_ROLE_VALUE) {
+
+                            $team_data->team_manager_id = NULL;
                             $team_data->save();
-                        } elseif ($destinated_team_role == $CAPTAIN_ROLE_VALUE) {
+                        } elseif ($current_team_role == $COACH_ROLE_VALUE) {
+
+
+                            $team_data->team_coach_id = NULL;
+                            $team_data->save();
+                        }
+
+                        //Set new Position in Database
+                        if ($destinated_team_role == $CAPTAIN_ROLE_VALUE) {
 
                             if ($team_data->team_captain_1_id == NULL) {
 
@@ -410,6 +474,8 @@ class TeamPageController extends Controller {
                                     $team_data->save();
                             }
                         }
+                        
+                        $target_db_entry = User::where("id", "=", $current_id)->first();
 
                         $log_helper = new \App\Tools\TeamLogHelper();
                         $rolechange_logentry = new teamlog;
@@ -418,6 +484,7 @@ class TeamPageController extends Controller {
                         $rolechange_logentry->user_id = Auth::user()->id;
                         $rolechange_logentry->team_id = Auth::user()->team_id;
                         $rolechange_logentry->target_id = $current_id;
+                        $rolechange_logentry->logtext = "" . Auth::user()->username . " changed the Role of " . $target_db_entry->username . " from " . $this->createRolePostionLogText($current_team_role) . " to " . $this->createRolePostionLogText($destinated_team_role);
                         $rolechange_logentry->action = TeamLogHelper::ROLE_CHANGED;
                         $rolechange_logentry->save();
                     }
@@ -426,17 +493,41 @@ class TeamPageController extends Controller {
 
 
             return redirect()->back()->with("message", "Team Roles updated!");
-        }
-
-
-        //var_dump($team_users);
-        //Checking Which Member got a Role change
-        // var_dump($request->input());
-        else {
+        } else {
 
             //if the requested action is not found we redirect the Request back to the Teamsettings Page
             return redirect()->back()->with("error", "Something went wrong please try again Later!");
         }
+    }
+
+    public function createRolePostionLogText($val) {
+
+
+        $ADMIN_ROLE_VALUE = 1;
+        $CAPTAIN_ROLE_VALUE = 2;
+        $MANAGER_ROLE_VALUE = 3;
+        $COACH_ROLE_VALUE = 4;
+        $PLAYER_ROLE_VALUE = 5;
+
+        $ADMIN_ROLE = "Admin";
+        $CAPTAIN_ROLE = "Captain";
+        $MANAGER_ROLE = "Manager";
+        $COACH_ROLE = "Coach";
+        $PLAYER_ROLE = "Player";
+
+
+
+
+        switch ($val) {
+
+            case $ADMIN_ROLE_VALUE: return $ADMIN_ROLE;
+            case $CAPTAIN_ROLE_VALUE: return $CAPTAIN_ROLE;
+            case $MANAGER_ROLE_VALUE: return $MANAGER_ROLE;
+            case $COACH_ROLE_VALUE: return $COACH_ROLE;
+            case $PLAYER_ROLE_VALUE: return $PLAYER_ROLE;
+        }
+
+        return "-1";
     }
 
     /**
