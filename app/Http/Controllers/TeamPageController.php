@@ -41,15 +41,15 @@ class TeamPageController extends Controller {
                             ->orderBy("created_at", "desc")->paginate(5);
 
 
+            $team_members = User::select('username','team_role')->where("team_id", "=", $team_id)
+                    ->orderBy('team_role', "ASC")->get()->toArray();
+
             //If Team was just created we omit a sucess Message
             if ($request->input("message") != null) {
-
-
-                return view("league.team_profile")->with("message", $request->input("message"));
+                return view("league.team_profile")->with("message", $request->input("message"))->with("teammembers", $team_members);
             } else {
-
                 //Returning Team-ID page without Notification that a Team
-                return view("league.team_profile")->with("teamdata", $team)->with("logdata", $team_logdata);
+                return view("league.team_profile")->with("teamdata", $team)->with("logdata", $team_logdata)->with("teammembers", $team_members);
             }
         }
     }
@@ -87,6 +87,52 @@ class TeamPageController extends Controller {
     }
 
     /**
+     * 
+     * @param Request $request
+     */
+    public function AdminLeavesTeam(Request $request) {
+
+
+        //Checking if Requested ID is a part of the TeamAccount
+
+        $new_admin = Users::where("id", "=", $request
+                        ->input('new_admin_id'))
+                ->where('team_id', "=", Auth::user()->team_id)
+                ->count();
+
+
+        if ($new_admin == 1) {
+
+
+            $team_data = Team::where("team_id", "=", Auth::user()->team_id)->first();
+
+            $team_data->team_admin_id = $request->input('new_admin_id');
+
+            $team_data->save();
+
+            //TODO Inform the new Admin that he became Admin?
+            //Removeing TEAMID From old Admin
+            $old_admin = User::where("id", "=", Auth::user()->id)->first();
+
+
+            $old_admin->team_id = NULL;
+
+            $old_admin->save();
+
+
+            return redirect()->back()->with("success", "You left the Team");
+
+
+
+            //Removing Admin-Role from Current Admin and let him Leave the Team
+        } else {
+
+
+            return redirect()->back()->with("error", "an Error occured while Proceeding the Admin Role. Please try again later!");
+        }
+    }
+
+    /**
      * Kicks a Player from the Team
      * @param Request $request
      * @param type $teamid The Team which the User belongs to
@@ -96,14 +142,10 @@ class TeamPageController extends Controller {
     public function kickPlayerFromTeam(Request $request, $teamid, $userid) {
 
         if (Auth::user()->team_id == $teamid) {
-            
-            
+
             //Delete User ID From the Team Account
-            
-            $team_data = Team::where("team_id","=",$teamid)->first();
-            
-            
-         
+
+            $team_data = Team::where("team_id", "=", $teamid)->first();
 
             //Getting UserData from the Target-User who will be get kicked from the Team
             $kicked_user_info = User::where("id", "=", $userid)->get();
@@ -112,12 +154,9 @@ class TeamPageController extends Controller {
             Notification::send($kicked_user_info, new \App\Notifications\KickMemberNotification());
 
             //Updating UserData
-            $kicked_user = User::where("id", "=", $userid)->update(array('team_id' => null));
-            
-            
-           
-            //Adding Kicked Player to the TeamLog
+            $kicked_user = User::where("id", "=", $userid)->update(array('team_id' => null, 'team_role' => 0));
 
+            //Adding Kicked Player to the TeamLog
             $log_helper = new \App\Tools\TeamLogHelper();
 
             $kicked_player_logentry = new teamlog;
@@ -382,8 +421,8 @@ class TeamPageController extends Controller {
 
                 return redirect()->back()->with("message", "Your Roles are not correct, please make sure to use the allowed Numbers");
             }
-            
-            
+
+
             //If no allowed double Value occured we proceed
 
             foreach ($team_users as $user) {
@@ -447,10 +486,14 @@ class TeamPageController extends Controller {
 
                                 $team_data->team_captain_1_id = $current_id;
                                 $team_data->save();
+                                $user->team_role = $CAPTAIN_ROLE_VALUE;
+                                $user->save();
                             } elseif ($team_data->team_captain_2_id == NULL) {
 
                                 $team_data->team_captain_2_id = $current_id;
                                 $team_data->save();
+                                $user->team_role = $CAPTAIN_ROLE_VALUE;
+                                $user->save();
                             } else {
 
                                 //Returning Back if Max Captain Limit is reached TODO implement Logic to avoid this
@@ -460,13 +503,22 @@ class TeamPageController extends Controller {
 
                             $team_data->team_manager_id = $current_id;
                             $team_data->save();
+
+                            $user->team_role = $MANAGER_ROLE_VALUE;
+                            $user->save();
                         } elseif ($destinated_team_role == $COACH_ROLE_VALUE) {
 
                             $team_data->team_coach_id = $current_id;
                             $team_data->save();
+
+                            $user->team_role = $COACH_ROLE_VALUE;
+                            $user->save();
                         }
                         //If Selected User gets the Player Role Back
                         else {
+
+                            $user->team_role = $PLAYER_ROLE_VALUE;
+                            $user->save();
 
                             switch ($current_id) {
 
@@ -474,7 +526,7 @@ class TeamPageController extends Controller {
                                     $team_data->save();
                             }
                         }
-                        
+
                         $target_db_entry = User::where("id", "=", $current_id)->first();
 
                         $log_helper = new \App\Tools\TeamLogHelper();

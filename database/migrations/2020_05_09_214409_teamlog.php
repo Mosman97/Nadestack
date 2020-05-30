@@ -67,7 +67,7 @@ class Teamlog extends Migration {
                     'action_parent_id' => null,
                     'user_id' => null,
                     'team_id' => null,
-                    'action' => 'role_changed',
+                    'action' => 'memberrole_changed',
                     'logtext' => null
                 )
         );
@@ -80,7 +80,7 @@ class Teamlog extends Migration {
                     'action_parent_id' => null,
                     'user_id' => null,
                     'team_id' => null,
-                    'action' => 'player_joined',
+                    'action' => 'member_joined',
                     'logtext' => null
                 )
         );
@@ -92,7 +92,7 @@ class Teamlog extends Migration {
                     'action_parent_id' => null,
                     'user_id' => null,
                     'team_id' => null,
-                    'action' => 'player_left',
+                    'action' => 'member_left',
                     'logtext' => null
                 )
         );
@@ -103,7 +103,7 @@ class Teamlog extends Migration {
                     'action_parent_id' => null,
                     'user_id' => null,
                     'team_id' => null,
-                    'action' => 'player_kicked',
+                    'action' => 'member_kicked',
                     'logtext' => null
                 )
         );

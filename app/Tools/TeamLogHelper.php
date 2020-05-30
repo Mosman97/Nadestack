@@ -9,9 +9,10 @@ use App\teamlog;
  */
 class TeamLogHelper {
 
-    CONST PLAYER_KICKED_ACTION_DB_NAME = "player_kicked";
+    CONST PLAYER_KICKED_ACTION_DB_NAME = "member_kicked";
+    CONST PLAYER_JOINED_ACTION_DB_NAME = "member_joined";
     CONST TEAM_CREATED_ACTION_DB_NAME = "team_created";
-    CONST ROLE_CHANGED = "role_changed";
+    CONST ROLE_CHANGED = "memberrole_changed";
     CONST DEFAULT_SETTINGS_CHANGED = "settings_changed";
 
     /**
@@ -23,6 +24,20 @@ class TeamLogHelper {
 
         //Getting Teamlog Data with the wished Action 
         $teamlog = teamlog::where('action', "=", self::PLAYER_KICKED_ACTION_DB_NAME)->get();
+
+        //Returning the Action-ID
+        return $teamlog[0]['action_id'];
+    }
+
+    /**
+     * Returns the UUID For a Member Join Event from the Database
+     * @return string UUID which constructs the Action-ID in the Database
+     */
+    function getMemberJoinedUUIDFromDatabase() {
+
+
+        //Getting Teamlog Data with the wished Action 
+        $teamlog = teamlog::where('action', "=", self::PLAYER_JOINED_ACTION_DB_NAME)->get();
 
         //Returning the Action-ID
         return $teamlog[0]['action_id'];
@@ -42,6 +57,9 @@ class TeamLogHelper {
         return $teamlog[0]['action_id'];
     }
 
+    
+    
+    
     /**
      * Returns the UUID For a Role Changed Event in the Database
      * @return string UUID which constructs the action-ID in the Database
@@ -54,9 +72,7 @@ class TeamLogHelper {
         //Returning the Action-ID
         return $teamlog[0]['action_id'];
     }
-    
-    
-    
+
     /**
      * Returns the UUID for a Change in the Settings (Default, Socials)
      * @return type

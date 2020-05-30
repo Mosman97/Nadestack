@@ -4,15 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateForumCategoriesTable extends Migration
-{
+class CreateForumCategoriesTable extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('forum_categories', function (Blueprint $table) {
             $table->increments('forum_category_id');
             $table->bigInteger('forum_ranking');
@@ -20,6 +19,53 @@ class CreateForumCategoriesTable extends Migration
             $table->string('forum_category_icon');
             $table->longtext('forum_category_text');
         });
+
+
+
+        //Adding Forum Categories
+
+        DB::table('forum_categories')->insert(
+                array(
+                    'forum_category_id' => 1,
+                    'forum_ranking' => 1,
+                    'forum_category_title' => "General Discussion",
+                    'forum_category_icon' => 'fa fa-shield-alt',
+                    'forum_category_text' => 'General discussions about any eSports related topics'
+                )
+        );
+
+        DB::table('forum_categories')->insert(
+                array(
+                    'forum_category_id' => 2,
+                    'forum_ranking' => 2,
+                    'forum_category_title' => "Player searching a team",
+                    'forum_category_icon' => 'fa fa-users',
+                    'forum_category_text' => 'If you\'re a player who currently a looking for a team. This is the place to go!'
+                )
+        );
+
+
+        DB::table('forum_categories')->insert(
+                array(
+                    'forum_category_id' => 3,
+                    'forum_ranking' => 3,
+                    'forum_category_title' => "Team searching a player",
+                    'forum_category_icon' => 'fa fa-user-plus',
+                    'forum_category_text' => 'If you\'re a player who currently a looking for a team. This is the place to go!'
+                )
+        );
+
+
+
+        /*  INSERT INTO `forum_categories` (`forum_categories_id`, `forum_ranking`, `forum_categories_title`, `forum_categories_icon`, `forum_categories_text`) VALUES
+          (1, 1, 'General Discussion', 'fa fa-shield-alt', 'General discussions about any eSports related topics'),
+          (2, 2, 'Player searching a team', 'fa fa-users', 'If you\'re a player who currently a looking for a team. This is the place to go!'),
+          (3, 3, 'Team searching a player', 'fa fa-user-plus', 'If you\'re a team who\'s currently looking for new valuable players. This is the place to go!'),
+          (4, 4, 'Competition Area', 'fa fa-trophy', 'Here you can talk/discuss about leagues, tournaments and events'),
+          (5, 5, 'Broadcast', 'fa fa-video', 'Here you can talk/discuss about VODs, demos, livestreams, fragclips and similar stuff. Feel free to introduce yourself to the community!'),
+          (6, 6, 'Feedback', 'fa fa-comment', 'Here you can provide suggestions for improvement. We all can learn from each other, maybe you got the right idea what we could change in the future!'),
+          (7, 7, 'Off-Topic', 'fa fa-bookmark', 'Discussions on anything not seriously related to eSports or Nadestack'),
+          (8, 8, 'Hardware & Tweaks', 'fa fa-desktop', 'Here you can discuss about any technical stuff like talking about the newest hardware!'); */
     }
 
     /**
@@ -27,8 +73,8 @@ class CreateForumCategoriesTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('forum_categories');
     }
+
 }

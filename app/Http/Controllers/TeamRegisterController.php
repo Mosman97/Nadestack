@@ -116,7 +116,7 @@ class TeamRegisterController extends Controller {
 
             $new_team_id = $new_team[0]['team_id'];
             //Adding Team to User who created the Team
-            User::where('id', "=", Auth::user()->id)->update(['team_id' => $new_team_id]);
+            User::where('id', "=", Auth::user()->id)->update(['team_id' => $new_team_id,"team_role"=>1]);
 
 
             //Adding Logentry for Team Creation

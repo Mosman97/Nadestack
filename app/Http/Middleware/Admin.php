@@ -18,8 +18,6 @@ class Admin {
      */
     public function handle($request, Closure $next) {
 
-
-
         if (isset(Auth::user()->nadestack_admin)) {
 
             if (Auth::user()->nadestack_admin) {

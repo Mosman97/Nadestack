@@ -3,6 +3,9 @@
 @section('content')
 
 
+
+{{-- Noch schauen https://www.youtube.com/watch?v=_6BUIktFzLs --}}
+
 <div class="col colum_content_big">
     <div class="row">
         <div class="col">
@@ -23,7 +26,6 @@
                 @endif
                 <!--Beginn of the teamprofile tab with general information -->
                 <div class="tab-pane fade show active" id="team-profile" role="tabpanel" aria-labelledby="team-profile-tab">
-
                     <div class="row">
                         <div class="col text-center">
                             <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
@@ -32,6 +34,8 @@
                             @auth
                             @if(Auth::user()->team_id == $teamdata[0]['team_id'])
                             <button data-toggle="modal" data-target="#leave" class="btn nadestack_btn" style="margin-top: 13px;margin-right: 10px">Leave Team</button>
+                            @elseif(Auth::user()->team_id == NULL)
+                            <button data-toggle="modal" data-target="#join" class="btn nadestack_btn" style="margin-top: 13px;margin-right: 10px">Join Team</button>
                             @endif
                             @if(Auth::user()->team_id == $teamdata[0]['team_id'] && Auth::user()->id ==  $teamdata[0]['team_admin_id'] ||  $teamdata[0]['team_captain_1_id']  || $teamdata[0]['team_captain_2_id'] || $teamdata[0]['team_manager_id'] )
                             <a type="button" class="btn nadestack_btn" href="{{route('edit_team',Auth::user()->team_id)}}" style="margin-top: 13px;">Edit Team</a>
@@ -119,6 +123,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        
+                                        @foreach($teammembers as $teammember)
+                                        
+                                   {{$teammember['username']}}
+                                        {{var_dump($teammember)}}
+                                    <p>ss</p>
+                                  
+                                        @endforeach
                                         <tr>
                                             <td>
                                                 <a href=".\profile.html">
@@ -508,7 +520,7 @@
 
 
 
-
+<!-- Teamleave Modal -->
 <div  id="leave"class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -532,6 +544,31 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
             </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Teamjoin Modal -->
+<div  id="join"class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm your Leave</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form  method="POST" action="{{route('leave_team')}}">
+                @csrf
+                <div class="modal-body text-center">
+                    <p>Please Enter the Password</p>
+                    <input type="password">
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="submit" class="btn btn-danger">Join Team</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

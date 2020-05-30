@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration {
             $table->string("youtube_url")->nullable();
             $table->string("faceit_url")->nullable();
             $table->tinyInteger('nadestack_admin')->default('0');
+            $table->Integer('team_role')->default('0');
             $table->rememberToken();
             $table->timestamps();
             $table->boolean('verified')->default(false);
