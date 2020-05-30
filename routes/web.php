@@ -324,20 +324,20 @@ Route::get("/forum", "ForumController@index")->name('forum');
 /*
  * Displays all Threads
  */
-Route::get("forum/threads", function() {
-    return view("forum.thread_overview");
-});
+Route::get("forum/{forums_category_id}", "ForumThreadsController@index")
+->name('viewthreads');
 
-Route::get("/forum/create", function() {
-    return view("forum.create_thread");
-})->name('createthread');
+Route::get("/forum/newthread", "ForumThreadsController@threadCreator")
+    ->name('createthread');
 
-/**
- * Displays a Single Forum Thread with the given ID
- */
-Route::get("forum/thread/{id}", function() {
-    return view("forum.thread");
-});
+Route::get("forum/thread/{id}", "ForumPostsController@index")
+->name('viewthread');
+
+Route::post("forum/thread/{id}", "ForumThreadsController@newThread")
+        ->name('newthread');
+
+Route::post("forum/thread/{id}", "ForumPostsController@createPost")
+    ->name('newpost');
 
 /*
  * --------------END OF FORUM ROUTES--------------------

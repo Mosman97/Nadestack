@@ -35,7 +35,7 @@
                                             <div class="forum-icon">
                                                 <i class="{{$forum_category_entry->forum_category_icon}}"></i>
                                             </div>
-                                            <a href="forum_post.html" class="forum-item-title">{{$forum_category_entry->forum_category_title}}</a>
+                                            <a href='{{route('viewthreads',$forum_category_entry->forum_category_id)}}' class="forum-item-title">{{$forum_category_entry->forum_category_title}}</a>
                                             <div class="forum-sub-title">{{$forum_category_entry->forum_category_text}}</div>
                                         </div>
                                         <div class="col-md-1 forum-info">
