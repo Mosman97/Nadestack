@@ -19,8 +19,8 @@ class NewsController extends Controller {
     public function index(Request $request) {
 
     $news = News::orderBy('created_at', "desc")->paginate(5);
-        
-  
+
+
 
     return view("news")->with("news", $news);
     }
@@ -44,7 +44,7 @@ class NewsController extends Controller {
 
         $comment = $request -> input("comment");
 
-        $new_comment = Newscomment::create(
+        $news_comment = Newscomment::create(
             [   "comment" => $comment,
                 "user_id" => Auth::user()->id,
                 "news_id" => $news_id,

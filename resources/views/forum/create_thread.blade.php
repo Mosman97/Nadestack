@@ -7,16 +7,23 @@
             <h1 class="text-center nadestack_heading_one">Create new thread</h1>
             <div class="row text-center">
                 <div class="col">
-                    <form method="POST" action="#">
+                    <form method="POST" action="{{route('newthread', $forum_category)}}">
+                        @csrf
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-6">
                                 <input type="text" name="thread-title" class="form-control"  placeholder="Enter Title" value=''>
                             </div>
                         </div>
-                         @trix(\App\News::class, 'content')
-                        <div style="padding-top: 20px">
-                            <button class="text-center nadestack_btn">create thread</button>
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-6">
+                                <textarea name="thread-text" class="form-control" style="height: 250px"  placeholder="text" value=''></textarea>
+                            </div>
+                        </div>
+                        <!-- @trix(\App\News::class, 'content') -->
+                        <div style="margin-top: 10px">
+                            <button class="text-center nadestack_btn btn" type="submit">Create Thread</button>
                         </div>
                     </form>
                 </div>

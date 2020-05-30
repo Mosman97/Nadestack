@@ -20,6 +20,7 @@
                 @endif
 
                <!-- Nachrichtenblock bzw eine Nachricht-->
+                @foreach($forum_posts as $forum_post_entry)
                 <div class="row">
 
                     <div class="col-md3">
@@ -28,12 +29,13 @@
 
                     <div class="col">
                         <div class="row">
-                            <div class="col-md-2"><p>Username</p></div>
-                            <div class="col"><p>vor 6 min</p></div>
+                            <div class="col-md-2"><p>{{$forum_post_entry->user_id}}</p></div>
+                            <div class="col"><p>{{$forum_post_entry->created_at}}</p></div>
                         </div>
                         <p>
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                            {{$forum_post_entry->forum_post_content}}
                         </p>
+
                         @auth
                         <div class="row">
                             <div class="col"><button type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Zitieren</button></div>
@@ -52,23 +54,24 @@
                         <hr class="bg-light">
                     </div>
                 </div>
+                @endforeach
                 <!-- Ende Nachrichtenblock-->
 
-                <div class="row" style="margin-top: 10px;">
-                    <div id="news_pagination" class="row mx-auto">
-                        <div class="col-md-12 mx-auto text-center">
-                            <nav>
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </nav>
+                <hr class="bg-light">
+                <form method="POST" action="{{route('newpost', $forum_thread_id)}}">
+                    @csrf
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-8">
+                            <textarea name="posttext" class="form-control" style="height: 120px"></textarea>
                         </div>
                     </div>
-                </div>
+                    <div style="margin-top: 10px" class="text-center">
+                        <button class=" nadestack_btn btn btn-sm" type="submit" >Answer</button>
+                    </div>
+                </form>
+
+                <div class="d-flex justify-content-center nadestack-pagination mt-auto " style="padding-top: 10px" ></div>
             </div>
             </div>
             <div class="col-xl-3"></div>

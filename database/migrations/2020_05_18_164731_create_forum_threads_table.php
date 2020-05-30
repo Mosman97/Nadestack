@@ -16,6 +16,7 @@ class CreateForumThreadsTable extends Migration
         Schema::create('forum_threads', function (Blueprint $table) {
             $table->increments('forum_thread_id');
             $table->longtext('forum_thread_title');
+            $table->bigInteger('user_id');
             $table->integer('forum_category_id')->unsigned();
             $table->foreign('forum_category_id')->references('forum_category_id')->on('forum_categories');
             $table->tinyInteger('is_closed')->default('0');
