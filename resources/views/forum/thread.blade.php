@@ -61,7 +61,7 @@
                 <!-- Ende Nachrichtenblock-->
 
                 <hr class="bg-light">
-                <form method="POST" action="{{route('newpost', $forum_thread_id)}}">
+                <form method="POST" action="">
                     @csrf
                     <div class="form-group row">
                         <label  class="col-sm-2 col-form-label"></label>
@@ -86,7 +86,7 @@
 <div class="modal fade" id="modalReport" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
-            <form action="{{route('reportpost', $forum_post_entry->forum_post_id)}}"  method="POST">
+            <form action=""  method="POST">
                 @csrf
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Report User Message</h4>
@@ -142,7 +142,7 @@
 <div class="modal fade" id="modalClose" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
-            <form action="{{route('closethread', $forum_thread_id)}}"  method="POST">
+            <form action=""  method="POST">
                 @csrf
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Close Thread</h4>

@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col">
                         @auth
-                            <a class="btn nadestack_btn" href="{{route('createthread'), $forum_category_id}}" style="background-color: #86C232; margin-bottom: 8px">Create thread <i class="fa fa-file-alt"></i> </a>
+                            <a class="btn nadestack_btn" href="{{route('createthread',$forum_category_id)}}" style="background-color: #86C232; margin-bottom: 8px">Create thread <i class="fa fa-file-alt"></i> </a>
                         @endauth
                         <div class="table-responsive">
                             <table class="table nadestack-tbl table-borderless">
@@ -33,7 +33,7 @@
                                 <tbody>
                                 @foreach($forum_thread as $forum_thread_entry)
                                 <tr style="background-color: #404448">
-                                    <td><a href={{route('viewthread',$forum_thread_entry->forum_thread_id)}}>{{$forum_thread_entry->forum_thread_title}}</a> </td>
+                                    <td><a href="{{route('viewthread',$forum_thread_entry->forum_thread_id)}}>{{$forum_thread_entry->forum_thread_title}}"</a> </td>
                                     <td>200</td>
                                     <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">{{$forum_thread_entry->forum_thread_author}}</a></td>
                                     <td><img class="rounded-circle" src="../assets/img/profile_pictures/syn.png" width="30px" height="30px"></td>

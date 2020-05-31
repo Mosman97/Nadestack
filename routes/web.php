@@ -241,10 +241,6 @@ Route::post("/support/new", "ProfileTicketController@store")
 /**
  * Custom Logout Route to prevend Logout-Errors
  */
-
-
-
-
 Auth::routes();
 
 
@@ -325,25 +321,35 @@ Route::get("/forum", "ForumController@index")->name('forum');
  * Displays all Threads
  */
 Route::get("forum/{forums_category_id}", "ForumThreadsController@index")
-->name('viewthreads');
+        ->name('viewthreads');
 
 Route::get("/forum/newthread", "ForumThreadsController@threadCreator")
-    ->name('createthread');
+        ->name('createthread');
 
+
+Route::get("/forum/thread/{forums_category_id}/new", "ForumThreadsController@threadCreator")
+        ->name('createthread');
+
+
+/* Route::get("/forum/thread/new/",function(){
+
+
+  return view("forum.create_thread");
+  })->name("forumtest"); */
 Route::get("forum/thread/{id}", "ForumPostsController@index")
-->name('viewthread');
+        ->name('viewthread');
 
 Route::post("forum/thread/{id}", "ForumThreadsController@newThread")
         ->name('newthread');
 
 Route::post("forum/thread/{id}", "ForumPostsController@createPost")
-    ->name('newpost');
+        ->name('newpost');
 
 Route::post("forum/thread/{id}", "ForumPostsController@closeThread")
-    ->name('closethread');
+        ->name('closethread');
 
 Route::post("forum/thread/{id}", "ForumPostsController@reportPost")
-    ->name('reportpost');
+        ->name('reportpost');
 
 /*
  * --------------END OF FORUM ROUTES--------------------

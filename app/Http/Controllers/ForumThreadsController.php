@@ -20,12 +20,19 @@ class ForumThreadsController extends Controller {
 
         return view("forum.thread_overview")->with("forum_thread", $forum_thread)->with("forum_category_id",$forum_category_id);
     }
-
+    
+    
+    
+    
     public function threadCreator(Request $request, $forum_category_id)
     {
-        return view("forum.create_thread")->with("forum_category_id", $forum_category_id);
+    
+       return view("forum.create_thread")->with("forum_category_id", $forum_category_id);
     }
-
+    
+    
+    
+    
     public function newThread(Request $request, $forum_category_id){
 
         $thread_title = $request -> input("thread-title");
