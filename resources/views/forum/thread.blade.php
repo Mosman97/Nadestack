@@ -11,13 +11,15 @@
                     </div>
                 </div>
 
+                @auth
                 @if(Auth::user()->nadestack_admin)
                <div class="row" style="margin-bottom: 8px">
                    <div class="col">
-                       <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalClose">Close Thread</button>
+                       <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalClose"><i class="fas fa-lock"></i> Close Thread <i class="fas fa-lock"></i></button>
                    </div>
                </div>
                 @endif
+                @endauth
 
                <!-- Nachrichtenblock bzw eine Nachricht-->
                 @foreach($forum_posts as $forum_post_entry)
@@ -30,7 +32,7 @@
                     <div class="col">
                         <div class="row">
                             <div class="col-md-2"><p>{{$forum_post_entry->user_id}}</p></div>
-                            <div class="col"><p>{{$forum_post_entry->created_at}}</p></div>
+                            <div class="col text-right"><p>{{$forum_post_entry->created_at}}</p></div>
                         </div>
                         <p>
                             {{$forum_post_entry->forum_post_content}}
@@ -41,15 +43,16 @@
                             <div class="col"><button type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Zitieren</button></div>
                             <div class="col text-right"><button data-toggle="modal" data-target="#modalReport" type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Melden</button></div>
                         </div>
-                        @endauth
 
                         @if(Auth::user()->nadestack_admin)
-                        <div class="row" style="margin-bottom: 3px; margin-top: 3px">
+                        <div class="row" style="margin-top: 6px">
                             <div class="col">
-                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalDelete" >Delete Message</button>
+                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalDelete" ><i class="fas fa-trash-alt"></i></button>
                             </div>
                         </div>
                         @endif
+
+                        @endauth
 
                         <hr class="bg-light">
                     </div>
@@ -83,8 +86,8 @@
 <div class="modal fade" id="modalReport" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
-            <form action="#"  method="POST">
-
+            <form action="{{route('reportpost', $forum_post_entry->forum_post_id)}}"  method="POST">
+                @csrf
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Report User Message</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
@@ -94,14 +97,13 @@
 
                 <div class="modal-body mx-3">
                     <div class="md-form mb-5 text-center">
-                        <p style="color: red;">Note: a ticket will be created!</p>
                         <label data-error="wrong" data-success="right" for="message">Leave a comment to the report</label>
-                        <textarea name="deletemessage" rows="10" type="text" id="message" class="form-control validate"></textarea>
+                        <textarea name="report_message" required rows="10" type="text" id="message" class="form-control validate"></textarea>
                     </div>
                 </div>
 
                 <div class="modal-footer d-flex justify-content-center">
-                    <button class="btn btn-danger" type="button">Report Message</button>
+                    <button class="btn btn-danger" type="submit">Report Message</button>
                 </div>
             </form>
         </div>
@@ -140,8 +142,8 @@
 <div class="modal fade" id="modalClose" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
-            <form action="#"  method="POST">
-
+            <form action="{{route('closethread', $forum_thread_id)}}"  method="POST">
+                @csrf
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Close Thread</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
@@ -157,7 +159,7 @@
                 </div>
 
                 <div class="modal-footer d-flex justify-content-center">
-                    <button class="btn btn-danger" type="button">Close thread</button>
+                    <button class="btn btn-danger" type="submit"><i class="fas fa-lock"></i> Close thread</button>
                 </div>
             </form>
         </div>

@@ -339,6 +339,12 @@ Route::post("forum/thread/{id}", "ForumThreadsController@newThread")
 Route::post("forum/thread/{id}", "ForumPostsController@createPost")
     ->name('newpost');
 
+Route::post("forum/thread/{id}", "ForumPostsController@closeThread")
+    ->name('closethread');
+
+Route::post("forum/thread/{id}", "ForumPostsController@reportPost")
+    ->name('reportpost');
+
 /*
  * --------------END OF FORUM ROUTES--------------------
  */
