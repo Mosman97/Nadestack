@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\forum_category;
+use App\forum_report;
 use Illuminate\Http\Request;
 use DB;
 use App\forum_post;
@@ -51,6 +52,18 @@ class ForumPostsController extends Controller {
             ->update(['is_closed' => 1]);
 
         return redirect()->back()->with('success', 'thread closed');
+    }
+
+    public function reportPost(Request $request, $forum_post_id)
+    {
+        $report_message = $request -> input("report_message");
+
+        $forum_report = forum_report::create(
+            [
+                "user_id" => Auth::user()->id,
+                "forum_post_id" => $forum_post_id,
+                "forum_report_message" => $report_message,
+            ]);
     }
 
 }

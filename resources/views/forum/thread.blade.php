@@ -86,8 +86,8 @@
 <div class="modal fade" id="modalReport" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
-            <form action="#"  method="POST">
-
+            <form action="{{route('reportpost', $forum_post_entry->forum_post_id)}}"  method="POST">
+                @csrf
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Report User Message</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
@@ -97,14 +97,13 @@
 
                 <div class="modal-body mx-3">
                     <div class="md-form mb-5 text-center">
-                        <p style="color: red;">Note: a ticket will be created!</p>
                         <label data-error="wrong" data-success="right" for="message">Leave a comment to the report</label>
-                        <textarea name="deletemessage" rows="10" type="text" id="message" class="form-control validate"></textarea>
+                        <textarea name="report_message" required rows="10" type="text" id="message" class="form-control validate"></textarea>
                     </div>
                 </div>
 
                 <div class="modal-footer d-flex justify-content-center">
-                    <button class="btn btn-danger" type="button">Report Message</button>
+                    <button class="btn btn-danger" type="submit">Report Message</button>
                 </div>
             </form>
         </div>
