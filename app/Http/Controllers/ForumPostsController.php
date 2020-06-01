@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ForumPostsController extends Controller {
 
-    public function index(Request $request, $forum_thread_id){
+    public function index(Request $request,$forum_category_id, $forum_thread_id){
 
         $forum_posts = forum_post::orderBy('forum_post_id', "asc")
             ->where("forum_thread_id", "=", $forum_thread_id)

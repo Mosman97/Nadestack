@@ -312,43 +312,35 @@ Route::get("/team/{teamid}/kick/{userid}", "TeamPageController@kickPlayerFromTea
  * --------------BEGIN OF FORUM RELEATED ROUTES--------------------
  */
 
-/**
- * Displays the Root of the Forum aka the Forum-Overview
- */
+/* Kategorieübersicht des Forums */
 Route::get("/forum", "ForumController@index")->name('forum');
 
-/*
- * Displays all Threads
- */
-Route::get("forum/{forums_category_id}", "ForumThreadsController@index")
+/* Alle Threads einer Kategorie */
+Route::get("forum/{forum_category_id}", "ForumThreadsController@index")
         ->name('viewthreads');
 
-Route::get("/forum/newthread", "ForumThreadsController@threadCreator")
+/* Blade wenn ein User einen Thread erstellen will */
+Route::get("/forum/{forum_category_id}/new", "ForumThreadsController@threadCreator")
         ->name('createthread');
 
-
-Route::get("/forum/thread/{forums_category_id}/new", "ForumThreadsController@threadCreator")
-        ->name('createthread');
-
-
-/* Route::get("/forum/thread/new/",function(){
-
-
-  return view("forum.create_thread");
-  })->name("forumtest"); */
-Route::get("forum/thread/{id}", "ForumPostsController@index")
+/* Display single thread */
+Route::get("forum/{forum_category_id}/thread/{forum_thread_id}", "ForumPostsController@index")
         ->name('viewthread');
 
-Route::post("forum/thread/{id}", "ForumThreadsController@newThread")
+/* Post Route nachdem ein thread erstellt wurde */
+Route::post("forum/{forum_category_id}/new", "ForumThreadsController@newThread")
         ->name('newthread');
 
-Route::post("forum/thread/{id}", "ForumPostsController@createPost")
+/* Antwort auf einen Thread */
+Route::post("forum/{forum_category_id}/thread/{forum_thread_id}", "ForumPostsController@createPost")
         ->name('newpost');
 
-Route::post("forum/thread/{id}", "ForumPostsController@closeThread")
+/* Route wenn ein Admin einen Thread schließt */
+Route::post("forum/{forum_category_id}/thread/{forum_thread_id}", "ForumPostsController@closeThread")
         ->name('closethread');
 
-Route::post("forum/thread/{id}", "ForumPostsController@reportPost")
+/* User reportet eine Forumantwort */
+Route::post("forum/{forum_category_id}/thread/{forum_thread_id}", "ForumPostsController@reportPost")
         ->name('reportpost');
 
 /*

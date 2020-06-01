@@ -7,7 +7,7 @@
             <h1 class="text-center nadestack_heading_one">Create new thread</h1>
             <div class="row text-center">
                 <div class="col">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{route('newthread',$forum_category_id)}}">
                         @csrf
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Title</label>
