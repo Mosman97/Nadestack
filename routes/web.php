@@ -332,15 +332,15 @@ Route::post("forum/{forum_category_id}/new", "ForumThreadsController@newThread")
         ->name('newthread');
 
 /* Antwort auf einen Thread */
-Route::post("forum/{forum_category_id}/thread/{forum_thread_id}", "ForumPostsController@createPost")
+Route::post("forum/newpost/{forum_thread_id}", "ForumPostsController@createPost")
         ->name('newpost');
 
 /* Route wenn ein Admin einen Thread schließt */
-Route::post("forum/{forum_category_id}/thread/{forum_thread_id}", "ForumPostsController@closeThread")
+Route::post("forum/closethread/{forum_thread_id}", "ForumPostsController@closeThread")
         ->name('closethread');
 
 /* User reportet eine Forumantwort */
-Route::post("forum/{forum_category_id}/thread/{forum_thread_id}", "ForumPostsController@reportPost")
+Route::post("forum/reportmessage/{forum_thread_id}", "ForumPostsController@reportPost")
         ->name('reportpost');
 
 /*

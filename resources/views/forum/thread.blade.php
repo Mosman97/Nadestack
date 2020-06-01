@@ -7,7 +7,7 @@
             <div class="col-xl-6 colum_content_big">
                 <div class="row">
                     <div class="col">
-                        <h1 class="nadestack_heading_one">Thread Thema</h1>
+                        <h1 class="nadestack_heading_one">{{$forum_thread_id}}</h1>
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@
                 <!-- Ende Nachrichtenblock-->
 
                 <hr class="bg-light">
-                <form method="POST" action="">
+                <form method="POST" action="{{route('newpost', $forum_thread_id)}}">
                     @csrf
                     <div class="form-group row">
                         <label  class="col-sm-2 col-form-label"></label>
@@ -86,7 +86,7 @@
 <div class="modal fade" id="modalReport" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
-            <form action=""  method="POST">
+            <form action="{{route('reportpost', $forum_thread_id)}}"  method="POST">
                 @csrf
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Report User Message</h4>
@@ -98,7 +98,7 @@
                 <div class="modal-body mx-3">
                     <div class="md-form mb-5 text-center">
                         <label data-error="wrong" data-success="right" for="message">Leave a comment to the report</label>
-                        <textarea name="report_message" required rows="10" type="text" id="message" class="form-control validate"></textarea>
+                        <textarea name="report_message" rows="10" type="text" id="message" class="form-control validate"></textarea>
                     </div>
                 </div>
 
@@ -114,7 +114,7 @@
 <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
-            <form action="#"  method="POST">
+            <form action=""  method="POST">
 
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Delete Message</h4>

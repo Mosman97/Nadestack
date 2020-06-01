@@ -22,7 +22,7 @@ class ForumPostsController extends Controller {
         return view("forum.thread")->with("forum_posts", $forum_posts)->with("forum_thread_id",$forum_thread_id);
     }
 
-    public function createPost(Request $request, $forum_thread_id)
+    public function createPost(Request $request,$forum_thread_id)
     {
         $post_text = $request -> input("posttext");
 
@@ -33,7 +33,7 @@ class ForumPostsController extends Controller {
                 "forum_post_content" => $post_text,
             ]);
 
-        return redirect()->back()->with('success', 'comment created');
+        return redirect()->back();
     }
 
     public function closeThread(Request $request, $forum_thread_id)
@@ -64,6 +64,8 @@ class ForumPostsController extends Controller {
                 "forum_post_id" => $forum_post_id,
                 "forum_report_message" => $report_message,
             ]);
+
+        return redirect()->back()->with('success', 'Report ging raus du Hünd');
     }
 
 }
