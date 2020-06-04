@@ -14,11 +14,19 @@ class ForumThreadsController extends Controller {
 
     public function index(Request $request, $forum_category_id){
 
-        $forum_thread = forum_thread::orderBy('forum_thread_id', "asc")
+        $forum_thread = DB::table('forum_threads')
             ->where("forum_category_id", "=", $forum_category_id)
+            ->join('users', 'forum_threads.user_id', '=', 'users.id' )
             ->get();
 
-        return view("forum.thread_overview")->with("forum_thread", $forum_thread)->with("forum_category_id",$forum_category_id);
+        $category_data = DB::table('forum_categories')
+            ->where("forum_category_id", "=", $forum_category_id)
+            ->first();
+
+        return view("forum.thread_overview")
+            ->with("forum_thread", $forum_thread)
+            ->with("forum_category_id",$forum_category_id)
+            ->with("category_data", $category_data);
     }
 
 
@@ -26,8 +34,8 @@ class ForumThreadsController extends Controller {
 
     public function threadCreator(Request $request, $forum_category_id)
     {
-
-       return view("forum.create_thread")->with("forum_category_id", $forum_category_id);
+       return view("forum.create_thread")
+           ->with("forum_category_id", $forum_category_id);
     }
 
 
@@ -38,7 +46,8 @@ class ForumThreadsController extends Controller {
         $thread_title = $request -> input("thread-title");
         $thread_text = $request -> input("thread-text");
 
-        $forum_thread_id = DB::table('forum_threads')->insertGetId(
+        $forum_thread_id = DB::table('forum_threads')
+            ->insertGetId(
             [
                 "forum_thread_title" => $thread_title,
                 "user_id" => Auth::user()->id,
