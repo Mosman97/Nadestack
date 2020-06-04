@@ -3,18 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/nadestack/app/Http/Controllers/TeamPageController.php</file>
-            <file>file:/C:/xampp/htdocs/nadestack/resources/views/news.blade.php</file>
-            <file>file:/C:/xampp/htdocs/nadestack/config/app.php</file>
-            <file>file:/C:/xampp/htdocs/nadestack/app/Http/Controllers/TeamRegisterController.php</file>
+            <file>file:/C:/xampp/htdocs/nadestack/resources/views/forum/thread_overview.blade.php</file>
+            <file>file:/C:/xampp/htdocs/nadestack/resources/views/forum/create_thread.blade.php</file>
+            <file>file:/C:/xampp/htdocs/nadestack/app/Http/Controllers/ForumThreadsController.php</file>
+            <file>file:/C:/xampp/htdocs/nadestack/resources/views/forum/thread.blade.php</file>
             <file>file:/C:/xampp/htdocs/nadestack/routes/web.php</file>
-            <file>file:/C:/xampp/htdocs/nadestack/database/migrations/2014_10_12_000000_create_users_table.php</file>
-            <file>file:/C:/xampp/htdocs/nadestack/app/Tools/TeamLogHelper.php</file>
-            <file>file:/C:/xampp/htdocs/nadestack/resources/views/league/team_profile.blade.php</file>
-            <file>file:/C:/xampp/htdocs/nadestack/app/Http/Controllers/nadestack/NewsController.php</file>
-            <file>file:/C:/xampp/htdocs/nadestack/resources/views/league/team_settings.blade.php</file>
-            <file>file:/C:/xampp/htdocs/nadestack/database/migrations/2020_05_18_164704_create_forum_categories_table.php</file>
-            <file>file:/C:/xampp/htdocs/nadestack/app/Http/Middleware/Admin.php</file>
+            <file>file:/C:/xampp/htdocs/nadestack/app/Http/Controllers/ForumPostsController.php</file>
         </group>
     </open-files>
 </project-private>
