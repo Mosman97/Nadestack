@@ -15,11 +15,19 @@ class ForumPostsController extends Controller {
 
     public function index(Request $request,$forum_category_id, $forum_thread_id){
 
-        $forum_posts = forum_post::orderBy('forum_post_id', "asc")
+        $forum_posts = DB::table('forum_posts')
             ->where("forum_thread_id", "=", $forum_thread_id)
+            ->join('users', 'forum_posts.user_id', '=', 'users.id' )
             ->get();
 
-        return view("forum.thread")->with("forum_posts", $forum_posts)->with("forum_thread_id",$forum_thread_id);
+        $thread_data = DB::table('forum_threads')
+            ->where("forum_thread_id", "=", $forum_thread_id)
+            ->first();
+
+        return view("forum.thread")
+            ->with("forum_posts", $forum_posts)
+            ->with("forum_thread_id",$forum_thread_id)
+            ->with("thread_data", $thread_data);
     }
 
     public function createPost(Request $request,$forum_thread_id)

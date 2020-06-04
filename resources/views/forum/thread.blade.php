@@ -7,7 +7,7 @@
             <div class="col-xl-6 colum_content_big">
                 <div class="row">
                     <div class="col">
-                        <h1 class="nadestack_heading_one">{{$forum_thread_id}}</h1>
+                        <h1 class="nadestack_heading_one">{{$thread_data->forum_thread_title}}</h1>
                     </div>
                 </div>
 
@@ -26,12 +26,12 @@
                 <div class="row">
 
                     <div class="col-md3">
-                        <img src="{{URL::asset('assets/img/profile_pictures/')}}" style="width: 60px;height: 60px; margin-left: 15px">
+                        <img src="{{URL::asset('assets/img/profile_pictures/')}}/{{$forum_post_entry->avatar_url}}" style="width: 60px;height: 60px; margin-left: 15px">
                     </div>
 
                     <div class="col">
                         <div class="row">
-                            <div class="col-md-2"><p>{{$forum_post_entry->user_id}}</p></div>
+                            <div class="col-md-2"><p>{{$forum_post_entry->username}}</p></div>
                             <div class="col text-right"><p>{{$forum_post_entry->created_at}}</p></div>
                         </div>
                         <p>
