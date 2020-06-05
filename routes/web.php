@@ -36,9 +36,15 @@ Route::post("news/{news_id}", "nadestack\NewsController@storeComment")
 /**
  * Searchroute of Nadestack
  */
-Route::get("/search", function() {
-    return view("search");
-})->name('search');
+/* Route::get("/search", function() {
+
+  })->name('search'); */
+
+
+
+Route::get("/search","SearchController@index")->name("search");
+
+//Route::get("/search?query={query}&filter={filter}", "SearchController@index")->name('search');
 
 
 /*

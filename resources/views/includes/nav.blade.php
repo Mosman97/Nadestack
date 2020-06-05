@@ -32,10 +32,16 @@
                 <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="{{route('statistics')}}">Statistics</a></li>
                 <li class="nav-item navigationitemsleft" role="presentation">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control nadestack-navbar-search" placeholder="Search for..." aria-describedby="addonsearch" style="border-top-left-radius: 6px;border-bottom-left-radius: 6px;">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="addonsearch" style="border-top-right-radius: 6px;border-bottom-right-radius: 6px;"><a href="{{route('search')}}" style="color: grey"><i class="fa fa-search" id="search_bar_icon"></i></a></span>
-                        </div>
+
+                        <form action="{{route('search')}}" method="GET">
+                            <input name="query" id="searchinput"type="text" class="form-control nadestack-navbar-search" placeholder="Search for..." aria-describedby="addonsearch" style="border-top-left-radius: 6px;border-bottom-left-radius: 6px;">
+                                 <input type="hidden" name="filter" value="0">
+                                <button type="submit">Search</button>    
+                           <!-- <div class="input-group-prepend">
+                                <span class="input-group-text" id="addonsearch" style="border-top-right-radius: 6px;border-bottom-right-radius: 6px;"><a href="{{route('search',['query'=>'s',"filter"=>'0'])}}" style="color: grey"><i class="fa fa-search" id="search_bar_icon"></i></a></span>
+                            </div>-->
+
+                        </form>
                     </div>
                 </li>
             </ul>
@@ -72,7 +78,7 @@
                         <a class="dropdown-item " href="{{route('startpage')}}/user/{{Auth::user()->username}}">
                             <i class="fa fa-user"></i><span class='nadestack-usermenu-icon'></span>
                             My Profile</a>
-                        
+
                         @if(Auth::user()->nadestack_admin)
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('admin')}}"><i class="fa fa-toolbox"></i><span class='nadestack-usermenu-icon'></span>Admin-Dashboard</a>
