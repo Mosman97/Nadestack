@@ -23,7 +23,7 @@
 
                                 <div class="forum-title">
                                     <div class="pull-right forum-desc" style="float: right">
-                                        <samll>Total posts: 320,800</samll>
+                                        <samll>Total posts: {{$total_post}}</samll>
                                     </div>
                                     <h3>General subjects</h3>
                                 </div>
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="col-md-1 forum-info">
                                                 <span class="views-number">
-                                                    368
+                                                    {{$forum_category_entry->thread_count}}
                                                 </span>
                                             <div class="views-number-description">
                                                 <small>Topics</small>
