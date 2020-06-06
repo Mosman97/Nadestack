@@ -22,30 +22,29 @@
                             <a class="nav-link" id="stats-tab" data-toggle="tab" href="#player-stats" role="tab" aria-controls="player-stats" aria-selected="false">Stats</a>
                         </li>
                     </ul>
-                    @foreach ($userdata as $user)
                     <div class="tab-content" id="myTabContent">
                         <!-- Begin of the profile tab/general Infos-->
                         <div class="tab-pane fade show active" id="player-profile" role="tabpanel" aria-labelledby="player-profile-tab">
                             <div class="row">
                                 <div class="col-xl-3">
                                     <div class="row">
-                                        <div class="col-xl-12 text-center d-xl-flex justify-content-xl-center align-items-xl-center"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center player-pic-big" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user->avatar_url}}"></div>
+                                        <div class="col-xl-12 text-center d-xl-flex justify-content-xl-center align-items-xl-center"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center player-pic-big" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user_data->avatar_url}}"></div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <h2 class="text-center nadestack-heading">{{$user->username}}</h2>
+                                            <h2 class="text-center nadestack-heading">{{$user_data->username}}</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="row">
                                         <div class="col">
-                                            <h2 class="text-center text-white nadestack-heading">About {{$user->username}}</h2>
+                                            <h2 class="text-center text-white nadestack-heading">About {{$user_data->username}}</h2>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="text-center">@if ($user->profiledescription != NULL) {{$user->profiledescription}} @else No Information about this User @endif</p>
+                                            <p class="text-center">@if ($user_data->profiledescription != NULL) {{$user_data->profiledescription}} @else No Information about this User @endif</p>
                                         </div>
                                     </div>
                                 </div>
@@ -55,10 +54,10 @@
                                     </div>
                                     <div class="row">
                                         <div class="col text-center d-xl-flex justify-content-xl-center align-items-xl-center">
-                                            
-                                            @if($user->team_id != NULL)
-                                          
-                                            <a href="{{route('teampage',$user->team_id)}}"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center team-pic-big" src="../assets/img/BIG2.png"></a>
+
+                                            @if($user_data->team_id != NULL)
+
+                                            <a href="{{route('teampage',$user_data->team_id)}}"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center team-pic-big" src="../assets/img/BIG2.png"></a>
                                             @else
                                             <a href="#"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center team-pic-big" src="../assets/img/BIG2.png"></a>
                                             @endif
@@ -67,7 +66,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <h5 class="text-center nadestack-heading">Current Team:</h5>
-                                            @if($user->team_name !=NULL)<h3 class="text-center"><a href="{{route('teampage',$user->team_id)}}">{{$user->team_name}}</a></h3>
+                                            @if($user_data->team_name !=NULL)<h3 class="text-center"><a href="{{route('teampage',$user_data->team_id)}}">{{$user_data->team_name}}</a></h3>
                                             @else<h3 class="text-center">/</h3>
                                             @endif
                                         </div>
@@ -87,7 +86,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>Name:</td>
-                                                <td>{{$user->forname}}</td>
+                                                <td>{{$user_data->forname}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Flagge</td>
@@ -99,11 +98,11 @@
                                             </tr>
                                             <tr>
                                                 <td>Member since:</td>
-                                                <td>{{$user->created_at}}</td>
+                                                <td>{{$user_data->created_at}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Posts:</td>
-                                                <td>1340</td>
+                                                <td>{{$user_posts->post_count}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -119,8 +118,8 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    @if($user->faceit_url != NULL)
-                                                    <a target="_blank" rel="noopener noreferrer" href="{{$user->faceit_url}}">
+                                                    @if($user_data->faceit_url != NULL)
+                                                    <a target="_blank" rel="noopener noreferrer" href="{{$user_data->faceit_url}}">
                                                         <img src="../assets/svg/faceit.svg" alt="faceitlogo" class="social_icon_size icon_grow" id="faceit-symbol">
                                                     </a>
                                                     @else
@@ -133,7 +132,7 @@
 
                                                     {{--TODO Backend SteamID to URl Convert--}}
 
-                                                    @if($user->steamid != NULL)
+                                                    @if($user_data->steamid != NULL)
                                                     <a target="_blank" rel="noopener noreferrer" href="">
                                                         <img src="../assets/svg/steam-symbol.svg" alt="steamlogo" class="icon_grow social_icon_size" id="steam-symbol">
                                                     </a>
@@ -145,8 +144,8 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    @if($user->instagram_url != NULL)
-                                                    <a target="_blank" rel="noopener noreferrer" href="{{$user->instagram_url}}">
+                                                    @if($user_data->instagram_url != NULL)
+                                                    <a target="_blank" rel="noopener noreferrer" href="{{$user_data->instagram_url}}">
                                                         <img src="../assets/svg/instagram.svg" alt="instgramlogo" class="icon_grow" id="instagram-symbol">
                                                     </a>
                                                     @else
@@ -157,8 +156,8 @@
 
                                                 </td>
                                                 <td>
-                                                    @if($user->twitch_url != NULL)
-                                                    <a target="_blank" rel="noopener noreferrer" href="{{$user->twitch_url}}">
+                                                    @if($user_data->twitch_url != NULL)
+                                                    <a target="_blank" rel="noopener noreferrer" href="{{$user_data->twitch_url}}">
                                                         <img src="../assets/svg/twitch.svg" alt="twitchlogo" class="icon_grow" id="twitch-symbol">
                                                     </a>
                                                     @else
@@ -168,8 +167,8 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    @if($user->twitter_url != NULL)
-                                                    <a target="_blank" rel="noopener noreferrer" href="{{$user->twitter_url}}">
+                                                    @if($user_data->twitter_url != NULL)
+                                                    <a target="_blank" rel="noopener noreferrer" href="{{$user_data->twitter_url}}">
                                                         <img src="../assets/svg/twitter.svg" alt="twitterlogo" class="icon_grow social_icon_size" id="twitter-symbol">
                                                     </a>
                                                     @else
@@ -179,8 +178,8 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    @if($user->youtube_url !=NULL)
-                                                    <a target="_blank" rel="noopener noreferrer" href="{{$user->youtube_url}}">
+                                                    @if($user_data->youtube_url !=NULL)
+                                                    <a target="_blank" rel="noopener noreferrer" href="{{$user_data->youtube_url}}">
                                                         <img src="../assets/svg/youtube.svg" alt="youtubelogo" class="icon_grow social_icon_size" id="yotube-symbol">
                                                     </a>
                                                     @else
@@ -225,10 +224,10 @@
                         <!-- Begin of the Statistic -->
                         <div class="tab-pane fade" id="player-stats" role="tabpanel" aria-labelledby="player-stats-tab">
                             <div class="col">
-                                <h2 class="text-center nadestack-heading">Statistics of {{$user->username}}</h2>
+                                <h2 class="text-center nadestack-heading">Statistics of {{$user_data->username}}</h2>
                             </div>
                             <div class="row">
-                                <div class="col text-center d-xl-flex justify-content-xl-center align-items-xl-center"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user->avatar_url}}" width="100px" height="100px" style="margin-bottom: 0px;padding-bottom: 0px;margin-top: 40px;"></div>
+                                <div class="col text-center d-xl-flex justify-content-xl-center align-items-xl-center"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user_data->avatar_url}}" width="100px" height="100px" style="margin-bottom: 0px;padding-bottom: 0px;margin-top: 40px;"></div>
                             </div>
                             <!-- <div class="row">
                                 <div class="col">
@@ -316,7 +315,6 @@
                         </div>
                         </div>
                         <!-- End of the Statistic -->
-                    @endforeach
                 </div>
             </div>
         </div>

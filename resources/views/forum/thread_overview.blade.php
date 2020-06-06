@@ -23,6 +23,7 @@
                             <table class="table nadestack-tbl table-borderless">
                                 <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Topic</th>
                                     <th>Replies</th>
                                     <th>Author</th>
@@ -33,6 +34,11 @@
                                 <tbody>
                                 @foreach($forum_thread as $forum_thread_entry)
                                 <tr style="background-color: #404448">
+                                    @if($forum_thread_entry->is_closed)
+                                    <td><i class="fas fa-lock"></i></td>
+                                    @else
+                                    <td></td>
+                                    @endif
                                     <td><a href="{{route('viewthread',['forum_category_id'=>$forum_category_id,'forum_thread_id'=>$forum_thread_entry->forum_thread_id])}}">{{$forum_thread_entry->forum_thread_title}}</a> </td>
                                     <td>{{$forum_thread_entry->post_count}}</td>
                                     <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">{{$forum_thread_entry->username}}</a></td>

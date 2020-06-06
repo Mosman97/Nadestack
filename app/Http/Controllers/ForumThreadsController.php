@@ -15,7 +15,7 @@ class ForumThreadsController extends Controller {
     public function index(Request $request, $forum_category_id){
 
         $forum_thread = DB::table('forum_threads')
-            ->select('forum_threads.forum_thread_id', 'forum_threads.forum_thread_title', 'users.username', 'users.avatar_url','forum_threads.updated_at', DB::raw('COUNT(forum_posts.forum_post_id) as post_count'))
+            ->select('forum_threads.forum_thread_id', 'forum_threads.forum_thread_title', 'users.username', 'users.avatar_url','forum_threads.is_closed','forum_threads.updated_at', DB::raw('COUNT(forum_posts.forum_post_id) as post_count'))
             ->where("forum_category_id", "=", $forum_category_id)
             ->leftJoin('users', 'forum_threads.user_id', '=', 'users.id' )
             ->leftJoin('forum_posts', 'forum_posts.forum_thread_id','=','forum_threads.forum_thread_id')

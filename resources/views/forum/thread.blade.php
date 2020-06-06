@@ -11,6 +11,7 @@
                     </div>
                 </div>
 
+                @if(!$thread_data->is_closed)
                 @auth
                 @if(Auth::user()->nadestack_admin)
                <div class="row" style="margin-bottom: 8px">
@@ -20,6 +21,7 @@
                </div>
                 @endif
                 @endauth
+                @endif
 
                <!-- Nachrichtenblock bzw eine Nachricht-->
                 @foreach($forum_posts as $forum_post_entry)
@@ -40,7 +42,9 @@
 
                         @auth
                         <div class="row">
+                            @if(!$thread_data->is_closed)
                             <div class="col"><button type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Zitieren</button></div>
+                            @endif
                             <div class="col text-right"><button data-toggle="modal" data-target="#modalReport" type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Melden</button></div>
                         </div>
 
@@ -51,7 +55,6 @@
                             </div>
                         </div>
                         @endif
-
                         @endauth
 
                         <hr class="bg-light">
@@ -60,6 +63,7 @@
                 @endforeach
                 <!-- Ende Nachrichtenblock-->
 
+                @if(!$thread_data->is_closed)
                 <hr class="bg-light">
                 <form method="POST" action="{{route('newpost', $forum_thread_id)}}">
                     @csrf
@@ -73,6 +77,9 @@
                         <button class=" nadestack_btn btn btn-sm" type="submit" >Answer</button>
                     </div>
                 </form>
+                @else
+                <h3 class="nadestack_heading_three">Thread already closed!</h3>
+                @endif
 
                 <div class="d-flex justify-content-center nadestack-pagination mt-auto " style="padding-top: 10px" ></div>
             </div>
@@ -131,7 +138,7 @@
                 </div>
 
                 <div class="modal-footer d-flex justify-content-center">
-                    <button class="btn btn-danger" type="button">Delete Message</button>
+                    <button class="btn btn-danger" type="submit">Delete Message</button>
                 </div>
             </form>
         </div>
@@ -142,7 +149,7 @@
 <div class="modal fade" id="modalClose" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
-            <form action=""  method="POST">
+            <form action="{{route('closethread', $forum_thread_id)}}"  method="POST">
                 @csrf
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Close Thread</h4>
