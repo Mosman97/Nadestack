@@ -29,6 +29,7 @@
 
                     <div class="col-md3">
                         <img src="{{URL::asset('assets/img/profile_pictures/')}}/{{$forum_post_entry->avatar_url}}" style="width: 60px;height: 60px; margin-left: 15px">
+                        <p class="text-center">#{{$loop->iteration}}</p>
                     </div>
 
                     <div class="col">

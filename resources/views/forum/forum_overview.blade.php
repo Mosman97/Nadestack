@@ -29,6 +29,11 @@
                                 </div>
 
                                 @foreach($forum_category as $forum_category_entry)
+                                @if($loop->iteration == 6)
+                                    <div class="forum-title">
+                                        <h3>Other subjects</h3>
+                                    </div>
+                                @endif
                                 <div class="forum-item">
                                     <div class="row">
                                         <div class="col-md-9">
