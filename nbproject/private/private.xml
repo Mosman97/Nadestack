@@ -5,10 +5,13 @@
         <group>
             <file>file:/C:/xampp/htdocs/nadestack/resources/views/forum/thread_overview.blade.php</file>
             <file>file:/C:/xampp/htdocs/nadestack/resources/views/forum/create_thread.blade.php</file>
+            <file>file:/C:/xampp/htdocs/nadestack/resources/views/search.blade.php</file>
             <file>file:/C:/xampp/htdocs/nadestack/app/Http/Controllers/ForumThreadsController.php</file>
+            <file>file:/C:/xampp/htdocs/nadestack/resources/views/includes/nav.blade.php</file>
             <file>file:/C:/xampp/htdocs/nadestack/resources/views/forum/thread.blade.php</file>
             <file>file:/C:/xampp/htdocs/nadestack/routes/web.php</file>
             <file>file:/C:/xampp/htdocs/nadestack/app/Http/Controllers/ForumPostsController.php</file>
+            <file>file:/C:/xampp/htdocs/nadestack/app/Http/Controllers/SearchController.php</file>
         </group>
     </open-files>
 </project-private>

@@ -87,7 +87,6 @@ class SearchController extends Controller {
                 //No Searchfilter is applied we search every Db
                 else {
                   
-
                     $user_results = User::where("username", "LIKE", "%" . $request->input('query') . "%")->get();
 
                     $team_results = Team::where("team_name", "LIKE", "%" . $request->input('query') . "%")->get();
