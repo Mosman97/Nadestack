@@ -5,6 +5,7 @@ namespace App\Http\Controllers\nadestack;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\News;
+use DB;
 use Illuminate\Support\Facades\Auth;
 use App\newscomment;
 
@@ -27,14 +28,14 @@ class NewsController extends Controller {
         //get Metadata of the articel
         $news_metadata = News::select('news.*')
             ->where("news_id", "=", $news_id)
-            ->get();
+            ->first();
 
-        //get comments of the articel
-        $news_comments = newscomment::select('newscomments.*')
+        //get comments of the article
+        $news_comments = newscomment::select('users.id', 'users.username', 'users.avatar_url','newscomments.*')
             ->where("news_id", "=", $news_id)
             ->leftJoin("users", "users.id", "=", "newscomments.user_id")
-            ->orderBy('created_at', "asc")
-            ->get();
+            ->orderBy('newscomments.created_at', "asc")
+            ->paginate(10);
 
         return view("news_example")
             ->with("news_metadata", $news_metadata)
