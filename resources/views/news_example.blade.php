@@ -33,7 +33,7 @@
                                                     <table class="table table-borderless comment_header">
                                                         <tbody>
                                                             <tr>
-                                                                <td class="text-left">#1</td>
+                                                                <td class="text-left">#{{$loop->iteration}}</td>
                                                                 <td class="text-right">{{$news_comment->created_at}}</td>
                                                             </tr>
                                                         </tbody>

@@ -18,11 +18,8 @@ class NewsController extends Controller {
 
     public function index(Request $request) {
 
-    $news = News::orderBy('created_at', "desc")->paginate(5);
-
-
-
-    return view("news")->with("news", $news);
+        $news = News::orderBy('created_at', "desc")->paginate(5);
+        return view("news")->with("news", $news);
     }
 
     public function getNewsDetails($news_id){
@@ -31,13 +28,17 @@ class NewsController extends Controller {
         $news_metadata = News::select('news.*')
             ->where("news_id", "=", $news_id)
             ->get();
+
         //get comments of the articel
         $news_comments = newscomment::select('newscomments.*')
             ->where("news_id", "=", $news_id)
             ->leftJoin("users", "users.id", "=", "newscomments.user_id")
             ->orderBy('created_at', "asc")
             ->get();
-        return view("news_example")->with("news_metadata", $news_metadata)->with("news_comments", $news_comments);
+
+        return view("news_example")
+            ->with("news_metadata", $news_metadata)
+            ->with("news_comments", $news_comments);
     }
 
     public function storeComment(Request $request, $news_id){
