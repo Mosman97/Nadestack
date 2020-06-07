@@ -23,12 +23,17 @@
 
                                 <div class="forum-title">
                                     <div class="pull-right forum-desc" style="float: right">
-                                        <samll>Total posts: 320,800</samll>
+                                        <samll>Total posts: {{$total_post}}</samll>
                                     </div>
                                     <h3>General subjects</h3>
                                 </div>
 
                                 @foreach($forum_category as $forum_category_entry)
+                                @if($loop->iteration == 6)
+                                    <div class="forum-title">
+                                        <h3>Other subjects</h3>
+                                    </div>
+                                @endif
                                 <div class="forum-item">
                                     <div class="row">
                                         <div class="col-md-9">
@@ -48,7 +53,7 @@
                                         </div>
                                         <div class="col-md-1 forum-info">
                                                 <span class="views-number">
-                                                    368
+                                                    {{$forum_category_entry->thread_count}}
                                                 </span>
                                             <div class="views-number-description">
                                                 <small>Topics</small>

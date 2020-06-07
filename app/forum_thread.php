@@ -14,4 +14,6 @@ class forum_thread extends Model
         'is_closed',
     ];
     protected $guarded = [];
+
+    protected $primaryKey = 'forum_thread_id';
 }

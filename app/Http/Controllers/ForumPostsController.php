@@ -41,6 +41,9 @@ class ForumPostsController extends Controller {
                 "forum_post_content" => $post_text,
             ]);
 
+        $thread = forum_thread::find($forum_thread_id);
+        $thread ->touch();
+
         return redirect()->back();
     }
 

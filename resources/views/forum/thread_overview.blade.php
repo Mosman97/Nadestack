@@ -23,6 +23,7 @@
                             <table class="table nadestack-tbl table-borderless">
                                 <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Topic</th>
                                     <th>Replies</th>
                                     <th>Author</th>
@@ -31,15 +32,29 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($forum_thread as $forum_thread_entry)
-                                <tr style="background-color: #404448">
-                                    <td><a href="{{route('viewthread',['forum_category_id'=>$forum_category_id,'forum_thread_id'=>$forum_thread_entry->forum_thread_id])}}">{{$forum_thread_entry->forum_thread_title}}</a> </td>
-                                    <td>200</td>
-                                    <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">{{$forum_thread_entry->username}}</a></td>
-                                    <td><img class="rounded-circle" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$forum_thread_entry->avatar_url}}" width="30px" height="30px"></td>
-                                    <td>{{$forum_thread_entry->updated_at}}</td>
-                                </tr>
-                                @endforeach
+
+                                    @foreach($forum_thread as $forum_thread_entry)
+
+                                    @if($loop->odd)
+                                    <tr style="background-color: #404448">
+                                    @else
+                                    <tr>
+                                    @endif
+
+                                        @if($forum_thread_entry->is_closed)
+                                        <td><i class="fas fa-lock"></i></td>
+                                        @else
+                                        <td></td>
+                                        @endif
+
+                                        <td><a href="{{route('viewthread',['forum_category_id'=>$forum_category_id,'forum_thread_id'=>$forum_thread_entry->forum_thread_id])}}">{{$forum_thread_entry->forum_thread_title}}</a> </td>
+                                        <td>{{$forum_thread_entry->post_count}}</td>
+                                        <td><a href="https://liga.99damage.de/de/users/703337-luke_1337" style="margin-right: 5px;">{{$forum_thread_entry->username}}</a></td>
+                                        <td><img class="rounded-circle" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$forum_thread_entry->avatar_url}}" width="30px" height="30px"></td>
+                                        <td>{{$forum_thread_entry->updated_at}}</td>
+                                    </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>
