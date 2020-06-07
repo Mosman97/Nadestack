@@ -16,7 +16,7 @@ Value: {{ $error[0] }}
 
 {{ var_dump( Session::all())}}
 <script src='{{URL::asset('assets/js/validate/teamregvalidate.js')}}'></script>
-<div class="container-fluid" style="background-color: #0F0F0F;">
+<div class="container-fluid">
     <div class="row">
         <div class="col-xl-2"></div>
         <div class="col">

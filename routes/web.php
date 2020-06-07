@@ -211,6 +211,10 @@ Route::get("mytickets/new", function() {
     return view("useraccount.ticket");
 })->middleware('auth')->name("newticket");
 
+/* Antwort auf einen Thread */
+Route::post("myticket/answer/{ticket_id}", "ProfileTicketController@responseTicket")
+    ->name('responseticket');
+
 
 /*
  * -------------- END OF PROFILE RELATED ROUTES--------------

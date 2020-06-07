@@ -17,8 +17,8 @@ class ProfileTicketController extends Controller {
 
         return view("useraccount.tickets_overview")->with("tickets", $tickets);
     }
-    
-   
+
+
 
 
     public function getTicketDetails($ticket_id) {
@@ -27,14 +27,32 @@ class ProfileTicketController extends Controller {
         $ticket_metadata = Ticket::select('tickets.*', 'users.username')
                 ->where("ticket_id", "=", $ticket_id)
                 ->leftJoin('users', 'users.id', "=", "tickets.creator_id")
-                ->get();
+                ->first();
         //Responses related to the Ticket
         $ticket_responses = ticketresponse::select('ticketresponses.*',"users.username","users.nadestack_admin")->where('ticket_id', "=", $ticket_id)
                 ->leftJoin('users', 'users.id', "=", "ticketresponses.user_id")
                 ->orderBy("created_at","asc")
                 ->get();
-        //Returning Ticket with Responses 
-        return view("useraccount.ticket")->with("ticket_metadata", $ticket_metadata)->with("ticket_responses", $ticket_responses);
+        //Returning Ticket with Responses
+        return view("useraccount.ticket")
+            ->with("ticket_metadata", $ticket_metadata)
+            ->with("ticket_responses", $ticket_responses);
+    }
+
+    //user antwort auf ein ticket
+    //TODO attached files
+    public function responseTicket(Request $request, $ticket_id)
+    {
+        $content = $request->input('content');
+
+        $ticketresponse = ticketresponse::create(
+            [
+                "ticket_id" => $ticket_id,
+                "user_id" => Auth::user()->id,
+                "content" => $content,
+            ]);
+
+        return back()->with("success", "answer!");
     }
 
     /*

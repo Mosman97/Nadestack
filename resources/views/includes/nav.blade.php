@@ -6,8 +6,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ml-auto" style="float: unset; margin-top: 10px;">
-                <li class="nav-item active navigationitemsleft" role="presentation">
-                    <a class="nav-link active" href="{{route('startpage')}}">News<span class="sr-only">(current)</span></a>
+                <li class="nav-item navigationitemsleft" role="presentation">
+                    <a class="nav-link" href="{{route('startpage')}}">News<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="{{route('forum')}}">Forum</a></li>
                 <li class="nav-item  navigationitemsleft dropdown"style="margin-left: unset;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">League</a>
@@ -72,7 +72,7 @@
                         <a class="dropdown-item " href="{{route('startpage')}}/user/{{Auth::user()->username}}">
                             <i class="fa fa-user"></i><span class='nadestack-usermenu-icon'></span>
                             My Profile</a>
-                        
+
                         @if(Auth::user()->nadestack_admin)
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('admin')}}"><i class="fa fa-toolbox"></i><span class='nadestack-usermenu-icon'></span>Admin-Dashboard</a>
