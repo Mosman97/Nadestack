@@ -28,7 +28,7 @@ class NewsController extends Controller {
         //get Metadata of the articel
         $news_metadata = News::select('news.*')
             ->where("news_id", "=", $news_id)
-            ->first();
+            ->get();
 
         //get comments of the article
         $news_comments = newscomment::select('users.id', 'users.username', 'users.avatar_url','newscomments.*')

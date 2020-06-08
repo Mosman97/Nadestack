@@ -50,7 +50,7 @@ class AdminPanelNewsController extends Controller {
 
 
 
-        //Defining if the Requested Ressoruce shoudl  be created or previewed
+        //Defining if the Requested Ressoruce should  be created or previewed
 
 
         if ($request->input('action') == "preview") {
@@ -60,8 +60,6 @@ class AdminPanelNewsController extends Controller {
             $news_metadata[0]['news_content'] = $request->input("news-trixFields");
             $news_metadata[0]['news_author'] = Auth::user()->username;
             $news_metadata[0]['preview'] = 1;
-
-
 
             return view("news_example")->with("news_metadata", $news_metadata);
         } else if ($request->input('action') == "create") {
@@ -134,11 +132,14 @@ class AdminPanelNewsController extends Controller {
         $news_metadata[0]['news_subheading'] = $request->input("news_subheading");
         $news_metadata[0]['news_content'] = $request->input("news-trixFields");
         $news_metadata[0]['news_author'] = Auth::user()->username;
-        return view("news_example")->with("news_metadata", $news_metadata);
+        $news_metadata[0]['preview'] = 1;
+        return view("news_example")
+            ->with("news_metadata", $news_metadata);
+
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resource.xa
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

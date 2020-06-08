@@ -6,21 +6,16 @@
     <div class="row">
         <div class="col-xl-3"></div>
         <div class="col-xl-6 colum_content_big">
-            <div class="row ml-auto">
-                <h5 class="nadestack_heading_four nadestack-first-element text-left">{{$news_metadata->news_subheading}}</h5>
-                <p class="ml-auto" style="margin-right: 20px; margin-top: 10px;">{{$news_metadata->created_at}}</p>
-            </div>
-            <div class="row  ml-auto ">
-                <h1 class="text-left">{{$news_metadata->news_title}}</h1>
-            </div>
-            @if($news_metadata->preview == 1)
-                {{--!--<p>{!!$news_metadata[0]['news_content']['content']!!}</p> Was soll das genau sein?--}}
+            <h4 class="nadestack_heading_four nadestack-first-element text-left">{{$news_metadata[0]['news_subheading']}}</h4>
+            <h1 class="text-left">{{$news_metadata[0]['news_title']}}</h1>
+            @if($news_metadata[0]['preview'] == 1)
+                <p>{!!$news_metadata[0]['news_content']['content']!!}</p>
             @else
-                <p>{!!$news_metadata->news_content!!}</p>
+                <p>{!!$news_metadata[0]['news_content']!!}</p>
             @endif
-            <p class="text-left italic">Written by: {{$news_metadata->news_author}}</p>
+            <p class="text-left italic">Written by {{$news_metadata[0]['news_author']}}</p>
             <hr class="bg-light" />
-            @if($news_metadata->preview == 0)
+            @if($news_metadata[0]['preview'] == 0)
             <div class="row">
                 <div class="col-xl-12">
                     <div>
@@ -65,7 +60,7 @@
                                 @endforeach
                                 <div class="d-flex justify-content-center nadestack-pagination mt-auto " style="padding-top: 10px" id="news_paginator">{{$news_comments->render()}}</div>
                                 <h4 class="text-center">Add Comment</h4>
-                                <form method="POST" action="{{route('StoreNewsComment', $news_metadata->news_id)}}" class="text-center">
+                                <form method="POST" action="{{route('StoreNewsComment', $news_metadata[0]['news_id'])}}" class="text-center">
                                     @csrf
                                     <div class="form-row">
                                         <div class="col"><textarea id="comment" name="comment" class="form-control"></textarea></div>
