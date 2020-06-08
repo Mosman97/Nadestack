@@ -31,18 +31,15 @@
                 </li>
                 <li class="nav-item navigationitemsleft" role="presentation"><a class="nav-link" href="{{route('statistics')}}">Statistics</a></li>
                 <li class="nav-item navigationitemsleft" role="presentation">
-                    <div class="input-group mb-3">
 
                         <form action="{{route('search')}}" method="GET">
-                            <input name="query" id="searchinput"type="text" class="form-control nadestack-navbar-search" placeholder="Search for..." aria-describedby="addonsearch" style="border-top-left-radius: 6px;border-bottom-left-radius: 6px;">
-                                 <input type="hidden" name="filter" value="0">
-                                <button type="submit">Search</button>    
-                           <!-- <div class="input-group-prepend">
-                                <span class="input-group-text" id="addonsearch" style="border-top-right-radius: 6px;border-bottom-right-radius: 6px;"><a href="{{route('search',['query'=>'s',"filter"=>'0'])}}" style="color: grey"><i class="fa fa-search" id="search_bar_icon"></i></a></span>
-                            </div>-->
-
+                            <div class="input-group-prepend">
+                                <input name="query" id="searchinput"type="text" class="form-control nadestack-navbar-search" placeholder="Search for..." aria-describedby="addonsearch" style="border-top-left-radius: 6px;border-bottom-left-radius: 6px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+                                <input type="hidden" name="filter" value="0">
+                                <span class="input-group-text" id="addonsearch" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;border-top-right-radius: 6px;border-bottom-right-radius: 6px;"><button class="nadestack_search_btn bg-transparent" type="submit" ><i style="color: gray" class="fa fa-search" id="search_bar_icon"></i></button></span>
+                            </div>
                         </form>
-                    </div>
+
                 </li>
             </ul>
             <ul class="navbar-nav nadestack-second-menu">

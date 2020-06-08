@@ -309,6 +309,19 @@ a:hover {
     box-shadow: 0 0 0;
 }
 
+.nadestack_search_btn {
+    color: white;
+    background-color: #FF312E;
+    box-shadow: 0 0 0 #ff312e;
+    border: none;
+    border-radius: 5px;
+}
+
+.nadestack_search_btn:hover {
+    color: white!important;
+}
+
+
 #comment_submit_btn {
     margin-top: 20px;
 }
