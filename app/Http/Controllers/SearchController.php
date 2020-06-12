@@ -7,6 +7,8 @@ use App\search_category;
 use App\Team;
 use App\User;
 use App\News;
+use App\forum_thread;
+use App\forum_post;
 
 class SearchController extends Controller {
 
@@ -76,6 +78,21 @@ class SearchController extends Controller {
                                             ->with("search_result_categories", $search_result_categories);
 
 
+                        case 4:
+                            $thread_results = forum_thread::where("forum_thread_title", "LIKE", "%" . $request->input('query') . "%")->get();
+                            return view('search')->with("search_results", TRUE)
+                                            ->with("search_categories", $search_categories)
+                                            ->with("forumthread_results", $thread_results)
+                                            ->with("search_result_categories", $search_result_categories);
+
+                        case 5:
+
+                            $threadposts_results = forum_post::where("forum_post_content", "LIKE", "%" . $request->input('query') . "%")->get();
+                            return view('search')->with("search_results", TRUE)
+                                            ->with("search_categories", $search_categories)
+                                            ->with("forumpost_results", $threadposts_results)
+                                            ->with("search_result_categories", $search_result_categories);
+
                         default: return view('search')->with("search_results", NULL)
                                             ->with("search_categories", $search_categories)
                                             ->with("error", "No Data found");
@@ -86,13 +103,16 @@ class SearchController extends Controller {
 
                 //No Searchfilter is applied we search every Db
                 else {
-                  
+
                     $user_results = User::where("username", "LIKE", "%" . $request->input('query') . "%")->get();
 
                     $team_results = Team::where("team_name", "LIKE", "%" . $request->input('query') . "%")->get();
 
                     $news_results = News::where("news_title", "LIKE", "%" . $request->input('query') . "%")->get();
 
+                    $forumthread_results = forum_thread::where("forum_thread_title", "LIKE", "%" . $request->input('query') . "%")->get();
+
+                    $forumposts_results = forum_post::where("forum_post_content", "LIKE", "%" . $request->input('query') . "%")->get();
 
                     return view("search")
                                     ->with("search_results", TRUE)
@@ -100,7 +120,9 @@ class SearchController extends Controller {
                                     ->with("search_result_categories", $search_categories)
                                     ->with("user_results", $user_results)
                                     ->with("team_results", $team_results)
-                                    ->with("news_results", $news_results);
+                                    ->with("news_results", $news_results)
+                                    ->with("forumthread_results", $forumthread_results)
+                                    ->with("forumpost_results", $forumposts_results);
                 }
             } else {
                 

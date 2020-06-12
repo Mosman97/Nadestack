@@ -37,7 +37,6 @@
             @if($search_category['search_ranking'] == 1)
 
             @foreach($user_results as $user)
-
             <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
                 <div class="col">
                     <div class="row">
@@ -50,16 +49,14 @@
                                 <div class="col-xl-3"><label class="col-form-label">02-10-1997</label></div>
                             </div>
                             <div class="row">
-                                <div class="col"><label style="font-size: 11px;">Player</label><label>Hier würde der der Anfang einer News, Teambeschreibung, Prfilbeschreibung, Kommentaranfang oder Match stehen.<br></label></div>
+                                <div class="col"><label>Hier würde der der Anfang einer News, Teambeschreibung, Prfilbeschreibung, Kommentaranfang oder Match stehen.<br></label></div>
                             </div>
                         </div>
                         <div class="col-xl-2"></div>
                     </div>
                 </div>
             </div>
-
             @endforeach
-
 
             @elseif($search_category['search_ranking'] == 2)
 
@@ -77,7 +74,7 @@
                                 <div class="col-xl-3"><label class="col-form-label">02-10-1997</label></div>
                             </div>
                             <div class="row">
-                                <div class="col"><label style="font-size: 11px;">{{$search_category['search_category_text']}}</label><label>Hier würde der der Anfang einer News, Teambeschreibung, Prfilbeschreibung, Kommentaranfang oder Match stehen.<br></label></div>
+                                <div class="col"><label>Hier würde der der Anfang einer News, Teambeschreibung, Prfilbeschreibung, Kommentaranfang oder Match stehen.<br></label></div>
                             </div>
                         </div>
                         <div class="col-xl-2"></div>
@@ -85,8 +82,6 @@
                 </div>
             </div>
             @endforeach
-
-
 
             @elseif($search_category['search_ranking'] == 3)
 
@@ -104,7 +99,61 @@
                                 <div class="col-xl-3"><label class="col-form-label">02-10-1997</label></div>
                             </div>
                             <div class="row">
-                                <div class="col"><label style="font-size: 11px;">{{$search_category['search_category_text']}}</label><label>Hier würde der der Anfang einer News, Teambeschreibung, Prfilbeschreibung, Kommentaranfang oder Match stehen.<br></label></div>
+                                <div class="col"><label>Hier würde der der Anfang einer News, Teambeschreibung, Prfilbeschreibung, Kommentaranfang oder Match stehen.<br></label></div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2"></div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            
+                    @elseif($search_category['search_ranking'] == 4)
+
+            @foreach($forumthread_results as $thread)
+
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-xl-2"></div>
+                        <div class="col border">
+                            <div class="row" style="margin-top: 5px">
+                                <div class="col">
+                                    <h3><a style="color: #FF312E;" href="{{route('viewthread',[$thread['forum_category_id'],$thread['forum_thread_id']])}}">{{$thread['forum_thread_title']}}</a></h3>
+                                </div>
+                                <div class="col-xl-3"><label class="col-form-label">02-10-1997</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label>Hier würde der der Anfang einer News, Teambeschreibung, Prfilbeschreibung, Kommentaranfang oder Match stehen.<br></label></div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2"></div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            
+            
+                     @elseif($search_category['search_ranking'] == 5)
+
+            @foreach($forumpost_results as $post)
+
+            <div class="row" style="padding-bottom: 10px; padding-top: 10px;">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-xl-2"></div>
+                        <div class="col border">
+                            <div class="row" style="margin-top: 5px">
+                                <div class="col">
+                                
+                                </div>
+                                <div class="col-xl-3"><label class="col-form-label">{{$post['created_at']}}</label></div>
+                            </div>
+                            <div class="row">
+                                
+                                <div class="col"><label><br></label>
+                                    <p>{{$post['forum_post_content']}}</p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xl-2"></div>
@@ -113,9 +162,11 @@
             </div>
             @endforeach
 
+        
+
             @endif
 
-
+    
 
 
             @endforeach
