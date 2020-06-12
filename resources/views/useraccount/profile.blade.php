@@ -28,7 +28,9 @@
                             <div class="row">
                                 <div class="col-xl-3">
                                     <div class="row">
-                                        <div class="col-xl-12 text-center d-xl-flex justify-content-xl-center align-items-xl-center"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center player-pic-big" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user_data->avatar_url}}"></div>
+                                        <div class="col-xl-12 text-center d-xl-flex justify-content-xl-center align-items-xl-center">
+                                            <img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center player-pic-big" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user_data->avatar_url}}">
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
@@ -56,8 +58,9 @@
                                         <div class="col text-center d-xl-flex justify-content-xl-center align-items-xl-center">
 
                                             @if($user_data->team_id != NULL)
-
-                                            <a href="{{route('teampage',$user_data->team_id)}}"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center team-pic-big" src="../assets/img/BIG2.png"></a>
+                                            <a href="{{route('teampage',$user_data->team_id)}}">
+                                                <img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center team-pic-big" src="{{URL::asset('assets/img/teamlogos/')}}/{{ $user_data->team_logo}}">
+                                            </a>
                                             @else
                                             <a href="#"><img class="rounded-circle d-xl-flex justify-content-xl-center align-items-xl-center team-pic-big" src="../assets/img/BIG2.png"></a>
                                             @endif

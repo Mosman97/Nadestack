@@ -28,29 +28,29 @@
                 <div class="tab-pane fade show active" id="team-profile" role="tabpanel" aria-labelledby="team-profile-tab">
                     <div class="row">
                         <div class="col text-center">
-                            <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
+                            <h2 class="text-center nadestack-heading">{{$teamdata->team_name}}</h2>
                         </div>
                         <div class="col text-right">
                             @auth
-                            @if(Auth::user()->team_id == $teamdata[0]['team_id'])
+                            @if(Auth::user()->team_id == $teamdata->team_id)
                             <button data-toggle="modal" data-target="#leave" class="btn nadestack_btn" style="margin-top: 13px;margin-right: 10px">Leave Team</button>
                             @elseif(Auth::user()->team_id == NULL)
                             <button data-toggle="modal" data-target="#join" class="btn nadestack_btn" style="margin-top: 13px;margin-right: 10px">Join Team</button>
                             @endif
-                            @if(Auth::user()->team_id == $teamdata[0]['team_id'] && Auth::user()->id ==  $teamdata[0]['team_admin_id'] ||  $teamdata[0]['team_captain_1_id']  || $teamdata[0]['team_captain_2_id'] || $teamdata[0]['team_manager_id'] )
+                            @if(Auth::user()->team_id == $teamdata->team_id && Auth::user()->id ==  $teamdata->team_admin_id ||  $teamdata->team_captain_1_id || $teamdata->team_captain_2_id || $teamdata->team_manager_id )
                             <a type="button" class="btn nadestack_btn" href="{{route('edit_team',Auth::user()->team_id)}}" style="margin-top: 13px;">Edit Team</a>
                             @endif
                             @endauth
                         </div>
                     </div>
                     <div class="row nadestack-profileview">
-                        <div class="col" style="text-align: center;"><img class="rounded-circle" src="../assets/img/big2.png" style="width:125px; height:125px;margin-top: 15px;"></div>
+                        <div class="col" style="text-align: center;"><img class="rounded-circle" src="{{URL::asset('assets/img/teamlogos/')}}/{{ $teamdata->team_logo}}" style="width:125px; height:125px;margin-top: 15px;"></div>
                         <div class="col" style="padding-top: 15px;">
                             <div class="row">
                                 <div class="col"><label class="col-form-label">League: Starter Division</label></div>
                             </div>
                             <div class="row">
-                                <div class="col"><label class="col-form-label">Founded: {{\Carbon\Carbon::parse($teamdata[0]['created_at'])->format('m-d-Y')}}</label></div>
+                                <div class="col"><label class="col-form-label">Founded: {{\Carbon\Carbon::parse($teamdata->created_at)->format('m-d-Y')}}</label></div>
                             </div>
                             <div class="row">
                                 <div class="col"><label class="col-form-label">
@@ -72,33 +72,42 @@
                                 </thead>
                                 <tbody>
                                     <tr class="nadestack-tbl">
-                                        <td>
-                                            <a target="_blank" rel="noopener noreferrer" href="https://steam.com">
-                                                <img src="../assets/svg/steam-symbol.svg" alt="steamlogo" class="icon_grow" id="steam-symbol">
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a target="_blank" rel="noopener noreferrer" href="https://instagram.com">
-                                                <img src="../assets/svg/instagram.svg" alt="instgramlogo" class="icon_grow" id="instagram-symbol">
-                                            </a>
-
-                                        </td>
-                                        <td>
-                                            <a target="_blank" rel="noopener noreferrer" href="https://twitch.com">
-                                                <img src="../assets/svg/twitch.svg" alt="twitchlogo" class="icon_grow" id="twitch-symbol">
-                                            </a>
-
-                                        </td>
+                                        @if($teamdata->instagram_url !=NULL)
+                                            <td>
+                                                <a target="_blank" rel="noopener noreferrer" href="https://instagram.com">
+                                                    <img src="../assets/svg/instagram.svg" alt="instgramlogo" class="icon_grow" id="instagram-symbol">
+                                                </a>
+                                            </td>
+                                        @else
+                                            <td> <img src="../assets/svg/instagram.svg" alt="instgramlogo" class="social_icon_size black_and_white_img" id="instagram-symbol"></td>
+                                        @endif
+                                        @if($teamdata->twitch_url !=NULL)
+                                            <td>
+                                                <a target="_blank" rel="noopener noreferrer" href="https://twitch.com">
+                                            <img src="../assets/svg/twitch.svg" alt="twitchlogo" class="icon_grow" id="twitch-symbol">
+                                                </a>
+                                            </td>
+                                        @else
+                                            <td><img src="../assets/svg/twitch.svg" alt="twitchlogo" class="social_icon_size black_and_white_img" id="twitch-symbol"></td>
+                                        @endif
+                                        @if($teamdata->twitter_url !=NULL)
                                         <td>
                                             <a target="_blank" rel="noopener noreferrer" href="https://twitter.com">
                                                 <img src="../assets/svg/twitter.svg" alt="twitterlogo" class="icon_grow" id="twitter-symbol">
                                             </a>
                                         </td>
-                                        <td>
-                                            <a target="_blank" rel="noopener noreferrer" href="https://youtube.com">
-                                                <img src="../assets/svg/youtube.svg" alt="youtubelogo" class="icon_grow" id="yotube-symbol">
-                                            </a>
-                                        </td>
+                                        @else
+                                            <td><img src="../assets/svg/twitter.svg" alt="twitterlogo"  class="social_icon_size black_and_white_img" id="twitter-symbol"></td>
+                                        @endif
+                                        @if($teamdata->youtube_url !=NULL)
+                                            <td>
+                                                <a target="_blank" rel="noopener noreferrer" href="https://youtube.com">
+                                                    <img src="../assets/svg/youtube.svg" alt="youtubelogo" class="icon_grow" id="youtube-symbol">
+                                                </a>
+                                            </td>
+                                        @else
+                                            <td><img src="../assets/svg/youtube.svg" alt="youtubelogo" class="social_icon_size black_and_white_img" id="youtube-symbol"></td>
+                                        @endif
                                     </tr>
                                 </tbody>
                             </table>
@@ -123,94 +132,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
                                         @foreach($teammembers as $teammember)
-                                        
-                                   {{$teammember['username']}}
-                                        {{var_dump($teammember)}}
-                                    <p>ss</p>
-                                  
+                                            <tr>
+                                                <td>
+                                                    <a href="{{route('startpage')}}/user/{{$teammember->username}}">
+                                                        <img class="rounded-circle player-pic-small" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$teammember->avatar_url}}" >
+                                                    </a>
+                                                </td>
+                                                <td><a href="{{route('startpage')}}/user/{{$teammember->username}}">{{$teammember->username}}</a></td>
+                                                <td>Admin</td>
+                                                <td>2019-20-12</td>
+                                            </tr>
                                         @endforeach
-                                        <tr>
-                                            <td>
-                                                <a href=".\profile.html">
-                                                    <img class="rounded-circle player-pic-small" src="../assets/img/big2.png" >
-                                                </a>
-                                            </td>
-                                            <td><a href="">syn</a></td>
-                                            <td> Admin</td>
-                                            <td>2019-20-12</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href=".\profile.html">
-                                                    <img class="rounded-circle player-pic-small" src="../assets/img/anonymous_4.jpg">
-                                                </a>
-                                            </td>
-                                            <td><a href="">syn</a></td>
-                                            <td>Captain</td>
-                                            <td>2019-20-12</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href=".\profile.html">
-                                                    <img class="rounded-circle player-pic-small" src="../assets/img/big2.png">
-                                                </a>
-                                            </td>
-                                            <td><a href="">syn</a></td>
-                                            <td>Captian</td>
-                                            <td>2019-20-12</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href=".\profile.html">
-                                                    <img class="rounded-circle player-pic-small" src="../assets/img/anonymous_4.jpg">
-                                                </a>
-                                            </td>
-                                            <td><a href="">syn</a></td>
-                                            <td> Player</td>
-                                            <td>2019-20-12</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href=".\profile.html">
-                                                    <img class="rounded-circle player-pic-small" src="../assets/img/big2.png">
-                                                </a>
-                                            </td>
-                                            <td><a href="">syn</a></td>
-                                            <td> Player</td>
-                                            <td>2019-20-12</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href=".\profile.html">
-                                                    <img class="rounded-circle player-pic-small" src="../assets/img/big2.png">
-                                                </a>
-                                            </td>
-                                            <td><a href="">syn</a></td>
-                                            <td> Player</td>
-                                            <td>2019-20-12</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href=".\profile.html">
-                                                    <img class="rounded-circle player-pic-small" src="../assets/img/anonymous_4.jpg">
-                                                </a>
-                                            </td>
-                                            <td><a href="">syn</a></td>
-                                            <td> Player</td>
-                                            <td>2019-20-12</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href=".\profile.html">
-                                                    <img class="rounded-circle player-pic-small" src="../assets/img/rick_and_morty_3.jpg">
-                                                </a>
-                                            </td>
-                                            <td><a href="">syn</a></td>
-                                            <td> Player</td>
-                                            <td>2019-20-12</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -326,7 +259,7 @@
                 <!-- End of the teamprofile tab with general information -->
                 <!-- Beginn of the teamstats -->
                 <div class="tab-pane fade" id="team-stats" role="tabpanel" aria-labelledby="team-stats-tab">
-                    <h2 class="text-center nadestack-heading">{{$teamdata[0]['team_name']}}</h2>
+                    <h2 class="text-center nadestack-heading">{{$teamdata->team_name}}</h2>
 
                     <div class="card-deck text-center" style="margin-top: 10px">
                         <div class="card border-danger text-white bg-dark ">

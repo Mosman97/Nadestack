@@ -45,7 +45,7 @@ class UserprofilePageController extends Controller {
 
                 $user_data = User::where("username", "=", $username)
                         ->leftJoin('teams', 'users.team_id', '=', 'teams.team_id')
-                        ->select('users.*', 'teams.team_name')
+                        ->select('users.*', 'teams.team_name', 'teams.team_logo')
                         ->first();
 
                return view("useraccount.profile")

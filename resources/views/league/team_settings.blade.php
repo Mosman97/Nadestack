@@ -102,6 +102,7 @@
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session('message') }}
                             </div>
                             @endif
+                            @dump($team_data)
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="team-general-tab" data-toggle="tab" href="#team-general" role="tab" aria-controls="home" aria-selected="true">General</a>

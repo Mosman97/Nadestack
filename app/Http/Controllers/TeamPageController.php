@@ -22,27 +22,21 @@ class TeamPageController extends Controller {
 
         //If no Result is found in the Database we return 404
         if ($team == 0) {
-
-
-            return view("news");
+            abort(404);
         } else if ($team == 1) {
 
-
             //Getting Data From Team
-
-            $team = Team::where("team_id", '=', $team_id)->get()->toArray();
-
+            $team = Team::where("team_id", '=', $team_id)->first();
             //Getting Logdata from the Team
             // $team_logdata = teamlog::where("team_id","=",$team_id)->orderBy('created_at',"asc")->get();
-
             $team_logdata = teamlog::select('teamlogs.*', "performer.username as performer", "target.username as target")->where("teamlogs.team_id", "=", $team_id)
                             ->leftJoin("users as performer", "performer.id", "=", "teamlogs.user_id")
                             ->leftJoin("users as target", "target.id", "=", "teamlogs.target_id")
                             ->orderBy("created_at", "desc")->paginate(5);
 
 
-            $team_members = User::select('username','team_role')->where("team_id", "=", $team_id)
-                    ->orderBy('team_role', "ASC")->get()->toArray();
+            $team_members = User::select('username','avatar_url','team_role')->where("team_id", "=", $team_id)
+                    ->orderBy('team_role', "ASC")->get();
 
             //If Team was just created we omit a sucess Message
             if ($request->input("message") != null) {
@@ -70,7 +64,7 @@ class TeamPageController extends Controller {
     }
 
     /*
-     * if a User leaves a Team this function will get called 
+     * if a User leaves a Team this function will get called
      */
 
     public function leaveTeam(Request $request) {
@@ -87,7 +81,7 @@ class TeamPageController extends Controller {
     }
 
     /**
-     * 
+     *
      * @param Request $request
      */
     public function AdminLeavesTeam(Request $request) {
@@ -173,19 +167,19 @@ class TeamPageController extends Controller {
     }
 
     /**
-     * 
+     *
      * @param Request $request
      * @param type $teamid
      */
     public function saveSettings(Request $request) {
 
-        //TODO VALIDATION FOR ALL THE CASES 
+        //TODO VALIDATION FOR ALL THE CASES
         //Checking if the Request contains one of the three options if not we redirect back with an Error
         $SAVE_SOCIALS = "socials";
         $SAVE_SETTINGS = "settings";
         $SAVE_ROLES = "roles";
 
-        //Getting Teamdata 
+        //Getting Teamdata
         $team_data = Team::where("team_id", "=", Auth::user()->team_id)->first();
 
         //var_dump($request->input());
@@ -246,7 +240,7 @@ class TeamPageController extends Controller {
             $validator = Validator::make($request->all(), $socials_validation_rules, $socials_validation_error_messages);
 
 
-            //if Validating fails all Errors will return 
+            //if Validating fails all Errors will return
             if ($validator->fails()) {
 
                 return back()->withErrors($validator)->withInput();
@@ -267,7 +261,7 @@ class TeamPageController extends Controller {
 
 
 
-            //Determine which user will get his role changed 
+            //Determine which user will get his role changed
         } elseif ($request->input('action') == $SAVE_SETTINGS) {
 
 
@@ -332,7 +326,7 @@ class TeamPageController extends Controller {
             $validator = Validator::make($request->all(), $default_settings_validation_rules, $default_settings_validation_error_messages);
 
 
-            //if Validating fails all Errors will return 
+            //if Validating fails all Errors will return
             if ($validator->fails()) {
 
                 echo("error");
@@ -415,7 +409,7 @@ class TeamPageController extends Controller {
 
 
             if ($captain_role_count < 3 && $manager_role_count <= 1 && $coach_role_count <= 1) {
-                
+
             } else {
 
 
@@ -583,7 +577,7 @@ class TeamPageController extends Controller {
     }
 
     /**
-     * 
+     *
      * @param Request $request
      */
     public function uploadTeamLogo(Request $request) {
