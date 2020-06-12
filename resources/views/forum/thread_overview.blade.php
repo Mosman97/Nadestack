@@ -54,6 +54,7 @@
                                         <td>{{$forum_thread_entry->updated_at}}</td>
                                     </tr>
                                     @endforeach
+                                    <div class="d-flex justify-content-center nadestack-pagination mt-auto " style="padding-top: 10px">{{$forum_thread->render()}}</div>
 
                                 </tbody>
                             </table>

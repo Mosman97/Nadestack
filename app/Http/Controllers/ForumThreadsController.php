@@ -21,7 +21,7 @@ class ForumThreadsController extends Controller {
             ->leftJoin('forum_posts', 'forum_posts.forum_thread_id','=','forum_threads.forum_thread_id')
             ->groupBy('forum_posts.forum_thread_id')
             ->orderBy('forum_threads.updated_at', 'desc')
-            ->get();
+            ->paginate(5);
 
         $category_data = DB::table('forum_categories')
             ->where("forum_category_id", "=", $forum_category_id)

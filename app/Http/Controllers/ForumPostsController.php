@@ -18,7 +18,7 @@ class ForumPostsController extends Controller {
         $forum_posts = DB::table('forum_posts')
             ->where("forum_thread_id", "=", $forum_thread_id)
             ->join('users', 'forum_posts.user_id', '=', 'users.id' )
-            ->get();
+            ->paginate(8);
 
         $thread_data = DB::table('forum_threads')
             ->where("forum_thread_id", "=", $forum_thread_id)

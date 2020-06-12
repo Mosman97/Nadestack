@@ -4,7 +4,7 @@
     <div class="container-fluid nadestack_body">
         <div class="row">
             <div class="col-xl-3"></div>
-            <div class="col-xl-6 colum_content_big">
+            <div class="col-xl-6 colum_content_big" id="thread_post_container">
                 <div class="row">
                     <div class="col">
                         <h1 class="nadestack_heading_one">{{$thread_data->forum_thread_title}}</h1>
@@ -29,7 +29,7 @@
 
                     <div class="col-md3">
                         <img src="{{URL::asset('assets/img/profile_pictures/')}}/{{$forum_post_entry->avatar_url}}" style="width: 60px;height: 60px; margin-left: 15px">
-                        <p class="text-center">#{{$loop->iteration}}</p>
+                        <p class="text-center">#{{$loop->iteration + $forum_posts-> perPage() * ($forum_posts-> currentPage() - 1)}}</p>
                     </div>
 
                     <div class="col">
@@ -44,7 +44,7 @@
                         @auth
                         <div class="row">
                             @if(!$thread_data->is_closed)
-                            <div class="col"><button type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Zitieren</button></div>
+                            <div class="col"><button class="reportPost" id="{{$forum_post_entry->forum_post_id}}" type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Zitieren</button></div>
                             @endif
                             <div class="col text-right"><button data-toggle="modal" data-target="#modalReport" type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Melden</button></div>
                         </div>
@@ -62,7 +62,15 @@
                     </div>
                 </div>
                 @endforeach
+                <div class="d-flex justify-content-center nadestack-pagination mt-auto " style="padding-top: 10px">{{$forum_posts->render()}}</div>
                 <!-- Ende Nachrichtenblock-->
+
+                <script>
+                    $(document).on("click", ".reportPost", function () {
+                        var postid = $(this).attr('id');
+                        $("#idreport").val( postid );
+                    });
+                </script>
 
                 @if(!$thread_data->is_closed)
                 <hr class="bg-light">
@@ -98,6 +106,7 @@
                 @csrf
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Report User Message</h4>
+                    <input class="form-control" name="idreport" id="idreport" value="">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
                         <span aria-hidden="true">&times;</span>
                     </button>
