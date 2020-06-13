@@ -350,8 +350,12 @@ Route::post("forum/closethread/{forum_thread_id}", "ForumPostsController@closeTh
         ->name('closethread');
 
 /* User reportet eine Forumantwort */
-Route::post("forum/reportmessage/{forum_thread_id}", "ForumPostsController@reportPost")
+Route::post("forum/reportmessage", "ForumPostsController@reportPost")
         ->name('reportpost');
+
+/* Admin deletet eine Forumantwort */
+Route::post("forum/deletepost", "ForumPostsController@deletePost")
+    ->name('deletepost');
 
 /*
  * --------------END OF FORUM ROUTES--------------------

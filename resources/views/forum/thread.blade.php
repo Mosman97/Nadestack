@@ -44,15 +44,15 @@
                         @auth
                         <div class="row">
                             @if(!$thread_data->is_closed)
-                            <div class="col"><button class="reportPost" id="{{$forum_post_entry->forum_post_id}}" type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Zitieren</button></div>
+                            <div class="col"><button type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Zitieren</button></div>
                             @endif
-                            <div class="col text-right"><button data-toggle="modal" data-target="#modalReport" type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Melden</button></div>
+                            <div class="col text-right"><button class="reportPost" id="r{{$forum_post_entry->forum_post_id}}" data-toggle="modal" data-target="#modalReport" type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Melden</button></div>
                         </div>
 
                         @if(Auth::user()->nadestack_admin)
                         <div class="row" style="margin-top: 6px">
                             <div class="col">
-                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalDelete" ><i class="fas fa-trash-alt"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger deletepost" id="d{{$forum_post_entry->forum_post_id}}" data-toggle="modal" data-target="#modalDelete" ><i class="fas fa-trash-alt"></i></button>
                             </div>
                         </div>
                         @endif
@@ -68,7 +68,24 @@
                 <script>
                     $(document).on("click", ".reportPost", function () {
                         var postid = $(this).attr('id');
+
+                        while(postid.charAt(0) === 'r')
+                        {
+                            postid = postid.substr(1);
+                        }
+
                         $("#idreport").val( postid );
+                    });
+
+                    $(document).on("click", ".deletepost", function () {
+                        var postid = $(this).attr('id');
+
+                        while(postid.charAt(0) === 'd')
+                        {
+                            postid = postid.substr(1);
+                        }
+
+                        $("#deletereport").val( postid );
                     });
                 </script>
 
@@ -102,16 +119,15 @@
 <div class="modal fade" id="modalReport" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
-            <form action="{{route('reportpost', $forum_thread_id)}}"  method="POST">
+            <form action="{{route('reportpost')}}"  method="POST">
                 @csrf
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Report User Message</h4>
-                    <input class="form-control" name="idreport" id="idreport" value="">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
+                <input class="invisible" name="idreport" id="idreport" value="">
                 <div class="modal-body mx-3">
                     <div class="md-form mb-5 text-center">
                         <label data-error="wrong" data-success="right" for="message">Leave a comment to the report</label>
@@ -131,8 +147,9 @@
 <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
-            <form action=""  method="POST">
-
+            <form action="{{route('deletepost')}}"  method="POST">
+                @csrf
+                <input class="invisible" name="deletereport" id="deletereport" value="">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Delete Message</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
@@ -143,7 +160,7 @@
                 <div class="modal-body mx-3">
                     <div class="md-form mb-5 text-center">
                         <label data-error="wrong" data-success="right" for="message">Leave a delete comment</label>
-                        <textarea name="deletemessage" rows="10" type="text" id="message" class="form-control validate"></textarea>
+                        <textarea name="deletemessage" rows="10" type="text" id="message" class="form-control validate">Message was deleted by an admin!</textarea>
                     </div>
                 </div>
 
