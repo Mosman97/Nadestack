@@ -67,6 +67,10 @@ class ForumPostsController extends Controller {
 
     public function reportPost(Request $request)
     {
+        $validatedData = $request->validate([
+            'report_message' => 'required|max:1000',
+        ]);
+
         $report_message = $request -> input("report_message");
         $idreport = $request ->input("idreport");
 

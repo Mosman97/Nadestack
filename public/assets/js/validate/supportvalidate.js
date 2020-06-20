@@ -18,15 +18,4 @@ $('document').ready(function(){
     });
     // #endregion
 
-    // #region functions
-    $('#submit_btn').on('click',function(evt)
-    {
-        var valid = $("#support_form").validate();
-        if ( valid.valid() == true){
-            alert("geht");
-            //PHP Aufruf
-        }
-    });
-    // #endregion
-
 });

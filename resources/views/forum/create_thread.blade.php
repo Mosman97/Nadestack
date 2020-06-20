@@ -16,6 +16,11 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            @error('thread-title')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-6">
                                 <textarea name="thread-text" class="form-control" style="height: 250px"  placeholder="text" value=''></textarea>

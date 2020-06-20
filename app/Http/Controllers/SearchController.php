@@ -30,7 +30,7 @@ class SearchController extends Controller {
 
 
 
-        //First we check if the URL is accessed via 
+        //First we check if the URL is accessed via
         if ($request->has('query')) {
 
 
@@ -125,7 +125,7 @@ class SearchController extends Controller {
                                     ->with("forumpost_results", $forumposts_results);
                 }
             } else {
-                
+
             }
         } else {
 
@@ -143,6 +143,15 @@ class SearchController extends Controller {
 
 
         //  var_dump($request->input());
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $data = User::select("username")
+            ->where("username","LIKE","%{$request->input('query')}%")
+            ->get();
+
+        return response()->json($data);
     }
 
 }

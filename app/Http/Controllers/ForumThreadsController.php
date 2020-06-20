@@ -47,6 +47,10 @@ class ForumThreadsController extends Controller {
 
     public function newThread(Request $request, $forum_category_id){
 
+        $validatedData = $request->validate([
+            'thread-title' => 'required|max:200',
+        ]);
+
         $thread_title = $request -> input("thread-title");
         $thread_text = $request -> input("thread-text");
 

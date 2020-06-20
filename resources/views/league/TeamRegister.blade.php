@@ -12,9 +12,6 @@ Value: {{ $error[0] }}
 
 
 @endif
-
-
-{{ var_dump( Session::all())}}
 <script src='{{URL::asset('assets/js/validate/teamregvalidate.js')}}'></script>
 <div class="container-fluid">
     <div class="row">

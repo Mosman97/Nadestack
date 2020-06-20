@@ -43,6 +43,7 @@ Route::post("news/{news_id}", "nadestack\NewsController@storeComment")
 
 
 Route::get("/search","SearchController@index")->name("search");
+Route::get('autocomplete', 'SearchController@autocomplete')->name('autocomplete');
 
 //Route::get("/search?query={query}&filter={filter}", "SearchController@index")->name('search');
 

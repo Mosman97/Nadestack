@@ -12,11 +12,4 @@ $('document').ready(function(){
         }
     });
     // #endregion
-
-    // #region functions
-    $('#submit_btn').on('click',function(evt)
-    {
-        //PHP Aufruf
-    });
-    // #endregion
 });

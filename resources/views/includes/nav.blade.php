@@ -34,7 +34,7 @@
 
                         <form action="{{route('search')}}" method="GET">
                             <div class="input-group-prepend">
-                                <input name="query" id="searchinput"type="text" class="form-control nadestack-navbar-search" placeholder="Search for..." aria-describedby="addonsearch" style="border-top-left-radius: 6px;border-bottom-left-radius: 6px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+                                <input name="query" id="searchinput"type="text" class="form-control typeahead nadestack-navbar-search" placeholder="Search for..." aria-describedby="addonsearch" style="border-top-left-radius: 6px;border-bottom-left-radius: 6px;border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
                                 <input type="hidden" name="filter" value="0">
                                 <span class="input-group-text" id="addonsearch" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;border-top-right-radius: 6px;border-bottom-right-radius: 6px;"><button class="nadestack_search_btn bg-transparent" type="submit" ><i style="color: gray" class="fa fa-search" id="search_bar_icon"></i></button></span>
                             </div>
@@ -130,3 +130,14 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var path = "{{ route('autocomplete') }}";
+    $('input.typeahead').typeahead({
+        source:  function (query, process) {
+            return $.get(path, { query: query }, function (data) {
+                return process(data);
+            });
+        }
+    });
+</script>
