@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\teamlog;
 use Illuminate\Http\Request;
 use DB;
 use App\User;
@@ -33,13 +34,20 @@ class UserprofilePageController extends Controller {
                 ->where('user_id' , '=' , $user_data->id)
                 ->first();
 
+            //teamlogdata logic
+            $lograw = teamlog::where("user_id", "=", $user_data->id)
+                ->orderBy('updated_at', 'desc')
+                ->get();
 
+
+            //check user for current team
             if ($user_data['team_id'] == NULL) {
 
 
                return view("useraccount.profile")
                    ->with("user_data", $user_data)
-                   ->with("user_posts", $user_posts);
+                   ->with("user_posts", $user_posts)
+                   ->with("lograw",$lograw);
             }
             else {
 
@@ -50,7 +58,8 @@ class UserprofilePageController extends Controller {
 
                return view("useraccount.profile")
                    ->with("user_data", $user_data)
-                   ->with("user_posts", $user_posts);
+                   ->with("user_posts", $user_posts)
+                   ->with("lograw",$lograw);
             }
         }
         else {

@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+{{var_dump($lograw)}}
 
 <div class="container-fluid" >
     <div class="row">
