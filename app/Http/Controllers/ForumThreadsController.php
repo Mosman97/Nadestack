@@ -51,12 +51,13 @@ class ForumThreadsController extends Controller {
         $thread_title = $request -> input("thread-title");
         $thread_text = $request -> input("thread-text");
 
-        $validatedData = $request->validate([
+        $validatedData = [
             'thread-title' => 'required|max:200',
             'thread-text' => 'required'
-        ]);
+        ];
+        
 
-        $validator = Validator::make($request->all(), $validatedData );
+        $validator = Validator::make($request->all(), $validatedData);
 
         if ($validator->fails()) {
             $message = $validator->errors();
