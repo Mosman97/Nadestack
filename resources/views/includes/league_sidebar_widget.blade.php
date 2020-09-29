@@ -1,4 +1,4 @@
-<div class="col-xl-3 d-none d-lg-block" style="margin-top: 27px;">
+<div class="col-xl-3 d-none d-lg-block" style="padding-top: 45px;">
     @auth
     @if(Auth::user()->verified == false)
         <div class="nadestack-league-widget">

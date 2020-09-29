@@ -8,6 +8,7 @@ use DB;
 use App\forum_post;
 use App\forum_thread;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 
 class ForumThreadsController extends Controller {
@@ -47,12 +48,23 @@ class ForumThreadsController extends Controller {
 
     public function newThread(Request $request, $forum_category_id){
 
-        $validatedData = $request->validate([
-            'thread-title' => 'required|max:200',
-        ]);
-
         $thread_title = $request -> input("thread-title");
         $thread_text = $request -> input("thread-text");
+
+        $validatedData = $request->validate([
+            'thread-title' => 'required|max:200',
+            'thread-text' => 'required'
+        ]);
+
+        $validator = Validator::make($request->all(), $validatedData );
+
+        if ($validator->fails()) {
+            $message = $validator->errors();
+
+            return redirect()->back()
+                ->withErrors($message)
+                ->withInput();
+        }
 
         $forum_thread_id = DB::table('forum_threads')
             ->insertGetId(

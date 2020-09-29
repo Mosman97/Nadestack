@@ -26,6 +26,11 @@
                                 <textarea name="thread-text" class="form-control" style="height: 250px"  placeholder="text" value=''></textarea>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            @error('thread-text')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                         <!-- @trix(\App\News::class, 'content') -->
                         <div style="margin-top: 10px">
                             <button class="text-center nadestack_btn btn" type="submit">Create Thread</button>
