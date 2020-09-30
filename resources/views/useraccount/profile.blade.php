@@ -211,12 +211,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @php $groesse = count($lograw)@endphp
+                                                @for($i = 0; $i < $groesse; $i++)
                                                 <tr>
-                                                    <td>BIG</td>
-                                                    <td>2019-02-30</td>
-                                                    <td>2019-02-31</td>
-                                                    <td>1 Day</td>
+                                                    <td>{{$lograw[$i]['team']}}</td>
+                                                    <td>{{$lograw[$i]['jdate']}}</td>
+                                                    <td>{{$lograw[$i]['ldate']}}</td>
+                                                    <td>{{$lograw[$i]['period']}}</td>
                                                 </tr>
+                                                @endfor
                                             </tbody>
                                         </table>
                                     </div>

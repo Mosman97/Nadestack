@@ -85,7 +85,7 @@ class TeamRegisterController extends Controller {
 
 
 
-        //If the Validation Process has no Erros we can create a new TEAM Ressource
+        //If the Validation Process has no Errors, we can create a new TEAM Ressource
         else {
 
             //Creating a new Instance of the Team-Model
@@ -111,7 +111,7 @@ class TeamRegisterController extends Controller {
             $new_team->save();
 
             //Retrieving newly created Teamaccount -ID
-
+            //TODO Sinnvoll? Probleme noch da bei leave die admin id in Datenbank bestehen bleibt
             $new_team = Team::where('team_admin_id', "=", Auth::user()->id)->select('team_id')->get()->toArray();
 
             $new_team_id = $new_team[0]['team_id'];
@@ -132,6 +132,15 @@ class TeamRegisterController extends Controller {
             $log->user_id = Auth::user()->id;
             $log->team_id = $new_team_id;
             $log->action = TeamLogHelper::TEAM_CREATED_ACTION_DB_NAME;
+            $log->save();
+
+            //Logentry obligatorisch fürs joinen, sinnvoll für Profilpage
+            $log = new teamlog;
+            $log->action_id = \Ramsey\Uuid\Nonstandard\Uuid::uuid4();
+            $log->action_parent_id = $loghelper->getMemberJoinedUUIDFromDatabase();
+            $log->user_id = Auth::user()->id;
+            $log->team_id = $new_team_id;
+            $log->action = TeamLogHelper::PLAYER_JOINED_ACTION_DB_NAME;
             $log->save();
 
 

@@ -28,8 +28,8 @@ class TeamPageController extends Controller {
             //Getting Data From Team
             $team = Team::where("team_id", '=', $team_id)->first();
             //Getting Logdata from the Team
-            // $team_logdata = teamlog::where("team_id","=",$team_id)->orderBy('created_at',"asc")->get();
-            $team_logdata = teamlog::select('teamlogs.*', "performer.username as performer", "target.username as target")->where("teamlogs.team_id", "=", $team_id)
+            $team_logdata = teamlog::select('teamlogs.*', "performer.username as performer", "target.username as target")
+                            ->where("teamlogs.team_id", "=", $team_id)
                             ->leftJoin("users as performer", "performer.id", "=", "teamlogs.user_id")
                             ->leftJoin("users as target", "target.id", "=", "teamlogs.target_id")
                             ->orderBy("created_at", "desc")->paginate(5);
@@ -72,6 +72,19 @@ class TeamPageController extends Controller {
         //Notify the User that he successfully left the Team
         Auth::user()->notify(new \App\Notifications\LeaveTeamNotification());
 
+        //log team leaving
+        $log = new teamlog;
+
+        //Create Log Entry for Creation
+        $loghelper = new TeamLogHelper();
+        $log->action_id = \Ramsey\Uuid\Nonstandard\Uuid::uuid4();
+        //TODO fehlt uuid
+        $log->action_parent_id = $loghelper->getPlayerKickedUUIDFromDatabase();
+        $log->user_id = Auth::user()->id;
+        $log->team_id = Auth::user()->team_id;
+        $log->action = TeamLogHelper::PLAYER_KICKED_ACTION_DB_NAME;
+        $log->save();
+
         //Removing Team ID From User
         Auth::user()->team_id = NULL;
         Auth::user()->save();
@@ -86,7 +99,6 @@ class TeamPageController extends Controller {
      */
     public function AdminLeavesTeam(Request $request) {
 
-
         //Checking if Requested ID is a part of the TeamAccount
 
         $new_admin = Users::where("id", "=", $request
@@ -96,7 +108,6 @@ class TeamPageController extends Controller {
 
 
         if ($new_admin == 1) {
-
 
             $team_data = Team::where("team_id", "=", Auth::user()->team_id)->first();
 
@@ -116,12 +127,8 @@ class TeamPageController extends Controller {
 
             return redirect()->back()->with("success", "You left the Team");
 
-
-
             //Removing Admin-Role from Current Admin and let him Leave the Team
         } else {
-
-
             return redirect()->back()->with("error", "an Error occured while Proceeding the Admin Role. Please try again later!");
         }
     }
