@@ -7,13 +7,16 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Ticket;
 use App\ticketresponse;
+use App\Http\Controllers\DB;
 
 class ProfileTicketController extends Controller {
 
     public function index(Request $request) {
 
 
-        $tickets = Ticket::where('creator_id', '=', Auth::user()->id)->orderBy('created_at', "desc")->paginate(2);
+        $tickets = Ticket::where('creator_id', '=', Auth::user()->id)
+            ->orderBy('created_at', "desc")
+            ->paginate(5);
 
         return view("useraccount.tickets_overview")->with("tickets", $tickets);
     }
@@ -29,7 +32,8 @@ class ProfileTicketController extends Controller {
                 ->leftJoin('users', 'users.id', "=", "tickets.creator_id")
                 ->first();
         //Responses related to the Ticket
-        $ticket_responses = ticketresponse::select('ticketresponses.*',"users.username","users.nadestack_admin")->where('ticket_id', "=", $ticket_id)
+        $ticket_responses = ticketresponse::select('ticketresponses.*',"users.username","users.nadestack_admin")
+                ->where('ticket_id', "=", $ticket_id)
                 ->leftJoin('users', 'users.id', "=", "ticketresponses.user_id")
                 ->orderBy("created_at","asc")
                 ->get();
@@ -70,10 +74,20 @@ class ProfileTicketController extends Controller {
 
         $ticket->creator_id = Auth::user()->id;
         $ticket->title = $ticket_title;
-        $ticket->content = $ticket_content;
         $ticket->category = $ticket_category;
         $ticket->status = 0;
         $ticket->save();
+
+        $newticket = Ticket::where('creator_id', '=', $ticket->creator_id)
+            ->orderBy('created_at', 'desc')
+            ->first();
+        //Create a new TicketResponse
+        $ticketresponse = ticketresponse::create(
+            [
+                "ticket_id" => $newticket->ticket_id,
+                "user_id" => Auth::user()->id,
+                "content" => $ticket_content,
+            ]);
 
         return back()->with("success", "Your Ticket has been created!");
     }

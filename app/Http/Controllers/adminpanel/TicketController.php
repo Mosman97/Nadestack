@@ -35,20 +35,11 @@ class TicketController extends Controller {
             return view('adminpanel.menus.tickets.ticketindex')->with("tickets",$tickets)->with("no_ticket_found","ss");
             //
             //
-            
+
            // return redirect()->back()->with("tickets", $tickets)->with("data", "ddsdsd")->with("no_ticket_found", "No Ticket with the given Search-Parameter was found");
         }
 
 
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create() {
-        //
     }
 
     /**
@@ -59,7 +50,7 @@ class TicketController extends Controller {
      */
     public function store(Request $request) {
 
-
+        Auth::user()->notify(new \App\Notifications\TicketAnswerNotification());
 
         $ticket_response_content = $request->input("content");
         //Create a new TicketResponse
@@ -106,16 +97,6 @@ class TicketController extends Controller {
         return view("adminpanel.menus.tickets.editticket")->with("responses", $ticket_responses)->with("ticket_metadata", $ticket_data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id) {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

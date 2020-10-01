@@ -9,19 +9,6 @@
             <hr class="bg-light">
             <h3 class="text-center nadestack_heading_three" style="color: green">Status: {{$ticket_metadata->status}}</h3>
             <h3 class="text-center nadestack_heading_three">Category: {{$ticket_metadata->category}}</h3>
-            <hr class="bg-light">
-            <div class="row">
-                <div class="col-md-3">
-                    <p>Admin</p>
-                    <p>{{$ticket_metadata->username}}</p>
-                    <p>{{$ticket_metadata->created_at}}</p>
-                </div>
-                <div class="col">
-                    <p>{{$ticket_metadata->content}}</p>
-                    <a href="#" style="color: red">IMG-4724782478</a>
-                </div>
-            </div>
-
 
             {{---Displaying all Respones to this Ticketd Order by Date ASC---}}
 
