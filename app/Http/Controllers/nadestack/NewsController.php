@@ -8,6 +8,7 @@ use App\News;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use App\newscomment;
+use Illuminate\Support\Facades\Validator;
 
 
 class NewsController extends Controller {
@@ -43,6 +44,26 @@ class NewsController extends Controller {
     }
 
     public function storeComment(Request $request, $news_id){
+
+        //Validating Rules for a new comment
+        $comment_rules = [
+            'comment' => 'required|max:10000',
+        ];
+        //Custom Validation Error-Messages
+        $response_validation_msg = [
+            'comment.max' => 'Text ist zu lang',
+            'comment.required' => 'Bitte Text eingeben!',
+        ];
+
+        $validator = Validator::make($request->all(), $comment_rules, $response_validation_msg );
+
+        if ($validator->fails()) {
+            $message = $validator->errors();
+
+            return redirect()->back()
+                ->withErrors($message)
+                ->withInput();
+        }
 
         $comment = $request -> input("comment");
 

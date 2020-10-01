@@ -22,13 +22,13 @@
                     <div class="form-group row" style="padding-top: 5px; padding-bottom: 10px">
                         <label  class="col-sm-2 col-form-label">News-Heading</label>
                         <div class="col-sm-6">
-                            <input type="text" name="news_heading" class="form-control"  value="{{$news->news_title}}"placeholder="Enter Newstitle" >
+                            <input type="text" name="news_heading" required minlength="5" class="form-control"  value="{{$news->news_title}}"placeholder="Enter Newstitle" >
                         </div>
                     </div>
                     <div class="form-group row" style="padding-top: 5px; padding-bottom: 10px">
                         <label  class="col-sm-2 col-form-label">Sub-Heading</label>
                         <div class="col-sm-6">
-                            <input type="text" name="news_subheading" class="form-control" value='{{$news->news_subheading}}' placeholder="Enter small title">
+                            <input type="text" name="news_subheading" required minlength="5" class="form-control" value='{{$news->news_subheading}}' placeholder="Enter small title">
                         </div>
                     </div>
                     <hr>

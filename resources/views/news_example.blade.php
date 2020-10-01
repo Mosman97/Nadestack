@@ -63,7 +63,7 @@
                                 <form method="POST" action="{{route('StoreNewsComment', $news_metadata[0]['news_id'])}}" class="text-center">
                                     @csrf
                                     <div class="form-row">
-                                        <div class="col"><textarea id="comment" name="comment" class="form-control"></textarea></div>
+                                        <div class="col"><textarea id="comment" name="comment" required maxlength="10000" class="form-control"></textarea></div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col"><button class="btn btn-primary nadestack_btn" id="comment_submit_btn" type="submit">Submit Comment</button></div>

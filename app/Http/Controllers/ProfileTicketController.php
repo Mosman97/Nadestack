@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Ticket;
 use App\ticketresponse;
 use App\Http\Controllers\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileTicketController extends Controller {
 
@@ -47,6 +48,26 @@ class ProfileTicketController extends Controller {
     //TODO attached files
     public function responseTicket(Request $request, $ticket_id)
     {
+        //Validating Rules for a new ticket
+        $response_rules = [
+            'content' => 'required|min:20|max:10000',
+        ];
+        //Custom Validation Error-Messages
+        $response_validation_msg = [
+            'content.min' => 'Mindestens 20 Zeichen erforderlich',
+            'content.max' => 'Text ist zu lang',
+        ];
+
+        $validator = Validator::make($request->all(), $response_rules, $response_validation_msg );
+
+        if ($validator->fails()) {
+            $message = $validator->errors();
+
+            return redirect()->back()
+                ->withErrors($message)
+                ->withInput();
+        }
+
         $content = $request->input('content');
 
         $ticketresponse = ticketresponse::create(
@@ -64,6 +85,30 @@ class ProfileTicketController extends Controller {
      */
 
     public function store(Request $request) {
+
+        //Validating Rules for a new ticket
+        $team_validation_rules = [
+            'title' => 'required|min:6|max:30',
+            'content' => 'required|min:20|max:10000',
+        ];
+        //Custom Validation Error-Messages
+        $team_validation_msg = [
+            'title.required' => 'Sie müssen einen Titel festlegen',
+            'content.min' => 'Mindestens 20 Zeichen erforderlich',
+            'content.max' => 'Text ist zu lang',
+        ];
+
+
+
+        $validator = Validator::make($request->all(), $team_validation_rules, $team_validation_msg );
+
+        if ($validator->fails()) {
+            $message = $validator->errors();
+
+            return redirect()->back()
+                ->withErrors($message)
+                ->withInput();
+        }
 
         //Retrieving all Inputs Ressoruce for creating the Ticket
         $ticket_category = $request->input('category');

@@ -2,8 +2,6 @@
 
 @section('content')
 
-{{var_dump($lograw)}}
-
 <div class="container-fluid" >
     <div class="row">
         <div class="col-xl-3"></div>

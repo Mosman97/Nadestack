@@ -17,7 +17,7 @@
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;">
                                         <label class="col-form-label">Username:</label>
                                     </div>
-                                    <div class="col-sm-6 input-column"><input id="username"name="username"class="form-control" type="text"></div>
+                                    <div class="col-sm-6 input-column"><input required id="username"name="username"class="form-control" type="text"></div>
                                           @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Email:</label></div>
-                                    <div class="col-sm-6 input-column"><input id="email" class="form-control" name="email" type="email"></div>
+                                    <div class="col-sm-6 input-column"><input required id="email" class="form-control" name="email" type="email"></div>
                                           @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -35,11 +35,11 @@
                                 </div>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Confirm Email:</label></div>
-                                    <div class="col-sm-6 input-column"><input id="email_con" class="form-control" name="email_con"type="email"></div>
+                                    <div class="col-sm-6 input-column"><input required id="email_con" class="form-control" name="email_con"type="email"></div>
                                 </div>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Password:</label></div>
-                                    <div class="col-sm-6 input-column"><input  id="password" class="form-control" type="password"name="password"></div>
+                                    <div class="col-sm-6 input-column"><input required id="password" class="form-control" type="password"name="password"></div>
                                            @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -48,10 +48,10 @@
                                 </div>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Confirm Password:</label></div>
-                                    <div class="col-sm-6 input-column"><input class="form-control" id="password_con" name="password_con" type="password"></div>
+                                    <div class="col-sm-6 input-column"><input required class="form-control" id="password_con" name="password_con" type="password"></div>
                                 </div>
                                 <hr class="bg-light"/>
-                                <div class="form-check text-center"><input class="form-check-input" type="checkbox" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
+                                <div class="form-check text-center"><input required class="form-check-input" type="checkbox" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
                                 <div class="form-row">
                                     <div class="col text-center" style="padding-bottom: 15px; padding-top: 10px"><button class="btn nadestack_btn" type="submit">Register</button></div>
                                 </div>

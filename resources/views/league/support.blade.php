@@ -56,11 +56,11 @@
                     </div>
                     <div class="form-row form-group">
                         <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Title:</label></div>
-                        <div class="col-sm-6 input-column"><input name="title" class="form-control" type="text" required="" minlength="2"></div>
+                        <div class="col-sm-6 input-column"><input name="title" class="form-control" type="text" required minlength="6" maxlength="30"></div>
                     </div>
                     <div class="form-row form-group">
                         <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Description:</label></div>
-                        <div class="col-sm-6 input-column"><textarea name="content"class="form-control" style="height: 250px;"></textarea></div>
+                        <div class="col-sm-6 input-column"><textarea required minlength="20" maxlength="10000" name="content"class="form-control" style="height: 250px;"></textarea></div>
                     </div>
                     <div class="form-row form-group">
                         <div class="col-sm-4 col-xl-3 offset-xl-0 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label text-white" for="repeat-pawssword-input-field">File Upload:</label></div>

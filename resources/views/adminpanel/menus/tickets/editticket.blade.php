@@ -35,7 +35,7 @@
     <div class="col">
         <p>{{$response->content}}</p>
     </div>
-</div>    
+</div>
 <hr>
 
 @endforeach
@@ -52,7 +52,7 @@
             <input type="hidden" name="ticket_id" value="{{$ticket_metadata[0]['ticket_id']}}">
             <div class="form-row form-group">
                 <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Answer:</label></div>
-                <div class="col-sm-8 input-column"><textarea class="form-control" style="height: 250px;" name="content"></textarea></div>
+                <div class="col-sm-8 input-column"><textarea required class="form-control" style="height: 250px;" name="content"></textarea></div>
             </div>
             <div class="form-row form-group">
                 <div class="col-sm-4 col-xl-3 offset-xl-0 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label text-white" for="repeat-pawssword-input-field">File Upload:</label></div>

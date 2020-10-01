@@ -55,6 +55,56 @@ class CreateForumCategoriesTable extends Migration {
                 )
         );
 
+        DB::table('forum_categories')->insert(
+            array(
+                'forum_category_id' => 4,
+                'forum_ranking' => 4,
+                'forum_category_title' => "Competition Area",
+                'forum_category_icon' => 'fa fa-trophy',
+                'forum_category_text' => 'Here you can talk/discuss about leagues, tournaments and events'
+            )
+        );
+
+        DB::table('forum_categories')->insert(
+            array(
+                'forum_category_id' => 5,
+                'forum_ranking' => 5,
+                'forum_category_title' => "Broadcast",
+                'forum_category_icon' => 'fa fa-video',
+                'forum_category_text' => 'Here you can talk/discuss about VODs, demos, livestreams, fragclips and similar stuff. Feel free to introduce yourself to the community!'
+            )
+        );
+
+        DB::table('forum_categories')->insert(
+            array(
+                'forum_category_id' => 6,
+                'forum_ranking' => 6,
+                'forum_category_title' => "Feedback",
+                'forum_category_icon' => 'fa fa-comment',
+                'forum_category_text' => 'Here you can provide suggestions for improvement. We all can learn from each other, maybe you got the right idea what we could change in the future!'
+            )
+        );
+
+        DB::table('forum_categories')->insert(
+            array(
+                'forum_category_id' => 7,
+                'forum_ranking' => 7,
+                'forum_category_title' => "Off-Topic",
+                'forum_category_icon' => 'fa fa-bookmark',
+                'forum_category_text' => 'Discussions on anything not seriously related to eSports or Nadestack'
+            )
+        );
+
+        DB::table('forum_categories')->insert(
+            array(
+                'forum_category_id' => 8,
+                'forum_ranking' => 8,
+                'forum_category_title' => "Hardware & Tweaks",
+                'forum_category_icon' => 'fa fa-desktop',
+                'forum_category_text' => 'Here you can discuss about any technical stuff like talking about the newest hardware!'
+            )
+        );
+
 
 
         /*  INSERT INTO `forum_categories` (`forum_categories_id`, `forum_ranking`, `forum_categories_title`, `forum_categories_icon`, `forum_categories_text`) VALUES
