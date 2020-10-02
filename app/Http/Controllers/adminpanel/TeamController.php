@@ -20,7 +20,7 @@ class TeamController extends Controller {
         if ($request->input('search_query') == NULL) {
 
             //Retrieving 10 Teams per Page Sorted by Date DESC
-            $teams = Team::orderBy('created_at', "desc")->paginate(2);
+            $teams = Team::orderBy('created_at', "desc")->paginate(10);
 
             return view("adminpanel.menus.teams.teamindex")->with("teams", $teams);
         } else {
@@ -33,73 +33,21 @@ class TeamController extends Controller {
                     ->orWhere("team_id", "like", $search_input . "%")
                     ->orWhere("team_tag", "like", $search_input . "%")
                     ->orderBy('created_at', "desc")
-                    ->paginate(2);
+                    ->paginate(10);
 
             return view("adminpanel.menus.teams.teamindex")->with("teams", $teams);
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create() {
-        //
+    public function edit(Request $request, $team_id) {
+
+        $team_data = Team::where('team_id', "=", $team_id)->first();
+
+        return view("adminpanel.menus.teams.editteam")->with("teamdata", $team_data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request) {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id) {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id) {
-       
-        
-        
-        
-        return view("adminpanel.menus.teams.editteam");
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id) {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id) {
+    public function update(Request $request, $team_id) {
         //
     }
 

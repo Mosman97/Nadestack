@@ -164,10 +164,7 @@
 
 
 <h3 class="text-dark mb-1 text-center" style="padding-bottom: 15px;">Player-Overview</h3>
-
 <hr>
-
-
 <div class="row text-center justify-content-center">
     <div class="col-md-6">
         <form class="form navbar-search" method="GET" action="{{route('adminpanel_playerindex')}}">
@@ -192,8 +189,7 @@
     </div>
 </div>
 
-<div class="table-responsive"
-     style="padding-top: 10px;">
+<div class="table-responsive" style="padding-top: 10px;">
     <table class="table  text-center" id="player_table">
         <thead>
             <tr>
@@ -228,9 +224,12 @@
 
                 <td> TODO</td>
                 <td> {{ $user->created_at }}</td>
-                <td><div class="btn-group"  style="margin-left:50px;"role="group" aria-label="Basic example">
+                <td>
+                    @if ($user->nadestack_admin != 1)
+                    <div class="btn-group"  style="margin-left:50px;"role="group" aria-label="Basic example">
                         <a type="button" disabled="true" class="btn btn-info" id='player_edit_btn' href="{{route('adminpanel_editplayer',$user->id)}}">Show Player</a>
                     </div>
+                    @endif
                 </td>
             </tr>
             @endforeach
@@ -239,14 +238,7 @@
     </table>
 </div>
 
-
-
-
-
-
-
 <div id="user_pagination" class="mx-auto">
-
     {{$users->render()}}
 </div>
 

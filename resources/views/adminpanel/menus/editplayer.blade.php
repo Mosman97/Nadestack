@@ -12,6 +12,7 @@
     <button type="button" class="btn btn-lg btn-success">Verify User</button>
 
     <form>
+        @csrf
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Username:</label>
             <input required class="col form-control" type="text" id="username" value="{{$userdata->username}}">
@@ -102,12 +103,11 @@
             <div class="col-md-3"></div>
         </div>
 
+        <div class="text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow" style="margin-top: 18px; margin-bottom: 18px">
+            <div class="col-md-1"></div>
+            <button type="button" class="btn btn-success">Save User</button>
+            <div class="col-md-3"></div>
+        </div>
+
     </form>
-
-    <div class="text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow" style="margin-top: 18px; margin-bottom: 18px">
-        <div class="col-md-1"></div>
-        <button type="button" class="btn btn-success">Save User</button>
-        <div class="col-md-3"></div>
-    </div>
-
 @endsection
