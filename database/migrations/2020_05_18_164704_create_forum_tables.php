@@ -4,13 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateForumCategoriesTable extends Migration {
+class CreateForumTables extends Migration {
 
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up() {
         Schema::create('forum_categories', function (Blueprint $table) {
             $table->increments('forum_category_id');
@@ -20,7 +15,48 @@ class CreateForumCategoriesTable extends Migration {
             $table->longtext('forum_category_text');
         });
 
+        Schema::create('forum_threads', function (Blueprint $table) {
+            $table->increments('forum_thread_id');
+            $table->longtext('forum_thread_title');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('forum_category_id')->unsigned();
+            $table->foreign('forum_category_id')->references('forum_category_id')->on('forum_categories');
+            $table->tinyInteger('is_closed')->default('0');
+            $table->timestamps();
+        });
 
+        Schema::create('forum_posts', function (Blueprint $table) {
+            $table->increments('forum_post_id');
+            $table->bigInteger('user_id');
+            $table->integer('forum_thread_id')->unsigned();
+            $table->foreign('forum_thread_id')->references('forum_thread_id')->on('forum_threads');
+            $table->longtext('forum_post_content');
+            $table->tinyInteger('is_deleted')->default('0');
+            $table->timestamps();
+        });
+
+        Schema::create('forum_posts_deleted', function (Blueprint $table) {
+            $table->increments('forum_delete_id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('admin_id')->unsigned();
+            $table->foreign('admin_id')->references('id')->on('users');
+            $table->integer('forum_post_id')->unsigned();
+            $table->foreign('forum_post_id')->references('forum_post_id')->on('forum_posts');
+            $table->longtext('post_content');
+            $table->timestamps();
+        });
+
+        Schema::create('forum_reports', function (Blueprint $table) {
+            $table->increments('forum_report_id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('forum_post_id')->unsigned();
+            $table->foreign('forum_post_id')->references('forum_post_id')->on('forum_posts');
+            $table->longtext('forum_report_message');
+            $table->timestamps();
+        });
 
         //Adding Forum Categories
 
@@ -125,6 +161,10 @@ class CreateForumCategoriesTable extends Migration {
      */
     public function down() {
         Schema::dropIfExists('forum_categories');
+        Schema::dropIfExists('forum_threads');
+        Schema::dropIfExists('forum_posts');
+        Schema::dropIfExists('forum_posts_deleted');
+        Schema::dropIfExists('forum_reports');
     }
 
 }

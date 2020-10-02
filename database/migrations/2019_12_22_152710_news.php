@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class News extends Migration {
 
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up() {
         Schema::create('news', function (Blueprint $table) {
             $table->bigIncrements('news_id');
@@ -20,15 +15,21 @@ class News extends Migration {
             $table->longtext('news_content');
             $table->timestamps();
         });
+
+        Schema::create('newscomments', function (Blueprint $table) {
+            $table->bigIncrements('newscomment_id')->primaray();
+            $table->bigInteger('news_id')->unsigned();
+            $table->foreign('news_id')->references('news_id')->on('news');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->longText('comment');
+            $table->timestamps();
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down() {
         Schema::dropIfExists('news');
+        Schema::dropIfExists('newscomments');
     }
 
 }
