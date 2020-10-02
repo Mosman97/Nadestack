@@ -203,7 +203,7 @@
                 <th>Username</th>
                 <th>Team</th>
                 <th>Status</th>
-                <th>Date</th>
+                <th>Registered</th>
                 <th>Actions</th>
             </tr>
         </thead>

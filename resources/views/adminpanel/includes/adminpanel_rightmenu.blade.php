@@ -1,7 +1,6 @@
 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top" style="background-color: #6b6e70;">
     <button class="btn" style="display: none" id="togglebarbtn" onclick="togglebar()" ><i class="fas fa-align-justify"></i></button>
     <div class="container-fluid">
-        <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
                 <input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">

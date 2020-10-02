@@ -48,11 +48,6 @@ class PlayerController extends Controller {
             }
         }
 
-
-
-
-
-
         /* elseif ($request->ajax()) {
 
 
@@ -69,12 +64,6 @@ class PlayerController extends Controller {
           ->get()
           ->toArray();
 
-
-
-
-
-
-
           return json_encode($users);
           } */
 
@@ -82,67 +71,12 @@ class PlayerController extends Controller {
         abort(404);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create() {
-        //
+
+
+    public function edit(Request $request, $player_id) {
+
+        $user_data = User::where('id', "=", $player_id)->first();
+
+        return view("adminpanel.menus.editplayer")->with("userdata", $user_data);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request) {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id) {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($player_id) {
-
-
-
-        return view("adminpanel.menus.editplayer");
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id) {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id) {
-        //
-    }
-
 }

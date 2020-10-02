@@ -13,8 +13,8 @@
                 <form action="{{route('search')}}" method="GET">
                     <input  name="query"placeholder="e.g S1mple, Astralis, ...">
                     <select name="filter">
-                        <option value="0">All</option>      
-                        @foreach($search_categories as $search_category )         
+                        <option value="0">All</option>
+                        @foreach($search_categories as $search_category )
                         <option value="{{$search_category['search_ranking']}}">{{$search_category['search_category_text']}}</option>
                         @endforeach
 
@@ -96,10 +96,10 @@
                                 <div class="col">
                                     <h3><a style="color: #FF312E;" href="{{route('viewnews',$news['news_id'])}}">{{$news['news_title']}}</a></h3>
                                 </div>
-                                <div class="col-xl-3"><label class="col-form-label">02-10-1997</label></div>
+                                <div class="col-xl-3"><label class="col-form-label">{{$news['created_at']}}</label></div>
                             </div>
                             <div class="row">
-                                <div class="col"><label>Hier würde der der Anfang einer News, Teambeschreibung, Prfilbeschreibung, Kommentaranfang oder Match stehen.<br></label></div>
+                                <div class="col"><label>{{ Str::limit($news['news_content'], 20) }}<br></label></div>
                             </div>
                         </div>
                         <div class="col-xl-2"></div>
@@ -107,7 +107,7 @@
                 </div>
             </div>
             @endforeach
-            
+
                     @elseif($search_category['search_ranking'] == 4)
 
             @foreach($forumthread_results as $thread)
@@ -132,8 +132,8 @@
                 </div>
             </div>
             @endforeach
-            
-            
+
+
                      @elseif($search_category['search_ranking'] == 5)
 
             @foreach($forumpost_results as $post)
@@ -145,12 +145,12 @@
                         <div class="col border">
                             <div class="row" style="margin-top: 5px">
                                 <div class="col">
-                                
+
                                 </div>
                                 <div class="col-xl-3"><label class="col-form-label">{{$post['created_at']}}</label></div>
                             </div>
                             <div class="row">
-                                
+
                                 <div class="col"><label><br></label>
                                     <p>{{$post['forum_post_content']}}</p>
                                 </div>
@@ -162,11 +162,11 @@
             </div>
             @endforeach
 
-        
+
 
             @endif
 
-    
+
 
 
             @endforeach

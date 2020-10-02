@@ -14,7 +14,7 @@ use File;
 class ProfileSettingsController extends Controller {
 
     /**
-     * 
+     *
      * @param Request $request
      */
     public function updateProfileSettings(Request $request) {
@@ -46,7 +46,7 @@ class ProfileSettingsController extends Controller {
 
 
 
-        //Custom Error Messages 
+        //Custom Error Messages
         $validation_error_messages = [
             'forename.min' => "The Forname appears to be too short",
             'forename.max' => "The Forname appears to be too long",
@@ -64,7 +64,7 @@ class ProfileSettingsController extends Controller {
         $validator = Validator::make($request->all(), $validation_rules, $validation_error_messages);
 
 
-        //if Validating fails all Errors will return 
+        //if Validating fails all Errors will return
         if ($validator->fails()) {
 
             return back()->withErrors($validator)->withInput();
@@ -97,17 +97,9 @@ class ProfileSettingsController extends Controller {
         }
     }
 
-    /**
-     * This Function gets called if the User openes his Settings
-     * @param Request $request
-     */
     function getProfileSettings(Request $request) {
 
-
         $user_data = User::where('id', '=', Auth::id())->get();
-
-
-
 
         return view("useraccount.ProfileSettings")->with("userdata", $user_data);
     }
@@ -194,16 +186,16 @@ class ProfileSettingsController extends Controller {
 
 
         $web_api_key = "AD8538EE0A8A99DEFD8E78F54DCD2325";
-        
+
         $client = new \Zyberspace\SteamWebApi\Client($web_api_key);
-        
-  
+
+
        // $steamUser = new \Zyberspace\SteamWebApi\Interfaces\ISteamUser($client);
-       
-        
+
+
         $oauth = new \Zyberspace\SteamWebApi\Interfaces\ISteamUserOAuth($client);
-        
-        
+
+
        $test = $oauth->GetTokenDetailsV1($web_api_key);
         //$response = $steamUser->GetPlayerSummariesV1("76561198037463757");
 
