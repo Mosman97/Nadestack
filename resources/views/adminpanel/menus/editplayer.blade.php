@@ -11,11 +11,11 @@
     <!-- if user is not verified -->
     <button type="button" class="btn btn-lg btn-success">Verify User</button>
 
-    <form>
-        @csrf
+    <form method="POST" action="{{url('adminpanel_updatenews')}}" id="form">
+        <input hidden value="{{$userdata->id}}" name="userid">
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Username:</label>
-            <input required class="col form-control" type="text" id="username" value="{{$userdata->username}}">
+            <input required class="col form-control" type="text" id="username" name="username" value="{{$userdata->username}}">
             <div class="col-md-3"></div>
         </div>
 
@@ -35,13 +35,13 @@
 
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">First Name</label>
-            <input class="col form-control" type="text" id="firstname" value="{{$userdata->forname}}">
+            <input class="col form-control" type="text" id="firstname" name="firstname" value="{{$userdata->forname}}">
             <div class="col-md-3"></div>
         </div>
 
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Last Name</label>
-            <input class="col form-control" type="text" id="lastname" value="{{$userdata->lastname}}">
+            <input class="col form-control" type="text" id="lastname" name="lastname" value="{{$userdata->lastname}}">
             <div class="col-md-3"></div>
         </div>
 
@@ -53,7 +53,7 @@
 
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Description</label>
-            <textarea class="col form-control" style="height: 120px;" type="text" id="description">{{$userdata->description}}</textarea>
+            <textarea class="col form-control" style="height: 120px;" type="text" id="desc" name="desc">{{$userdata->description}}</textarea>
             <div class="col-md-3"></div>
         </div>
 
@@ -81,33 +81,33 @@
 
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Twitter</label>
-            <input class="col form-control" type="text" id="twitter" value="{{$userdata->twitter_url}}">
+            <input class="col form-control" type="text" id="twitter" name="twitter" value="{{$userdata->twitter_url}}">
             <div class="col-md-3"></div>
         </div>
 
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Instagram</label>
-            <input class="col form-control" type="text" id="instagram" value="{{$userdata->instagram_url}}">
+            <input class="col form-control" type="text" id="instagram" name="instagram" value="{{$userdata->instagram_url}}">
             <div class="col-md-3"></div>
         </div>
 
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Twitch</label>
-            <input class="col form-control" type="text" id="twitch" value="{{$userdata->twitch_url}}">
+            <input class="col form-control" type="text" id="twitch" name="twitch" value="{{$userdata->twitch_url}}">
             <div class="col-md-3"></div>
         </div>
 
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Youtube</label>
-            <input class="col form-control" type="text" id="youtube" value="{{$userdata->youtube_url}}">
+            <input class="col form-control" type="text" id="youtube" name="youtube" value="{{$userdata->youtube_url}}">
             <div class="col-md-3"></div>
         </div>
 
         <div class="text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow" style="margin-top: 18px; margin-bottom: 18px">
             <div class="col-md-1"></div>
-            <button type="button" class="btn btn-success">Save User</button>
+            <button type="submit" class="btn btn-success">Save User</button>
             <div class="col-md-3"></div>
         </div>
-
+        @csrf
     </form>
 @endsection

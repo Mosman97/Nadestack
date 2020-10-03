@@ -31,7 +31,6 @@ class Teams extends Migration {
             $table->string("twitch_url")->nullable();
             $table->string("instagram_url")->nullable();
             $table->string("youtube_url")->nullable();
-            $table->string("faceit_url")->nullable();
             $table->timestamps();
         });
 

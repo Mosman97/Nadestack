@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\adminpanel;
 
+use App\Admin_log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class PlayerController extends Controller {
 
@@ -78,5 +80,34 @@ class PlayerController extends Controller {
         $user_data = User::where('id', "=", $player_id)->first();
 
         return view("adminpanel.menus.editplayer")->with("userdata", $user_data);
+    }
+
+    public function updateplayer(Request $request) {
+
+        $player_id = $request->input("userid");
+        $username = $request->input("username");
+        $forname = $request->input("forname");
+        $lastname = $request->input("lastname");
+        $birthday = $request->input("birthday");
+        $desc = $request->input("desc");
+        //Social Media Inputs
+        $twitter = $request->input("twitter");
+        $instagram = $request->input("instagram");
+        $twitch = $request->input("twitch");
+        $yt = $request->input("youtube");
+
+        $affected = DB::table('users')
+            ->where('id', $player_id)
+            ->update(['username' => $username], ['forname' => $forname], ['lastname' => $lastname],
+                    ['birthday' => $birthday],['profildescription' => $desc],['twitter_url' => $twitter],
+                    ['instagram_url' => $instagram], ['twitch_url' => $twitch],['youtube_url' => $yt]);
+
+        $admin_log = new Admin_log;
+        $admin_log->user_id = Auth::user()->id;
+        $admin_log->query = $affected;
+
+        $admin_log->save();
+
+        return back()->with("success", "Update");
     }
 }

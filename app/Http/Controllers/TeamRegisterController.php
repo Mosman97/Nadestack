@@ -18,23 +18,12 @@ use App\teamlog;
 
 class TeamRegisterController extends Controller {
 
-    /**
-     * Returns the Teamregister Page
-     * @param Request $request HTTP-Request
-     * @return view the View of the Teamregister Page
-     */
     public function index(Request $request) {
 
         return view("league.TeamRegister");
     }
 
-    /**
-     * Creates a new Team Ressource
-     * @param Request $request
-     * @return type
-     */
     public function createTeam(Request $request) {
-
 
         //Retreiving Data From Request
         $teamname = $request->input('teamname');
@@ -83,14 +72,13 @@ class TeamRegisterController extends Controller {
                             ->withInput();
         }
 
-
-
         //If the Validation Process has no Errors, we can create a new TEAM Ressource
         else {
 
             //Creating a new Instance of the Team-Model
             $new_team = new Team;
 
+            $default_team_logo = "default.png";
 
             //Required Inputs
             $new_team->team_name = $teamname;
@@ -106,7 +94,7 @@ class TeamRegisterController extends Controller {
             $new_team->instagram_url = $instagram;
             $new_team->youtube_url = $youtube;
 
-
+            $new_team->team_logo = $default_team_logo;
 
             $new_team->save();
 
@@ -144,22 +132,22 @@ class TeamRegisterController extends Controller {
             $log->save();
 
 
-            return Redirect::route('teampage', [$new_team_id])->with('message', 'Your Team has been created!');
+            return Redirect::route('teampage', [$new_team_id])
+                ->with('message', 'Your Team has been created!');
         }
 
-
-        //return redirect()->back()->with("success", "Your Team has been created");
     }
 
     public function checkRemoteValidation(Request $request) {
-
 
         if ($request->ajax()) {
 
             if ($request->has('teamname')) {
 
-
-                $team_result = DB::table('teams')->select('team_name')->where('team_name', 'like', $request->input('teamname') . "%")->doesntExist();
+                $team_result = DB::table('teams')
+                    ->select('team_name')
+                    ->where('team_name', 'like', $request->input('teamname') . "%")
+                    ->doesntExist();
 
                 return json_encode($team_result);
             }

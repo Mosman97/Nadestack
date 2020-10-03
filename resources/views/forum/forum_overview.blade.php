@@ -61,7 +61,7 @@
                                         </div>
                                         <div class="col-md-1 forum-info">
                                                 <span class="views-number">
-                                                    140
+                                                    {{$forum_category_entry->post_count}}
                                                 </span>
                                             <div class="views-number-description">
                                                 <small>Posts</small>

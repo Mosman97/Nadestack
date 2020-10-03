@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Ticket;
 use App\ticketresponse;
+use App\Admin_log;
 use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller {
@@ -59,8 +60,12 @@ class TicketController extends Controller {
         $ticket_response->user_id = Auth::user()->id;
         $ticket_response->content = $ticket_response_content;
 
-        $ticket_response->save();
+        $admin_log = new Admin_log;
+        $admin_log->user_id = Auth::user()->id;
+        $admin_log->query = $ticket_response;
 
+        $admin_log->save();
+        $ticket_response->save();
 
         return back()->with("message", "a new Response was made!");
     }

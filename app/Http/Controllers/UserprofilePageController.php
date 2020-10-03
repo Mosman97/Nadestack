@@ -32,7 +32,7 @@ class UserprofilePageController extends Controller {
             //Get the post count of the user
             $user_posts = DB::table('forum_posts')
                 ->select(DB::raw('COUNT(forum_post_id) as post_count'))
-                ->where('user_id' , '=' , $user_data->id)
+                ->where('user_id', '=', $user_data->id)
                 ->first();
 
             //teamlogdata logic
@@ -52,31 +52,32 @@ class UserprofilePageController extends Controller {
             $groesse = count($logjoin);
             $j = 0;
 
-            //mehrere Teams, anonsten überspringen
-            if($groesse > 1){
-                for($i = 0 ; $i < $groesse; $i++) {
+            if ($groesse > 0){
+                //mehrere Teams, anonsten überspringen
+                if ($groesse > 1) {
+                    for ($i = 0; $i < $groesse; $i++) {
 
-                    //Periode zusammenbauen
-                    $fdate = $logleft[$i]->created_at;
-                    $tdate = $logjoin[$i]->created_at;
-                    $datetime1 = new DateTime($fdate);
-                    $datetime2 = new DateTime($tdate);
-                    $interval = $datetime1->diff($datetime2);
-                    $days = $interval->format('%a');
+                        //Periode zusammenbauen
+                        $fdate = $logleft[$i]->created_at;
+                        $tdate = $logjoin[$i]->created_at;
+                        $datetime1 = new DateTime($fdate);
+                        $datetime2 = new DateTime($tdate);
+                        $interval = $datetime1->diff($datetime2);
+                        $days = $interval->format('%a');
 
-                    $lograw[$j] = array('team' => $logjoin[$i]->team_tag,
-                        'jdate' => $logjoin[$i]->created_at,
-                        'ldate' => $logleft[$i]->created_at,
-                        'period' => $days);
-                    $j = $i;
+                        $lograw[$j] = array('team' => $logjoin[$i]->team_tag,
+                            'jdate' => $logjoin[$i]->created_at,
+                            'ldate' => $logleft[$i]->created_at,
+                            'period' => $days);
+                        $j = $i;
+                    }
                 }
-            }
             //letzter Log für aktuelles Team
             $lograw[$j] = array('team' => $logjoin[$j]->team_tag,
-                                'jdate' => $logjoin[$j]->created_at,
-                                'ldate' => '-',
-                                'period' => 'Current');
-
+                'jdate' => $logjoin[$j]->created_at,
+                'ldate' => '-',
+                'period' => 'Current');
+            }
 
             //check user for current team
             if ($user_data['team_id'] == NULL) {

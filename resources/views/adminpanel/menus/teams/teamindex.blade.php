@@ -31,7 +31,7 @@
                 //Getting Row ID
                 selected_row = $(this).parent().parent().attr("id");
 
-                //Enable Buttons 
+                //Enable Buttons
                 $(this).parent().parent().find("td:last").find("button").prop('disabled', false);
                 $(this).parent().parent().addClass("news_select_highlightning");
 
@@ -80,8 +80,8 @@
 
 
         /* $('#player_edit_btn').on('click', function (e) {
-         
-         
+
+
          window.location.href = "{{route('adminpanel_editnews','')}}/" + selected_row;
          });*/
 
@@ -91,17 +91,17 @@
 
 
         /*  $(document).on('keyup', '#player_search', function () {
-         
-         
+
+
          if ($('#player_search').val().length == 0) {
-         
-         
+
+
          location.reload();
          } else {
-         
+
          //stuff happens
          console.log("key");
-         
+
          $.ajax({
          type: 'GET',
          url: "{{route('adminpanel_playerindex')}}",
@@ -109,47 +109,47 @@
          },
          dataType: 'json',
          success: function (result) {
-         
+
          console.log(result);
-         
-         
+
+
          $('#player_table >tbody').html("");
-         
-         
+
+
          for (var i = 0; i < result.length; i++) {
-         
+
          $('#player_table >tbody').append("<tr id='" + result[i]['id'] + "'>");
          $('#player_table > tbody').append("<td><input type='checkbox'></td>");
          $('#player_table >tbody').append("<td>" + result[i]['id'] + "</td>");
          $('#player_table >tbody').append("<td>" + result[i]['username'] + "</td>");
-         
+
          if (result[i]['team_name'] != null) {
-         
+
          $('#player_table >tbody').append("<td>" + result[i]['team_name'] + "</td>");
          } else {
-         
+
          $('#player_table >tbody').append("<td>" + "No Team" + "</td>");
          }
          $('#player_table >tbody').append("<td>" + result[i]['created_at'] + "</td>");
          $('#player_table >tbody').append("</tr>");
-         
-         
-         
+
+
+
          }
-         
-         
-         
+
+
+
          },
          error: function (e) {
-         
+
          console.log(e);
          }
          });
-         
+
          }
-         
-         
-         
+
+
+
          });*/
 
 
@@ -215,7 +215,7 @@
             @foreach ($teams as $team)
             <tr id='{{ $team->team_id}}'>
                 <td><input type="checkbox"></td>
-                <td><img src="{{URL::asset('assets/img/team_pictures/')}}/{{$team->team_logo}}" width="50px" height="50px"></td>
+                <td><img src="{{URL::asset('assets/img/teamlogos')}}/{{$team->team_logo}}" width="50px" height="50px"></td>
 
                 <td> {{ $team->team_id }}</td>
                 <td> {{ $team->team_name }}</td>
@@ -257,14 +257,14 @@
                 <form>
                     <h6 class="text-center">Timeout-Option</h6>
                     <div class="form-group row">
-                        <label for="timeout_value" class="col-4 col-form-label">Timeout:</label> 
+                        <label for="timeout_value" class="col-4 col-form-label">Timeout:</label>
                         <div class="col-8">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
                                         <i class="fa fa-calendar-times-o"></i>
                                     </div>
-                                </div> 
+                                </div>
                                 <input id="timeout_value" name="timeout_value" type="date" class="form-control">
                             </div>
                         </div>
@@ -273,14 +273,14 @@
                     <h6 class="text-center">Permaban-Option</h6>
 
                     <div class="form-group row">
-                        <label class="col-4">Permaban:</label> 
+                        <label class="col-4">Permaban:</label>
                         <div class="col-8">
                             <div class="custom-control custom-checkbox custom-control-inline">
-                                <input name="checkbox" id="checkbox_0" type="checkbox" class="custom-control-input" value="permaban" aria-describedby="checkboxHelpBlock"> 
+                                <input name="checkbox" id="checkbox_0" type="checkbox" class="custom-control-input" value="permaban" aria-describedby="checkboxHelpBlock">
                                 <label for="checkbox_0" class="custom-control-label">Perman Team</label>
-                            </div> 
+                            </div>
                         </div>
-                    </div> 
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

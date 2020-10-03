@@ -59,7 +59,7 @@
                             <div class="dropdown-divider"></div>
                             @endforeach
                             @if(Auth::user()->unReadNotifications->count() > 0)
-                            <div class="dropdown-item"><a href="{{route('readAllNotifications')}}" type="button" class="nadestack_btn">Mark All as Read</a></div>
+                            <div class="dropdown-item"><a href="{{route('readAllNotifications')}}" type="button" class="btn nadestack_btn">Mark All as Read</a></div>
                             @else
                             <div class="dropdown-item">No New Notifications</div>
                             @endif
@@ -72,7 +72,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-secondary nadestack-dropdown-menu">
 
-                        <a class="dropdown-item " href="{{route('startpage')}}/user/{{Auth::user()->username}}">
+                        <a class="dropdown-item " href="{{route('profilepage', Auth::user()->username)}}">
                             <i class="fa fa-user"></i><span class='nadestack-usermenu-icon'></span>
                             My Profile</a>
 

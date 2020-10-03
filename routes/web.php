@@ -398,6 +398,11 @@ Route::get("/statistics/maps", function() {
 Route::get("/admin", "adminpanel\AdminpanelIndexController@index")
         ->middleware('admin')->name('admin');
 /*
+ * Log for an admin
+ */
+Route::get("/admin/log/{user_id}", "adminpanel\AdminLogController@index")
+    ->middleware('admin')->name('adminlog');
+/*
  * Overview of all News
  */
 Route::get('/admin/news', "adminpanel\AdminPanelNewsController@index")
@@ -453,6 +458,12 @@ Route::get("admin/player", "adminpanel\Playercontroller@index")
  */
 Route::get("admin/player/{player_id}/edit", "adminpanel\Playercontroller@edit")
         ->middleware("admin")->name("adminpanel_editplayer");
+
+/*
+ * Update a playerprofile with the given player-ID
+ */
+Route::post("admin/playerupdate", "adminpanel\Playercontroller@updateplayer")
+    ->middleware("admin")->name("AdminUpdateProfile");
 
 /*
  * Overview of all Tickets

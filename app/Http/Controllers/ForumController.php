@@ -13,8 +13,10 @@ class ForumController extends Controller {
     public function index(Request $request){
 
         $forum_category = DB::table('forum_categories')
-            ->select("forum_categories.forum_category_id","forum_categories.forum_category_title","forum_categories.forum_category_icon","forum_categories.forum_category_text",DB::raw('COUNT(forum_threads.forum_thread_id) as thread_count'))
-            ->leftJoin("forum_threads","forum_threads.forum_category_id","=","forum_categories.forum_category_id")
+            ->select("forum_categories.forum_category_id","forum_categories.forum_category_title","forum_categories.forum_category_icon","forum_categories.forum_category_text",
+                DB::raw('COUNT(forum_threads.forum_thread_id) as thread_count'), DB::raw('COUNT(forum_posts.forum_post_id) as post_count'))
+            ->leftJoin("forum_threads","forum_categories.forum_category_id","=","forum_threads.forum_category_id")
+            ->leftJoin('forum_posts', 'forum_threads.forum_thread_id','=','forum_posts.forum_thread_id')
             ->groupBy('forum_categories.forum_category_id')
             ->orderBy('forum_categories.forum_ranking')
             ->get();
