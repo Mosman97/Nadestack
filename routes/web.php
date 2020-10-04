@@ -449,7 +449,7 @@ Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@upda
 /*
  * Default View for all Players /Users in Nadestack
  */
-Route::get("admin/player", "adminpanel\Playercontroller@index")
+Route::get("admin/players", "adminpanel\Playercontroller@index")
         ->middleware("admin")->name("adminpanel_playerindex");
 
 
@@ -462,8 +462,8 @@ Route::get("admin/player/{player_id}/edit", "adminpanel\Playercontroller@edit")
 /*
  * Update a playerprofile with the given player-ID
  */
-Route::post("admin/playerupdate", "adminpanel\Playercontroller@updateplayer")
-    ->middleware("admin")->name("AdminUpdateProfile");
+Route::post("admin/player/{player_id}/update", "adminpanel\Playercontroller@update")
+    ->middleware("admin")->name("adminpanel_updateplayer");
 
 /*
  * Overview of all Tickets

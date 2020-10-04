@@ -10,9 +10,13 @@
     <h3 class="text-dark mb-1" style="padding-bottom: 15px;">Edit User {{$userdata->username}}</h3>
     <!-- if user is not verified -->
     <button type="button" class="btn btn-lg btn-success">Verify User</button>
-
-    <form method="POST" action="{{url('adminpanel_updatenews')}}" id="form">
-        <input hidden value="{{$userdata->id}}" name="userid">
+    
+    
+    
+    
+    <form method="POST" action="{{route('adminpanel_updateplayer',['player_id' => $userdata->id])}}"id="form">        
+            @csrf 
+            <input hidden value="{{$userdata->id}}" name="userid">
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Username:</label>
             <input required class="col form-control" type="text" id="username" name="username" value="{{$userdata->username}}">
@@ -47,7 +51,7 @@
 
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-1">Birthday</label>
-            <input class="col form-control" id="birthday" type="date" value="{{$userdata->birthday}}">
+            <input class="col form-control" name="birthday" type="date" value="{{$userdata->birthday}}">
             <div class="col-md-3"></div>
         </div>
 
@@ -108,6 +112,6 @@
             <button type="submit" class="btn btn-success">Save User</button>
             <div class="col-md-3"></div>
         </div>
-        @csrf
+   
     </form>
 @endsection

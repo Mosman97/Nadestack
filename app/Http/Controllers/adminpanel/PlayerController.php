@@ -6,6 +6,7 @@ use App\Admin_log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class PlayerController extends Controller {
@@ -82,7 +83,7 @@ class PlayerController extends Controller {
         return view("adminpanel.menus.editplayer")->with("userdata", $user_data);
     }
 
-    public function updateplayer(Request $request) {
+    public function update(Request $request) {
 
         $player_id = $request->input("userid");
         $username = $request->input("username");
@@ -96,12 +97,21 @@ class PlayerController extends Controller {
         $twitch = $request->input("twitch");
         $yt = $request->input("youtube");
 
+
         $affected = DB::table('users')
             ->where('id', $player_id)
-            ->update(['username' => $username], ['forname' => $forname], ['lastname' => $lastname],
-                    ['birthday' => $birthday],['profildescription' => $desc],['twitter_url' => $twitter],
-                    ['instagram_url' => $instagram], ['twitch_url' => $twitch],['youtube_url' => $yt]);
+                ->update(array('username'=>$username,
+                    'forname' => $forname,
+                    'lastname' => $lastname,
+                    'birthday' => $birthday,
+                    'profiledescription' => $desc,
+                    'twitter_url' => $twitter,
+                    'instagram_url' => $instagram,
+                    'twitch_url' => $twitch,
+                    'youtube_url' => $yt
+                    ));
 
+         
         $admin_log = new Admin_log;
         $admin_log->user_id = Auth::user()->id;
         $admin_log->query = $affected;
