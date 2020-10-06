@@ -17,6 +17,7 @@ class Teams extends Migration {
             $table->bigIncrements('team_id');
             $table->string('team_name');
             $table->string('team_tag');
+            $table->string('team_orga')->nullable;
             $table->string('team_logo')->nullable();
             $table->string('team_password');
             $table->string('team_desc')->nullable();

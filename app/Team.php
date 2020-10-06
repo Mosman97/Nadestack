@@ -12,6 +12,7 @@ class Team extends Model {
         'team_id',
         'team_logo',
         'team_name',
+        'team_orga',
         'team_password',
         'team_tag',
         'team_admin_id',

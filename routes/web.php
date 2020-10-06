@@ -42,7 +42,7 @@ Route::post("news/{news_id}", "nadestack\NewsController@storeComment")
 
 
 
-Route::get("/search","SearchController@index")->name("search");
+Route::get("/search", "SearchController@index")->name("search");
 Route::get('autocomplete', 'SearchController@autocomplete')->name('autocomplete');
 
 //Route::get("/search?query={query}&filter={filter}", "SearchController@index")->name('search');
@@ -220,7 +220,7 @@ Route::get("mytickets/new", function() {
 
 /* Antwort auf einen Thread */
 Route::post("myticket/answer/{ticket_id}", "ProfileTicketController@responseTicket")
-    ->name('responseticket');
+        ->name('responseticket');
 
 
 /*
@@ -356,7 +356,7 @@ Route::post("forum/reportmessage", "ForumPostsController@reportPost")
 
 /* Admin deletet eine Forumantwort */
 Route::post("forum/deletepost", "ForumPostsController@deletePost")
-    ->name('deletepost');
+        ->name('deletepost');
 
 /*
  * --------------END OF FORUM ROUTES--------------------
@@ -401,7 +401,7 @@ Route::get("/admin", "adminpanel\AdminpanelIndexController@index")
  * Log for an admin
  */
 Route::get("/admin/log/{user_id}", "adminpanel\AdminLogController@index")
-    ->middleware('admin')->name('adminlog');
+        ->middleware('admin')->name('adminlog');
 /*
  * Overview of all News
  */
@@ -456,14 +456,14 @@ Route::get("admin/players", "adminpanel\Playercontroller@index")
 /*
  * Edits a playerprofile with the given player-ID
  */
-Route::get("admin/player/{player_id}/edit", "adminpanel\Playercontroller@edit")
+Route::get("admin/players/{player_id}/edit", "adminpanel\Playercontroller@edit")
         ->middleware("admin")->name("adminpanel_editplayer");
 
 /*
  * Update a playerprofile with the given player-ID
  */
-Route::post("admin/player/{player_id}/update", "adminpanel\Playercontroller@update")
-    ->middleware("admin")->name("adminpanel_updateplayer");
+Route::post("admin/players/{player_id}/update", "adminpanel\Playercontroller@update")
+        ->middleware("admin")->name("adminpanel_updateplayer");
 
 /*
  * Overview of all Tickets
@@ -474,13 +474,13 @@ Route::get("admin/tickets", "adminpanel\TicketController@index")
 /*
  * Edits a Ticket with the given ID
  */
-Route::get("admin/ticket/{id}/edit", "adminpanel\TicketController@edit")
+Route::get("admin/tickets/{id}/edit", "adminpanel\TicketController@edit")
         ->middleware("admin")->name("adminpanel_editticket");
 
 /**
  * Adds a new Repsonse to the given Ticket-ID Entry
  */
-Route::post("admin/ticket/{id}/store", "adminpanel\TicketController@store")
+Route::post("admin/tickets/{id}/store", "adminpanel\TicketController@store")
         ->middleware("admin")->name("adminpanel_ticketresponse");
 
 /*
@@ -492,9 +492,14 @@ Route::get("admin/teams", "adminpanel\TeamController@index")
 /*
  * Route for Editing a Team
  */
-Route::get("admin/team/{teamid}/edit", "adminpanel\TeamController@edit")
+Route::get("admin/teams/{teamid}/edit", "adminpanel\TeamController@edit")
         ->middleware("admin")->name("adminpanel_editteam");
 
+
+/**
+ * Route for Updating a Team 
+ */
+Route::post("admin/teams/{teamid}/update", "adminpanel\TeamController@update")->middleware("admin")->name("adminpanel_updateteam");
 
 /*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------
