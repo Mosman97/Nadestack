@@ -15,6 +15,7 @@ class News extends Model {
         'news_subheading',
         'news_title',
         'news_content',
+        'is_published',
         'news_date'
     ];
      protected $guarded = [];

@@ -17,6 +17,15 @@
 @endforeach
 @endif
 
+@if(session('msg'))
+
+
+<div class="alert alert-success" id='success-alert'>
+    {{ session('msg') }}
+</div>
+
+@endif
+
 <ul class="nav nav-pills">
     <li  style="margin-left: 20px !important;font-size: 25px;" class="active"><a data-toggle="pill" href="#home">Team Settings</a></li>
     <li  style="margin-left: 20px !important;font-size: 25px;"><a data-toggle="pill" href="#menu1">Playermanagement</a></li>
@@ -145,8 +154,8 @@
                     <td> {{ $user->id }}</td>
                     <td> {{$user->username}}</td>
                     <td><input   disabled=""type="number"min="1" max="5" value="{{$user->team_role}}"></td>
-                    <td><button class="btn btn-success" disabled="" type="submit">Update Settings</button></td>
-                    <td><button class="btn btn-danger" disabled="">Kick Teammember</button></td>
+                    <td><button class="btn btn-success" disabled="" type="submit" name="update" value="update">Update Settings</button></td>
+                    <td><button class="btn btn-danger" disabled="" type="submit" name="kick" value="kick" >Kick Teammember</button></td>
                 </form>
                 </tr>
                 @endforeach
@@ -210,8 +219,6 @@
 <script>$('document').ready(function (e) {
 
 
-
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -263,7 +270,7 @@
 
                         if (data) {
 
-                            $('#msg').html(" User "+newUserID+ " was succesfully added to the Team!").fadeIn('slow');
+                            $('#msg').html(" User " + newUserID + " was succesfully added to the Team!").fadeIn('slow');
                             $('#msg').addClass("alert");
                             $('#msg').addClass("alert-success");
                             $('#msg').delay(2000).fadeOut('slow');
@@ -302,6 +309,8 @@
                         $('#addPlayerTbl > tbody').html("");
 
                         if (data.length > 0) {
+
+                            $('#msg').fadeOut('fast');
                             $('#addPlayerTbl').css("display", "block");
 
 
@@ -314,6 +323,11 @@
 
 
                         } else {
+
+                            $('#msg').html("No User could be found").fadeIn('slow');
+                            $('#msg').addClass("alert");
+                            $('#msg').addClass("alert-danger");
+                            // $('#msg').delay(2000).fadeOut('slow');
                             $('#addPlayerTbl').css("display", "none");
                         }
 

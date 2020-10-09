@@ -13,6 +13,7 @@ class News extends Migration {
             $table->string("news_subheading");
             $table->string('news_author');
             $table->longtext('news_content');
+            $table->boolean("is_published");
             $table->timestamps();
         });
 

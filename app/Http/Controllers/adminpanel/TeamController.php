@@ -82,8 +82,42 @@ class TeamController extends Controller {
     public function updatePlayer(Request $request, $team_id) {
 
 
-        $userid = $request->get('userid');
-        $teamrole = $request->get('teamrole');
+
+        if (request()->get("kick") != null) {
+
+            //Kick User From Team
+
+            $userdata = User::where("id", "=", $request->get('userid'))->first();
+            $userdata->team_id = null;
+            $userdata->team_role = null;
+
+            $userdata->save();
+
+            //Creating Adminlog
+            $admin_log = new Admin_log;
+            $admin_log->user_id = Auth::user()->id;
+            $admin_log->query = $userdata;
+            $admin_log->save();
+
+
+
+            return redirect()->back()->with("msg", "Player removed from Team");
+        } else {
+
+            $userdata = User::where("id", "=", $request->get('userid'))->first();
+
+            $userdata->team_role = $request->get('teamrole');
+
+            $userdata->save();
+
+            //Creating Adminlog
+            $admin_log = new Admin_log;
+            $admin_log->user_id = Auth::user()->id;
+            $admin_log->query = $userdata;
+            $admin_log->save();
+
+            return redirect()->back()->with("msg", "Player updated");
+        }
     }
 
     public function searchUser(Request $request) {
