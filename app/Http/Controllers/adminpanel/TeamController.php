@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\adminpanel;
 
+use Illuminate\Support\Facades\Auth;
+use App\Admin_log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Team;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use App\Rules\TeamNameNotTaken;
 use App\Rules\TeamTagNotTaken;
 use Illuminate\Support\Facades\Validator;
@@ -47,9 +50,17 @@ class TeamController extends Controller {
 
         $team_data = Team::where('team_id', "=", $team_id)->first();
 
-        $team_members = User::select('username','id', 'avatar_url', 'team_role')->where("team_id", "=", $team_id)
+
+
+        /* $team_roles = Team::select('teams.*', "users.id", "users.username")->leftJoin('users', "users.team_id", "=", 'teams.team_id')
+          ->where('teams.team_id', '=', $team_id)
+          ->first();
+          var_dump($team_roles);
+          die(); */
+
+        $team_members = User::select('username', 'id', 'avatar_url', 'team_role')->where("team_id", "=", $team_id)
                         ->orderBy('team_role', "ASC")->get();
-        
+
 
         return view("adminpanel.menus.teams.editteam")->with("teamdata", $team_data)->with("teammembers", $team_members);
     }
@@ -61,6 +72,54 @@ class TeamController extends Controller {
      */
     public function removeTeamlogo(Request $request, $team_id) {
         
+    }
+
+    /**
+     * Updates Team specific Parameters for the given Player.
+     * @param Request $request
+     * @param type $team_id
+     */
+    public function updatePlayer(Request $request, $team_id) {
+
+
+        $userid = $request->get('userid');
+        $teamrole = $request->get('teamrole');
+    }
+
+    public function searchUser(Request $request) {
+
+
+
+
+        $searchtext = $request->get("searchtext");
+
+
+        $user_results = DB::table("users")->select("id", "username")->where("username", "LIKE", "%" . $searchtext . "%")->where("team_id", "=", null)->orWhere('id', "LIKE", $searchtext . "%")->where("team_id", "=", null)->limit(50)->get()->toJson();
+        echo $user_results;
+    }
+
+    /**
+     * Adds a New User to a Team as a Player
+     * @param Request $request
+     * @param int $team_id Team-ID where the User will join
+     */
+    public function addUser(Request $request, $team_id) {
+
+
+        //Adding User to Team
+        $userdata = User::where("id", "=", $request->get('userid'))->first();
+        $userdata->team_id = $team_id;
+        $userdata->team_role = 4;
+
+        $userdata->save();
+
+        //Creating Adminlog
+        $admin_log = new Admin_log;
+        $admin_log->user_id = Auth::user()->id;
+        $admin_log->query = $userdata;
+        $admin_log->save();
+
+        echo(json_encode(true));
     }
 
     /**

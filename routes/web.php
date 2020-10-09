@@ -501,6 +501,22 @@ Route::get("admin/teams/{teamid}/edit", "adminpanel\TeamController@edit")
  */
 Route::post("admin/teams/{teamid}/update", "adminpanel\TeamController@update")->middleware("admin")->name("adminpanel_updateteam");
 
+
+/**
+ * Route for Updating a Teammember 
+ */
+Route::post("admin/teams/{teamid}/playerupdate", "adminpanel\TeamController@updatePlayer")->middleware("admin")->name("adminpanel_updateteammember");
+
+
+/**
+ * Searches potential new Users for the Team Account
+ */
+Route::get("admin/teams/searchuser", "adminpanel\TeamController@searchUser")->middleware("admin")->name("search_users_for_team");
+
+/**
+ * Adds a new User without a Team to the current Team
+ */
+Route::post("admin/teams/{team_id}/add", "adminpanel\TeamController@addUser")->middleware("admin")->name("add_user_to_team");
 /*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------
  */

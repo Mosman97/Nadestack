@@ -8,7 +8,7 @@
     <div class="col-md-3"></div>
 </div>
 
-        
+
 
 <hr>
 @if ($errors->any())
@@ -111,7 +111,15 @@
         </form>
     </div>
     <div id="menu1" class="tab-pane fade">
+        <hr>
         <h3>Teammember Management</h3>
+        <hr>
+
+
+        <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2"><button  type="button"  data-toggle="modal" data-target="#addplayermodal"class="btn btn-light"><label><i class="fa fa-plus" aria-hidden="true"></i></label> Add Player</button></div>
+        </div>
         <div class="table-responsive" style="padding-top: 10px;">
             <table class="table  text-center" id="player_table">
                 <thead>
@@ -129,15 +137,19 @@
 
                     @foreach ($teammembers as $user)
                     <tr id='{{ $user->id}}'>
-                        <td><input type="checkbox"></td>
-                <td><img src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user->avatar_url}}" width="50px" height="50px"></td>
-                        <td> {{ $user->id }}</td>
-                        <td> {{$user->username}}</td>
-                        <td><input  type="number"min="1" max="5" value="{{$user->team_role}}"></td>
-                            <td><button class="btn btn-success" disabled="">Update Settings</button></td>
-                        <td><button class="btn btn-danger" disabled="">Kick Teammember</button></td>
-                    </tr>
-                    @endforeach
+                <form action="{{route('adminpanel_updateteammember',$teamdata->team_id)}}" method="POST">
+                    @csrf
+                    <input hidden="" name="userid" value="{{$user->id}}">
+                    <td><input type="checkbox"></td>
+                    <td><img src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user->avatar_url}}" width="50px" height="50px"></td>
+                    <td> {{ $user->id }}</td>
+                    <td> {{$user->username}}</td>
+                    <td><input   disabled=""type="number"min="1" max="5" value="{{$user->team_role}}"></td>
+                    <td><button class="btn btn-success" disabled="" type="submit">Update Settings</button></td>
+                    <td><button class="btn btn-danger" disabled="">Kick Teammember</button></td>
+                </form>
+                </tr>
+                @endforeach
 
                 </tbody>
             </table>
@@ -149,11 +161,56 @@
     </div>
 </div>
 
+<! Add Player-->
+<!-- Modal -->
+<div class="modal fade" id="addplayermodal" tabindex="-1" role="dialog" aria-labelledby="addplayermodal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Player to Team</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="msg"></div>
+                <div class="input-group col-md-12">
+                    <input class="form-control py-2" type="search" placeholder="Name or ID" id="playersearch">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+                <div class="col-md-12">
+                    <table class="table  text-center" id="addPlayerTbl">
+
+                        <thead>
+                        <th></th>
+                        <th>User-ID</th>
+                        <th>Username</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" id="addteambtn" disabled="">Add to Team</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
 
-   <script>$('document').ready(function (e) {
+<script>$('document').ready(function (e) {
+
+
+
 
         $.ajaxSetup({
             headers: {
@@ -161,40 +218,146 @@
             }
         });
 
-        var selected_row = null;
-        
-        
-        
-   
 
-        $('#player_table >tbody >tr > td > input').on('click', function (e) {
-            
-                 console.log(selected_row);
+
+
+        var hasNewTeamUserSelected = false;
+        var newUserID = null;
+
+        $('body').on('click', "#addPlayerTbl > tbody > tr > td > input", function (e) {
+
+
+
+
+            if ($(this).prop("checked")) {
+
+                $(this).parent().parent().addClass("news_select_highlightning");
+                hasNewTeamUserSelected = true;
+                $('#addteambtn').prop("disabled", false);
+
+                newUserID = $(this).parent().parent().attr("id");
+            } else {
+                hasNewTeamUserSelected = false;
+                $(this).parent().parent().removeClass("news_select_highlightning");
+                $('#addteambtn').prop("disabled", true);
+                newUserID = null;
+            }
+
+
+        });
+
+
+        $('#addteambtn').on('click', function (e) {
+
+
+            if (hasNewTeamUserSelected) {
+
+
+                $.ajax({
+                    url: "{{route('add_user_to_team',$teamdata->team_id)}}",
+                    type: "POST",
+                    data: {_token: "{{ csrf_token() }}", userid: newUserID},
+                    dataType: 'json',
+                    success: function (data) {
+
+
+                        if (data) {
+
+                            $('#msg').html(" User "+newUserID+ " was succesfully added to the Team!").fadeIn('slow');
+                            $('#msg').addClass("alert");
+                            $('#msg').addClass("alert-success");
+                            $('#msg').delay(2000).fadeOut('slow');
+                            newUserID = false;
+                            hasNewTeamUserSelected = false;
+                            $('#addPlayerTbl').css("display", "none");
+                            $('#playersearch').val("");
+                        }
+
+
+                    }});
+
+
+
+            }
+
+        });
+
+
+
+        $('#playersearch').on('keyup', function (e) {
+
+
+
+            if ($('#playersearch').val().length > 0) {
+
+
+                $.ajax({
+                    url: "{{route('search_users_for_team')}}",
+                    type: "GET",
+                    data: {searchtext: $('#playersearch').val()},
+                    dataType: 'json',
+                    success: function (data) {
+
+
+                        $('#addPlayerTbl > tbody').html("");
+
+                        if (data.length > 0) {
+                            $('#addPlayerTbl').css("display", "block");
+
+
+                            for (var i = 0; i < data.length; i++) {
+
+                                $('#addPlayerTbl > tbody').append("<tr id='" + data[i]['id'] + "'><td><input type='checkbox'></td><td>" + data[i]['id'] + "</td><td>" + data[i]['username'] + "</td></tr>");
+
+                            }
+                            // $('#addPlayerTbl > tbody').html("");
+
+
+                        } else {
+                            $('#addPlayerTbl').css("display", "none");
+                        }
+
+                    }});
+
+
+            } else {
+
+                $('#addPlayerTbl').css("display", "none");
+            }
+
+        });
+
+        var selected_row = null;
+
+        $('#addPlayerTbl').css("display", "none");
+
+        $('#player_table >tbody >tr').find("td:eq(0)").find("input").on('click', function (e) {
 
             if ($(this).prop('checked')) {
 
 
                 //Getting Row ID
                 selected_row = $(this).parent().parent().attr("id");
-
                 //Enable Buttons
-                $(this).parent().parent().find("td:last").find("button").prop('disabled', false);
+                //$(this).parent().parent().find("td:last").find("button").prop('disabled', false);
                 $(this).parent().parent().addClass("news_select_highlightning");
-
+                $(this).parent().parent().find("input").prop("disabled", false);
+                $(this).parent().parent().find("button").prop("disabled", false);
             } else {
-
                 //Disbale Buttons
-                $(this).parent().parent().find("td:last").find("button").prop('disabled', true);
-
+                $(this).parent().parent().find("td:eq(5)").find("input").prop("disabled", true);
+                $(this).parent().parent().find("td:eq(6)").find("input").prop("disabled", true);
+                $(this).parent().parent().find("button").prop("disabled", true);
                 $(this).parent().parent().removeClass("news_select_highlightning");
-
                 //Reset selected row
 
                 selected_row = null;
             }
 
 
-        }); });
+        }
+        );
+    });
 
 </script>
 
