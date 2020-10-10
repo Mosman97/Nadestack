@@ -107,6 +107,9 @@ class TeamController extends Controller {
             $userdata = User::where("id", "=", $request->get('userid'))->first();
 
             $userdata->team_role = $request->get('teamrole');
+            
+            
+        
 
             $userdata->save();
 

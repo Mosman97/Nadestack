@@ -153,7 +153,7 @@
                     <td><img src="{{URL::asset('assets/img/profile_pictures/')}}/{{$user->avatar_url}}" width="50px" height="50px"></td>
                     <td> {{ $user->id }}</td>
                     <td> {{$user->username}}</td>
-                    <td><input   disabled=""type="number"min="1" max="5" value="{{$user->team_role}}"></td>
+                    <td><input  name="teamrole" disabled=""type="number"min="1" max="5" value="{{$user->team_role}}"></td>
                     <td><button class="btn btn-success" disabled="" type="submit" name="update" value="update">Update Settings</button></td>
                     <td><button class="btn btn-danger" disabled="" type="submit" name="kick" value="kick" >Kick Teammember</button></td>
                 </form>

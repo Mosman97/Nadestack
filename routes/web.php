@@ -124,7 +124,7 @@ Route::get("league/myleague", "MyLeagueController@ViewOrganiser")
  * Route for creating a new Team Ressource (Can only be called if User is not in a Team)s
  */
 Route::get("league/createTeam", "TeamRegisterController@index")
-        ->name("teamregister")->middleware('auth');
+        ->name("teamregister")->middleware('auth')->middleware('teamowner');
 
 /**
  * Create a new Team Ressource
