@@ -445,6 +445,17 @@ Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@upda
         ->middleware('admin')->name("adminpanel_updatenews");
 
 
+/**
+ * Publishs a News 
+ */
+Route::post("admin/news/publish", "adminpanel\AdminPanelNewsController@publishNews")->middleware("admin")->name("adminpanel_publishnews");
+
+
+/**
+ * Reclines a News 
+ */
+Route::post("admin/news/recline", "adminpanel\AdminPanelNewsController@reclineNews")->middleware("admin")->name("adminpanel_reclinenews");
+
 
 /*
  * Default View for all Players /Users in Nadestack
@@ -523,8 +534,7 @@ Route::post("admin/teams/{team_id}/add", "adminpanel\TeamController@addUser")->m
 /**
  * Deletes Team From Nadestack
  */
-
-Route::post("admin/teams/delete","adminpanel\TeamController@deleteTeam")->middleware("admin")->name("admin_delete_team");
+Route::post("admin/teams/delete", "adminpanel\TeamController@deleteTeam")->middleware("admin")->name("admin_delete_team");
 /*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------
  */

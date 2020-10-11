@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\News;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Admin_log;
 
 class AdminPanelNewsController extends Controller {
 
@@ -134,8 +135,7 @@ class AdminPanelNewsController extends Controller {
         $news_metadata[0]['news_author'] = Auth::user()->username;
         $news_metadata[0]['preview'] = 1;
         return view("news_example")
-            ->with("news_metadata", $news_metadata);
-
+                        ->with("news_metadata", $news_metadata);
     }
 
     /**
@@ -225,7 +225,53 @@ class AdminPanelNewsController extends Controller {
      * @param Request $request
      */
     public function mulidestroy(Request $request) {
+        
+    }
 
+    /**
+     * 
+     * @param Request $request
+     */
+    public function publishNews(Request $request) {
+
+
+        //Updating News
+        $news = News::where("news_id", "=", $request->get('newsid'))->update([
+            'is_published' => 1
+        ]);
+
+        //Creating Adminlog
+        $admin_log = new Admin_log;
+        $admin_log->user_id = Auth::user()->id;
+        $admin_log->query = $news;
+        $admin_log->save();
+
+
+
+        return back()->with("msg", "A News was succesfully published!");
+    }
+
+    /**
+     * 
+     * @param Request $request
+     */
+    public function reclineNews(Request $request) {
+
+
+        //Updating News
+        $news = News::where("news_id", "=", $request->get('newsid'))->update([
+            'is_published' => 0
+        ]);
+
+        //Creating Adminlog
+        $admin_log = new Admin_log;
+        $admin_log->user_id = Auth::user()->id;
+        $admin_log->query = $news;
+        $admin_log->save();
+
+
+
+        return back()->with("msg", "A News was succesfully reclined!");
     }
 
 }

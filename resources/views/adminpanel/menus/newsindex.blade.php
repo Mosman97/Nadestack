@@ -53,6 +53,10 @@
 
                 $(this).parent().parent().addClass("news_select_highlightning");
 
+
+                $('#published-newsid').val(selected_row);
+                $('#recline-newsid').val(selected_row);
+
             } else {
 
                 //Disbale Buttons
@@ -146,7 +150,13 @@
                 <td><div class="btn-group"  style="margin-left:50px;"role="group" aria-label="Basic example">
                         <button type="button" disabled="true" class="btn btn-info" id='news_edit_btn'>Edit</button>
                         <div class="divider"></div>
-                        <button type="button" disabled="true"class="btn btn-success">Archive</button>
+
+                        @if($newsitem->is_published == 0) 
+                        <button data-toggle="modal" data-target="#publishmodal" type="button" disabled="true"class="btn btn-success">Publish</button>
+                        <div class="divider"></div>
+                        @else
+                        <button data-toggle="modal" data-target="#reclinemodal" type="button" disabled="true"class="btn btn-success">Recline</button>
+                        @endif
                         <div class="divider"></div>
                         <button type="button" disabled="true"class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</button>
                     </div>
@@ -202,6 +212,55 @@
 </div>
 
 
+<!--Publish Modal!-->
+<div class="modal fade" id="publishmodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Publish News</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{{route('adminpanel_publishnews')}}">
+                @csrf
+                <input hidden="" name="newsid" value="" id="published-newsid">
+                <div class="modal-body">
+                    Do you really want to publish the selected News?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="delete_news_btn" class="btn btn-success" >Publish</button>
+                </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+<!--Recline Modal!-->
+<div class="modal fade" id="reclinemodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Publish News</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form  method="POST" action="{{route('adminpanel_reclinenews')}}">
+                @csrf
+                <input hidden=""  name="newsid" value="" id="recline-newsid">
+                <div class="modal-body">
+                    Do you really want to recline the selected News?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="delete_news_btn" class="btn btn-danger" >Recline News</button>
+                </div>  
+            </form>
+        </div>
+    </div>
+</div>
 
 <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 
@@ -217,6 +276,10 @@
             $("#success-alert").slideUp(500);
         });
     });
+
+
+
+
 
 
 
