@@ -48,16 +48,6 @@ class CreateForumTables extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('forum_reports', function (Blueprint $table) {
-            $table->increments('forum_report_id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('forum_post_id')->unsigned();
-            $table->foreign('forum_post_id')->references('forum_post_id')->on('forum_posts');
-            $table->longtext('forum_report_message');
-            $table->timestamps();
-        });
-
         //Adding Forum Categories
 
         DB::table('forum_categories')->insert(
@@ -164,7 +154,6 @@ class CreateForumTables extends Migration {
         Schema::dropIfExists('forum_threads');
         Schema::dropIfExists('forum_posts');
         Schema::dropIfExists('forum_posts_deleted');
-        Schema::dropIfExists('forum_reports');
     }
 
 }

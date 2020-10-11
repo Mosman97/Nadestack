@@ -13,8 +13,8 @@
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link" href="#">
-                    <i class="fas fa-tasks"></i>
-                    <span>Tasks</span>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>Reports</span>
                 </a>
             </li>
             <li class="nav-item" role="presentation">
