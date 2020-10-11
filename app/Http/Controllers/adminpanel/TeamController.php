@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use App\Rules\TeamNameNotTaken;
 use App\Rules\TeamTagNotTaken;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class TeamController extends Controller {
 
@@ -107,9 +108,9 @@ class TeamController extends Controller {
             $userdata = User::where("id", "=", $request->get('userid'))->first();
 
             $userdata->team_role = $request->get('teamrole');
-            
-            
-        
+
+
+
 
             $userdata->save();
 
@@ -226,6 +227,38 @@ class TeamController extends Controller {
 
             return redirect()->back()->with('message', 'Updated TeamSettings!');
         }
+    }
+
+    /**
+     * Deletes a Team From the Database
+     * @param Request $request
+     * @return type
+     */
+    public function deleteTeam(Request $request) {
+
+
+
+        if (!Hash::check($request->get('pw'), Auth::user()->password)) {
+
+
+            return redirect()->back()->withErrors("error", "couldnt delete the Team, Please Enter´a valid password!");
+        }
+
+        $team_id = $request->get('teamid');
+
+        $team = Team::where("team_id", "=", $team_id)->first();
+
+        $team->delete();
+
+
+        //Creating Adminlog
+        $admin_log = new Admin_log;
+        $admin_log->user_id = Auth::user()->id;
+        $admin_log->query = $team;
+        $admin_log->save();
+
+
+        return redirect()->back()->with("msg", "the selected Team  was successfully deleted!");
     }
 
 }

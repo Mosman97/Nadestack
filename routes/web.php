@@ -517,6 +517,14 @@ Route::get("admin/teams/searchuser", "adminpanel\TeamController@searchUser")->mi
  * Adds a new User without a Team to the current Team
  */
 Route::post("admin/teams/{team_id}/add", "adminpanel\TeamController@addUser")->middleware("admin")->name("add_user_to_team");
+
+
+
+/**
+ * Deletes Team From Nadestack
+ */
+
+Route::post("admin/teams/delete","adminpanel\TeamController@deleteTeam")->middleware("admin")->name("admin_delete_team");
 /*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------
  */
