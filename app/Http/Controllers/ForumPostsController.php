@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\forum_category;
-use App\forum_report;
+use App\report;
 use Illuminate\Http\Request;
 use DB;
 use App\forum_post;
@@ -74,11 +74,11 @@ class ForumPostsController extends Controller {
         $report_message = $request -> input("report_message");
         $idreport = $request ->input("idreport");
 
-        $forum_report = forum_report::create(
+        $forum_report = report::create(
             [
                 "user_id" => Auth::user()->id,
                 "forum_post_id" => $idreport,
-                "forum_report_message" => $report_message,
+                "report_message" => $report_message,
             ]);
 
         return redirect()->back()->with('success', 'Report ging raus du Hünd');

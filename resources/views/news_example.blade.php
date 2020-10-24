@@ -41,6 +41,9 @@
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                @auth
+                                                <div class="col text-right"><button class="reportPost" id="r{{$forum_post_entry->forum_post_id}}" data-toggle="modal" data-target="#modalReport" type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Melden</button></div>
+                                                @endauth
                                                 <div class="col-md-3" style="margin-left: 15px">
                                                     <a href="{{route('startpage')}}/user/{{$news_comment->username}}">
                                                         <img class="rounded-circle" style="width:80px; height:80px; margin-bottom: 10px;" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$news_comment->avatar_url}}">
@@ -81,3 +84,42 @@
     </div>
 </div>
 @endsection
+<script>
+    $(document).on("click", ".reportPost", function () {
+        var postid = $(this).attr('id');
+
+        while(postid.charAt(0) === 'r')
+        {
+            postid = postid.substr(1);
+        }
+
+        $("#idreport").val( postid );
+    });
+</script>
+<!-- modaler dialog für user zum reporten -->
+<div class="modal fade" id="modalReport" tabindex="-1" role="dialog" aria-hidden="true" style="color: white">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #474B4F; font-family: 'Roboto';">
+            <form action="#"  method="POST">
+                @csrf
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Report User Message</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <input class="invisible" name="idreport" id="idreport" value="">
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5 text-center">
+                        <label data-error="wrong" data-success="right" for="message">Leave a comment to the report</label>
+                        <textarea name="report_message" rows="10" type="text" id="message" class="form-control validate"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-danger" type="submit">Report Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -413,7 +413,6 @@ Route::get('/admin/news', "adminpanel\AdminPanelNewsController@index")
 Route::get("/admin/news/new", "adminpanel\AdminPanelNewsController@create")
         ->middleware('admin')->name("adminpanel_createnews");
 
-
 /*
  * Stores /Saves a newly created News in the Database
  */
@@ -445,17 +444,22 @@ Route::post("/admin/news/update/{id}", "adminpanel\AdminPanelNewsController@upda
         ->middleware('admin')->name("adminpanel_updatenews");
 
 
-/**
- * Publishs a News 
+/*
+ * Publishs a News
  */
 Route::post("admin/news/publish", "adminpanel\AdminPanelNewsController@publishNews")->middleware("admin")->name("adminpanel_publishnews");
 
 
-/**
- * Reclines a News 
+/*
+ * Reclines a News
  */
 Route::post("admin/news/recline", "adminpanel\AdminPanelNewsController@reclineNews")->middleware("admin")->name("adminpanel_reclinenews");
 
+/*
+ * Overview of all News
+ */
+Route::get('/admin/reports', "adminpanel\ReportController@index")
+    ->middleware('admin')->name('adminpanel_reportindex');
 
 /*
  * Default View for all Players /Users in Nadestack
@@ -508,13 +512,13 @@ Route::get("admin/teams/{teamid}/edit", "adminpanel\TeamController@edit")
 
 
 /**
- * Route for Updating a Team 
+ * Route for Updating a Team
  */
 Route::post("admin/teams/{teamid}/update", "adminpanel\TeamController@update")->middleware("admin")->name("adminpanel_updateteam");
 
 
 /**
- * Route for Updating a Teammember 
+ * Route for Updating a Teammember
  */
 Route::post("admin/teams/{teamid}/playerupdate", "adminpanel\TeamController@updatePlayer")->middleware("admin")->name("adminpanel_updateteammember");
 

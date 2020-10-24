@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('adminpanel_reportindex')}}">
                     <i class="fas fa-exclamation-circle"></i>
                     <span>Reports</span>
                 </a>

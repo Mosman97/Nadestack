@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Password:</label></div>
-                                    <div class="col-sm-6 input-column"><input required id="password" class="form-control" type="password"name="password"></div>
+                                    <div class="col-sm-6 input-column"><input minlength="6" required id="password" class="form-control" type="password"name="password"></div>
                                            @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column"><label class="col-form-label">Confirm Password:</label></div>
-                                    <div class="col-sm-6 input-column"><input required class="form-control" id="password_con" name="password_con" type="password"></div>
+                                    <div class="col-sm-6 input-column"><input minlength="6" required class="form-control" id="password_con" name="password_con" type="password"></div>
                                 </div>
                                 <hr class="bg-light"/>
                                 <div class="form-check text-center"><input required class="form-check-input" type="checkbox" name="formCheck"><label class="form-check-label" for="formCheck">I've read and accept the <a style="color: red;" href="http://www.99damage.de">terms and conditions</a></label></div>
