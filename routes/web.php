@@ -459,7 +459,7 @@ Route::post("admin/news/recline", "adminpanel\AdminPanelNewsController@reclineNe
  * Overview of all News
  */
 Route::get('/admin/reports', "adminpanel\ReportController@index")
-    ->middleware('admin')->name('adminpanel_reportindex');
+        ->middleware('admin')->name('adminpanel_reportindex');
 
 /*
  * Default View for all Players /Users in Nadestack
@@ -539,6 +539,27 @@ Route::post("admin/teams/{team_id}/add", "adminpanel\TeamController@addUser")->m
  * Deletes Team From Nadestack
  */
 Route::post("admin/teams/delete", "adminpanel\TeamController@deleteTeam")->middleware("admin")->name("admin_delete_team");
+
+
+
+
+
+
+
+
+/*
+ * --------------BEGIN OF ADMIN RELATED LEAGUE ROUTES-------------------------
+ */
+
+
+Route::get("admin/league","adminpanel\LeagueController@index")->middleware("admin")->name("adminpanel_leagueindex");
+
+
+/*
+ * ------------------END OF ADMIN RELATED LEAGUE ROUTES------------------------- 
+ */
+
+
 /*
  * -----------------------------END OF ADMIN RELATED ROUTES-------------------
  */

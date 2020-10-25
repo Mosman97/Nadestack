@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" href="profile.html">
+                <a class="nav-link" href="{{route('adminpanel_leagueindex')}}">
                     <i class="fas fa-gamepad"></i>
                     <span>League</span>
                 </a>
