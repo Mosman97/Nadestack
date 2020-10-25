@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use App\newscomment;
 use Illuminate\Support\Facades\Validator;
 
-
 class NewsController extends Controller {
     /*     * -
      * Returns the News
@@ -20,30 +19,38 @@ class NewsController extends Controller {
 
     public function index(Request $request) {
 
-        $news = News::where('is_published',"=","1")->orderBy('created_at', "desc")->paginate(5);
+        $news = News::where('is_published', "=", "1")->orderBy('created_at', "desc")->paginate(5);
         return view("news")->with("news", $news);
     }
 
-    public function getNewsDetails($news_id){
+    public function getNewsDetails($news_id) {
 
         //get Metadata of the articel
         $news_metadata = News::select('news.*')
-            ->where("news_id", "=", $news_id)
-            ->get();
+                ->where("news_id", "=", $news_id)
+                ->where("is_published", "=", 1)
+                ->get();
+
+
+        if (count($news_metadata) != 1) {
+
+
+            abort(404);
+        }
 
         //get comments of the article
-        $news_comments = newscomment::select('users.id', 'users.username', 'users.avatar_url','newscomments.*')
-            ->where("news_id", "=", $news_id)
-            ->leftJoin("users", "users.id", "=", "newscomments.user_id")
-            ->orderBy('newscomments.created_at', "asc")
-            ->paginate(10);
+        $news_comments = newscomment::select('users.id', 'users.username', 'users.avatar_url', 'newscomments.*')
+                ->where("news_id", "=", $news_id)
+                ->leftJoin("users", "users.id", "=", "newscomments.user_id")
+                ->orderBy('newscomments.created_at', "asc")
+                ->paginate(10);
 
         return view("news_example")
-            ->with("news_metadata", $news_metadata)
-            ->with("news_comments", $news_comments);
+                        ->with("news_metadata", $news_metadata)
+                        ->with("news_comments", $news_comments);
     }
 
-    public function storeComment(Request $request, $news_id){
+    public function storeComment(Request $request, $news_id) {
 
         //Validating Rules for a new comment
         $comment_rules = [
@@ -55,26 +62,25 @@ class NewsController extends Controller {
             'comment.required' => 'Bitte Text eingeben!',
         ];
 
-        $validator = Validator::make($request->all(), $comment_rules, $response_validation_msg );
+        $validator = Validator::make($request->all(), $comment_rules, $response_validation_msg);
 
         if ($validator->fails()) {
             $message = $validator->errors();
 
             return redirect()->back()
-                ->withErrors($message)
-                ->withInput();
+                            ->withErrors($message)
+                            ->withInput();
         }
 
-        $comment = $request -> input("comment");
+        $comment = $request->input("comment");
 
         $news_comment = Newscomment::create(
-            [   "comment" => $comment,
-                "user_id" => Auth::user()->id,
-                "news_id" => $news_id,
-            ]);
+                        ["comment" => $comment,
+                            "user_id" => Auth::user()->id,
+                            "news_id" => $news_id,
+        ]);
 
         return redirect()->back()->with('success', 'comment created');
-
     }
 
 }
