@@ -3,12 +3,11 @@
 @section('content')
 
 
-{{var_dump($search_results)}}
 <div class="container-fluid nadestack_body">
     <div class="row">
         <div class="col-xl-3"></div>
         <div class="col colum_content_big">
-            <h1 class="text-center nadestack_heading_one">Results for AlexRr</h1>
+            <h1 class="text-center nadestack_heading_one">Results for {{$query ?? ''}}</h1>
             <div class="filter">
                 <form action="{{route('search')}}" method="GET">
                     <input  name="query"placeholder="e.g S1mple, Astralis, ...">
@@ -108,7 +107,7 @@
             </div>
             @endforeach
 
-                    @elseif($search_category['search_ranking'] == 4)
+            @elseif($search_category['search_ranking'] == 4)
 
             @foreach($forumthread_results as $thread)
 
@@ -134,7 +133,7 @@
             @endforeach
 
 
-                     @elseif($search_category['search_ranking'] == 5)
+            @elseif($search_category['search_ranking'] == 5)
 
             @foreach($forumpost_results as $post)
 
@@ -162,19 +161,12 @@
             </div>
             @endforeach
 
-
-
             @endif
-
-
-
 
             @endforeach
 
 
             @endif
-
-
 
 
             <div class="row" style="margin-top: 20px;"><div id ="news_pagination" class="row mx-auto">
@@ -196,7 +188,9 @@
                         </nav>
                     </div>
 
-                </div></div>
+                </div>
+            </div>
+
         </div>
         <div class="col-xl-3"></div>
     </div>

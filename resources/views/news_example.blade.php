@@ -41,9 +41,6 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                @auth
-                                                <div class="col text-right"><button class="reportPost" id="r{{$forum_post_entry->forum_post_id}}" data-toggle="modal" data-target="#modalReport" type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Melden</button></div>
-                                                @endauth
                                                 <div class="col-md-3" style="margin-left: 15px">
                                                     <a href="{{route('startpage')}}/user/{{$news_comment->username}}">
                                                         <img class="rounded-circle" style="width:80px; height:80px; margin-bottom: 10px;" src="{{URL::asset('assets/img/profile_pictures/')}}/{{$news_comment->avatar_url}}">
@@ -56,6 +53,9 @@
                                                     <p>{{$news_comment->comment}}</p>
                                                 </div>
                                                 <div class="col-md-3"></div>
+                                                @auth
+                                                    <div class="col text-right"><button class="reportPost" id="r" data-toggle="modal" data-target="#modalReport" type="button" style="color: white; height: 17px; font-size: smaller; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;">Melden</button></div>
+                                                @endauth
                                             </div>
                                         </li>
                                     </ul>

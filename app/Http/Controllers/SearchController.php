@@ -25,6 +25,7 @@ class SearchController extends Controller {
         $user_searchresults = Null;
         $teams_searchresults = Null;
         $news_searchresults = Null;
+        $query = $request->input('query');
 
         $search_categories = search_category::orderBy("search_ranking", "ASC")->get();
 
@@ -62,12 +63,14 @@ class SearchController extends Controller {
                             return view('search')->with("search_results", TRUE)
                                             ->with("search_categories", $search_categories)
                                             ->with("user_results", $user_results)
-                                            ->with("search_result_categories", $search_result_categories);
+                                            ->with("search_result_categories", $search_result_categories)
+                                            ->with("query", $query);
                         case 2:
                             $team_results = Team::where("team_name", "LIKE", "%" . $request->input('query') . "%")->get();
                             return view('search')->with("search_results", TRUE)
                                             ->with("search_categories", $search_categories)
                                             ->with("team_results", $team_results)
+                                            ->with("query", $query)
                                             ->with("search_result_categories", $search_result_categories);
 
                         case 3:
@@ -75,6 +78,7 @@ class SearchController extends Controller {
                             return view('search')->with("search_results", TRUE)
                                             ->with("search_categories", $search_categories)
                                             ->with("news_results", $news_results)
+                                            ->with("query", $query)
                                             ->with("search_result_categories", $search_result_categories);
 
 
@@ -83,6 +87,7 @@ class SearchController extends Controller {
                             return view('search')->with("search_results", TRUE)
                                             ->with("search_categories", $search_categories)
                                             ->with("forumthread_results", $thread_results)
+                                            ->with("query", $query)
                                             ->with("search_result_categories", $search_result_categories);
 
                         case 5:
@@ -91,10 +96,12 @@ class SearchController extends Controller {
                             return view('search')->with("search_results", TRUE)
                                             ->with("search_categories", $search_categories)
                                             ->with("forumpost_results", $threadposts_results)
+                                            ->with("query", $query)
                                             ->with("search_result_categories", $search_result_categories);
 
                         default: return view('search')->with("search_results", NULL)
                                             ->with("search_categories", $search_categories)
+                                            ->with("query", $query)
                                             ->with("error", "No Data found");
                     }
                 }
@@ -122,7 +129,8 @@ class SearchController extends Controller {
                                     ->with("team_results", $team_results)
                                     ->with("news_results", $news_results)
                                     ->with("forumthread_results", $forumthread_results)
-                                    ->with("forumpost_results", $forumposts_results);
+                                    ->with("forumpost_results", $forumposts_results)
+                                    ->with("query", $query);
                 }
             } else {
 
@@ -133,6 +141,7 @@ class SearchController extends Controller {
 
             return view("search")
                             ->with("search_results", Null)
+                            ->with("query", $query)
                             ->with("search_categories", $search_categories);
         }
 
