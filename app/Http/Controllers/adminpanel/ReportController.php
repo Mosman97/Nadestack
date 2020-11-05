@@ -29,4 +29,11 @@ class ReportController extends Controller {
 
     }
 
+    public function edit(Request $request, $report_id)
+    {
+        $reportdata = Report::where('id', "=", $report_id)->first();
+
+        return view('adminpanel.menus.reports.reportedit')->with("reports",$reportdata);
+    }
+
 }
