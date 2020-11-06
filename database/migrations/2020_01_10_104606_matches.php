@@ -18,10 +18,15 @@ class Matches extends Migration {
             $table->bigInteger('team_1_id');
             $table->bigInteger('team_2_id');
             $table->uuid('vetolog_id');
+            $table->bigInteger('state');
             $table->longtext('match_results')->nullable();
             $table->longtext('match_log')->nullable();
             $table->boolean('match_closed');
             $table->dateTime('match_date');
+            $table->dateTime('team_1_confirmation_date');
+            $table->dateTime('team_2_confirmation_date');
+            $table->bigInteger('sug_team_id');
+            $table->string('server_ip');
             $table->timestamps();
 
 

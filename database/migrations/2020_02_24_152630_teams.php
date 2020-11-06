@@ -21,6 +21,7 @@ class Teams extends Migration {
             $table->string('team_logo')->nullable();
             $table->string('team_password');
             $table->string('team_desc')->nullable();
+            $table->bigInteger('division_id')->nullable();
             $table->smallInteger('team_reamining_slots');
             $table->bigInteger('team_admin_id');
             $table->bigInteger('team_captain_1_id')->nullable();
