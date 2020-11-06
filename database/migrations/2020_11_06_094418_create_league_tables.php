@@ -66,13 +66,6 @@ class CreateLeagueTables extends Migration
             $table->bigInteger('round');
             $table->timestamps();
         });
-
-        Schema::create('Maps', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->boolean('is_official');
-            $table->timestamps();
-        });
     }
 
     /**
@@ -88,6 +81,5 @@ class CreateLeagueTables extends Migration
         Schema::dropIfExists('MatchStats');
         Schema::dropIfExists('PlayerStats');
         Schema::dropIfExists('RoundStats');
-        Schema::dropIfExists('Maps');
     }
 }
