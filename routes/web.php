@@ -552,11 +552,17 @@ Route::post("admin/teams/delete", "adminpanel\TeamController@deleteTeam")->middl
  */
 
 
-Route::get("admin/league","adminpanel\LeagueController@index")->middleware("admin")->name("adminpanel_leagueindex");
+Route::get("admin/league","adminpanel\LeagueController@index")
+    ->middleware("admin")->name("adminpanel_leagueindex");
 
+/**
+ * Deletes Team From Nadestack
+ */
+Route::post("admin/league/seasonstart", "adminpanel\LeagueController@startnewseason")
+    ->middleware("admin")->name("admin_start_season");
 
 /*
- * ------------------END OF ADMIN RELATED LEAGUE ROUTES------------------------- 
+ * ------------------END OF ADMIN RELATED LEAGUE ROUTES-------------------------
  */
 
 

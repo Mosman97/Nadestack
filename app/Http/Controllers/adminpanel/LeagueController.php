@@ -10,9 +10,13 @@ class LeagueController extends Controller {
 
     public function index(Request $request) {
 
+
+        $today = date("Ymd");;
         //zuerst wird geschaut, welche die aktive Season ist, falls keine vorhanden, kann man eine neue Season starten
         $start_league = 1;
-        $active_season = Season::where("active", "" , "true");
+        $active_season = Season::where("is_active", "" , "true")
+            ->orWhere('season_start', '>', $today)
+            ->first();
 
         if($active_season != null)
         {
@@ -32,10 +36,13 @@ class LeagueController extends Controller {
                 'season_end' => $request -> input("seasonend"),
                 'team_limit' => $request -> input("teamlimit"),
                 'reg_end' => $request -> input("regend"),
+                'is_active' => false,
             ]
         );
 
-        return redirect();
+        $start_league = 0;
+        return view("adminpanel.menus.league.leagueindex")
+            ->with("start_league", $start_league);
     }
 
 }

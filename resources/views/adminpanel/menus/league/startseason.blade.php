@@ -1,5 +1,5 @@
 <div style="border: grey;border-width: 2px;border-style: solid; border-radius: 5px">
-    <form method="POST" action="#">
+    <form method="POST" action="{{route('admin_start_season')}}">
         @csrf
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <div class="col-md-1"></div>
