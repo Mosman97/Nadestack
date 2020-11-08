@@ -16,6 +16,7 @@ class Season extends Model
         'is_active',
         'team_limit',
         'reg_end',
+        'reg_start'
     ];
     protected $guarded = [];
 }

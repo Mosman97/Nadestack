@@ -37,6 +37,12 @@
         </div>
 
         <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
+            <label class="col-md-2">Registration start:</label>
+            <input class="col form-control" type="date" name="regstart" required >
+            <div class="col-md-5"></div>
+        </div>
+
+        <div class="form-row text-center d-xl-flex justify-content-xl-center align-items-xl-center editrow">
             <label class="col-md-2">Registration end:</label>
             <input class="col form-control" type="date" name="regend" required >
             <div class="col-md-5"></div>

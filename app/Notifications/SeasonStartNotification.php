@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 use App\Team;
 
-class TicketAnswerNotification extends Notification {
+class SeasonStartNotification extends Notification {
 
     use Queueable;
 
@@ -28,7 +28,7 @@ class TicketAnswerNotification extends Notification {
     }
 
     public function toDatabase() {
-        return ['data'=>"An admin replied to your ticket"];
+        return ['data'=>"A new season is starting soon!"];
     }
 
 }

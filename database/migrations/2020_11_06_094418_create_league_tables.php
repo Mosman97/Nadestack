@@ -18,10 +18,11 @@ class CreateLeagueTables extends Migration
             $table->string('name');
             $table->date('season_start');
             $table->date('season_end');
-            $table->bigInteger('registered_teams')->nullable();
-            $table->bigInteger('registered_players')->nullable();
+            $table->bigInteger('registered_teams')->default(0);
+            $table->bigInteger('registered_players')->default(0);
             $table->boolean('is_active');
             $table->bigInteger('team_limit');
+            $table->date('reg_start');
             $table->date('reg_end');
             $table->timestamps();
         });

@@ -34,9 +34,6 @@ class AdminPanelNewsController extends Controller {
      */
     public function create() {
 
-
-
-
         return view("adminpanel.menus.newscreate");
     }
 
@@ -185,7 +182,10 @@ class AdminPanelNewsController extends Controller {
                 'news_content' => $news_content['content']
             ]);
 
-
+            $admin_log = new Admin_log;
+            $admin_log->user_id = Auth::user()->id;
+            $admin_log->query = $news;
+            $admin_log->save();
 
             return back()->with("update_success", "News was succesfully edited!");
         }
@@ -225,34 +225,31 @@ class AdminPanelNewsController extends Controller {
      * @param Request $request
      */
     public function mulidestroy(Request $request) {
-        
+
     }
 
     /**
-     * 
+     *
      * @param Request $request
      */
     public function publishNews(Request $request) {
 
 
-        //Updating News
         $news = News::where("news_id", "=", $request->get('newsid'))->update([
             'is_published' => 1
         ]);
 
-        //Creating Adminlog
         $admin_log = new Admin_log;
         $admin_log->user_id = Auth::user()->id;
         $admin_log->query = $news;
         $admin_log->save();
 
 
-
         return back()->with("msg", "A News was succesfully published!");
     }
 
     /**
-     * 
+     *
      * @param Request $request
      */
     public function reclineNews(Request $request) {
@@ -263,12 +260,10 @@ class AdminPanelNewsController extends Controller {
             'is_published' => 0
         ]);
 
-        //Creating Adminlog
         $admin_log = new Admin_log;
         $admin_log->user_id = Auth::user()->id;
         $admin_log->query = $news;
         $admin_log->save();
-
 
 
         return back()->with("msg", "A News was succesfully reclined!");
