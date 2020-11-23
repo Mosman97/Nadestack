@@ -1,17 +1,19 @@
 @extends('templates.default_template')
 
 @section('content')
-    <script src='{{URL::asset('assets/js/validate/leagueregvalidate.js')}}'></script>
-    <div class="container-fluid" style="background-color: #0F0F0F;">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xl-2"></div>
             <div class="col">
                 <div id="profile_settings_form_container" style="width: auto;height: auto;">
-                    <div class="row text-white register-form" style="color: rgb(255,255,255);">
+                    <div class="row text-white register-form" >
                         <!-- Start: Pretty Registration Form -->
-                        <div class="col-md-8 offset-md-2">
-                            <form class="text-white" id="profile_settings_form" style="color: rgb(255,255,255);background-color: #333138;font-family: 'Roboto';margin-top: 100px;margin-bottom: 100px;" method="post" enctype="multipart/form-data">
-                                <h1 class="text-center text-light nadestack_heading_one">Apply for Nadestack Season 1</h1>
+                        <div class="col-md-8 offset-md-2 colum_content_small">
+                            <form class="text-white" id="profile_settings_form"  method="post" enctype="multipart/form-data">
+                                <h1 class="text-center text-light nadestack_heading_one">Apply for {{$season->name}}</h1>
+                                <p class="text-center">Registration end: {{$season->reg_end}}</p>
+                                <p class="text-center">Season start: {{$season->season_start}}</p>
+                                <p class="text-center">Season end: {{$season->season_end}}</p>
                                 <div class="form-row form-group">
                                     <div class="col-sm-4 col-xl-3 text-center d-xl-flex justify-content-xl-center align-items-xl-center label-column" style="padding-left: 5px;"><label class="col-form-label">Prefered day:</label></div>
                                     <div class="col-sm-6 input-column">

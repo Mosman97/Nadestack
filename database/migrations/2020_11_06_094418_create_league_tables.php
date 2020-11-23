@@ -27,7 +27,7 @@ class CreateLeagueTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('Season_Registration', function (Blueprint $table) {
+        Schema::create('Season_Registrations', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('season_id');
             $table->bigInteger('team_id');
